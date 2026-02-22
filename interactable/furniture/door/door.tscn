@@ -1,0 +1,60 @@
+[gd_scene format=4 uid="uid://bkfwganriyt2y"]
+
+[ext_resource type="Script" uid="uid://b1f7pk0po5qul" path="res://interactable/furniture/door/door.gd" id="1_qrb0y"]
+[ext_resource type="Texture2D" uid="uid://dymj8hrht6n6q" path="res://interactable/furniture/door/assets/browDoor_textures_mid.png" id="2_qrb0y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rne5b"]
+resource_name = "textures"
+cull_mode = 2
+albedo_texture = ExtResource("2_qrb0y")
+roughness = 0.4
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qdvcu"]
+_surfaces = [{
+"aabb": AABB(-100, -9.999995, -109.99997, 100, 9.999995, 215.00002),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAACAAQAAQAFAAMAAAAFAAEAAgADAAYABQAGAAMAAgAGAAQAAAAHAAUABQAHAAYABAAHAAAABAAGAAcA"),
+"name": "textures",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAP////8AAAAA////////AAAAAP//AAAAAP//AAD//wAAAAD/////AAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_10y1s"]
+resource_name = "browDoor_door_06_002"
+_surfaces = [{
+"aabb": AABB(-100, -9.999995, -109.99997, 100, 9.999995, 215.00002),
+"attribute_data": PackedByteArray("/+b/U//m/y3/7f8t/+3/U/+f/7//n////7////+//7//3f8t/93/Bf/l/wX/5f8t/97/LP/e/1L/1/9S/9f/LP/l/y3/5f8F/+3/Bf/t/y3/v/+//7////+f////n/+/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_rne5b"),
+"name": "textures",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/////wAAAAD///////8AAP//AAD//wAA////////AAAAAP///////wAAAAD/////AAAAAP//AAAAAAAA//8AAFTVAAD/////VNUAAAAA//9U1QAAAAAAAFTV//8AAP///78AAAAA////vwAA//////+//////////7///wAAAABU1f//AAD//1TV////////VNX/////AABU1QAAAAAAAP//AAAAAP///////wAA////////AAAAAP///7//v/+//7//v/+//7//v/9//7//f/+//3//v/9//79UVaqqVFWqqlRVqqpUVaqq/3//f/9//3//f/9//3//f6oqqiqqKqoqqiqqKqoqqir/f/8//3//P/9//z//f/8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qdvcu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ah5t"]
+size = Vector3(100, 9.999995, 215.00002)
+
+[node name="Door" type="StaticBody3D" unique_id=2083674971]
+script = ExtResource("1_qrb0y")
+
+[node name="BrowDoor" type="Node3D" parent="." unique_id=1059424286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0540668, 0)
+
+[node name="door_06_002" type="MeshInstance3D" parent="BrowDoor" unique_id=1048837432]
+transform = Transform3D(-0.01, -1.5099582e-09, -1.5099582e-09, 1.5099582e-09, 0, -0.01, 1.5099582e-09, -0.01, 2.2799737e-16, 0.0005722046, 0.00032615662, -0.0487442)
+mesh = SubResource("ArrayMesh_10y1s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1378663513]
+transform = Transform3D(-0.01, -1.5099582e-09, -1.5099582e-09, 1.5099582e-09, 0, -0.01, 1.5099582e-09, -0.01, 2.2799737e-16, 0.5005722, 1.0793924, 0.0012556985)
+shape = SubResource("BoxShape3D_8ah5t")

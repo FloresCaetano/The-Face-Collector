@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://dcawr8o01kaew"]
+
+[ext_resource type="PackedScene" uid="uid://ds52y5qkrc0cj" path="res://scenery/house/assets/house-exterior.glb" id="1_qog6j"]
+[ext_resource type="Shader" uid="uid://dxb0vgi2283ga" path="res://VFX/shaders/terrain-mix.gdshader" id="2_jcex4"]
+[ext_resource type="Texture2D" uid="uid://1ysrsvj274nw" path="res://scenery/house/assets/terrain-masks/textures/coast_sand_rocks_02_diff_1k.jpg" id="3_rw0ow"]
+[ext_resource type="Texture2D" uid="uid://byk7t26v6set7" path="res://scenery/house/assets/terrain-masks/textures/gravelly_sand_diff_1k.jpg" id="4_agb1c"]
+[ext_resource type="Texture2D" uid="uid://bcykqmwmesppa" path="res://scenery/house/assets/terrain-masks/terrain_mask_RGB.002.png" id="5_pmm3g"]
+[ext_resource type="Texture2D" uid="uid://bd4irscanqnfp" path="res://scenery/house/assets/terrain-masks/textures/rock_face_03_diff_1k.jpg" id="6_5mwlw"]
+[ext_resource type="Texture2D" uid="uid://d4nxp3v6nygp3" path="res://scenery/house/assets/terrain-masks/terrain_mask_RGB.007.png" id="7_3wp0x"]
+[ext_resource type="Texture2D" uid="uid://cbul3j7si5his" path="res://scenery/house/assets/terrain-masks/terrain_mask_RGB.006.png" id="7_agb1c"]
+[ext_resource type="Texture2D" uid="uid://ccm7tmnu3o24g" path="res://scenery/house/assets/terrain-masks/terrain_mask_RGB.005.png" id="7_pmm3g"]
+[ext_resource type="Texture2D" uid="uid://ty4j85b02s71" path="res://scenery/house/assets/terrain-masks/terrain_mask_RGB.004.png" id="9_5mwlw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hgsa8"]
+render_priority = 0
+shader = ExtResource("2_jcex4")
+shader_parameter/source_texture_mask = ExtResource("5_pmm3g")
+shader_parameter/source_texture_black = ExtResource("3_rw0ow")
+shader_parameter/source_texture_red = ExtResource("6_5mwlw")
+shader_parameter/source_texture_blue = ExtResource("4_agb1c")
+shader_parameter/uv_size = 1.0
+
+[sub_resource type="Shader" id="Shader_20jt2"]
+code = "shader_type spatial;
+
+uniform sampler2D source_texture_mask : source_color;
+uniform sampler2D source_texture_black : source_color;
+uniform sampler2D source_texture_red : source_color;
+uniform sampler2D source_texture_green : source_color;
+uniform sampler2D source_texture_blue : source_color;
+
+uniform float uv_size : hint_range(0.01, 10.0, 0.01) = 1.0;
+
+void fragment() {
+
+vec2 UV_Scaled = UV * uv_size;
+
+// texture_rgbmask UV is not scaled.
+vec3 texture_rgbmask= texture(source_texture_mask, UV).rgb; 
+vec3 texture_black 	= texture(source_texture_black, UV_Scaled).rgb;
+vec3 texture_red 	= texture(source_texture_red, UV_Scaled).rgb;
+vec3 texture_green 	= texture(source_texture_green, UV_Scaled).rgb;
+vec3 texture_blue 	= texture(source_texture_blue, UV_Scaled).rgb;
+
+float summed_texture_channels = (
+	texture_rgbmask.r + 
+	texture_rgbmask.g + 
+	texture_rgbmask.b);
+
+vec3 mixed_terrain = clamp(
+		(	texture_rgbmask.r * texture_red +
+			texture_rgbmask.g * texture_green +
+			texture_rgbmask.b * texture_blue) /
+			summed_texture_channels,
+			vec3(0.0), vec3(1.0) // Clamp min, max values.
+			);
+
+ALBEDO = mix(mixed_terrain,texture_black,1.0 - summed_texture_channels);
+
+} // Fragment end"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pi12x"]
+render_priority = 0
+shader = SubResource("Shader_20jt2")
+shader_parameter/source_texture_mask = ExtResource("7_3wp0x")
+shader_parameter/source_texture_black = ExtResource("3_rw0ow")
+shader_parameter/source_texture_red = ExtResource("6_5mwlw")
+shader_parameter/source_texture_blue = ExtResource("4_agb1c")
+shader_parameter/uv_size = 1.0
+
+[sub_resource type="Shader" id="Shader_5mwlw"]
+code = "shader_type spatial;
+
+uniform sampler2D source_texture_mask : source_color;
+uniform sampler2D source_texture_black : source_color;
+uniform sampler2D source_texture_red : source_color;
+uniform sampler2D source_texture_green : source_color;
+uniform sampler2D source_texture_blue : source_color;
+
+uniform float uv_size : hint_range(0.01, 10.0, 0.01) = 1.0;
+
+void fragment() {
+
+vec2 UV_Scaled = UV * uv_size;
+
+// texture_rgbmask UV is not scaled.
+vec3 texture_rgbmask= texture(source_texture_mask, UV).rgb; 
+vec3 texture_black 	= texture(source_texture_black, UV_Scaled).rgb;
+vec3 texture_red 	= texture(source_texture_red, UV_Scaled).rgb;
+vec3 texture_green 	= texture(source_texture_green, UV_Scaled).rgb;
+vec3 texture_blue 	= texture(source_texture_blue, UV_Scaled).rgb;
+
+float summed_texture_channels = (
+	texture_rgbmask.r + 
+	texture_rgbmask.g + 
+	texture_rgbmask.b);
+
+vec3 mixed_terrain = clamp(
+		(	texture_rgbmask.r * texture_red +
+			texture_rgbmask.g * texture_green +
+			texture_rgbmask.b * texture_blue) /
+			summed_texture_channels,
+			vec3(0.0), vec3(1.0) // Clamp min, max values.
+			);
+
+ALBEDO = mix(mixed_terrain,texture_black,1.0 - summed_texture_channels);
+
+} // Fragment end"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wp0x"]
+render_priority = 0
+shader = SubResource("Shader_5mwlw")
+shader_parameter/source_texture_mask = ExtResource("7_pmm3g")
+shader_parameter/source_texture_black = ExtResource("3_rw0ow")
+shader_parameter/source_texture_red = ExtResource("6_5mwlw")
+shader_parameter/source_texture_blue = ExtResource("4_agb1c")
+shader_parameter/uv_size = 1.0
+
+[sub_resource type="Shader" id="Shader_xuhjc"]
+code = "shader_type spatial;
+
+uniform sampler2D source_texture_mask : source_color;
+uniform sampler2D source_texture_black : source_color;
+uniform sampler2D source_texture_red : source_color;
+uniform sampler2D source_texture_green : source_color;
+uniform sampler2D source_texture_blue : source_color;
+
+uniform float uv_size : hint_range(0.01, 10.0, 0.01) = 1.0;
+
+void fragment() {
+
+vec2 UV_Scaled = UV * uv_size;
+
+// texture_rgbmask UV is not scaled.
+vec3 texture_rgbmask= texture(source_texture_mask, UV).rgb; 
+vec3 texture_black 	= texture(source_texture_black, UV_Scaled).rgb;
+vec3 texture_red 	= texture(source_texture_red, UV_Scaled).rgb;
+vec3 texture_green 	= texture(source_texture_green, UV_Scaled).rgb;
+vec3 texture_blue 	= texture(source_texture_blue, UV_Scaled).rgb;
+
+float summed_texture_channels = (
+	texture_rgbmask.r + 
+	texture_rgbmask.g + 
+	texture_rgbmask.b);
+
+vec3 mixed_terrain = clamp(
+		(	texture_rgbmask.r * texture_red +
+			texture_rgbmask.g * texture_green +
+			texture_rgbmask.b * texture_blue) /
+			summed_texture_channels,
+			vec3(0.0), vec3(1.0) // Clamp min, max values.
+			);
+
+ALBEDO = mix(mixed_terrain,texture_black,1.0 - summed_texture_channels);
+
+} // Fragment end"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_20jt2"]
+render_priority = 0
+shader = SubResource("Shader_xuhjc")
+shader_parameter/source_texture_mask = ExtResource("7_agb1c")
+shader_parameter/source_texture_black = ExtResource("3_rw0ow")
+shader_parameter/source_texture_red = ExtResource("6_5mwlw")
+shader_parameter/source_texture_blue = ExtResource("4_agb1c")
+shader_parameter/uv_size = 1.0
+
+[sub_resource type="Shader" id="Shader_pi12x"]
+code = "shader_type spatial;
+
+uniform sampler2D source_texture_mask : source_color;
+uniform sampler2D source_texture_black : source_color;
+uniform sampler2D source_texture_red : source_color;
+uniform sampler2D source_texture_green : source_color;
+uniform sampler2D source_texture_blue : source_color;
+
+uniform float uv_size : hint_range(0.01, 10.0, 0.01) = 1.0;
+
+void fragment() {
+
+vec2 UV_Scaled = UV * uv_size;
+
+// texture_rgbmask UV is not scaled.
+vec3 texture_rgbmask= texture(source_texture_mask, UV).rgb; 
+vec3 texture_black 	= texture(source_texture_black, UV_Scaled).rgb;
+vec3 texture_red 	= texture(source_texture_red, UV_Scaled).rgb;
+vec3 texture_green 	= texture(source_texture_green, UV_Scaled).rgb;
+vec3 texture_blue 	= texture(source_texture_blue, UV_Scaled).rgb;
+
+float summed_texture_channels = (
+	texture_rgbmask.r + 
+	texture_rgbmask.g + 
+	texture_rgbmask.b);
+
+vec3 mixed_terrain = clamp(
+		(	texture_rgbmask.r * texture_red +
+			texture_rgbmask.g * texture_green +
+			texture_rgbmask.b * texture_blue) /
+			summed_texture_channels,
+			vec3(0.0), vec3(1.0) // Clamp min, max values.
+			);
+
+ALBEDO = mix(mixed_terrain,texture_black,1.0 - summed_texture_channels);
+
+} // Fragment end"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h0vh1"]
+render_priority = 0
+shader = SubResource("Shader_pi12x")
+shader_parameter/source_texture_mask = ExtResource("9_5mwlw")
+shader_parameter/source_texture_black = ExtResource("3_rw0ow")
+shader_parameter/source_texture_red = ExtResource("6_5mwlw")
+shader_parameter/source_texture_blue = ExtResource("4_agb1c")
+shader_parameter/uv_size = 1.0
+
+[node name="HouseExterior" unique_id=330532458 instance=ExtResource("1_qog6j")]
+
+[node name="Suelo_001" parent="." index="96" unique_id=1826967921]
+surface_material_override/0 = SubResource("ShaderMaterial_hgsa8")
+
+[node name="Suelo_002" parent="." index="97" unique_id=569025664]
+surface_material_override/0 = SubResource("ShaderMaterial_pi12x")
+
+[node name="Suelo_003" parent="." index="98" unique_id=803152171]
+surface_material_override/0 = SubResource("ShaderMaterial_3wp0x")
+
+[node name="Suelo_004" parent="." index="99" unique_id=927378136]
+surface_material_override/0 = SubResource("ShaderMaterial_20jt2")
+
+[node name="Suelo_005" parent="." index="100" unique_id=1703524947]
+surface_material_override/0 = SubResource("ShaderMaterial_h0vh1")

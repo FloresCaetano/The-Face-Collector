@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cipflgtvarr0m"]
+
+[ext_resource type="Script" uid="uid://dn4g4ycdcgoir" path="res://core/inventory/scripts/item_container.gd" id="1_0f5a5"]
+[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resource/tapes/icons/1st.png" id="1_dy851"]
+[ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="2_0f5a5"]
+[ext_resource type="Script" uid="uid://buplwnpifjb6k" path="res://core/inventory/scripts/item_options_container.gd" id="4_iig4t"]
+[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="4_pdocr"]
+
+[node name="ItemCenterContainer" type="CenterContainer" unique_id=677316470 node_paths=PackedStringArray("item_image", "item_name", "item_options_container")]
+offset_right = 200.0
+offset_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_0f5a5")
+item_image = NodePath("ItemContainer/ItemImage")
+item_name = NodePath("ItemContainer/ItemName")
+item_options_container = NodePath("ItemOptionsContainer")
+
+[node name="ItemContainer" type="VBoxContainer" parent="." unique_id=1228305704]
+custom_minimum_size = Vector2(200, 138)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/separation = -10
+
+[node name="ItemImage" type="TextureRect" parent="ItemContainer" unique_id=583919752]
+modulate = Color(1, 1, 1, 0.4)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_dy851")
+
+[node name="ItemName" type="Label" parent="ItemContainer" unique_id=904624953]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0f5a5")
+theme_override_font_sizes/font_size = 27
+text = "1st Tape"
+horizontal_alignment = 1
+
+[node name="ItemOptionsContainer" type="ColorRect" parent="." unique_id=1749326985 node_paths=PackedStringArray("btn_use", "btn_inspect")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.58431375)
+script = ExtResource("4_iig4t")
+btn_use = NodePath("ItemOptionsContainer/btn_use")
+btn_inspect = NodePath("ItemOptionsContainer/btn_inspect")
+
+[node name="ItemOptionsContainer" type="VBoxContainer" parent="ItemOptionsContainer" unique_id=588766800]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -31.0
+offset_right = 30.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="btn_use" type="Button" parent="ItemOptionsContainer/ItemOptionsContainer" unique_id=2047617981]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_pdocr")
+text = "Use"
+
+[node name="btn_inspect" type="Button" parent="ItemOptionsContainer/ItemOptionsContainer" unique_id=1219466887]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_pdocr")
+toggle_mode = true
+text = "Inspect"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="ItemOptionsContainer/ItemOptionsContainer/btn_use" to="ItemOptionsContainer" method="_on_btn_use_pressed"]
+[connection signal="toggled" from="ItemOptionsContainer/ItemOptionsContainer/btn_inspect" to="ItemOptionsContainer" method="_on_btn_inspect_toggled"]

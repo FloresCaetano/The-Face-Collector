@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpnx3hhyuewlk"]
+
+[ext_resource type="Script" uid="uid://doe4gxw8gccfd" path="res://Characters/Player/Scripts/MouseRaycast.gd" id="1_p4j4r"]
+
+[node name="MouseRayCast" type="Node3D"]
+script = ExtResource("1_p4j4r")

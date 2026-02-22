@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://b1d2on1hifgkc"]
+
+[ext_resource type="Script" uid="uid://gb7m7vwbhkmd" path="res://entities/player/Scripts/Player.gd" id="1_ea5mg"]
+[ext_resource type="Script" uid="uid://mco5dswxqvi4" path="res://entities/player/Scripts/Pivot.gd" id="2_4h0ee"]
+[ext_resource type="Script" uid="uid://csdu88yol218h" path="res://entities/player/Scripts/Camera3d.gd" id="4_kb441"]
+[ext_resource type="PackedScene" uid="uid://cpnx3hhyuewlk" path="res://entities/player/Scenes/MouseRayCast.tscn" id="5_p7jie"]
+[ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="10_y6d2e"]
+[ext_resource type="PackedScene" uid="uid://dq5qtkxbgdhrg" path="res://entities/player/Scenes/InteractionHandler.tscn" id="11_2glnp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0voef"]
+radius = 0.1
+height = 0.835
+
+[node name="Player" type="CharacterBody3D" unique_id=443950597 groups=["player"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.83818, 0)
+collision_layer = 262153
+script = ExtResource("1_ea5mg")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=876858444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17, 0)
+script = ExtResource("2_4h0ee")
+
+[node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=1890241341 groups=["camera"]]
+transform = Transform3D(-0.5, 4.5279407e-09, 4.331021e-07, 0, 0.49997267, -0.0052270507, -4.3312576e-07, -0.0052270507, -0.49997267, -0.018482096, 0.05177766, 0.03732849)
+cull_mask = 1048063
+current = true
+fov = 73.0
+script = ExtResource("4_kb441")
+
+[node name="ShakerComponent3D" type="Node3D" parent="Pivot/Camera3D" unique_id=362700630]
+unique_name_in_owner = true
+transform = Transform3D(1, -8.881784e-16, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MouseRayCast" parent="Pivot/Camera3D" unique_id=443681335 groups=["mouse_raycast"] instance=ExtResource("5_p7jie")]
+
+[node name="LeftBackAudio" type="AudioStreamPlayer3D" parent="Pivot/Camera3D" unique_id=659192779 groups=["left_back_audio_player"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.596954, 0.285512, 0.114183)
+visible = false
+volume_db = -10.0
+
+[node name="RightBackAudio" type="AudioStreamPlayer3D" parent="Pivot/Camera3D" unique_id=581204566 groups=["right_back_audio_player"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.606162, 0.285512, 0.0767694)
+visible = false
+volume_db = -10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1497191989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4974903, 0)
+shape = SubResource("CapsuleShape3D_0voef")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="InteractionHandler" parent="." unique_id=1150819083 node_paths=PackedStringArray("mouse_ray_cast", "cursor") groups=["interaction_handler"] instance=ExtResource("11_2glnp")]
+mouse_ray_cast = NodePath("../Pivot/Camera3D/MouseRayCast")
+cursor = NodePath("../CenterCursor/Cursor")
+
+[node name="FootstepsTimer" type="Timer" parent="." unique_id=1324171952]
+wait_time = 0.7
+
+[node name="FootstepsPlayer" type="AudioStreamPlayer3D" parent="." unique_id=2101470530]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.834441, 0)
+volume_db = -10.0
+pitch_scale = 0.7
+
+[node name="CheckFloorMaterialRay" type="RayCast3D" parent="." unique_id=1386254671]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.665633, 0)
+hit_from_inside = true
+
+[node name="FootstepsPlayer(creaking)" type="AudioStreamPlayer3D" parent="." unique_id=251122144]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.834441, 0)
+visible = false
+volume_db = -15.0
+pitch_scale = 0.7
+max_polyphony = 4
+
+[node name="Background" type="AudioStreamPlayer" parent="." unique_id=824644454 groups=["background_audio_player"]]
+autoplay = true
+max_polyphony = 10
+
+[node name="Stingers" type="AudioStreamPlayer" parent="." unique_id=386658351 groups=["stinger_player"]]
+
+[node name="StairsRaycast" type="RayCast3D" parent="." unique_id=714280054]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.281776, 0.545862)
+target_position = Vector3(0, -0.55, 0)
+
+[node name="StairsBelowRaycast" type="RayCast3D" parent="." unique_id=20927955]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.88799, -0.00575417)
+target_position = Vector3(0, -0.75, 0)
+
+[node name="CenterCursor" type="CenterContainer" parent="." unique_id=2055896665]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cursor" type="Control" parent="CenterCursor" unique_id=990466810 groups=["cursor"]]
+layout_mode = 2
+script = ExtResource("10_y6d2e")
+
+[connection signal="timeout" from="FootstepsTimer" to="." method="_on_footsteps_timer_timeout"]
+[connection signal="finished" from="FootstepsPlayer" to="." method="_on_footsteps_finished"]

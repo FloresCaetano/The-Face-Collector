@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TapeResource" format=3 uid="uid://cqdd0aeme2ngn"]
+
+[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="1_g4hmh"]
+[ext_resource type="Script" uid="uid://dpke4ypjay435" path="res://interactable/items/item-resource/tapes/TapeResource.gd" id="1_u2ace"]
+[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resource/tapes/icons/1st.png" id="3_niblw"]
+
+[resource]
+script = ExtResource("1_u2ace")
+name = "K_TAPE"
+texture = ExtResource("3_niblw")
+model = ExtResource("1_g4hmh")
+metadata/_custom_type_script = "uid://dpke4ypjay435"

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://brk7fhrihmfm7"]
+
+[ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
+[ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
+[ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
+[ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
+[ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="4_wxp5c"]
+
+[node name="MainScene" type="Node3D" unique_id=457484893]
+
+[node name="FullHouse" type="Node3D" parent="." unique_id=1905956402]
+
+[node name="House" parent="FullHouse" unique_id=1873906181 instance=ExtResource("1_ngqo1")]
+
+[node name="HouseExterior" parent="FullHouse" unique_id=330532458 instance=ExtResource("3_t6h63")]
+
+[node name="CabinetsAndDrawers" parent="FullHouse" unique_id=862142503 instance=ExtResource("2_wxp5c")]
+
+[node name="InteractableFurniture" type="Node3D" parent="FullHouse" unique_id=703401865]
+
+[node name="Door" parent="FullHouse/InteractableFurniture" unique_id=2083674971 instance=ExtResource("4_t6h63")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 31.805166, 0.045, -0.080251575)
+open_angle = -90.0
+
+[node name="Door2" parent="FullHouse/InteractableFurniture" unique_id=490107143 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.808817, 0.045, -0.080251575)
+
+[node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.736216, 0.24460065, -2.2043662)
+
+[node name="Player" parent="PlayerAndLight" unique_id=443950597 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.8338972, 0)
+player_spotlight = NodePath("../SpotLight3D")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="PlayerAndLight" unique_id=1002102326]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.8338972, 0)
+light_energy = 1.3
+spot_range = 30.0
+spot_angle = 22.5
+spot_angle_attenuation = 9.849135

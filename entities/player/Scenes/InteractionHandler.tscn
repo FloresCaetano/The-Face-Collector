@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq5qtkxbgdhrg"]
+
+[ext_resource type="Script" uid="uid://sfcsym4kw64u" path="res://Characters/Player/Scripts/InteractionHandler.gd" id="1_m1qxf"]
+
+[node name="InteractionHandler" type="Node"]
+script = ExtResource("1_m1qxf")

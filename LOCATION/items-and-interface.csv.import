@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b5uujn5rhb51a"
+
+[deps]
+
+files=["res://LOCATION/items-and-interface.es.translation", "res://LOCATION/items-and-interface.en.translation"]
+
+source_file="res://LOCATION/items-and-interface.csv"
+dest_files=["res://LOCATION/items-and-interface.es.translation", "res://LOCATION/items-and-interface.en.translation"]
+
+[params]
+
+compress=1
+delimiter=1
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cwcn5k2d2nt2q"]
+
+[ext_resource type="Texture2D" uid="uid://c33ud2ic1x0ay" path="res://scenery/house/assets/cabinets-and-drawers_Chest_drawers_05.png" id="1_gi0hr"]
+
+[resource]
+resource_name = "Chest_drawers_05.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_gi0hr")

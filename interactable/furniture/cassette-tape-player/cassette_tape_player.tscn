@@ -1,0 +1,215 @@
+[gd_scene format=4 uid="uid://cnhxmfxjqsic4"]
+
+[ext_resource type="Script" uid="uid://cu8pgmc00nk1s" path="res://interactable/furniture/cassette-tape-player/scripts/cassette_tape_player.gd" id="1_hixu3"]
+[ext_resource type="PackedScene" uid="uid://cga24bjel478h" path="res://interactable/furniture/cassette-tape-player/assets/cassete_tape_player.glb" id="1_nss1q"]
+[ext_resource type="PackedScene" uid="uid://dyfxxv62iveyu" path="res://interactable/furniture/cassette-tape-player/assets/cassete_tape_player_cap.glb" id="2_1a7d7"]
+[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="2_wluub"]
+[ext_resource type="PackedScene" uid="uid://ib5av1351flg" path="res://interactable/furniture/cassette-tape-player/assets/tape.glb" id="3_58oym"]
+[ext_resource type="Texture2D" uid="uid://lcijuukqfev2" path="res://interactable/furniture/cassette-tape-player/assets/cassete_tape_player_cap_cassette_tape_texture-cap.png" id="6_84tdu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4mspo"]
+size = Vector3(0.535862, 0.12558, 0.954498)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4drv"]
+bg_color = Color(0, 0, 0, 0.109804)
+
+[sub_resource type="Theme" id="Theme_xyj8e"]
+default_font = ExtResource("2_wluub")
+default_font_size = 25
+Label/fonts/font = ExtResource("2_wluub")
+Label/styles/normal = SubResource("StyleBoxFlat_t4drv")
+
+[sub_resource type="Animation" id="Animation_ntktq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tape:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.0329196, 0.904833)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Recorder/Cap:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.14159, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6730v"]
+resource_name = "insert_cassette"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tape:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02502),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tape:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0375, 0.65, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0329196, 0.904833), Vector3(0, 0.0329196, 0.17392), Vector3(0, 0.00148912, 0.17392)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Recorder/Cap:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(3.14159, 0, 0), Vector3(2.44346, 0, 0), Vector3(2.44346, 0, 0), Vector3(3.14159, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y3s34"]
+_data = {
+&"RESET": SubResource("Animation_ntktq"),
+&"insert_cassette": SubResource("Animation_6730v")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm1pl"]
+resource_name = "Material.003"
+transparency = 1
+cull_mode = 1
+depth_draw_mode = 1
+albedo_texture = ExtResource("6_84tdu")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5lhji"]
+_surfaces = [{
+"aabb": AABB(-1.28978, -0.440299, 0.000664116, 2.71439, 0.438927, 1.52887),
+"format": 34359742465,
+"index_count": 108,
+"index_data": PackedByteArray("AAADAAIAAAABAAMABQAHAAYABQAEAAcAAQAHAAMAAQAGAAcAAgAFAAAAAgAEAAUAAwAEAAIAAwAHAAQAAAAGAAEAAAAFAAYACAALAAkACAAKAAsACgAPAAsACgAOAA8ADgANAA8ADgAMAA0ADAAJAA0ADAAIAAkACgAMAA4ACgAIAAwADwAJAAsADwANAAkAEAATABEAEAASABMAEgAXABMAEgAWABcAFgAVABcAFgAUABUAFAARABUAFAAQABEAEgAUABYAEgAQABQAFwARABMAFwAVABEA"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("fxelv4Jakb6ix8M/rlm2P4Jakb6ix8M/fxelv6Dks7oAIc47rlm2P6Dks7oAIc47fxelvzHgAb0QGC46fxelv6TioL5ED8M/rlm2P6TioL5ED8M/rlm2PzHgAb0QGC46T6yYvyD1Lr0sV2A+T6yYvxFDv75m8kk+T6yYv0Iq4L2+GxY/T6yYv+du4b6QghA/UxKevyD1Lr0sV2A+UxKevxFDv75m8kk+UxKev0Iq4L2+GxY/UxKev+du4b6QghA/YA+vPyD1Lr0sV2A+YA+vPxFDv75m8kk+YA+vP0Iq4L2+GxY/YA+vP+du4b6QghA/XKmpPyD1Lr0sV2A+XKmpPxFDv75m8kk+XKmpP0Iq4L2+GxY/XKmpP+du4b6QghA/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3rc14"]
+resource_name = "cassete_tape_player_cap_Plane"
+_surfaces = [{
+"aabb": AABB(-1.28978, -0.440299, 0.000664116, 2.71439, 0.438927, 1.52887),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAADAPgAAAAAAAAA+AACAPgAAwD4AAIA/AABgPwAAgD4AACA/AAAAAAAAID8AAIA/AADAPgAAQD8AAAA+AAAAPwAAwD4AAEA/AAAgPwAAQD8AAGA/AAAAPwAAID8AAEA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AADAPgAAAAAAAAA+AACAPgAAwD4AAIA/AABgPwAAgD4AACA/AAAAAAAAID8AAIA/AADAPgAAQD8AAAA+AAAAPwAAwD4AAEA/AAAgPwAAQD8AAGA/AAAAPwAAID8AAEA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/"),
+"format": 34359742487,
+"index_count": 108,
+"index_data": PackedByteArray("AQAKAAcAAQAEAAoAEAAVABMAEAAMABUABQAXAAsABQAUABcACAARAAIACAAOABEACQANAAYACQAWAA0AAAASAAMAAAAPABIAGgAjAB0AGgAgACMAHgAtACEAHgAqAC0ALAApAC8ALAAmACkAJAAcACgAJAAYABwAHwAlACsAHwAZACUALgAbACIALgAnABsAMgA7ADUAMgA4ADsANgBFADkANgBCAEUARABBAEcARAA+AEEAPAA0AEAAPAAwADQANwA9AEMANwAxAD0ARgAzADoARgA/ADMA"),
+"material": SubResource("StandardMaterial3D_xm1pl"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("fxelv4Jakb6ix8M/fxelv4Jakb6ix8M/fxelv4Jakb6ix8M/rlm2P4Jakb6ix8M/rlm2P4Jakb6ix8M/rlm2P4Jakb6ix8M/fxelv6Dks7oAIc47fxelv6Dks7oAIc47fxelv6Dks7oAIc47rlm2P6Dks7oAIc47rlm2P6Dks7oAIc47rlm2P6Dks7oAIc47fxelvzHgAb0QGC46fxelvzHgAb0QGC46fxelvzHgAb0QGC46fxelv6TioL5ED8M/fxelv6TioL5ED8M/fxelv6TioL5ED8M/rlm2P6TioL5ED8M/rlm2P6TioL5ED8M/rlm2P6TioL5ED8M/rlm2PzHgAb0QGC46rlm2PzHgAb0QGC46rlm2PzHgAb0QGC46T6yYvyD1Lr0sV2A+T6yYvyD1Lr0sV2A+T6yYvyD1Lr0sV2A+T6yYvxFDv75m8kk+T6yYvxFDv75m8kk+T6yYvxFDv75m8kk+T6yYv0Iq4L2+GxY/T6yYv0Iq4L2+GxY/T6yYv0Iq4L2+GxY/T6yYv+du4b6QghA/T6yYv+du4b6QghA/T6yYv+du4b6QghA/UxKevyD1Lr0sV2A+UxKevyD1Lr0sV2A+UxKevyD1Lr0sV2A+UxKevxFDv75m8kk+UxKevxFDv75m8kk+UxKevxFDv75m8kk+UxKev0Iq4L2+GxY/UxKev0Iq4L2+GxY/UxKev0Iq4L2+GxY/UxKev+du4b6QghA/UxKev+du4b6QghA/UxKev+du4b6QghA/YA+vPyD1Lr0sV2A+YA+vPyD1Lr0sV2A+YA+vPyD1Lr0sV2A+YA+vPxFDv75m8kk+YA+vPxFDv75m8kk+YA+vPxFDv75m8kk+YA+vP0Iq4L2+GxY/YA+vP0Iq4L2+GxY/YA+vP0Iq4L2+GxY/YA+vP+du4b6QghA/YA+vP+du4b6QghA/YA+vP+du4b6QghA/XKmpPyD1Lr0sV2A+XKmpPyD1Lr0sV2A+XKmpPyD1Lr0sV2A+XKmpPxFDv75m8kk+XKmpPxFDv75m8kk+XKmpPxFDv75m8kk+XKmpP0Iq4L2+GxY/XKmpP0Iq4L2+GxY/XKmpP0Iq4L2+GxY/XKmpP+du4b6QghA/XKmpP+du4b6QghA/XKmpP+du4b6QghA/9+v//////78HlAAA////P////3////+/9+v//////78HlAAA////PwAA/3////+//3/3a////z8HlAAA////P////3////+//3/3a////z8HlAAA////PwAA/3////+//3/36////7//f/dr////P////3////+/9+v//////7//f/fr////v////3////+/9+v//////7//f/fr////vwAA/3////+//3/36////7//f/dr////PwAA/3////+//38OePCHAICukwAAAAD/vwAA/3/vhwCA/39Q7P///7//fw548IcAgAAA/3/vhwCADvj///CHAICukwAAAAD/vwAA/3/vhwCADvj///CHAID/f1Ds////vwAA/3/vhwCA/38OePCHAICukwAAAAD/v////3/vhwCA/39Q7P///7//fw548IcAgP///3/vhwCADvj///CHAICukwAAAAD/v////3/vhwCADvj///CHAID/f1Ds////v////3/vhwCA/38OePCHAICukwAAAAD/vwAA/3/vhwCA/39Q7P///7//fw548IcAgAAA/3/vhwCADvj///CHAICukwAAAAD/vwAA/3/vhwCADvj///CHAID/f1Ds////vwAA/3/vhwCA/38OePCHAICukwAAAAD/v////3/vhwCA/39Q7P///7//fw548IcAgP///3/vhwCADvj///CHAICukwAAAAD/v////3/vhwCADvj///CHAID/f1Ds////v////3/vhwCA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5lhji")
+
+[node name="CassetteTapePlayer" type="StaticBody3D" unique_id=1783986654 node_paths=PackedStringArray("audio_stream_player", "lbl_subtitles", "lbl_subtitles_3d", "camera_reference") groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000306547, 0.00383806, -0.00269043)
+script = ExtResource("1_hixu3")
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+lbl_subtitles = NodePath("VBoxContainer/CenterContainer/MarginContainer/Subtitles")
+lbl_subtitles_3d = NodePath("Label3D")
+camera_reference = NodePath("camera_reference")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=712682972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00749788, -0.0310541, 0.00196842)
+shape = SubResource("BoxShape3D_4mspo")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1976693250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172206, 0)
+max_distance = 7.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1492714341]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=949366249]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer" unique_id=2067230629]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Subtitles" type="Label" parent="VBoxContainer/CenterContainer/MarginContainer" unique_id=982958648]
+layout_mode = 2
+theme = SubResource("Theme_xyj8e")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1257475657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.270235, 0.0524332)
+visible = false
+billboard = 1
+font = ExtResource("2_wluub")
+font_size = 15
+outline_size = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1493182089]
+libraries/ = SubResource("AnimationLibrary_y3s34")
+
+[node name="tape" parent="." unique_id=825300769 instance=ExtResource("3_58oym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0329196, 0.904833)
+visible = false
+
+[node name="Recorder" parent="." unique_id=1676626547 instance=ExtResource("1_nss1q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0479206, 0, 0)
+
+[node name="Cap" parent="Recorder" unique_id=654701069 instance=ExtResource("2_1a7d7")]
+transform = Transform3D(-1, 0, 0, 0, 1, 2.5351817e-06, 0, -2.5351817e-06, 1, -0.0844507, 0.0326899, 0.00713017)
+
+[node name="Plane" parent="Recorder/Cap" index="0" unique_id=961593430]
+transform = Transform3D(-0.165539, 0, 0, 0, 0.162603, 0.0310427, 0, -0.0310427, 0.162603, -0.0304656, -0.00744074, 0.0260471)
+mesh = SubResource("ArrayMesh_3rc14")
+
+[node name="camera_reference" type="Marker3D" parent="." unique_id=1374774601]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0.978909, 0)
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
+
+[editable path="Recorder/Cap"]

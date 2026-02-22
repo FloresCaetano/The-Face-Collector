@@ -1,0 +1,52 @@
+class_name ItemContainer
+extends CenterContainer
+
+@export var item_image: TextureRect
+@export var item_name: Label
+@export var item_options_container: ColorRect
+
+@export var item : Item = null
+var mouse_is_over = false
+var active_tween : Tween = null
+
+var resize_factor : Vector2 = Vector2(1.1, 1.1)
+
+signal item_selected(item : Item)
+
+func _ready() -> void:
+	item_selected.connect(SIGNALBUS._on_item_selected)
+
+func load_item():
+	item_image.texture = item.texture
+	item_name.text = item.name
+
+func _on_mouse_entered() -> void:
+	if active_tween: active_tween.stop()
+
+	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(item_image, "modulate:a", 1.0, 0.2)
+	active_tween = tween
+
+	mouse_is_over = true
+
+
+func lose_focus() -> void:
+	if active_tween: active_tween.stop()
+
+	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(item_image, "modulate:a", 0.4, 0.2)
+	active_tween = tween
+
+	mouse_is_over = false
+
+func _process(_delta):
+	if mouse_is_over:
+		if Input.is_action_just_pressed("select_item"):
+			item_options_container.set_visible_with_anim(true)
+	
+	if mouse_is_over:
+		var mouse_pos = get_global_mouse_position()
+		var rect = Rect2(global_position, size)
+		if not rect.has_point(mouse_pos):
+			item_options_container.set_visible_with_anim(false)
+			lose_focus()
