@@ -1,9 +1,16 @@
 class_name ItemContainer
 extends CenterContainer
 
+@onready var inventory : Inventory = PATHS.inventory
+
 @export var item_image: TextureRect
 @export var item_name: Label
+
+@export_category("Options Container")
 @export var item_options_container: ColorRect
+@export var btn_inspect : Button
+@export var btn_use : Button
+
 
 @export var item : Item = null
 var mouse_is_over = false
@@ -14,6 +21,7 @@ var resize_factor : Vector2 = Vector2(1.1, 1.1)
 signal item_selected(item : Item)
 
 func _ready() -> void:
+	inventory.inventory_closed.connect(_on_inventory_closed)
 	item_selected.connect(SIGNALBUS._on_item_selected)
 
 func load_item():
@@ -50,3 +58,9 @@ func _process(_delta):
 		if not rect.has_point(mouse_pos):
 			item_options_container.set_visible_with_anim(false)
 			lose_focus()
+
+func _on_inventory_closed() -> void:
+	item_options_container.set_visible_with_anim(false)
+	lose_focus()
+	btn_inspect.set_pressed_no_signal(false)
+	btn_inspect.text = tr("K_INSPECT")

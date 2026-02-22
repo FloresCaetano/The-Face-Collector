@@ -18,6 +18,7 @@ func transition(reference : Transform3D, duration : float = 2.0):
 	player.desactivate()
 
 	temporal_camera = self.duplicate() as Camera3D
+	PATHS.mouse_raycast.target = temporal_camera
 	temporal_camera.current = true
 	temporal_camera.transform = transform
 	get_parent().add_child(temporal_camera)
@@ -42,3 +43,4 @@ func return_to_original_pos(duration : float = 2):
 
 		player.activate()
 		return_to_original_finished.emit()
+		PATHS.mouse_raycast.target = self

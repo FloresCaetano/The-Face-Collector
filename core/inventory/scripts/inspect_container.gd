@@ -1,6 +1,7 @@
 extends SubViewportContainer
 
 var is_inspecting = false
+var current_item_model = null  # Referencia al modelo actualmente inspeccionado
 
 var dragging = false
 var last_mouse_position = Vector2()
@@ -14,15 +15,18 @@ var rotation_sensitivity = 0.001  # Sensibilidad de rotación
 
 func _ready() -> void:
 	SIGNALBUS.item_inspected.connect(_on_item_inspected)
-	inventory.open()
+	inventory.inventory_closed.connect(_on_inventory_closed)
 
-func _input(event):
+func _gui_input(event):
+	if not is_inspecting:
+		return
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and is_inspecting:
+		if event.pressed:
 			dragging = true
 			last_mouse_position = event.position
 			rotation_velocity = Vector3.ZERO  # Resetear velocidad al comenzar a arrastrar
-		elif not event.pressed:
+		else:
 			dragging = false
 
 	if dragging and event is InputEventMouseMotion:
@@ -33,10 +37,9 @@ func _input(event):
 
 func _process(_delta):
 	sub_viewport.size = self.size
-	if !rotation_velocity == Vector3.ZERO:
-		var item = get_child(0).get_child(2)
-		item.rotate(Vector3.UP, rotation_velocity.y)
-		item.rotate(Vector3.RIGHT, rotation_velocity.x)
+	if !rotation_velocity == Vector3.ZERO and is_inspecting and current_item_model:
+		current_item_model.rotate(Vector3.UP, rotation_velocity.y)
+		current_item_model.rotate(Vector3.RIGHT, rotation_velocity.x)
 		rotation_velocity *= rotation_damping
 		if rotation_velocity.length() < 0.001:
 			rotation_velocity = Vector3.ZERO
@@ -44,23 +47,37 @@ func _process(_delta):
 func _on_item_inspected(item):
 	if item == null:
 		is_inspecting = false
-		get_child(0).get_child(2).queue_free()
+		if current_item_model:
+			current_item_model.queue_free()
+			current_item_model = null
 		return
+	
+	# Eliminar el modelo anterior si existe
+	if current_item_model:
+		current_item_model.queue_free()
+		current_item_model = null
 	
 	is_inspecting = true
 	rotation_velocity = Vector3.ZERO  # Resetear velocidad al inspeccionar nuevo objeto
 	dragging = false  # Asegurar que no esté arrastrando
-	var item_model = item.model.instantiate()
-	item_model.position = Vector3(0, 0, -0.3) + item.offset
-	get_child(0).add_child(item_model)
+	current_item_model = item.model.instantiate()
+	current_item_model.position = Vector3(0, 0, -0.3) + item.offset
+	get_child(0).add_child(current_item_model)
 
 
 @onready var subviewport_container := self
 @onready var subviewport := $SubViewport
 
 func _unhandled_input(event):
-	if event is InputEventMouse:
+	if event is InputEventMouse and not (is_inspecting and dragging):
 		var local_mouse = subviewport_container.get_local_mouse_position()
 		var new_event = event.duplicate()
 		new_event.position = local_mouse
 		subviewport.push_input(new_event)
+
+func _on_inventory_closed() -> void:
+	if is_inspecting:
+		is_inspecting = false
+		if current_item_model:
+			current_item_model.queue_free()
+			current_item_model = null

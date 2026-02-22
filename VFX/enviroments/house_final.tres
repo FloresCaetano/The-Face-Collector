@@ -1,0 +1,16 @@
+[gd_resource type="Environment" format=3 uid="uid://opfyxcpicii1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v88ak"]
+
+[sub_resource type="Sky" id="Sky_shpqi"]
+sky_material = SubResource("ProceduralSkyMaterial_v88ak")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_shpqi")
+ambient_light_source = 3
+reflected_light_source = 2
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.06
+adjustment_saturation = 5.49

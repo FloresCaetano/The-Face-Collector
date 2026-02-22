@@ -5,7 +5,7 @@ extends Node3D
 
 
 func calc_3D_interactions(mask, lenght):
-	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_pos = get_viewport().get_visible_rect().get_center()
 	var origin = target.project_ray_origin(mouse_pos)
 	var end = target.project_position(mouse_pos, lenght)
 	var ray_params = PhysicsRayQueryParameters3D.create(origin, end)

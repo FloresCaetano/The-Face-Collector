@@ -14,8 +14,6 @@ func set_visible_with_anim(_visible : bool):
 	tween.tween_property(self, "modulate:a", 1.0 if _visible else 0.0, 0.2)
 
 	btn_inspect.visible = inventory.can_inspect_items
-	btn_inspect.set_pressed_no_signal(inventory.can_inspect_items and btn_inspect.is_pressed())
-	_on_btn_inspect_toggled(inventory.can_inspect_items)
 
 
 func _on_btn_use_pressed() -> void:

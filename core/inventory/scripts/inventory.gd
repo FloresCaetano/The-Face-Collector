@@ -2,26 +2,35 @@ class_name Inventory
 extends Control
 
 @export var item_list: VBoxContainer
+@export var player : Player
 
 var is_open = false
 var can_be_opened = true
 var can_be_closed = true
 var can_inspect_items = true
 
+signal inventory_closed
+
 func _ready() -> void:
 	close()
 
 func open():
+	player.desactivate()
 	visible = true
 	is_open = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func close():
+	player.activate()
 	visible = false
 	is_open = false
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	reset_vars()
+	inventory_closed.emit() #USED TO NOTIFY ITEM CONTAINERS TO HIDE OPTIONS, RESET BUTTON STATES AND DESINSPECT ITEMS
 
 func add_item(item : Item) -> void:
-	var item_container : ItemContainer = ItemContainer.new()
+	var item_container : ItemContainer = load("uid://cipflgtvarr0m").instantiate()
 	item_container.item = item
 	item_container.load_item()
 	item_list.add_child(item_container)
@@ -46,13 +55,12 @@ func get_items() -> Array[Item]:
 	return items
 
 func _input(_event):
-	if not can_be_closed:
-		if is_open and Input.is_action_just_pressed("close_inventory"):
-			close()
-
-	if not can_be_opened:
-		if not is_open and Input.is_action_just_pressed("open_inventory"):
+	if not is_open:
+		if can_be_opened and Input.is_action_just_pressed("open_inventory"):
 			open()
+	else:
+		if can_be_closed and Input.is_action_just_pressed("close_inventory"):
+			close()
 
 func reset_vars() -> void:
 	can_be_opened = true

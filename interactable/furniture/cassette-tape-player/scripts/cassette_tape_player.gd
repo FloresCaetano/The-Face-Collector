@@ -2,6 +2,7 @@ class_name CassetteTapePlayer
 extends Interactable
 
 @export var audio_stream_player : AudioStreamPlayer3D
+@export var animation_player : AnimationPlayer
 @export var lbl_subtitles: Label
 @export var lbl_subtitles_3d: Label3D
 @export var camera_reference : Marker3D
@@ -18,17 +19,28 @@ func _ready() -> void:
 
 func mouse_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
-		camera.transition(camera_reference.global_transform)
+		lbl_subtitles.visible = true
+		lbl_subtitles_3d.visible = false
+
+		camera.transition(camera_reference.global_transform, 0.5)
 		await camera.finished_transition
+
 		inventory.open()
 		inventory.can_be_closed = false
 		inventory.can_be_opened = false
 		inventory.can_inspect_items = false
 
+
+	if Input.is_action_just_pressed("close_inventory"):
+		inventory.reset_vars()
+		camera.return_to_original_pos(0.5)
+		lbl_subtitles.visible = false
+		lbl_subtitles_3d.visible = true
+
 func on_mouse_exited() -> void:
 	pass
 
-var subtitle_margin = 0.5
+var subtitle_margin = 0.2
 func _process(_delta: float) -> void:
 	if audio_stream_player.playing:
 		var current_time = audio_stream_player.get_playback_position()
@@ -39,12 +51,18 @@ func _process(_delta: float) -> void:
 
 func set_subtitle(index : int) -> void:
 	var actual_language = TranslationServer.get_locale()
-	var text = characters[index] + ": " + subtitles[actual_language][index]
+	var text = characters[index] + " " + subtitles[actual_language][index]
 	lbl_subtitles.text = text
 	lbl_subtitles_3d.text = text
 
 func _on_item_selected(item : Item) -> void:
 	if item is TapeResource:
+		audio_stream_player.stream = load("uid://cetrq03b5oavg")
+		audio_stream_player.play()
+		animation_player.play("insert_cassette")
+		await animation_player.animation_finished
+		await get_tree().create_timer(0.5).timeout
+
 		load_subtitles_from_csv(item.csv_subtitles)
 		audio_stream_player.stream = item.audio
 		audio_stream_player.play()

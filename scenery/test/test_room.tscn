@@ -1,0 +1,88 @@
+[gd_scene format=4 uid="uid://cyk1soxeco6bs"]
+
+[ext_resource type="Texture2D" uid="uid://n1h0pr14c2gj" path="res://scenery/test/texture_07.png" id="1_uo7yq"]
+[ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="2_dgxqp"]
+[ext_resource type="Texture2D" uid="uid://p10y6wc0ipwa" path="res://scenery/house/assets/house_Wood_05_88.jpg" id="3_5ubiv"]
+[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="4_7v8ao"]
+[ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="4_gr0nq"]
+[ext_resource type="Resource" uid="uid://dtqprsmywea84" path="res://interactable/items/item-resource/tapes/first_tape.tres" id="5_ng5bv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
+albedo_texture = ExtResource("1_uo7yq")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfrsr"]
+resource_name = "Wood_05.004"
+cull_mode = 2
+albedo_texture = ExtResource("3_5ubiv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y1n2c"]
+_surfaces = [{
+"aabb": AABB(-1.9111949, -1.0179626, -0.8392008, 3.82239, 1.5308355, 1.3901451),
+"format": 34896613377,
+"index_count": 114,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAAAFAAQAAAADAAUABgAEAAUABgABAAQAAwAHAAUABQAHAAgABgAFAAgACQAIAAcACQAGAAgACgAGAAkABwADAAsACgAMAAYAAQAGAAwACwAMAAoAAgANAAMADQACAAEACwADAA0ADQABAA4ACwANAA4AAQAMAA4ACwAPAAwADgAMAA8ACwAOAA8AEAARABIAEAATABEAEgARABQAFAARABMAEgAVABAAFQATABAAEgAUABYAEgAWABUAFAATABcAFgAUABcAFQAXABMAFgAXABUA"),
+"name": "Wood_05.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("RAzz0AXhAAC68wAABeEAALrz89AF4QAARAzz0IgMAABEDAAABeEAAEQMAACIDAAAXQUAAHbzAABdBYjmiAwAAF0FAACIDAAAXQWI5nbzAACh+ojmdvMAAKH6iOaIDAAAofoAAHbzAAC68/PQiAwAALrzAACIDAAAofoAAIgMAAD//03h//8AAP////8AAAAA//9N4QAAAAD///////8AAAAA//8AAAAAAABN4f//AAAAAE3hAAAAAAAA/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7v8ao"]
+resource_name = "house_Cube_336"
+_surfaces = [{
+"aabb": AABB(-1.9111949, -1.0179626, -0.8392008, 3.82239, 1.5308355, 1.3901451),
+"attribute_data": PackedByteArray("2N21ZSYikakmIrVl2N2RqSYinJzY3fJd2N2cnCYi8l1iY7VlDKKRqWJjkakMorVlP1plYL+lbVa/pWVgP1ptVjQYZWDK521WyudlYDQYbVa/pWVgP1ptVj9aZWC/pW1WyudlYDQYbVY0GGVgyudtVjQYP1rK57+lNBi/pcrnP1rK5z9aNBi/pcrnv6U0GD9ajhyyXnDjkalw47JejhyRqXDjDKLY3fJdcOPyXdjdnJwmIpycjhwMoiYi8l2OHPJdDKKyXvJdkanyXbJeDKKRqfJdsl4MopGpDKKyXvJdkamOHLJeJiKRqY4ckakmIrVl2N21ZXDjsl7Y3ZGpcOORqQyitWViY5GpDKKRqWJjtWU="),
+"format": 34896613399,
+"index_count": 114,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkAKAAsACsALAAoAC0ALAAtAC4ALgAtAC8AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAOAA8ADsAPQA8ADgAPAA9AD4APgA9AD8AQABBAEIAQABDAEEA"),
+"material": SubResource("StandardMaterial3D_bfrsr"),
+"name": "Wood_05.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 68,
+"vertex_data": PackedByteArray("RAzz0AXh//+68wAABeH//7rz89AF4f//RAwAAAXh//+68/PQBeH//0QM89CIDP//RAzz0AXh//+68/PQiAz//0QM89AF4f+/RAwAAIgM/79EDAAABeH/v0QM89CIDP+///9N4f///7//////AAD/v///TeEAAP+//////////7///03hAAD//wAA//8AAP//AABN4QAA////////AAD//wAATeEAAAAAAAD/////AAAAAE3h//8AAAAA//8AAAAAAABN4f//AAD///////8AAP//TeH//wAAAAD/////AAD//03hAAD//wAATeH///////9N4f////8AAE3hAAD//wAA//8AAAAA////////AAAAAP////8AAP////8AAAAAofqI5nbzAABdBQAAdvMAAF0FiOZ28wAAofoAAHbzAABdBQAAdvP//0QMAACIDP//XQUAAIgM//9EDAAABeH//7rzAAAF4f//ofoAAHbz//+68wAAiAz//6H6AACIDP//ofqI5ogM/7+h+gAAdvP/v6H6iOZ28/+/ofoAAIgM/79dBYjmdvMAAF0FAACIDAAAXQWI5ogMAABdBQAAdvMAAKH6iOaIDP//uvMAAIgM//+h+gAAiAz//7rz89CIDP//RAzz0IgM//9dBYjmiAz//0QMAACIDP//XQUAAIgM//+68/PQiAwAALrzAAAF4QAAuvMAAIgMAAC68/PQBeEAAP9/////f////3////9/////f/8//3//P/9//z//f/8//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////z//f/8//3//P/9//z//f/9//3//f/9//3//f/9//3//f/8//3//P/9//z//f/8//3//v/9//7//f/+//3//v/9//3//f/9//3//f/9//3//f/8//3//P/9//z//f/8//3//P/9//z//f/8//3//P/9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9//3////9//v//f/7//3////9/////f////3////9/////P/9//z//f/8//3//P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_y1n2c")
+
+[node name="TestRoom" type="Node3D" unique_id=23240497]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=195069824]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=787915037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1334343, -0.112495184, -3.2734337)
+size = Vector3(24.497993, 0.26757813, 23.073936)
+material = SubResource("StandardMaterial3D_dgxqp")
+
+[node name="Player" parent="." unique_id=443950597 instance=ExtResource("2_dgxqp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.0938578, -0.9186199)
+
+[node name="Stuff" type="Node3D" parent="." unique_id=971973695]
+
+[node name="Desk" type="MeshInstance3D" parent="Stuff" unique_id=308412808]
+transform = Transform3D(0.87209237, 0, 0, 0, 0.87209237, 0, 0, 0, 0.87209237, -1.0134175, 0.57717514, -5.5203648)
+mesh = SubResource("ArrayMesh_7v8ao")
+
+[node name="CassetteTapePlayer" parent="Stuff/Desk" unique_id=1783986654 instance=ExtResource("4_gr0nq")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.0003066063, 0.6239166, -0.002690792)
+
+[node name="Tape" parent="Stuff" unique_id=1746687257 instance=ExtResource("4_7v8ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23782325, 2.1802206)
+tape_item = ExtResource("5_ng5bv")
+
+[node name="Tape2" parent="Stuff" unique_id=138302378 instance=ExtResource("4_7v8ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23782325, 2.9512475)
+tape_item = ExtResource("5_ng5bv")
+
+[node name="Tape3" parent="Stuff" unique_id=1423716075 instance=ExtResource("4_7v8ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23782325, 3.8762453)
+tape_item = ExtResource("5_ng5bv")
+
+[node name="Tape4" parent="Stuff" unique_id=1381096101 instance=ExtResource("4_7v8ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23782325, 4.538557)
+tape_item = ExtResource("5_ng5bv")

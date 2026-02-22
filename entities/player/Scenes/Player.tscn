@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://mco5dswxqvi4" path="res://entities/player/Scripts/Pivot.gd" id="2_4h0ee"]
 [ext_resource type="Script" uid="uid://csdu88yol218h" path="res://entities/player/Scripts/Camera3d.gd" id="4_kb441"]
 [ext_resource type="PackedScene" uid="uid://cpnx3hhyuewlk" path="res://entities/player/Scenes/MouseRayCast.tscn" id="5_p7jie"]
+[ext_resource type="PackedScene" uid="uid://7f4fxxiv7yq4" path="res://core/inventory/scenes/inventory.tscn" id="7_e013g"]
 [ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="10_y6d2e"]
 [ext_resource type="PackedScene" uid="uid://dq5qtkxbgdhrg" path="res://entities/player/Scenes/InteractionHandler.tscn" id="11_2glnp"]
 
@@ -11,10 +12,11 @@
 radius = 0.1
 height = 0.835
 
-[node name="Player" type="CharacterBody3D" unique_id=443950597 groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=443950597 node_paths=PackedStringArray("pivot") groups=["player"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.83818, 0)
 collision_layer = 262153
 script = ExtResource("1_ea5mg")
+pivot = NodePath("Pivot")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=876858444]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17, 0)
@@ -97,6 +99,11 @@ grow_vertical = 2
 [node name="Cursor" type="Control" parent="CenterCursor" unique_id=990466810 groups=["cursor"]]
 layout_mode = 2
 script = ExtResource("10_y6d2e")
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=156496796]
+
+[node name="Inventory" parent="Hud" unique_id=213834778 node_paths=PackedStringArray("player") instance=ExtResource("7_e013g")]
+player = NodePath("../..")
 
 [connection signal="timeout" from="FootstepsTimer" to="." method="_on_footsteps_timer_timeout"]
 [connection signal="finished" from="FootstepsPlayer" to="." method="_on_footsteps_finished"]

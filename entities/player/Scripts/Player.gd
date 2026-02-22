@@ -3,7 +3,7 @@ extends CharacterBody3D
 #
 var drag_data
 var drag_target_data
-@onready var Pivote = $Pivot
+@export var pivot : Pivot
 @onready var camera : Camera = PATHS.camera
 @onready var mouse_ray_cast = $Pivot/Camera3D/MouseRayCast
 @export var player_spotlight : SpotLight3D
@@ -156,11 +156,11 @@ func _on_footsteps_finished():
 
 func desactivate():
 	can_move = false
-	Pivote.cameraLock = true
+	pivot.cameraLock = true
 
 func activate():
 	can_move = true
-	Pivote.cameraLock = false
+	pivot.cameraLock = false
 
 func _on_footsteps_timer_timeout():
 	can_footstep = true

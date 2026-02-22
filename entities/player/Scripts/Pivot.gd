@@ -1,3 +1,4 @@
+class_name Pivot
 extends Node3D
 
 var mouse_delta = Vector2()

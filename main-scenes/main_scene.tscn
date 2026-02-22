@@ -18,12 +18,55 @@
 
 [node name="InteractableFurniture" type="Node3D" parent="FullHouse" unique_id=703401865]
 
-[node name="Door" parent="FullHouse/InteractableFurniture" unique_id=2083674971 instance=ExtResource("4_t6h63")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 31.805166, 0.045, -0.080251575)
-open_angle = -90.0
+[node name="Doors" type="Node3D" parent="FullHouse/InteractableFurniture" unique_id=1313906599]
 
-[node name="Door2" parent="FullHouse/InteractableFurniture" unique_id=490107143 instance=ExtResource("4_t6h63")]
+[node name="Door" parent="FullHouse/InteractableFurniture/Doors" unique_id=2083674971 instance=ExtResource("4_t6h63")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 31.805166, 0.045, -0.080251575)
+
+[node name="Door2" parent="FullHouse/InteractableFurniture/Doors" unique_id=490107143 instance=ExtResource("4_t6h63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.808817, 0.045, -0.080251575)
+
+[node name="Door3" parent="FullHouse/InteractableFurniture/Doors" unique_id=1684379520 instance=ExtResource("4_t6h63")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.405857, 0.045, -9.139389)
+
+[node name="Door4" parent="FullHouse/InteractableFurniture/Doors" unique_id=1393820111 instance=ExtResource("4_t6h63")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.405857, 0.045, -11.149406)
+
+[node name="Door5" parent="FullHouse/InteractableFurniture/Doors" unique_id=104786648 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.06267, 0.045, -13.52384)
+
+[node name="Door6" parent="FullHouse/InteractableFurniture/Doors" unique_id=1847846214 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.68389, 0.045, -8.176515)
+
+[node name="Door7" parent="FullHouse/InteractableFurniture/Doors" unique_id=756372250 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.56875, 0.045, -8.176515)
+
+[node name="Door8" parent="FullHouse/InteractableFurniture/Doors" unique_id=928296214 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.307037, 0.045, -8.176515)
+
+[node name="Door9" parent="FullHouse/InteractableFurniture/Doors" unique_id=1328698649 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.192372, 0.045, -8.176515)
+
+[node name="Door10" parent="FullHouse/InteractableFurniture/Doors" unique_id=1610481694 instance=ExtResource("4_t6h63")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.562089, 0.045, -7.6335845)
+
+[node name="Door11" parent="FullHouse/InteractableFurniture/Doors" unique_id=2061769666 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.830487, 0.045, -8.1546955)
+
+[node name="Door12" parent="FullHouse/InteractableFurniture/Doors" unique_id=287107877 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.230537, 0.045, -9.586787)
+
+[node name="Door16" parent="FullHouse/InteractableFurniture/Doors" unique_id=664381695 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8050585, 0.045, -13.552457)
+
+[node name="Door14" parent="FullHouse/InteractableFurniture/Doors" unique_id=205658585 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.27702, 0.045, -18.666368)
+
+[node name="Door15" parent="FullHouse/InteractableFurniture/Doors" unique_id=1107417830 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.368015, 0.045, -18.666368)
+
+[node name="Door13" parent="FullHouse/InteractableFurniture/Doors" unique_id=125479078 instance=ExtResource("4_t6h63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.569588, 0.045, -9.585199)
 
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.736216, 0.24460065, -2.2043662)
@@ -38,3 +81,10 @@ light_energy = 1.3
 spot_range = 30.0
 spot_angle = 22.5
 spot_angle_attenuation = 9.849135
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
+transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
+light_energy = 0.3
+shadow_enabled = true

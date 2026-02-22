@@ -1,7 +1,12 @@
 [gd_scene format=4 uid="uid://bkfwganriyt2y"]
 
 [ext_resource type="Script" uid="uid://b1f7pk0po5qul" path="res://interactable/furniture/door/door.gd" id="1_qrb0y"]
+[ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="2_8ah5t"]
 [ext_resource type="Texture2D" uid="uid://dymj8hrht6n6q" path="res://interactable/furniture/door/assets/browDoor_textures_mid.png" id="2_qrb0y"]
+
+[sub_resource type="Resource" id="Resource_8ah5t"]
+script = ExtResource("2_8ah5t")
+metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rne5b"]
 resource_name = "textures"
@@ -47,6 +52,7 @@ size = Vector3(100, 9.999995, 215.00002)
 
 [node name="Door" type="StaticBody3D" unique_id=2083674971]
 script = ExtResource("1_qrb0y")
+settings = SubResource("Resource_8ah5t")
 
 [node name="BrowDoor" type="Node3D" parent="." unique_id=1059424286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0540668, 0)
