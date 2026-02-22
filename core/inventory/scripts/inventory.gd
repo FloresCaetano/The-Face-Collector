@@ -9,9 +9,15 @@ var can_be_opened = true
 var can_be_closed = true
 var can_inspect_items = true
 
+var last_item_selected : Item = null
+
 signal inventory_closed
 
 func _ready() -> void:
+	SIGNALBUS.item_selected.connect(
+		func(item : Item) -> void:
+			last_item_selected = item
+	)
 	close()
 
 func open():

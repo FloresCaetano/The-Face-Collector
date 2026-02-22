@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TapeResource" format=3 uid="uid://2x84gf4oh2vo"]
+
+[ext_resource type="AudioStream" uid="uid://m48u1illhf22" path="res://interactable/items/item-resources/tapes/first_tape/1stRecording.mp3" id="1_61ein"]
+[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="2_0vpxw"]
+[ext_resource type="Script" uid="uid://dpke4ypjay435" path="res://interactable/items/item-resources/tapes/TapeResource.gd" id="2_8f4g3"]
+[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resources/tapes/icons/1st.png" id="3_8f4g3"]
+
+[resource]
+script = ExtResource("2_8f4g3")
+audio = ExtResource("1_61ein")
+csv_subtitles = "res://LOCATION/subtitles/sub_1stRecording.csv"
+name = "K_TAPE"
+texture = ExtResource("3_8f4g3")
+model = ExtResource("2_0vpxw")
+metadata/_custom_type_script = "uid://dpke4ypjay435"

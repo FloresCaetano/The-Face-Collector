@@ -2,8 +2,11 @@ class_name Door
 extends Interactable
 
 
-
 @export var object: Node3D
+
+@export_category("Obstacle Settings")
+@export var obstacle_check : Interactable
+@export var invert_lock_state : bool = false
 
 @export var settings : DoorSettings
 
@@ -31,19 +34,18 @@ func mouse_interaction() -> void:
 			inventory.can_be_opened = false
 			inventory.can_inspect_items = false
 
-			inventory.item_selected.connect(
-				func(item : Item) -> void:
-					if item.name == settings.key_name:
-						settings.need_key = false
-						is_locked = false
-						inventory.close()
-					else:
-						is_locked = true
-						inventory.close()
-			)
-			await inventory.item_selected
-			
+			await SIGNALBUS.item_selected
+			var item = inventory.last_item_selected
+			if item.name == settings.key_name:
+				settings.need_key = false
+				is_locked = false
+				inventory.close()
+			else:
 
+
+				is_locked = true
+				inventory.close()
+			
 
 		if is_locked:
 			audio_stream_player_3d.stream = settings.locked_sound
@@ -54,8 +56,8 @@ func mouse_interaction() -> void:
 		if is_open:
 			close()
 		else:
-			if settings.obstacle_check: #CHECK IF THERE IS AN OBSTACLE THAN CAN PREVENT THE DOOR TO OPEN
-				if settings.invert_lock_state == not settings.obstacle_check.is_open:
+			if obstacle_check: #CHECK IF THERE IS AN OBSTACLE THAN CAN PREVENT THE DOOR TO OPEN
+				if invert_lock_state == not obstacle_check.is_open:
 					open()
 			else:
 				open()

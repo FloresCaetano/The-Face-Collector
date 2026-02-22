@@ -10,6 +10,8 @@ extends Interactable
 @onready var camera : Camera = PATHS.camera
 @onready var inventory : Inventory = PATHS.inventory
 
+var already_interacted := false
+
 var timestamps = []
 var characters = []
 var subtitles = {}
@@ -18,7 +20,8 @@ func _ready() -> void:
 	SIGNALBUS.item_selected.connect(_on_item_selected)
 
 func mouse_interaction() -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not camera.is_transitioning and not already_interacted:
+		already_interacted = true
 		lbl_subtitles.visible = true
 		lbl_subtitles_3d.visible = false
 
@@ -31,11 +34,13 @@ func mouse_interaction() -> void:
 		inventory.can_inspect_items = false
 
 
-	if Input.is_action_just_pressed("close_inventory"):
+	if Input.is_action_just_pressed("close_inventory") and not camera.is_transitioning and already_interacted:
 		inventory.reset_vars()
+		inventory.close()
 		camera.return_to_original_pos(0.5)
 		lbl_subtitles.visible = false
 		lbl_subtitles_3d.visible = true
+		already_interacted = false
 
 func on_mouse_exited() -> void:
 	pass

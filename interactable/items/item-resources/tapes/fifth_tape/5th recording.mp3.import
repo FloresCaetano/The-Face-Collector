@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://028mmyjyvyky"
+path="res://.godot/imported/5th recording.mp3-fa0a726e0071688b77499a851f91792a.mp3str"
+
+[deps]
+
+source_file="res://interactable/items/item-resources/tapes/fifth_tape/5th recording.mp3"
+dest_files=["res://.godot/imported/5th recording.mp3-fa0a726e0071688b77499a851f91792a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

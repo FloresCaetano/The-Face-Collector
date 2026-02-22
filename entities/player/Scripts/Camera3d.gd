@@ -35,11 +35,11 @@ func transition(reference : Transform3D, duration : float = 2.0):
 
 func return_to_original_pos(duration : float = 2):
 	if is_on_destiny:
+		is_on_destiny = false
 		tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property(temporal_camera, "global_transform", self.global_transform, duration)
 		await tween.finished
 		temporal_camera.queue_free()
-		is_on_destiny = false
 
 		player.activate()
 		return_to_original_finished.emit()

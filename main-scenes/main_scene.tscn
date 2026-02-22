@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="4_wxp5c"]
+[ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="5_g721p"]
 
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
@@ -67,6 +68,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.368015, 0.045, -18.666368)
 
 [node name="Door13" parent="FullHouse/InteractableFurniture/Doors" unique_id=125479078 instance=ExtResource("4_t6h63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.569588, 0.045, -9.585199)
+
+[node name="CassetteTapePlayer" parent="FullHouse/InteractableFurniture" unique_id=1783986654 instance=ExtResource("5_g721p")]
+transform = Transform3D(0.734, 0, 0, 0, 0.734, 0, 0, 0, 0.734, 9.147244, 1.0566677, -17.40148)
 
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.736216, 0.24460065, -2.2043662)
