@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dq5qtkxbgdhrg" path="res://entities/player/Scenes/InteractionHandler.tscn" id="11_2glnp"]
 [ext_resource type="AudioStream" uid="uid://4gmc5o1b4ihh" path="res://shared/footsteps_system/assets/c2.mp3" id="11_pdd5r"]
 [ext_resource type="AudioStream" uid="uid://teb8i38r6h8r" path="res://shared/footsteps_system/assets/c3.mp3" id="12_ggdqt"]
+[ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="16_uli6c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0voef"]
 radius = 0.1
@@ -81,8 +82,10 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.88799, -0.00575417)
 target_position = Vector3(0, -0.75, 0)
 
-[node name="AudioController" type="Node3D" parent="." unique_id=574176879]
+[node name="AudioController" type="Node3D" parent="." unique_id=574176879 node_paths=PackedStringArray("background_player", "simple_player") groups=["audio_controller"]]
 script = ExtResource("6_gdq0t")
+background_player = NodePath("Background")
+simple_player = NodePath("Simple")
 
 [node name="LeftBackAudio" type="AudioStreamPlayer3D" parent="AudioController" unique_id=659192779 groups=["left_back_audio_player"]]
 transform = Transform3D(0.5, 4.5279407e-09, -4.7681348e-07, 4.569634e-10, 0.49997267, 0.0052270507, 4.7683477e-07, -0.0052270507, 0.49997267, 0.5599899, -0.21511263, -0.042504035)
@@ -99,7 +102,7 @@ stream = SubResource("AudioStreamSynchronized_uli6c")
 autoplay = true
 max_polyphony = 10
 
-[node name="Stingers" type="AudioStreamPlayer" parent="AudioController" unique_id=386658351 groups=["stinger_player"]]
+[node name="Simple" type="AudioStreamPlayer" parent="AudioController" unique_id=386658351 groups=["stinger_player"]]
 
 [node name="Footsteps" type="Node3D" parent="AudioController" unique_id=88434533 node_paths=PackedStringArray("object", "footsteps_player", "footsteps_creaking", "check_floor_ray_material", "timer")]
 script = ExtResource("6_j7vas")
@@ -146,3 +149,23 @@ mouse_filter = 2
 [node name="Cursor" type="Control" parent="Hud/CenterCursor" unique_id=990466810 groups=["cursor"]]
 layout_mode = 2
 script = ExtResource("10_y6d2e")
+
+[node name="TransitionController" type="Control" parent="." unique_id=2129497866 node_paths=PackedStringArray("black_screen") groups=["transition_controller"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("16_uli6c")
+black_screen = NodePath("BlackScreen")
+
+[node name="BlackScreen" type="ColorRect" parent="TransitionController" unique_id=1501627670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

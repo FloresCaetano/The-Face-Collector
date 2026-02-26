@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="4_wxp5c"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="5_g721p"]
+[ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="6_8bqn5"]
+[ext_resource type="Script" uid="uid://b3aotwqe2fe3a" path="res://scripted-events/Chapter1/car_cinematic_trigger.gd" id="8_cihp4"]
 
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
@@ -83,8 +85,11 @@ is_locked = true
 [node name="CassetteTapePlayer" parent="FullHouse/InteractableFurniture" unique_id=1783986654 instance=ExtResource("5_g721p")]
 transform = Transform3D(0.734, 0, 0, 0, 0.734, 0, 0, 0, 0.734, 9.147244, 1.0566677, -17.40148)
 
+[node name="photoFrame" parent="FullHouse/InteractableFurniture" unique_id=1883362346 instance=ExtResource("6_8bqn5")]
+transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
+
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.00352, 0.24460065, -19.291372)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.775295, 0.24460065, -10.448739)
 
 [node name="Player" parent="PlayerAndLight" unique_id=443950597 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.8338972, 0)
@@ -98,3 +103,10 @@ spot_angle = 22.5
 spot_angle_attenuation = 9.849135
 
 [node name="Entities" type="Node3D" parent="." unique_id=1328729940]
+
+[node name="Chapter1" type="Node" parent="." unique_id=1997065807]
+
+[node name="CarCinematicTrigger" type="Node" parent="Chapter1" unique_id=472579385]
+script = ExtResource("8_cihp4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Chapter1/CarCinematicTrigger" unique_id=1479874253]

@@ -1,3 +1,4 @@
+class_name InspectContainer
 extends SubViewportContainer
 
 var is_inspecting = false
@@ -11,13 +12,14 @@ var rotation_sensitivity = 0.001  # Sensibilidad de rotación
 
 @onready var inventory = PATHS.inventory
 @export var sub_viewport : SubViewport
+@export var camera : Camera3D
 
 
 func _ready() -> void:
 	SIGNALBUS.item_inspected.connect(_on_item_inspected)
 	inventory.inventory_closed.connect(_on_inventory_closed)
 
-func _gui_input(event):
+func _input(event):
 	if not is_inspecting:
 		return
 	
@@ -64,9 +66,15 @@ func _on_item_inspected(item):
 	current_item_model.position = Vector3(0, 0, -0.3) + item.offset
 	get_child(0).add_child(current_item_model)
 
+func stop_inspecting():
+	is_inspecting = false
+	if current_item_model:
+		current_item_model.queue_free()
+		current_item_model = null
+
 
 @onready var subviewport_container := self
-@onready var subviewport := $SubViewport
+@export var subviewport : SubViewport
 
 func _unhandled_input(event):
 	if event is InputEventMouse and not (is_inspecting and dragging):

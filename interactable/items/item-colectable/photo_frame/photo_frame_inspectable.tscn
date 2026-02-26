@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://k4xeoqfuea37"]
+
+[ext_resource type="Script" uid="uid://cabdegfkxb1px" path="res://interactable/items/item-colectable/photo_frame/scripts/photo_frame_inspectable.gd" id="1_p848x"]
+[ext_resource type="PackedScene" uid="uid://bqbvv8g81ibqy" path="res://interactable/items/item-colectable/photo_frame/assets/PhotoFrame.glb" id="2_r0ipm"]
+[ext_resource type="Resource" uid="uid://hnq882jptfw8" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo.tres" id="2_ttxb6"]
+[ext_resource type="Script" uid="uid://cbesxqicp77y" path="res://interactable/items/item-colectable/photo_frame/scripts/inspector_interactable.gd" id="3_ttxb6"]
+[ext_resource type="Resource" uid="uid://oxj3rcoiufx5" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo_frame.tres" id="3_xlx1e"]
+[ext_resource type="AudioStream" uid="uid://cxddqtpctaow6" path="res://interactable/items/item-colectable/tape/assets/tape_pickUp.mp3" id="4_xlx1e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qa30t"]
+size = Vector3(0.05, 0.02, 0)
+
+[node name="PhotoFrameInspectable" type="Node3D" unique_id=1985477077 node_paths=PackedStringArray("animations_player") groups=["interactable"]]
+script = ExtResource("1_p848x")
+photo_item = ExtResource("2_ttxb6")
+photo_frame_item = ExtResource("3_xlx1e")
+animations_player = NodePath("PhotoFrame/AnimationPlayer")
+
+[node name="PhotoFrame" parent="." unique_id=141499997 instance=ExtResource("2_r0ipm")]
+
+[node name="Lock0" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="1" unique_id=1817088731]
+transform = Transform3D(-0.09670364, -2.7742823e-08, 1.8714935e-10, 1.42275995e-08, -0.18017367, 0.010082139, -2.870279e-09, 0.04159638, 0.04367053, -0.93814254, -0.3128271, -1.9476368)
+
+[node name="Lock1" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="2" unique_id=637152001]
+transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082139, 0, -0.04159637, 0.04367053, 0.9368784, -0.3128271, -1.9476368)
+
+[node name="Lock2" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="3" unique_id=1879359975]
+transform = Transform3D(-0.09670364, -2.7742823e-08, 1.8714935e-10, 1.42275995e-08, -0.18017367, 0.010082139, -2.870279e-09, 0.04159638, 0.04367053, -0.9415868, 0.03512113, -0.44003332)
+
+[node name="Lock3" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="4" unique_id=748884259]
+transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082139, 0, -0.04159637, 0.04367053, 0.93520397, 0.0386108, -0.44003332)
+
+[node name="lock_1" type="StaticBody3D" parent="." unique_id=1754156478 groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, 0.160634, 0.372644, -0.0605858)
+script = ExtResource("3_ttxb6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lock_1" unique_id=1648966630]
+shape = SubResource("BoxShape3D_qa30t")
+
+[node name="lock_2" type="StaticBody3D" parent="." unique_id=1283654736 groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, -0.160621, 0.372644, -0.0605858)
+script = ExtResource("3_ttxb6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lock_2" unique_id=1245488879]
+shape = SubResource("BoxShape3D_qa30t")
+
+[node name="lock_3" type="StaticBody3D" parent="." unique_id=2017165190 groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, 0.160634, 0.0840545, 0.00512765)
+script = ExtResource("3_ttxb6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lock_3" unique_id=499237498]
+shape = SubResource("BoxShape3D_qa30t")
+
+[node name="lock_4" type="StaticBody3D" parent="." unique_id=201841255 groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, -0.160621, 0.0840545, 0.00512765)
+script = ExtResource("3_ttxb6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lock_4" unique_id=2003667495]
+shape = SubResource("BoxShape3D_qa30t")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=143675858]
+stream = ExtResource("4_xlx1e")
+
+[connection signal="mouse_interact" from="lock_1" to="." method="_on_lock_1_mouse_interact"]
+[connection signal="mouse_interact" from="lock_2" to="." method="_on_lock_2_mouse_interact"]
+[connection signal="mouse_interact" from="lock_3" to="." method="_on_lock_3_mouse_interact"]
+[connection signal="mouse_interact" from="lock_4" to="." method="_on_lock_4_mouse_interact"]
+
+[editable path="PhotoFrame"]

@@ -3,6 +3,7 @@ extends Control
 
 @export var item_list: VBoxContainer
 @export var player : Player
+@export var inspect_container : InspectContainer
 
 var is_open = false
 var can_be_opened = true
@@ -46,6 +47,16 @@ func remove_item(item : Item) -> void:
 		if i.item == item:
 			item_list.remove_child(i)
 			i.queue_free()
+			return
+
+func remove_item_by_tag(item_tag : String) -> void:
+	for i in item_list.get_children():
+		if i.item.tag == item_tag:
+			item_list.remove_child(i)
+			i.queue_free()
+
+			if inspect_container.is_inspecting:
+				inspect_container.stop_inspecting()
 			return
 
 func get_item_at_index(index : int) -> Item:

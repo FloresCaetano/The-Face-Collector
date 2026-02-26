@@ -1,7 +1,6 @@
 class_name MouseRayCast
 extends Node3D
-@onready var target
-@onready var player = $"../../.."
+@export var target : Camera3D
 
 
 func calc_3D_interactions(mask, lenght):

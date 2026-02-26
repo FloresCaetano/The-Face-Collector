@@ -1,7 +1,8 @@
 class_name AudioController
 extends Node3D
 
-@export var background_player : AudioStreamPlayer3D
+@export var background_player : AudioStreamPlayer
+@export var simple_player : AudioStreamPlayer
 @onready var sync_stream : AudioStreamSynchronized = background_player.stream as AudioStreamSynchronized
 
 var _selected_tracks : Array[AudioStream] = []
@@ -35,3 +36,6 @@ func _interpolate_volume_at(index : int, target_db : float, duration : float) ->
 	)
 	tween.tween_callback(func(): interpolation_finished.emit(index))
 
+func simple_play(stream : AudioStream) -> void:
+	simple_player.stream = stream
+	simple_player.play()

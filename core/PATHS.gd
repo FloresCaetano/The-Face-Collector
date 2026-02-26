@@ -15,3 +15,11 @@ var mouse_raycast : MouseRayCast :
 var player : Player :
 	get:
 		return get_tree().get_first_node_in_group("player")
+	
+var audio_controller : AudioController :
+	get:
+		return get_tree().get_first_node_in_group("audio_controller")
+
+var transition_controller : TransitionController :
+	get:
+		return get_tree().get_first_node_in_group("transition_controller")

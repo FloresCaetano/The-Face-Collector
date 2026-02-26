@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://hnq882jptfw8"]
+
+[ext_resource type="PackedScene" uid="uid://cyp6b3myl7lyf" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/model/photo.glb" id="1_bjg2g"]
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_ln3ev"]
+[ext_resource type="Texture2D" uid="uid://bq1of1qo3gyr" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/icons/icon_photo.png" id="3_x2d3m"]
+
+[resource]
+script = ExtResource("1_ln3ev")
+name = "K_ALICE_PHOTO"
+texture = ExtResource("3_x2d3m")
+model = ExtResource("1_bjg2g")
+offset = Vector3(0, -0.25, 0)
+metadata/_custom_type_script = "uid://c5effmi27pymr"

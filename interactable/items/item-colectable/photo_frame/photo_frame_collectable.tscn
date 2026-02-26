@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://0typaphjvp77"]
+
+[ext_resource type="Script" uid="uid://bwjy111plljyr" path="res://interactable/items/item-colectable/photo_frame/scripts/photo_frame_collectable.gd" id="1_s5ime"]
+[ext_resource type="Resource" uid="uid://oxj3rcoiufx5" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo_frame.tres" id="2_8bmlo"]
+[ext_resource type="Resource" uid="uid://hnq882jptfw8" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo.tres" id="3_tb47o"]
+[ext_resource type="PackedScene" uid="uid://bqbvv8g81ibqy" path="res://interactable/items/item-colectable/photo_frame/assets/PhotoFrame.glb" id="4_nu557"]
+[ext_resource type="AudioStream" uid="uid://cxddqtpctaow6" path="res://interactable/items/item-colectable/tape/assets/tape_pickUp.mp3" id="6_ob0ue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l80qx"]
+size = Vector3(0.386292, 0.454315, 0.148621)
+
+[node name="PhotoFrameCollectable" type="StaticBody3D" unique_id=1883362346 node_paths=PackedStringArray("collision_shape", "audio_stream_player_3d", "animations_player") groups=["interactable"]]
+script = ExtResource("1_s5ime")
+photo_frame_item = ExtResource("2_8bmlo")
+photo_item = ExtResource("3_tb47o")
+collision_shape = NodePath("CollisionShape3D")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+animations_player = NodePath("PhotoFrame/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=481688868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000640869, 0.229752, -0.0195007)
+shape = SubResource("BoxShape3D_l80qx")
+
+[node name="PhotoFrame" parent="." unique_id=141499997 instance=ExtResource("4_nu557")]
+
+[node name="Lock0" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="1" unique_id=1817088731]
+transform = Transform3D(-0.09670364, -2.7742823e-08, 1.8714935e-10, 1.42275995e-08, -0.18017367, 0.010082139, -2.870279e-09, 0.04159638, 0.04367053, -0.93814254, -0.3128271, -1.9476368)
+
+[node name="Lock1" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="2" unique_id=637152001]
+transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082139, 0, -0.04159637, 0.04367053, 0.9368784, -0.3128271, -1.9476368)
+
+[node name="Lock2" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="3" unique_id=1879359975]
+transform = Transform3D(-0.09670364, -2.7742823e-08, 1.8714935e-10, 1.42275995e-08, -0.18017367, 0.010082139, -2.870279e-09, 0.04159638, 0.04367053, -0.9415868, 0.03512113, -0.44003332)
+
+[node name="Lock3" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="4" unique_id=748884259]
+transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082139, 0, -0.04159637, 0.04367053, 0.93520397, 0.0386108, -0.44003332)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=143675858]
+stream = ExtResource("6_ob0ue")
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
+
+[editable path="PhotoFrame"]
