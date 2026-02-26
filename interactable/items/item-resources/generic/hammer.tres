@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://p7ri681hq81b"]
+
+[ext_resource type="PackedScene" uid="uid://cvp1a3goysqn7" path="res://interactable/items/item-colectable/hammer/assets/Hammer.glb" id="1_5aejj"]
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_1565s"]
+[ext_resource type="Texture2D" uid="uid://cuyuvfm5hc17q" path="res://interactable/items/item-resources/generic/icons/icon_hammer.png" id="2_e1g6c"]
+
+[resource]
+script = ExtResource("1_1565s")
+name = "K_HAMMER"
+texture = ExtResource("2_e1g6c")
+tag = "hammer"
+model = ExtResource("1_5aejj")
+offset = Vector3(0, 0, -0.5)
+metadata/_custom_type_script = "uid://c5effmi27pymr"

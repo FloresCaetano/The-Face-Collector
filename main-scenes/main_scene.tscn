@@ -9,6 +9,13 @@
 
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
+transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
+light_energy = 0.3
+shadow_enabled = true
+
 [node name="FullHouse" type="Node3D" parent="." unique_id=1905956402]
 
 [node name="House" parent="FullHouse" unique_id=1873906181 instance=ExtResource("1_ngqo1")]
@@ -56,24 +63,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.830487, 0.045, -8.1546955)
 
 [node name="Door12" parent="FullHouse/InteractableFurniture/Doors" unique_id=287107877 instance=ExtResource("4_t6h63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.230537, 0.045, -9.586787)
+is_locked = true
 
 [node name="Door16" parent="FullHouse/InteractableFurniture/Doors" unique_id=664381695 instance=ExtResource("4_t6h63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8050585, 0.045, -13.552457)
 
 [node name="Door14" parent="FullHouse/InteractableFurniture/Doors" unique_id=205658585 instance=ExtResource("4_t6h63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.27702, 0.045, -18.666368)
+is_locked = true
 
 [node name="Door15" parent="FullHouse/InteractableFurniture/Doors" unique_id=1107417830 instance=ExtResource("4_t6h63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.368015, 0.045, -18.666368)
+is_locked = true
 
 [node name="Door13" parent="FullHouse/InteractableFurniture/Doors" unique_id=125479078 instance=ExtResource("4_t6h63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.569588, 0.045, -9.585199)
+is_locked = true
 
 [node name="CassetteTapePlayer" parent="FullHouse/InteractableFurniture" unique_id=1783986654 instance=ExtResource("5_g721p")]
 transform = Transform3D(0.734, 0, 0, 0, 0.734, 0, 0, 0, 0.734, 9.147244, 1.0566677, -17.40148)
 
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.736216, 0.24460065, -2.2043662)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.00352, 0.24460065, -19.291372)
 
 [node name="Player" parent="PlayerAndLight" unique_id=443950597 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.8338972, 0)
@@ -86,9 +97,4 @@ spot_range = 30.0
 spot_angle = 22.5
 spot_angle_attenuation = 9.849135
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
-transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
-light_energy = 0.3
-shadow_enabled = true
+[node name="Entities" type="Node3D" parent="." unique_id=1328729940]

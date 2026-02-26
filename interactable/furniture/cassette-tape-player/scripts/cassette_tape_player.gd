@@ -17,10 +17,13 @@ var characters = []
 var subtitles = {}
 
 func _ready() -> void:
+	set_process_input(false)
 	SIGNALBUS.item_selected.connect(_on_item_selected)
 
 func mouse_interaction() -> void:
 	if Input.is_action_just_pressed("interact") and not camera.is_transitioning and not already_interacted:
+		set_process_input(true)
+		
 		already_interacted = true
 		lbl_subtitles.visible = true
 		lbl_subtitles_3d.visible = false
@@ -34,19 +37,22 @@ func mouse_interaction() -> void:
 		inventory.can_inspect_items = false
 
 
-	if Input.is_action_just_pressed("close_inventory") and not camera.is_transitioning and already_interacted:
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("scape") and not camera.is_transitioning:
 		inventory.reset_vars()
 		inventory.close()
 		camera.return_to_original_pos(0.5)
 		lbl_subtitles.visible = false
 		lbl_subtitles_3d.visible = true
 		already_interacted = false
+		set_process_input(false)
 
 func on_mouse_exited() -> void:
 	pass
 
 var subtitle_margin = 0.2
 func _process(_delta: float) -> void:
+	#UPDATE SUBTITLES:
 	if audio_stream_player.playing:
 		var current_time = audio_stream_player.get_playback_position()
 		for i in range(timestamps.size()):
@@ -61,7 +67,13 @@ func set_subtitle(index : int) -> void:
 	lbl_subtitles_3d.text = text
 
 func _on_item_selected(item : Item) -> void:
+	if not already_interacted:
+		return
+	
 	if item is TapeResource:
+		if audio_stream_player.playing: audio_stream_player.stop()
+		if animation_player.is_playing(): animation_player.stop()
+
 		audio_stream_player.stream = load("uid://cetrq03b5oavg")
 		audio_stream_player.play()
 		animation_player.play("insert_cassette")

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://u7176gi7ni4q"]
+
+[ext_resource type="PackedScene" uid="uid://frqfho0e8oxs" path="res://interactable/furniture/safe/assets/safe.glb" id="1_7asuo"]
+[ext_resource type="Script" uid="uid://bl3hbel1bqhgw" path="res://interactable/furniture/safe/scripts/safe.gd" id="1_koksm"]
+[ext_resource type="AudioStream" uid="uid://b5beg44f5i8ko" path="res://interactable/furniture/safe/assets/audio/correct.mp3" id="2_mvwep"]
+[ext_resource type="AudioStream" uid="uid://dm11ed2millts" path="res://interactable/furniture/safe/assets/audio/wrong.mp3" id="3_1jftl"]
+[ext_resource type="PackedScene" uid="uid://855d78jerq6t" path="res://interactable/furniture/safe/key.tscn" id="3_3p8rd"]
+[ext_resource type="AudioStream" uid="uid://e5lpvglvi7o7" path="res://interactable/furniture/safe/assets/audio/open_safe.mp3" id="4_ta6jp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3p8rd"]
+size = Vector3(1.7866821, 2.2525024, 1.5268555)
+
+[node name="Safe" type="StaticBody3D" unique_id=655616190 node_paths=PackedStringArray("keys", "animation_player", "audio_stream_player_3d", "camera_reference")]
+script = ExtResource("1_koksm")
+keys = [NodePath("0"), NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("8"), NodePath("9")]
+animation_player = NodePath("model/AnimationPlayer")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+correct_code_audio_stream = ExtResource("2_mvwep")
+wrong_code_audio_stream = ExtResource("3_1jftl")
+open_safe_audio_stream = ExtResource("4_ta6jp")
+camera_reference = NodePath("CameraReference")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1321073633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004547119, 1.0076172, 0.02709961)
+shape = SubResource("BoxShape3D_3p8rd")
+
+[node name="model" parent="." unique_id=692348421 instance=ExtResource("1_7asuo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.22109991)
+
+[node name="Door" parent="model" index="1" unique_id=1796700251]
+transform = Transform3D(0.14272016, 0, 3.508199e-05, 0, 0.14272021, 0, -3.508199e-05, 0, 0.14272016, 0.84499997, 0.99999994, 1.05)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1542775307]
+max_polyphony = 3
+
+[node name="CameraReference" type="Marker3D" parent="." unique_id=1374543985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2537822, 2.7516322)
+
+[node name="0" parent="." unique_id=599746619 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45758712, 0.834013, 0.8358937)
+asociated_number = "0"
+
+[node name="1" parent="." unique_id=939017180 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59054434, 1.2398822, 0.8358937)
+asociated_number = "1"
+
+[node name="2" parent="." unique_id=1174456482 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45898676, 1.2398822, 0.8358937)
+asociated_number = "2"
+
+[node name="3" parent="." unique_id=1598482982 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31903183, 1.2398822, 0.8358937)
+asociated_number = "3"
+
+[node name="4" parent="." unique_id=1529082905 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59474313, 1.104126, 0.8358937)
+asociated_number = "4"
+
+[node name="5" parent="." unique_id=1049226568 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45618778, 1.104126, 0.8358937)
+asociated_number = "5"
+
+[node name="6" parent="." unique_id=1134286265 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32043147, 1.104126, 0.8358937)
+asociated_number = "6"
+
+[node name="7" parent="." unique_id=827815344 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59194404, 0.96976924, 0.8358937)
+asociated_number = "7"
+
+[node name="8" parent="." unique_id=2088997420 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45618784, 0.96976924, 0.8358937)
+asociated_number = "8"
+
+[node name="9" parent="." unique_id=2128369992 instance=ExtResource("3_3p8rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32323033, 0.9711689, 0.8358937)
+asociated_number = "9"
+
+[editable path="model"]

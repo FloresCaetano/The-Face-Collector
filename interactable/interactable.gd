@@ -1,6 +1,8 @@
 @abstract
 class_name Interactable
-extends StaticBody3D
+extends PhysicsBody3D
+
+var is_interacting := false
 
 @abstract
 func mouse_interaction() -> void

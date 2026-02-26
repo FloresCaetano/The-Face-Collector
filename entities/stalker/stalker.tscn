@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cs8sxea0a3ymi"]
+
+[ext_resource type="Script" uid="uid://coowlwjl7teon" path="res://entities/stalker/stalker.gd" id="1_tb5g0"]
+[ext_resource type="Script" uid="uid://hnt1qb71l50a" path="res://shared/footsteps_system/footsteps.gd" id="2_18yoy"]
+[ext_resource type="AudioStream" uid="uid://cnm7h4j52mxap" path="res://shared/footsteps_system/assets/1.mp3" id="3_7qnuh"]
+[ext_resource type="AudioStream" uid="uid://jrs47idtrhbn" path="res://shared/footsteps_system/assets/2.mp3" id="4_7gta7"]
+[ext_resource type="AudioStream" uid="uid://xsehv3010qci" path="res://shared/footsteps_system/assets/3.mp3" id="5_20h8x"]
+[ext_resource type="AudioStream" uid="uid://u837pntoh66c" path="res://shared/footsteps_system/assets/c1.mp3" id="6_gvh28"]
+[ext_resource type="AudioStream" uid="uid://4gmc5o1b4ihh" path="res://shared/footsteps_system/assets/c2.mp3" id="7_jpjul"]
+[ext_resource type="AudioStream" uid="uid://teb8i38r6h8r" path="res://shared/footsteps_system/assets/c3.mp3" id="8_tmac4"]
+
+[sub_resource type="Curve3D" id="Curve3D_u0d7r"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.9751472, 0, -3.5064096, 0, 0, 0, 0, 0, 0, -5.2201424, 0, -3.6003866, 0, 0, 0, 0, 0, 0, -5.2874956, 0, 6.868126, 0, 0, 0, 0, 0, 0, 7.811945, 0, 6.77083),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rvk4k"]
+streams_count = 3
+stream_0/stream = ExtResource("3_7qnuh")
+stream_1/stream = ExtResource("4_7gta7")
+stream_2/stream = ExtResource("5_20h8x")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_aaa7r"]
+streams_count = 3
+stream_0/stream = ExtResource("6_gvh28")
+stream_1/stream = ExtResource("7_jpjul")
+stream_2/stream = ExtResource("8_tmac4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_144cg"]
+size = Vector3(1.2683105, 2.9641724, 0.59973145)
+
+[node name="Stalker" type="Node3D" unique_id=1388961434 node_paths=PackedStringArray("path_follow", "player_detection_barriers")]
+script = ExtResource("1_tb5g0")
+path_follow = NodePath("StalkerPath/PathFollow3D")
+player_detection_barriers = [NodePath("PlayerDetectionBarriers/0"), NodePath("PlayerDetectionBarriers/1"), NodePath("PlayerDetectionBarriers/2"), NodePath("PlayerDetectionBarriers/3")]
+
+[node name="StalkerPath" type="Path3D" parent="." unique_id=533858580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18618202, 0.104565024, -1.3831491)
+curve = SubResource("Curve3D_u0d7r")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="StalkerPath" unique_id=1005670867]
+transform = Transform3D(0.0071216146, 0, 0.99996305, 0, 1, 0, -0.99996305, 0, 0.0071216146, 7.9751472, 0, -3.5064096)
+
+[node name="Body" type="Node3D" parent="StalkerPath/PathFollow3D" unique_id=538639909]
+
+[node name="Footsteps" type="Node3D" parent="StalkerPath/PathFollow3D/Body" unique_id=2121634241 node_paths=PackedStringArray("object", "footsteps_player", "footsteps_creaking", "check_floor_ray_material", "timer")]
+script = ExtResource("2_18yoy")
+object = NodePath("..")
+footsteps_player = NodePath("Footsteps")
+footsteps_creaking = NodePath("FootstepsCreaking")
+check_floor_ray_material = NodePath("CheckFloorMaterialRay")
+timer = NodePath("Timer")
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="StalkerPath/PathFollow3D/Body/Footsteps" unique_id=1000415385]
+transform = Transform3D(1.0000117, 0, -9.313226e-10, 0, 1, 0, 4.656613e-10, 0, 1.0000117, 0, 0.050710917, 0)
+stream = SubResource("AudioStreamRandomizer_rvk4k")
+volume_db = -5.0
+pitch_scale = 0.7
+max_polyphony = 2
+
+[node name="FootstepsCreaking" type="AudioStreamPlayer3D" parent="StalkerPath/PathFollow3D/Body/Footsteps" unique_id=904323924]
+transform = Transform3D(1.0000117, 0, -9.313226e-10, 0, 1, 0, 4.656613e-10, 0, 1.0000117, 0, 0.026232839, 0)
+visible = false
+stream = SubResource("AudioStreamRandomizer_aaa7r")
+volume_db = -10.0
+pitch_scale = 0.7
+max_polyphony = 4
+
+[node name="CheckFloorMaterialRay" type="RayCast3D" parent="StalkerPath/PathFollow3D/Body/Footsteps" unique_id=24945617]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0.110364854, 0)
+hit_from_inside = true
+
+[node name="Timer" type="Timer" parent="StalkerPath/PathFollow3D/Body/Footsteps" unique_id=369051519]
+
+[node name="PlayerDetectionBarriers" type="Node3D" parent="." unique_id=1749610810]
+
+[node name="0" type="Area3D" parent="PlayerDetectionBarriers" unique_id=715972660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3105087, 1.1638072, -3.3903694)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionBarriers/0" unique_id=805995853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07019043, 0.2833557, -0.20013428)
+shape = SubResource("BoxShape3D_144cg")
+
+[node name="1" type="Area3D" parent="PlayerDetectionBarriers" unique_id=79372231]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.938815, 1.1638072, 5.4125614)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionBarriers/1" unique_id=1042251232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07019043, 0.2833557, -0.34960938)
+shape = SubResource("BoxShape3D_144cg")
+
+[node name="2" type="Area3D" parent="PlayerDetectionBarriers" unique_id=2079699177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8181496, 1.1638072, 4.586643)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionBarriers/2" unique_id=87119073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07019043, 0.2833557, -0.34960938)
+shape = SubResource("BoxShape3D_144cg")
+
+[node name="3" type="Area3D" parent="PlayerDetectionBarriers" unique_id=1679487168]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.085726, 1.1638072, -5.0654793)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionBarriers/3" unique_id=170396036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07019043, 0.2833557, -0.34960938)
+shape = SubResource("BoxShape3D_144cg")

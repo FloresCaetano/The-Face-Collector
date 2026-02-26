@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bcu34ojoq6rcm"]
+
+[ext_resource type="PackedScene" uid="uid://1ij0umkvpw0l" path="res://interactable/furniture/plank/assets/plank.glb" id="1_cmmw0"]
+[ext_resource type="Script" uid="uid://0h6okme8aw6w" path="res://interactable/furniture/plank/plank.gd" id="1_jjny1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cmmw0"]
+size = Vector3(2, 0.196, 0.032)
+
+[node name="Plank" type="RigidBody3D" unique_id=1172716163 node_paths=PackedStringArray("timer")]
+sleeping = true
+freeze = true
+script = ExtResource("1_jjny1")
+timer = NodePath("Timer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=375020953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00014586234, 0.00013415888, -0.00063634664)
+shape = SubResource("BoxShape3D_cmmw0")
+
+[node name="model" parent="." unique_id=628662384 instance=ExtResource("1_cmmw0")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1031165222]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="model"]

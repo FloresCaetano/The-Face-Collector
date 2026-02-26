@@ -114,12 +114,9 @@ func move(delta, input):
 	
 	velocity.y -= gravity * delta
 	if input.x != 0 or input.z != 0:
-		play_footsteps()
 		velocity.x = lerp(velocity.x, impulse.x, acceleration)
 		velocity.z = lerp(velocity.z, impulse.z, acceleration)
 	else:
-		$FootstepsPlayer.stop()
-		can_footstep = true
 		velocity.x = lerp(velocity.x, 0.0, desaceleration)
 		velocity.z = lerp(velocity.z, 0.0, desaceleration)
 	

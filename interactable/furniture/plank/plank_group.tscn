@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://brbbaylgh10uy"]
+
+[ext_resource type="Script" uid="uid://bucur7msyr2mi" path="res://interactable/furniture/plank/plank_group.gd" id="1_2k2p6"]
+
+[node name="PlankGroup" type="Node3D" unique_id=339284421]
+script = ExtResource("1_2k2p6")

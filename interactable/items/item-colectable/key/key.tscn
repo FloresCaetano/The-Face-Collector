@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dqrglq624h3gy"]
+
+[ext_resource type="PackedScene" uid="uid://8uusi0v2gnys" path="res://interactable/items/item-colectable/key/assets/Key.glb" id="1_2yho5"]
+[ext_resource type="Script" uid="uid://d0f4enpr25e7r" path="res://interactable/items/item-colectable/key/key.gd" id="1_sxo1c"]
+[ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="3_ji4ld"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxo1c"]
+size = Vector3(0.2355957, 0.04840088, 0.3423462)
+
+[node name="Key" type="StaticBody3D" unique_id=654178311 node_paths=PackedStringArray("audio_stream_player")]
+script = ExtResource("1_sxo1c")
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+
+[node name="Key" parent="." unique_id=1743937477 instance=ExtResource("1_2yho5")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1058137773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0057373047, 9.1552734e-05, -0.002105713)
+shape = SubResource("BoxShape3D_sxo1c")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1569752467]
+stream = ExtResource("3_ji4ld")

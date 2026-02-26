@@ -65,7 +65,7 @@ func _input(_event):
 		if can_be_opened and Input.is_action_just_pressed("open_inventory"):
 			open()
 	else:
-		if can_be_closed and Input.is_action_just_pressed("close_inventory"):
+		if can_be_closed and Input.is_action_just_pressed("scape"):
 			close()
 
 func reset_vars() -> void:

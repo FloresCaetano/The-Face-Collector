@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bw51kx6kxy761"]
+
+[ext_resource type="Script" path="res://scripts/on_screen_notifier.gd" id="1_w7vfv"]
+
+[node name="OnScreenNotifier" type="Node3D"]
+script = ExtResource("1_w7vfv")
+
+[node name="point_to_camera_ray" type="RayCast3D" parent="."]
+hit_back_faces = false
+
+[node name="distance_ray" type="RayCast3D" parent="."]
+collision_mask = 8
+hit_back_faces = false
