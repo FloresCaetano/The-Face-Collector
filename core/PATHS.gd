@@ -23,3 +23,7 @@ var audio_controller : AudioController :
 var transition_controller : TransitionController :
 	get:
 		return get_tree().get_first_node_in_group("transition_controller")
+
+var cassette_tape_player : CassetteTapePlayer :
+	get:
+		return get_tree().get_first_node_in_group("cassette_tape_player")

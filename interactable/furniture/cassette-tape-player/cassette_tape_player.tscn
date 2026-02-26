@@ -145,7 +145,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5lhji")
 
-[node name="CassetteTapePlayer" type="StaticBody3D" unique_id=1783986654 node_paths=PackedStringArray("audio_stream_player", "animation_player", "lbl_subtitles", "lbl_subtitles_3d", "camera_reference") groups=["interactable"]]
+[node name="CassetteTapePlayer" type="StaticBody3D" unique_id=1783986654 node_paths=PackedStringArray("audio_stream_player", "animation_player", "lbl_subtitles", "lbl_subtitles_3d", "camera_reference") groups=["cassette_tape_player", "interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000306547, 0.00383806, -0.00269043)
 script = ExtResource("1_hixu3")
 audio_stream_player = NodePath("AudioStreamPlayer3D")

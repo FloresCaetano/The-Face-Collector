@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ck6i0rha0sels"]
+
+[ext_resource type="Script" uid="uid://b0pc4bq5a4hyc" path="res://scripted-events/Chapter1/first_audio_loop/first_audio_loop_controller.gd" id="1_y721a"]
+[ext_resource type="Resource" uid="uid://2x84gf4oh2vo" path="res://interactable/items/item-resources/tapes/first_tape/first_tape.tres" id="2_388q3"]
+
+[node name="FirstAudioLoopController" type="Node" unique_id=27973457 node_paths=PackedStringArray("cassete_tape_player")]
+script = ExtResource("1_y721a")
+cassete_tape_player = NodePath("")
+tape = ExtResource("2_388q3")

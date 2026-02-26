@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bqwmis7q36yo4"]
+
+[ext_resource type="Script" uid="uid://bv0rqurdoaut1" path="res://scripted-events/Chapter1/car_cinematic_trigger.gd" id="1_rfuak"]
+[ext_resource type="AudioStream" uid="uid://5i3107v602no" path="res://scripted-events/Chapter1/car_cinematic_trigger/crash.mp3" id="2_bd1m6"]
+
+[node name="CarCinematicTrigger" type="Node" unique_id=2140159985 node_paths=PackedStringArray("audio_stream_player")]
+script = ExtResource("1_rfuak")
+audio_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1519973476]
+stream = ExtResource("2_bd1m6")

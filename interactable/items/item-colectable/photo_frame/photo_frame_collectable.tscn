@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bwjy111plljyr" path="res://interactable/items/item-colectable/photo_frame/scripts/photo_frame_collectable.gd" id="1_s5ime"]
 [ext_resource type="Resource" uid="uid://oxj3rcoiufx5" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo_frame.tres" id="2_8bmlo"]
-[ext_resource type="Resource" uid="uid://hnq882jptfw8" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo.tres" id="3_tb47o"]
 [ext_resource type="PackedScene" uid="uid://bqbvv8g81ibqy" path="res://interactable/items/item-colectable/photo_frame/assets/PhotoFrame.glb" id="4_nu557"]
 [ext_resource type="AudioStream" uid="uid://cxddqtpctaow6" path="res://interactable/items/item-colectable/tape/assets/tape_pickUp.mp3" id="6_ob0ue"]
 
@@ -12,7 +11,6 @@ size = Vector3(0.386292, 0.454315, 0.148621)
 [node name="PhotoFrameCollectable" type="StaticBody3D" unique_id=1883362346 node_paths=PackedStringArray("collision_shape", "audio_stream_player_3d", "animations_player") groups=["interactable"]]
 script = ExtResource("1_s5ime")
 photo_frame_item = ExtResource("2_8bmlo")
-photo_item = ExtResource("3_tb47o")
 collision_shape = NodePath("CollisionShape3D")
 audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
 animations_player = NodePath("PhotoFrame/AnimationPlayer")

@@ -151,6 +151,7 @@ layout_mode = 2
 script = ExtResource("10_y6d2e")
 
 [node name="TransitionController" type="Control" parent="." unique_id=2129497866 node_paths=PackedStringArray("black_screen") groups=["transition_controller"]]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

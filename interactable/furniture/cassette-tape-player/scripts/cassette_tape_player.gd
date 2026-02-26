@@ -10,21 +10,28 @@ extends Interactable
 @onready var camera : Camera = PATHS.camera
 @onready var inventory : Inventory = PATHS.inventory
 
-var already_interacted := false
 
 var timestamps = []
 var characters = []
 var subtitles = {}
 
+var last_tape : TapeResource = null
+
+signal tape_finished(tape)
+signal line_change(character_name, subtitle_text)
+
+
+
 func _ready() -> void:
 	set_process_input(false)
+	audio_stream_player.finished.connect(func(): tape_finished.emit(last_tape))
 	SIGNALBUS.item_selected.connect(_on_item_selected)
 
 func mouse_interaction() -> void:
-	if Input.is_action_just_pressed("interact") and not camera.is_transitioning and not already_interacted:
+	if Input.is_action_just_pressed("interact") and not camera.is_transitioning and not is_interacting:
 		set_process_input(true)
 		
-		already_interacted = true
+		is_interacting = true
 		lbl_subtitles.visible = true
 		lbl_subtitles_3d.visible = false
 
@@ -44,7 +51,7 @@ func _input(_event: InputEvent) -> void:
 		camera.return_to_original_pos(0.5)
 		lbl_subtitles.visible = false
 		lbl_subtitles_3d.visible = true
-		already_interacted = false
+		is_interacting = false
 		set_process_input(false)
 
 func on_mouse_exited() -> void:
@@ -66,23 +73,30 @@ func set_subtitle(index : int) -> void:
 	lbl_subtitles.text = text
 	lbl_subtitles_3d.text = text
 
+	line_change.emit(characters[index], subtitles[actual_language][index])
+
 func _on_item_selected(item : Item) -> void:
-	if not already_interacted:
+	if not is_interacting:
 		return
 	
 	if item is TapeResource:
-		if audio_stream_player.playing: audio_stream_player.stop()
-		if animation_player.is_playing(): animation_player.stop()
+		play_tape(item)
 
+func play_tape(tape : TapeResource, with_anim : bool = true) -> void:
+	if audio_stream_player.playing: audio_stream_player.stop()
+	if animation_player.is_playing(): animation_player.stop()
+	last_tape = tape
+	if with_anim:
 		audio_stream_player.stream = load("uid://cetrq03b5oavg")
 		audio_stream_player.play()
 		animation_player.play("insert_cassette")
 		await animation_player.animation_finished
 		await get_tree().create_timer(0.5).timeout
 
-		load_subtitles_from_csv(item.csv_subtitles)
-		audio_stream_player.stream = item.audio
-		audio_stream_player.play()
+	load_subtitles_from_csv(tape.csv_subtitles)
+	audio_stream_player.stream = tape.audio
+	audio_stream_player.play()
+
 
 func load_subtitles_from_csv(csv_path: String) -> void:
 	timestamps.clear()

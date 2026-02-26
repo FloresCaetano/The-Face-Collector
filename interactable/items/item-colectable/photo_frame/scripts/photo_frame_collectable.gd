@@ -4,7 +4,6 @@ extends Interactable
 @export_category("Configuration")
 @export var is_on_inventory : bool = true
 @export var photo_frame_item : Item
-@export var photo_item : Item
 
 @export_category("dependencies")
 @export var collision_shape : CollisionShape3D

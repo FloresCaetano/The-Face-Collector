@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bqbvv8g81ibqy" path="res://interactable/items/item-colectable/photo_frame/assets/PhotoFrame.glb" id="2_r0ipm"]
 [ext_resource type="Resource" uid="uid://hnq882jptfw8" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo.tres" id="2_ttxb6"]
 [ext_resource type="Script" uid="uid://cbesxqicp77y" path="res://interactable/items/item-colectable/photo_frame/scripts/inspector_interactable.gd" id="3_ttxb6"]
-[ext_resource type="Resource" uid="uid://oxj3rcoiufx5" path="res://interactable/items/item-resources/generic/photo_frame_and_photo/photo_frame.tres" id="3_xlx1e"]
 [ext_resource type="AudioStream" uid="uid://cxddqtpctaow6" path="res://interactable/items/item-colectable/tape/assets/tape_pickUp.mp3" id="4_xlx1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qa30t"]
@@ -13,7 +12,6 @@ size = Vector3(0.05, 0.02, 0)
 [node name="PhotoFrameInspectable" type="Node3D" unique_id=1985477077 node_paths=PackedStringArray("animations_player") groups=["interactable"]]
 script = ExtResource("1_p848x")
 photo_item = ExtResource("2_ttxb6")
-photo_frame_item = ExtResource("3_xlx1e")
 animations_player = NodePath("PhotoFrame/AnimationPlayer")
 
 [node name="PhotoFrame" parent="." unique_id=141499997 instance=ExtResource("2_r0ipm")]
