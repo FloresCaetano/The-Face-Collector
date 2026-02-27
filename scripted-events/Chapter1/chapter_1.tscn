@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b6noetj5tqjj0"]
+
+[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="1_p31m7"]
+[ext_resource type="Resource" uid="uid://juymsbnsddx6" path="res://interactable/items/item-resources/tapes/third_tape/third_tape.tres" id="2_f3yee"]
+[ext_resource type="Script" uid="uid://7uggf5cj0q8q" path="res://scripted-events/Chapter1/storage_door_knocks/trg_storage_door_knocks.gd" id="3_1h3ju"]
+[ext_resource type="AudioStream" uid="uid://d0tr8qe0rksk5" path="res://scripted-events/Chapter1/storage_door_knocks/soft_knocks.mp3" id="4_r2inr"]
+[ext_resource type="PackedScene" uid="uid://bcsohbw3801lu" path="res://interactable/items/item-colectable/hammer/hammer.tscn" id="5_1tp2g"]
+[ext_resource type="PackedScene" uid="uid://dqrglq624h3gy" path="res://interactable/items/item-colectable/key/key.tscn" id="6_5aw18"]
+[ext_resource type="Resource" uid="uid://68liv2cplpcn" path="res://interactable/items/item-resources/tapes/fifth_tape/fifth_tape.tres" id="7_h1tui"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dli6d"]
+size = Vector3(1, 3.2387695, 1.4370117)
+
+[node name="Chapter1" type="Node3D" unique_id=2070725139]
+
+[node name="Tape" parent="." unique_id=1746687257 instance=ExtResource("1_p31m7")]
+transform = Transform3D(-0.28951633, 0, 0.95717305, 0, 1, 0, -0.95717305, 0, -0.28951633, -8.474682, 0.46022964, 3.3765016)
+tape_item = ExtResource("2_f3yee")
+
+[node name="ScriptedEvents" type="Node" parent="." unique_id=1700587579]
+
+[node name="TRGStorageDoorKnocks" type="Node3D" parent="ScriptedEvents" unique_id=170585328 node_paths=PackedStringArray("audio_stream_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8602495, 0, -8.69635)
+script = ExtResource("3_1h3ju")
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+
+[node name="Area3D" type="Area3D" parent="ScriptedEvents/TRGStorageDoorKnocks" unique_id=1465173047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22157764, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScriptedEvents/TRGStorageDoorKnocks/Area3D" unique_id=1882049524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1193848, -0.21850586)
+shape = SubResource("BoxShape3D_dli6d")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ScriptedEvents/TRGStorageDoorKnocks" unique_id=381298642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7281303, 1.8197268, 1.5540957)
+stream = ExtResource("4_r2inr")
+bus = &"LowPass"
+
+[node name="Hammer" parent="." unique_id=861564715 instance=ExtResource("5_1tp2g")]
+transform = Transform3D(-0.87881714, -0.47715873, 2.085727e-08, 0, -4.371139e-08, -1, 0.47715873, -0.87881714, 3.8414317e-08, -11.0918455, 0, -2.18367)
+
+[node name="Key" parent="." unique_id=1236922951 instance=ExtResource("6_5aw18")]
+transform = Transform3D(0.6819984, 0, 0.7313537, 0, 1, 0, -0.7313537, 0, 0.6819984, 9.357761, 0.55584294, -6.48703)
+
+[node name="Tape2" parent="." unique_id=304219572 instance=ExtResource("1_p31m7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8234005, -2.9709554, -8.117857)
+tape_item = ExtResource("7_h1tui")
+
+[connection signal="body_entered" from="ScriptedEvents/TRGStorageDoorKnocks/Area3D" to="ScriptedEvents/TRGStorageDoorKnocks" method="_on_area_3d_body_entered"]

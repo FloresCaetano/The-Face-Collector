@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="KeyResource" format=3 uid="uid://c7c5evab17vcb"]
+
+[ext_resource type="Script" uid="uid://b6au5w8ag34fi" path="res://interactable/items/item-resources/keys/key_resource.gd" id="1_7y0lu"]
+[ext_resource type="PackedScene" uid="uid://8uusi0v2gnys" path="res://interactable/items/item-colectable/key/assets/Key.glb" id="1_q2mpi"]
+[ext_resource type="Texture2D" uid="uid://bvjjpnneynv5k" path="res://interactable/items/item-resources/keys/icons/icon_key.png" id="3_pbhyb"]
+
+[resource]
+script = ExtResource("1_7y0lu")
+key_id = "storage_key"
+name = "K_STORAGE_KEY"
+texture = ExtResource("3_pbhyb")
+model = ExtResource("1_q2mpi")
+metadata/_custom_type_script = "uid://b6au5w8ag34fi"

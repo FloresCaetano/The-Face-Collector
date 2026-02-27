@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://2x84gf4oh2vo" path="res://interactable/items/item-resources/tapes/first_tape/first_tape.tres" id="6_a1g5e"]
 [ext_resource type="Resource" uid="uid://68liv2cplpcn" path="res://interactable/items/item-resources/tapes/fifth_tape/fifth_tape.tres" id="8_y1cow"]
 [ext_resource type="Resource" uid="uid://juymsbnsddx6" path="res://interactable/items/item-resources/tapes/third_tape/third_tape.tres" id="9_a1g5e"]
-[ext_resource type="Resource" uid="uid://cobwetohm2gwn" path="res://interactable/items/item-resources/tapes/fifth_tape/sixth_tape.tres" id="9_y1cow"]
+[ext_resource type="Resource" uid="uid://cobwetohm2gwn" path="res://interactable/items/item-resources/tapes/sixth_tape/sixth_tape.tres" id="9_y1cow"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="10_y1cow"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="11_4wny6"]
 [ext_resource type="PackedScene" uid="uid://brbbaylgh10uy" path="res://interactable/furniture/plank/plank_group.tscn" id="12_6kt53"]

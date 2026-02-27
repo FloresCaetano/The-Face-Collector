@@ -1,0 +1,219 @@
+[gd_scene format=4 uid="uid://bnipoy34v66tt"]
+
+[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="1_1vkp3"]
+[ext_resource type="Texture2D" uid="uid://b4x1i6ifu5ds4" path="res://scripted-events/Chapter1/loops/first_loop/assets/1st_lap_bricks_1.png" id="2_pwj3w"]
+[ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_avd10"]
+[ext_resource type="Resource" uid="uid://cobwetohm2gwn" path="res://interactable/items/item-resources/tapes/sixth_tape/sixth_tape.tres" id="5_cmjaj"]
+[ext_resource type="PackedScene" uid="uid://dqrglq624h3gy" path="res://interactable/items/item-colectable/key/key.tscn" id="7_hik7e"]
+
+[sub_resource type="GDScript" id="GDScript_cymo7"]
+script/source = "extends Node3D
+var already_look := false
+func _on_look_event():
+	if !already_look:
+		$\"..\".get_node(\"1st_lap\").already_look = true
+		$\"..\".get_node(\"1st_lap3\").already_look = true
+		var BackgroundPlayer : AudioStreamPlayer3D = get_tree().get_first_node_in_group(\"background_audio_player\")
+		var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(BackgroundPlayer, \"volume_db\", -10, 0.5)
+		tween.tween_callback(
+			func():
+				get_tree().get_first_node_in_group(\"player\").get_node(\"PlayerSpeaking\").speak(\"
+				Something is wrong with this place. I have to get out of here.\")
+				get_tree().get_first_node_in_group(\"audio_player\").stream = load(\"res://assets/audio/fx/crepy/violin1.mp3\")
+				get_tree().get_first_node_in_group(\"audio_player\").play()
+				BackgroundPlayer.stream = load(\"res://assets/audio/ambient/crescendo - phase one.mp3\")
+				BackgroundPlayer.play()
+				var tween2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				tween2.tween_property(BackgroundPlayer, \"volume_db\", 0.0, 0.5)
+		)
+	
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xly1h"]
+resource_name = "Bricks"
+cull_mode = 2
+albedo_texture = ExtResource("2_pwj3w")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fnej8"]
+_surfaces = [{
+"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAADAAIAAAABAAMABQAHAAYABQAEAAcAAQAHAAMAAQAGAAcAAAALAAUAAAAJAAsAAwAEAAIAAwAHAAQAAAAGAAEAAAAFAAYACAALAAkACAAKAAsABQAKAAQABQALAAoAAgAJAAAAAgAIAAkABAAIAAIABAAKAAgA"),
+"name": "Bricks",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("hjUAAP//AAD//wAA//8AAIY1AAAAAAAA//8AAAAAAACGNf7/AAAAAIY1/v///wAA///+////AAD///7/AAAAAAAAAAAAAAAAAAAAAP//AAAAAP7/AAAAAAAA/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k2gfk"]
+resource_name = "1st_lap_Plane_024"
+_surfaces = [{
+"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
+"attribute_data": PackedByteArray("k6RzuwAAc7uTpP//AAD//898c7vPfP//3LZzu///c7trW3O7k6R4fwAAeH8vg3O7z3x4fyJJc7v//wTEa1sExP//eH9rW3h/k6QExAAABMT/////a1v//898BMQvg///3LYExC+DBMQvg3h/IkkExHv1c7uDCnh/3LZzu4MKc7uDCv//Iklzu3v1BMR79Xh/3LYExIMKBMR79f//IkkExA=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AgAMAAkAAgAFAAwAFQAaABcAFQARABoABgAbAA0ABgAYABsAAQAlABMAAQAfACUACwAPAAgACwAZAA8AAAAWAAQAAAASABYAHgAnACEAHgAkACcAFAAjABAAFAAmACMACgAgAAMACgAdACAADgAcAAcADgAiABwA"),
+"material": SubResource("StandardMaterial3D_xly1h"),
+"name": "Bricks",
+"primitive": 3,
+"uv_scale": Vector4(2.33403, 1.99271, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("hjUAAP////+GNQAA/////4Y1AAD/////hjUAAP///////wAA////////AAD///////8AAP////+GNQAAAAD//4Y1AAAAAP//hjUAAAAA//+GNQAAAAD/////AAAAAP////8AAAAA/////wAAAAD//4Y1/v8AAP//hjX+/wAA//+GNf7/AAD/v4Y1/v8AAP+/hjX+//////+GNf7//////4Y1/v////+/hjX+/////7////7//////////v////+////+//////////7/AAD//////v8AAP+////+/wAA//8AAAAAAAD//wAAAAAAAP//AAAAAAAA//8AAAAA/////wAAAAD/////AAAAAP////8AAP7/AAD//wAA/v8AAP+/AAD+/wAA//8AAP///////wAA//////+/AAD/////////f/9//3//f/9//z//f/8//3//f/9//z//v/9//v//f////3//f/8//3//P/7//3//f/8//7//f/7//3////9/////f////3//f/9//3//f////3////9//3//f////3//v/9//v//f////3//v/9//v//f/9//z//P/9//3//f/9//z//P/9//v//f////3//P/9//3//f////3//P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fnej8")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sxx1c"]
+data = PackedVector3Array(-0.399881, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, -0.1, -1.5, -0.399881, -0.1, 1.5, 0.687288, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, 0.0999999, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, 0.0999999, -1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, -0.399881, -0.1, 1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, 0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, -1.5, 0.687288, -0.1, -1.5, 0.687288, 0.0999999, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, -0.1, 1.5, -0.399881, -0.1, 1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, 1.5, -0.687288, 0.1, -1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, 0.0999999, -1.5, -0.687288, -0.0999999, -1.5, -0.399881, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, -0.0999999, -1.5)
+
+[sub_resource type="GDScript" id="GDScript_e44ma"]
+script/source = "extends Area3D
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group(\"player\"):
+		GLOBAL.add_event_on_story(\"1st_lap_ended\", Callable(self, \"_on_1st_lap_ended\"))
+		set_deferred(\"monitoring\", false)
+
+func _on_1st_lap_ended():
+	$\"../..\".add_child(load(\"res://scenes/LapWalls/2_nd_lap_walls.tscn\").instantiate())
+	$\"../..\".add_child(load(\"res://scenes/LapWalls/stalker.tscn\").instantiate())
+	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(get_tree().get_first_node_in_group(\"loop_2nd_music_layer\"), \"volume_db\", 0.0, 3)
+	tween.tween_callback(func(): $\"..\".queue_free())
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3gek"]
+size = Vector3(1, 2.92821, 1.27161)
+
+[sub_resource type="GDScript" id="GDScript_uufvg"]
+script/source = "extends Area3D
+
+func _ready() -> void:
+	set_physics_process(false)
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group(\"player\") && GLOBAL.events_on_story.has(\"basement_arrival\"):
+		$Timer.start()
+		set_physics_process(true)
+
+func _physics_process(_delta: float) -> void:
+	var time_left = $Timer.time_left
+	if time_left > 1.4 && time_left < 1.5:
+		$\"../../Interactables/Doors/Door8\".locked_anim_go()
+	elif time_left > 0.9 && time_left < 1.0:
+		$\"../../Interactables/Doors/Door8\".locked_anim_go()
+	elif time_left > 0.7 && time_left < 0.8:
+		$\"../../Interactables/Doors/Door8\".locked_anim_go()
+	elif time_left > 0.2 && time_left < 0.3:
+		$\"../../Interactables/Doors/Door8\".locked_anim_go()
+	monitoring = false
+
+
+func _on_timer_timeout() -> void:
+	$\"../../Trigger/00Knocks\".play()
+	$\"../../Trigger/00Knocks\".volume_db = 30
+	$\"../../Trigger/00Knocks\".connect(\"finished\", func(): $\"../../Trigger/00Knocks\".queue_free(); self.queue_free())
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i6pgf"]
+size = Vector3(4.11157, 2.79242, 1)
+
+[sub_resource type="GDScript" id="GDScript_cmjaj"]
+script/source = "extends Area3D
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group(\"player\") && GLOBAL.events_on_story.has(\"basement_arrival\"):
+		$\"../../Interactables/Doors/Door8\".open_door()
+		$\"../../Interactables/Doors/Door8\".unlock_steps = 0
+		queue_free()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqu7u"]
+size = Vector3(4.86771, 2.79242, 2.83252)
+
+[node name="1stLapWalls" type="Node" unique_id=313023708]
+
+[node name="1st_lap" type="StaticBody3D" parent="." unique_id=893394450 groups=["lookable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6536, 2.50224, -17.9487)
+script = SubResource("GDScript_cymo7")
+
+[node name="int8_002" type="MeshInstance3D" parent="1st_lap" unique_id=949683272]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_k2gfk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1st_lap" unique_id=260448393]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000200272, 1, -0.000730515)
+shape = SubResource("ConcavePolygonShape3D_sxx1c")
+
+[node name="1st_lap3" type="StaticBody3D" parent="." unique_id=1776204409 groups=["lookable"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.2649, 2.50224, -23.3497)
+script = SubResource("GDScript_cymo7")
+
+[node name="int8_002" type="MeshInstance3D" parent="1st_lap3" unique_id=739244626]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_k2gfk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1st_lap3" unique_id=95110244]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000200272, 1, -0.000730515)
+shape = SubResource("ConcavePolygonShape3D_sxx1c")
+
+[node name="BrickWall" type="StaticBody3D" parent="." unique_id=188648285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1307, 2.47008, -21.859)
+
+[node name="int8_002" type="MeshInstance3D" parent="BrickWall" unique_id=919815579]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_k2gfk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BrickWall" unique_id=369421601]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000198364, 1, -0.000730515)
+shape = SubResource("ConcavePolygonShape3D_sxx1c")
+
+[node name="Door17" parent="." unique_id=1521434582 instance=ExtResource("4_avd10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.91685, 3.12117, -23.943449)
+
+[node name="tape4" parent="." unique_id=1301721962 instance=ExtResource("1_1vkp3")]
+transform = Transform3D(-0.969999, 0, -0.243107, 0, 1, 0, 0.243107, 0, -0.969999, 17.5505, 2.05825, -11.781)
+tape_item = ExtResource("5_cmjaj")
+
+[node name="key" parent="." unique_id=1563243750 instance=ExtResource("7_hik7e")]
+transform = Transform3D(-0.868337, 0, 0.495974, 0, 1, 0, -0.495974, 0, -0.868337, 17.611, 2.01572, -11.8118)
+
+[node name="1st_lap_finish" type="Area3D" parent="." unique_id=1136675548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3132, 3, -28.4079)
+script = SubResource("GDScript_e44ma")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1st_lap_finish" unique_id=1095250308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.440132, -0.00531006)
+shape = SubResource("BoxShape3D_t3gek")
+
+[node name="1stLapKitchenArrival" type="Area3D" parent="." unique_id=1519516031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2508, 2.67766, -14.5698)
+script = SubResource("GDScript_uufvg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1stLapKitchenArrival" unique_id=1923641770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.752563, 0.896209, -2.00934)
+shape = SubResource("BoxShape3D_i6pgf")
+
+[node name="Timer" type="Timer" parent="1stLapKitchenArrival" unique_id=1103363715]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="1stLapKitchenLeaving" type="Area3D" parent="." unique_id=493196328]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.9506, 2.67766, -15.5628)
+script = SubResource("GDScript_cmjaj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1stLapKitchenLeaving" unique_id=1230876343]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.173431, 0.896209, 2.47909)
+shape = SubResource("BoxShape3D_hqu7u")
+
+[connection signal="body_entered" from="1st_lap_finish" to="1st_lap_finish" method="_on_body_entered"]
+[connection signal="body_entered" from="1stLapKitchenArrival" to="1stLapKitchenArrival" method="_on_body_entered"]
+[connection signal="timeout" from="1stLapKitchenArrival/Timer" to="1stLapKitchenArrival" method="_on_timer_timeout"]
+[connection signal="body_entered" from="1stLapKitchenLeaving" to="1stLapKitchenLeaving" method="_on_body_entered"]

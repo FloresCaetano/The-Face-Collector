@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://brk7fhrihmfm7"]
+[gd_scene format=4 uid="uid://brk7fhrihmfm7"]
 
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
@@ -9,11 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="5_g721p"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="6_8bqn5"]
 [ext_resource type="PackedScene" uid="uid://ck6i0rha0sels" path="res://scripted-events/Chapter1/first_audio_loop/first_audio_loop_controller.tscn" id="6_cihp4"]
-[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="9_7o2hl"]
-[ext_resource type="Resource" uid="uid://juymsbnsddx6" path="res://interactable/items/item-resources/tapes/third_tape/third_tape.tres" id="10_uvaer"]
-[ext_resource type="Script" uid="uid://7uggf5cj0q8q" path="res://scripted-events/Chapter1/storage_door_knocks/trg_storage_door_knocks.gd" id="11_bt7hu"]
-[ext_resource type="AudioStream" uid="uid://d0tr8qe0rksk5" path="res://scripted-events/Chapter1/storage_door_knocks/soft_knocks.mp3" id="12_dli6d"]
-[ext_resource type="PackedScene" uid="uid://bcsohbw3801lu" path="res://interactable/items/item-colectable/hammer/hammer.tscn" id="14_144cg"]
+[ext_resource type="Script" uid="uid://usi6l44j2s4e" path="res://scripted-events/Chapter1/loops/first_loop/scripts/1_st_lap_wall.gd" id="10_bt7hu"]
+[ext_resource type="Texture2D" uid="uid://b4x1i6ifu5ds4" path="res://scripted-events/Chapter1/loops/first_loop/assets/1st_lap_bricks_1.png" id="10_uvaer"]
+[ext_resource type="AudioStream" uid="uid://djw1bb3vcpms6" path="res://scripted-events/Chapter1/loops/first_loop/assets/hard_knocks.mp3" id="12_dli6d"]
 
 [sub_resource type="Resource" id="Resource_144cg"]
 script = ExtResource("5_fw6df")
@@ -21,8 +19,52 @@ need_key = true
 key_id = "storage_key"
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dli6d"]
-size = Vector3(1, 3.2387695, 1.4370117)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xly1h"]
+resource_name = "Bricks"
+cull_mode = 2
+albedo_texture = ExtResource("10_uvaer")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t8l22"]
+_surfaces = [{
+"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAADAAIAAAABAAMABQAHAAYABQAEAAcAAQAHAAMAAQAGAAcAAAALAAUAAAAJAAsAAwAEAAIAAwAHAAQAAAAGAAEAAAAFAAYACAALAAkACAAKAAsABQAKAAQABQALAAoAAgAJAAAAAgAIAAkABAAIAAIABAAKAAgA"),
+"name": "Bricks",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("hjUAAP//AAD//wAA//8AAIY1AAAAAAAA//8AAAAAAACGNf7/AAAAAIY1/v///wAA///+////AAD///7/AAAAAAAAAAAAAAAAAAAAAP//AAAAAP7/AAAAAAAA/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bt7hu"]
+resource_name = "1st_lap_Plane_024"
+_surfaces = [{
+"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
+"attribute_data": PackedByteArray("k6RzuwAAc7uTpP//AAD//898c7vPfP//3LZzu///c7trW3O7k6R4fwAAeH8vg3O7z3x4fyJJc7v//wTEa1sExP//eH9rW3h/k6QExAAABMT/////a1v//898BMQvg///3LYExC+DBMQvg3h/IkkExHv1c7uDCnh/3LZzu4MKc7uDCv//Iklzu3v1BMR79Xh/3LYExIMKBMR79f//IkkExA=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AgAMAAkAAgAFAAwAFQAaABcAFQARABoABgAbAA0ABgAYABsAAQAlABMAAQAfACUACwAPAAgACwAZAA8AAAAWAAQAAAASABYAHgAnACEAHgAkACcAFAAjABAAFAAmACMACgAgAAMACgAdACAADgAcAAcADgAiABwA"),
+"material": SubResource("StandardMaterial3D_xly1h"),
+"name": "Bricks",
+"primitive": 3,
+"uv_scale": Vector4(2.33403, 1.99271, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("hjUAAP////+GNQAA/////4Y1AAD/////hjUAAP///////wAA////////AAD///////8AAP////+GNQAAAAD//4Y1AAAAAP//hjUAAAAA//+GNQAAAAD/////AAAAAP////8AAAAA/////wAAAAD//4Y1/v8AAP//hjX+/wAA//+GNf7/AAD/v4Y1/v8AAP+/hjX+//////+GNf7//////4Y1/v////+/hjX+/////7////7//////////v////+////+//////////7/AAD//////v8AAP+////+/wAA//8AAAAAAAD//wAAAAAAAP//AAAAAAAA//8AAAAA/////wAAAAD/////AAAAAP////8AAP7/AAD//wAA/v8AAP+/AAD+/wAA//8AAP///////wAA//////+/AAD/////////f/9//3//f/9//z//f/8//3//f/9//z//v/9//v//f////3//f/8//3//P/7//3//f/8//7//f/7//3////9/////f////3//f/9//3//f////3////9//3//f////3//v/9//v//f////3//v/9//v//f/9//z//P/9//3//f/9//z//P/9//v//f////3//P/9//3//f////3//P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_t8l22")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dli6d"]
+data = PackedVector3Array(-0.399881, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, -0.1, -1.5, -0.399881, -0.1, 1.5, 0.687288, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, 0.0999999, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, 0.0999999, -1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, -0.399881, -0.1, 1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, 0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, -1.5, 0.687288, -0.1, -1.5, 0.687288, 0.0999999, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, -0.1, 1.5, -0.399881, -0.1, 1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, 1.5, -0.687288, 0.1, -1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, 0.0999999, -1.5, -0.687288, -0.0999999, -1.5, -0.399881, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, -0.0999999, -1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvaer"]
+size = Vector3(6.0057526, 3.1855469, 0.37548828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bt7hu"]
+size = Vector3(7.036028, 3.1855469, 0.37548828)
 
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
@@ -73,6 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.307037, 0.045, -8.176515)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.192372, 0.045, -8.176515)
 
 [node name="Door10" parent="FullHouse/InteractableFurniture/Doors" unique_id=1610481694 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.562089, 0.045, -7.6335845)
 
 [node name="Door11" parent="FullHouse/InteractableFurniture/Doors" unique_id=2061769666 instance=ExtResource("4_t6h63")]
@@ -111,7 +154,7 @@ cassete_tape_player = NodePath("..")
 transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
 
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.775295, 0.24460065, -10.448739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.251188, 0.24460065, -8.952129)
 
 [node name="Player" parent="PlayerAndLight" unique_id=443950597 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.8338972, 0)
@@ -126,33 +169,54 @@ spot_angle_attenuation = 9.849135
 
 [node name="Entities" type="Node3D" parent="." unique_id=1328729940]
 
-[node name="Chapter1" type="Node3D" parent="." unique_id=1597320258]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.600864, 0, -8.69635)
+[node name="Chapter2" type="Node3D" parent="." unique_id=1509475800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.73325, 0, -8.972869)
 
-[node name="Tape" parent="Chapter1" unique_id=1746687257 instance=ExtResource("9_7o2hl")]
-transform = Transform3D(-0.28951633, 0, 0.95717305, 0, 1, 0, -0.95717305, 0, -0.28951633, -8.474682, 0.46022964, 3.3765016)
-tape_item = ExtResource("10_uvaer")
+[node name="first_loop" type="Node3D" parent="Chapter2" unique_id=1157295965 node_paths=PackedStringArray("audio_stream_player_3d", "trg_kitchen_arrive", "trg_kitchen_leaves")]
+script = ExtResource("10_bt7hu")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+trg_kitchen_arrive = NodePath("TRGKitchenArrive")
+trg_kitchen_leaves = NodePath("TRGKitchenLeaves")
 
-[node name="ScriptedEvents" type="Node" parent="Chapter1" unique_id=1791025035]
+[node name="BrickWall" type="StaticBody3D" parent="Chapter2/first_loop" unique_id=1769139136]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.4942703, 0.47246557, -4.8715954)
 
-[node name="TRGStorageDoorKnocks" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=677333844 node_paths=PackedStringArray("audio_stream_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8602495, 0, -8.69635)
-script = ExtResource("11_bt7hu")
-audio_stream_player = NodePath("AudioStreamPlayer3D")
+[node name="int8_002" type="MeshInstance3D" parent="Chapter2/first_loop/BrickWall" unique_id=938005142]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_bt7hu")
 
-[node name="Area3D" type="Area3D" parent="Chapter1/ScriptedEvents/TRGStorageDoorKnocks" unique_id=958175651]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22157764, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter2/first_loop/BrickWall" unique_id=861558834]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000198364, 1, -0.000730515)
+shape = SubResource("ConcavePolygonShape3D_dli6d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/TRGStorageDoorKnocks/Area3D" unique_id=1385893670]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1193848, -0.21850586)
-shape = SubResource("BoxShape3D_dli6d")
+[node name="BrickWall2" type="StaticBody3D" parent="Chapter2/first_loop" unique_id=1548395616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.505331, 0.47246557, 0.08465767)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/TRGStorageDoorKnocks" unique_id=1742705750]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7281303, 1.8197268, 1.5540957)
+[node name="int8_002" type="MeshInstance3D" parent="Chapter2/first_loop/BrickWall2" unique_id=2067008069]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_bt7hu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter2/first_loop/BrickWall2" unique_id=1884248206]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.000198364, 1, -0.000730515)
+shape = SubResource("ConcavePolygonShape3D_dli6d")
+
+[node name="TRGKitchenArrive" type="Area3D" parent="Chapter2/first_loop" unique_id=282487212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5815134, 0, 2.2353911)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter2/first_loop/TRGKitchenArrive" unique_id=1666479405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6226568, 1.0927734, -0.31225586)
+shape = SubResource("BoxShape3D_uvaer")
+
+[node name="TRGKitchenLeaves" type="Area3D" parent="Chapter2/first_loop" unique_id=534033638]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.1347446, 0, 3.1410484)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter2/first_loop/TRGKitchenLeaves" unique_id=1779639714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1776085, 1.0927734, -0.31225586)
+shape = SubResource("BoxShape3D_bt7hu")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Chapter2/first_loop" unique_id=1262169612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6491623, 1.5113307, 1.796104)
 stream = ExtResource("12_dli6d")
-bus = &"LowPass"
 
-[node name="Hammer" parent="Chapter1" unique_id=861564715 instance=ExtResource("14_144cg")]
-transform = Transform3D(-0.87881714, -0.47715873, 2.085727e-08, 0, -4.371139e-08, -1, 0.47715873, -0.87881714, 3.8414317e-08, -11.0918455, 0, -2.18367)
-
-[connection signal="body_entered" from="Chapter1/ScriptedEvents/TRGStorageDoorKnocks/Area3D" to="Chapter1/ScriptedEvents/TRGStorageDoorKnocks" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Chapter2/first_loop/TRGKitchenArrive" to="Chapter2/first_loop" method="_on_trg_kitchen_arrive_body_entered"]
+[connection signal="body_entered" from="Chapter2/first_loop/TRGKitchenLeaves" to="Chapter2/first_loop" method="_on_trg_kitchen_leaves_body_entered"]
