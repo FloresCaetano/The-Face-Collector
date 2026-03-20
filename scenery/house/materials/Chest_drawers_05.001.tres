@@ -6,4 +6,3 @@
 resource_name = "Chest_drawers_05.001"
 cull_mode = 2
 albedo_texture = ExtResource("1_iuhob")
-texture_filter = 0

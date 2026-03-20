@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cf4qt7qu6id2t"]
+
+[ext_resource type="Texture2D" uid="uid://uhl4x2x85v1j" path="res://scenery/house/assets/cabinets-and-drawers_glass_mp_1.png" id="1_cd0ua"]
+
+[resource]
+resource_name = "glass_mp_1"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_cd0ua")
+texture_filter = 2

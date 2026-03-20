@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		return
 
 	if mouse_input.length() > 0:
-		var rotation_speed = GAMEMANAGER.look_sensitivity * delta * 60.0
+		var rotation_speed = GAMEMANAGER.look_sensitivity
 		
 		player.rotate_y(deg_to_rad(-mouse_input.x * rotation_speed))
 		rotate_x(deg_to_rad(mouse_input.y * rotation_speed))

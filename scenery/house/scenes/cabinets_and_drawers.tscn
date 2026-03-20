@@ -15,158 +15,152 @@ open_angle = -90.0
 open_speed = 0.6
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jsi5v"]
+points = PackedVector3Array(-2.7418137e-06, 0.0020003056, -1.6810645e-07, 0.5980023, 0.0020003056, -1.6810645e-07, -2.7418137e-06, 0.0020003056, 0.009996618, -2.7418137e-06, 1.7100003, -1.6810645e-07, 0.5979438, 0.0020003056, 0.009996618, 0.5979438, 1.709833, -1.6810645e-07, 0.5979438, 1.7100003, 0.009996618, 0.019958077, 0.021895763, 0.019999113, -2.7418137e-06, 1.7100003, 0.009996618, 0.5602465, 0.5940156, 0.051147778, 0.5491832, 0.5940156, 0.0582916, 0.57798296, 0.021895763, 0.019999113, 0.57792443, 1.6899376, 0.019999113, 0.5492417, 0.6458441, 0.058285896, 0.5602465, 0.6458441, 0.05114207, 0.019958077, 1.6899376, 0.019999113)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q50ey"]
+points = PackedVector3Array(-0.5980023, 0.0020003056, -1.6810645e-07, -5.5789948e-05, 0.0020003056, -1.6810645e-07, -0.5980023, 0.0020003056, 0.009996618, -0.5980023, 1.709833, -1.6810645e-07, 2.7418137e-06, 0.0020003056, 0.009996618, -5.5789948e-05, 1.7100003, -1.6810645e-07, -0.5780415, 0.021895763, 0.019999113, -0.5492417, 0.5940156, 0.0582916, -0.56030506, 0.5940156, 0.051147778, -0.5980023, 1.7100003, 0.009996618, -0.02001661, 0.021895763, 0.019999113, 2.7418137e-06, 1.7100003, 0.009996618, -0.54930025, 0.6458441, 0.058285896, -0.02001661, 1.6899376, 0.019999113, -0.56030506, 0.6458441, 0.05114207, -0.57798296, 1.6899376, 0.019999113)
+
 [node name="CabinetsAndDrawers" unique_id=862142503 instance=ExtResource("1_yddyi")]
 
-[node name="StaticBody3D" parent="Chest_drawers_05_015_001" parent_id_path=PackedInt32Array(484309491) index="0" unique_id=746061977 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Chest_drawers_05_015_001" parent_id_path=PackedInt32Array(1344476255) index="0" unique_id=2026068606 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Chest_drawers_05_010_001" parent_id_path=PackedInt32Array(1181892223) index="0" unique_id=1478558264 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Chest_drawers_05_010_001" parent_id_path=PackedInt32Array(1892349706) index="0" unique_id=1256083203 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="Chest_drawers_05_015_002" parent="." index="6" unique_id=1286701253]
-visible = false
-
-[node name="Chest_drawers_05_014_002" parent="." index="7" unique_id=1385685302]
-visible = false
-
-[node name="Chest_drawers_05_013_002" parent="." index="8" unique_id=2014217115]
-visible = false
-
-[node name="Chest_drawers_05_012_002" parent="." index="9" unique_id=1645822917]
-visible = false
-
-[node name="Chest_drawers_05_011_002" parent="." index="10" unique_id=853975170]
-visible = false
-
-[node name="Chest_drawers_05_010_002" parent="." index="11" unique_id=1887488992]
-visible = false
-
-[node name="StaticBody3D" parent="Cube_055" parent_id_path=PackedInt32Array(1097923542) index="0" unique_id=493720736 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_055" parent_id_path=PackedInt32Array(558042863) index="0" unique_id=126175616 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_054" parent_id_path=PackedInt32Array(1600651728) index="0" unique_id=707771912 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_054" parent_id_path=PackedInt32Array(156562839) index="0" unique_id=856961458 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Chest_drawers_05_010" parent_id_path=PackedInt32Array(1270155701) index="0" unique_id=856727346 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Chest_drawers_05_010" parent_id_path=PackedInt32Array(392845969) index="0" unique_id=215372631 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Chest_drawers_05_015" parent_id_path=PackedInt32Array(469641966) index="0" unique_id=1683762104 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Chest_drawers_05_015" parent_id_path=PackedInt32Array(1752185574) index="0" unique_id=918309838 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_005" parent_id_path=PackedInt32Array(1558227604) index="0" unique_id=466923785 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_005" parent_id_path=PackedInt32Array(2004301576) index="0" unique_id=553040501 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_006" parent_id_path=PackedInt32Array(946567820) index="0" unique_id=1565262009 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_006" parent_id_path=PackedInt32Array(444609095) index="0" unique_id=879744533 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Cube_007_001" parent_id_path=PackedInt32Array(88323594) index="0" unique_id=246623377 node_paths=PackedStringArray("object")]
-script = ExtResource("2_xwikl")
-object = NodePath("..")
-settings = SubResource("Resource_0m8hr")
-
-[node name="StaticBody3D" parent="Cube_008" parent_id_path=PackedInt32Array(551340606) index="0" unique_id=385191225 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_008" parent_id_path=PackedInt32Array(1873761814) index="0" unique_id=1293210469 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_009" parent_id_path=PackedInt32Array(1779060674) index="0" unique_id=1075384755 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_009" parent_id_path=PackedInt32Array(497837097) index="0" unique_id=2137634396 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Cube_010_001" parent_id_path=PackedInt32Array(1641684168) index="0" unique_id=364933351 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_011" parent_id_path=PackedInt32Array(471372577) index="0" unique_id=2103524674 node_paths=PackedStringArray("object")]
+script = ExtResource("2_xwikl")
+object = NodePath("..")
+
+[node name="StaticBody3D" parent="Cube_012" parent_id_path=PackedInt32Array(894222229) index="0" unique_id=243244021 node_paths=PackedStringArray("object")]
+script = ExtResource("2_xwikl")
+object = NodePath("..")
+settings = SubResource("Resource_0m8hr")
+
+[node name="StaticBody3D" parent="Cube_015" parent_id_path=PackedInt32Array(1582740716) index="0" unique_id=1189489255 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_011" parent_id_path=PackedInt32Array(158494280) index="0" unique_id=1734797305 node_paths=PackedStringArray("object")]
-script = ExtResource("2_xwikl")
-object = NodePath("..")
-
-[node name="StaticBody3D" parent="Cube_012" parent_id_path=PackedInt32Array(586178683) index="0" unique_id=1357699377 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_016" parent_id_path=PackedInt32Array(1914946390) index="0" unique_id=1210943381 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Cube_015" parent_id_path=PackedInt32Array(558207645) index="0" unique_id=1349735553 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_047_001" parent_id_path=PackedInt32Array(2061958979) index="0" unique_id=1570835607 node_paths=PackedStringArray("object")]
+script = ExtResource("2_xwikl")
+object = NodePath("..")
+settings = SubResource("Resource_0m8hr")
+
+[node name="StaticBody3D" parent="Cube_048" parent_id_path=PackedInt32Array(1114435780) index="0" unique_id=1686496455 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_016" parent_id_path=PackedInt32Array(110962551) index="0" unique_id=241428687 node_paths=PackedStringArray("object")]
-script = ExtResource("2_xwikl")
-object = NodePath("..")
-settings = SubResource("Resource_0m8hr")
-
-[node name="StaticBody3D" parent="Cube_047_001" parent_id_path=PackedInt32Array(153990062) index="0" unique_id=406285834 node_paths=PackedStringArray("object")]
-script = ExtResource("2_xwikl")
-object = NodePath("..")
-settings = SubResource("Resource_0m8hr")
-
-[node name="StaticBody3D" parent="Cube_048" parent_id_path=PackedInt32Array(345179145) index="0" unique_id=465284198 node_paths=PackedStringArray("object")]
-script = ExtResource("2_xwikl")
-object = NodePath("..")
-settings = SubResource("Resource_q50ey")
-
-[node name="StaticBody3D" parent="Cube_082" parent_id_path=PackedInt32Array(1712486961) index="0" unique_id=975470916 node_paths=PackedStringArray("object", "obstacle_check")]
+[node name="StaticBody3D" parent="Cube_082" parent_id_path=PackedInt32Array(1557239793) index="0" unique_id=1014869607 node_paths=PackedStringArray("object", "obstacle_check")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 obstacle_check = NodePath("../../Cube_086/StaticBody3D")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Cube_083" parent_id_path=PackedInt32Array(276537417) index="0" unique_id=1391308315 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_083" parent_id_path=PackedInt32Array(1280202418) index="0" unique_id=386283210 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_085" parent_id_path=PackedInt32Array(209646220) index="0" unique_id=1664761453 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_085" parent_id_path=PackedInt32Array(1807883594) index="0" unique_id=964525912 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Cube_086" parent_id_path=PackedInt32Array(1647077074) index="0" unique_id=912004775 node_paths=PackedStringArray("object", "obstacle_check")]
+[node name="StaticBody3D" parent="Cube_086" parent_id_path=PackedInt32Array(976592027) index="0" unique_id=1228253026 node_paths=PackedStringArray("object", "obstacle_check")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 obstacle_check = NodePath("../../Cube_082/StaticBody3D")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_097" parent_id_path=PackedInt32Array(1303353162) index="0" unique_id=887020454 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_097" parent_id_path=PackedInt32Array(1321704310) index="0" unique_id=397355062 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Cube_098" parent_id_path=PackedInt32Array(960123121) index="0" unique_id=1716200669 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_098" parent_id_path=PackedInt32Array(2004239954) index="0" unique_id=1506971963 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Cube_193" parent_id_path=PackedInt32Array(1024239664) index="0" unique_id=85479945 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_193" parent_id_path=PackedInt32Array(930912131) index="0" unique_id=437012065 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
 
-[node name="StaticBody3D" parent="Cube_194" parent_id_path=PackedInt32Array(2077446610) index="0" unique_id=1413930202 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Cube_194" parent_id_path=PackedInt32Array(125514361) index="0" unique_id=464108425 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Tap_001" parent_id_path=PackedInt32Array(368723317) index="0" unique_id=831861883 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Tap_001" parent_id_path=PackedInt32Array(1500633603) index="0" unique_id=57117094 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="display_cabinet_mp_2_4_door_1_001" parent_id_path=PackedInt32Array(450447040) index="0" unique_id=1942082188 node_paths=PackedStringArray("object")]
+script = ExtResource("2_xwikl")
+object = NodePath("..")
+settings = SubResource("Resource_0m8hr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="display_cabinet_mp_2_4_door_1_001/StaticBody3D" index="0" unique_id=1332069380]
+shape = SubResource("ConvexPolygonShape3D_jsi5v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="display_cabinet_mp_2_4_door_2_001" parent_id_path=PackedInt32Array(5466353) index="0" unique_id=431392120 node_paths=PackedStringArray("object")]
+script = ExtResource("2_xwikl")
+object = NodePath("..")
+settings = SubResource("Resource_q50ey")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="display_cabinet_mp_2_4_door_2_001/StaticBody3D" index="0" unique_id=583297402]
+shape = SubResource("ConvexPolygonShape3D_q50ey")

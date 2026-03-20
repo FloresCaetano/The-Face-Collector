@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2g4d5irn88sk"]
+
+[ext_resource type="PackedScene" uid="uid://6xum33c4lhqp" path="res://scenery/house/assets/furniture.glb" id="1_rep5f"]
+
+[node name="furniture" unique_id=458928174 instance=ExtResource("1_rep5f")]
+
+[node name="Lamp_01" parent="." index="141" unique_id=742831411]
+transform = Transform3D(0.6780019, 0, -0.7350601, 0, 1, 0, 0.7350601, 0, 0.6780019, 10.3348055, 1.0908979, -19.052792)

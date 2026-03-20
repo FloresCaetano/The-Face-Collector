@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="7_ygkyx"]
 [ext_resource type="AudioStream" uid="uid://b3jiptgr5drqf" path="res://interactable/items/item-resources/tapes/sixth_tape/6th recording.mp3" id="8_0l1oc"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="9_7dhi7"]
+[ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="9_c255i"]
 [ext_resource type="Script" uid="uid://fxkhldiyklej" path="res://core/auxiliar/first_cinematic/first_cinematic.gd" id="10_x7c67"]
 [ext_resource type="Script" uid="uid://d4m1gbt2el6lc" path="res://core/auxiliar/first_cinematic/camera_3d.gd" id="11_x7c67"]
 [ext_resource type="Script" uid="uid://sv4m8c6y6ygn" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="13_ef6mv"]
@@ -910,6 +911,8 @@ bus = &"LowPass"
 [node name="photoFrame" parent="FullHouse/InteractableFurniture" unique_id=1883362346 instance=ExtResource("9_7dhi7")]
 transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
 
+[node name="furniture" parent="FullHouse" unique_id=458928174 instance=ExtResource("9_c255i")]
+
 [node name="Entities" type="Node3D" parent="." unique_id=1328729940]
 
 [node name="FirstCinematic" type="Path3D" parent="." unique_id=409538718 node_paths=PackedStringArray("door", "light")]
@@ -920,7 +923,7 @@ door = NodePath("../FullHouse/InteractableFurniture/Doors/Door16")
 light = NodePath("Collector/OmniLight3D")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="FirstCinematic" unique_id=1379875749]
-transform = Transform3D(0.9987924, -0.00564969, -0.045034166, 0.008731691, 0.99756473, 0.06854204, 0.04453905, -0.06887348, 0.9964582, 9.113023, -0.15581344, -16.538568)
+transform = Transform3D(0.9987924, -0.00564969, -0.04503416, 0.008731691, 0.99756473, 0.068542026, 0.04453905, -0.06887348, 0.996458, 9.113023, -0.15581344, -16.538568)
 progress = 47.942547
 
 [node name="CameraContainer" type="Node3D" parent="FirstCinematic/PathFollow3D" unique_id=61178070]

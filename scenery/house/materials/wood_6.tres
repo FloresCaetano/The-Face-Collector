@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cw1tf8aoxfyug"]
+
+[ext_resource type="Texture2D" uid="uid://mkytgq64s32o" path="res://scenery/house/assets/cabinets-and-drawers_wood_6.png" id="1_l8e3c"]
+
+[resource]
+resource_name = "wood_6"
+cull_mode = 2
+albedo_texture = ExtResource("1_l8e3c")
+texture_filter = 2
