@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqpsvwyt2t1q4"
+path="res://.godot/imported/lena crying.mp3-3f8e134b9cc7c4d29e7dce95e91dd950.mp3str"
+
+[deps]
+
+source_file="res://scripted-events/Chapter1/loops/fourth_loop/sixth_tape_trigger/assets/lena crying.mp3"
+dest_files=["res://.godot/imported/lena crying.mp3-3f8e134b9cc7c4d29e7dce95e91dd950.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

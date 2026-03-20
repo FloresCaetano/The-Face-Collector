@@ -10,6 +10,7 @@ extends Interactable
 @onready var camera : Camera = PATHS.camera
 @onready var inventory : Inventory = PATHS.inventory
 
+var triggers = []
 
 var timestamps = []
 var characters = []
@@ -18,7 +19,7 @@ var subtitles = {}
 var last_tape : TapeResource = null
 
 signal tape_finished(tape)
-signal line_change(character_name, subtitle_text)
+signal event_triggered(tape_tag, trigger_event)
 
 
 
@@ -62,6 +63,13 @@ func _process(_delta: float) -> void:
 	#UPDATE SUBTITLES:
 	if audio_stream_player.playing:
 		var current_time = audio_stream_player.get_playback_position()
+		for trigger in triggers:
+			if current_time >= trigger.timestamp - subtitle_margin and current_time < trigger.timestamp + subtitle_margin:
+				event_triggered.emit(last_tape.tag, trigger.event)
+				triggers.erase(trigger)
+				print_debug("Event triggered signal with tag: %s and event: %s" % [last_tape.tag, trigger.event])
+				break
+		
 		for i in range(timestamps.size()):
 			if current_time >= timestamps[i] - subtitle_margin and current_time < timestamps[i] + subtitle_margin:
 				set_subtitle(i)
@@ -73,7 +81,6 @@ func set_subtitle(index : int) -> void:
 	lbl_subtitles.text = text
 	lbl_subtitles_3d.text = text
 
-	line_change.emit(characters[index], subtitles[actual_language][index])
 
 func _on_item_selected(item : Item) -> void:
 	if not is_interacting:

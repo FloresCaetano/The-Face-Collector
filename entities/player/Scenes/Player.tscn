@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://gb7m7vwbhkmd" path="res://entities/player/Scripts/Player.gd" id="1_ea5mg"]
 [ext_resource type="Script" uid="uid://mco5dswxqvi4" path="res://entities/player/Scripts/Pivot.gd" id="2_4h0ee"]
 [ext_resource type="Script" uid="uid://csdu88yol218h" path="res://entities/player/Scripts/Camera3d.gd" id="4_kb441"]
+[ext_resource type="Script" uid="uid://sv4m8c6y6ygn" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="4_lxrxp"]
 [ext_resource type="PackedScene" uid="uid://cpnx3hhyuewlk" path="res://entities/player/Scenes/MouseRayCast.tscn" id="5_p7jie"]
+[ext_resource type="Resource" uid="uid://btkel5ttuwma1" path="res://VFX/resources/shaker.tres" id="5_pdd5r"]
 [ext_resource type="Script" uid="uid://dmsy0jfrxsrqa" path="res://shared/audio_system/audio_controller.gd" id="6_gdq0t"]
 [ext_resource type="Script" uid="uid://hnt1qb71l50a" path="res://shared/footsteps_system/footsteps.gd" id="6_j7vas"]
 [ext_resource type="AudioStream" uid="uid://cnm7h4j52mxap" path="res://shared/footsteps_system/assets/1.mp3" id="7_6lnal"]
@@ -48,15 +50,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17, 0)
 script = ExtResource("2_4h0ee")
 
 [node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=1890241341 groups=["camera"]]
-transform = Transform3D(-0.5, 4.5279407e-09, 4.331021e-07, 0, 0.49997267, -0.0052270507, -4.3312576e-07, -0.0052270507, -0.49997267, -0.018482096, 0.05177766, 0.03732849)
+transform = Transform3D(-0.5, 8.155604e-09, 4.33049e-07, 0, 0.49991137, -0.009414823, -4.3312576e-07, -0.009414823, -0.49991137, -0.032204334, 0.040217865, 0.035771947)
 cull_mask = 1048063
 current = true
 fov = 73.0
 script = ExtResource("4_kb441")
 
-[node name="ShakerComponent3D" type="Node3D" parent="Pivot/Camera3D" unique_id=362700630]
+[node name="ShakerComponent3D" type="Node3D" parent="Pivot/Camera3D" unique_id=1095900721 node_paths=PackedStringArray("Targets")]
 unique_name_in_owner = true
 transform = Transform3D(1, -8.881784e-16, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("4_lxrxp")
+custom_target = true
+Targets = [NodePath("..")]
+AutoPlay = true
+intensity = 0.03
+shake_speed = 0.4
+fade_out = 16.564203
+shakerPreset = ExtResource("5_pdd5r")
+metadata/_custom_type_script = "uid://sv4m8c6y6ygn"
 
 [node name="MouseRayCast" parent="Pivot/Camera3D" unique_id=443681335 groups=["mouse_raycast"] instance=ExtResource("5_p7jie")]
 
@@ -82,10 +93,12 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.88799, -0.00575417)
 target_position = Vector3(0, -0.75, 0)
 
-[node name="AudioController" type="Node3D" parent="." unique_id=574176879 node_paths=PackedStringArray("background_player", "simple_player") groups=["audio_controller"]]
+[node name="AudioController" type="Node3D" parent="." unique_id=574176879 node_paths=PackedStringArray("background_player", "simple_player", "left_back_player", "right_back_player") groups=["audio_controller"]]
 script = ExtResource("6_gdq0t")
 background_player = NodePath("Background")
 simple_player = NodePath("Simple")
+left_back_player = NodePath("LeftBackAudio")
+right_back_player = NodePath("RightBackAudio")
 
 [node name="LeftBackAudio" type="AudioStreamPlayer3D" parent="AudioController" unique_id=659192779 groups=["left_back_audio_player"]]
 transform = Transform3D(0.5, 4.5279407e-09, -4.7681348e-07, 4.569634e-10, 0.49997267, 0.0052270507, 4.7683477e-07, -0.0052270507, 0.49997267, 0.5599899, -0.21511263, -0.042504035)
@@ -139,6 +152,7 @@ hit_from_inside = true
 player = NodePath("../..")
 
 [node name="CenterCursor" type="CenterContainer" parent="Hud" unique_id=2055896665]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

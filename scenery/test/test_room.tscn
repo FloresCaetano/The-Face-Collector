@@ -1,28 +1,68 @@
 [gd_scene format=4 uid="uid://cyk1soxeco6bs"]
 
 [ext_resource type="Texture2D" uid="uid://n1h0pr14c2gj" path="res://scenery/test/texture_07.png" id="1_uo7yq"]
-[ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="2_dgxqp"]
+[ext_resource type="Script" uid="uid://gb7m7vwbhkmd" path="res://entities/player/Scripts/Player.gd" id="2_blx18"]
 [ext_resource type="Texture2D" uid="uid://p10y6wc0ipwa" path="res://scenery/house/assets/house_Wood_05_88.jpg" id="3_5ubiv"]
+[ext_resource type="Script" uid="uid://mco5dswxqvi4" path="res://entities/player/Scripts/Pivot.gd" id="3_krrh1"]
 [ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="4_7v8ao"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="4_gr0nq"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_krrh1"]
+[ext_resource type="PackedScene" uid="uid://cpnx3hhyuewlk" path="res://entities/player/Scenes/MouseRayCast.tscn" id="5_bjkv5"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_vt8sm"]
 [ext_resource type="Resource" uid="uid://2x84gf4oh2vo" path="res://interactable/items/item-resources/tapes/first_tape/first_tape.tres" id="6_a1g5e"]
+[ext_resource type="PackedScene" uid="uid://dq5qtkxbgdhrg" path="res://entities/player/Scenes/InteractionHandler.tscn" id="6_puid6"]
+[ext_resource type="Script" uid="uid://dmsy0jfrxsrqa" path="res://shared/audio_system/audio_controller.gd" id="7_hlflu"]
+[ext_resource type="Script" uid="uid://hnt1qb71l50a" path="res://shared/footsteps_system/footsteps.gd" id="8_t4133"]
 [ext_resource type="Resource" uid="uid://68liv2cplpcn" path="res://interactable/items/item-resources/tapes/fifth_tape/fifth_tape.tres" id="8_y1cow"]
 [ext_resource type="Resource" uid="uid://juymsbnsddx6" path="res://interactable/items/item-resources/tapes/third_tape/third_tape.tres" id="9_a1g5e"]
+[ext_resource type="AudioStream" uid="uid://cnm7h4j52mxap" path="res://shared/footsteps_system/assets/1.mp3" id="9_hfthy"]
 [ext_resource type="Resource" uid="uid://cobwetohm2gwn" path="res://interactable/items/item-resources/tapes/sixth_tape/sixth_tape.tres" id="9_y1cow"]
+[ext_resource type="AudioStream" uid="uid://jrs47idtrhbn" path="res://shared/footsteps_system/assets/2.mp3" id="10_snk28"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="10_y1cow"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="11_4wny6"]
+[ext_resource type="AudioStream" uid="uid://xsehv3010qci" path="res://shared/footsteps_system/assets/3.mp3" id="11_qxh54"]
 [ext_resource type="PackedScene" uid="uid://brbbaylgh10uy" path="res://interactable/furniture/plank/plank_group.tscn" id="12_6kt53"]
 [ext_resource type="PackedScene" uid="uid://dqrglq624h3gy" path="res://interactable/items/item-colectable/key/key.tscn" id="12_dw86f"]
+[ext_resource type="AudioStream" uid="uid://u837pntoh66c" path="res://shared/footsteps_system/assets/c1.mp3" id="12_oqw16"]
 [ext_resource type="Resource" uid="uid://db7epe4roj6d1" path="res://interactable/items/item-resources/keys/bedroom_key.tres" id="13_bhgj0"]
 [ext_resource type="PackedScene" uid="uid://bcu34ojoq6rcm" path="res://interactable/furniture/plank/plank.tscn" id="13_etn8j"]
+[ext_resource type="AudioStream" uid="uid://4gmc5o1b4ihh" path="res://shared/footsteps_system/assets/c2.mp3" id="13_tedtd"]
+[ext_resource type="AudioStream" uid="uid://teb8i38r6h8r" path="res://shared/footsteps_system/assets/c3.mp3" id="14_63jam"]
+[ext_resource type="PackedScene" uid="uid://7f4fxxiv7yq4" path="res://core/inventory/scenes/inventory.tscn" id="15_vsy54"]
 [ext_resource type="PackedScene" uid="uid://bcsohbw3801lu" path="res://interactable/items/item-colectable/hammer/hammer.tscn" id="16_etn8j"]
+[ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="16_qkp7b"]
 [ext_resource type="PackedScene" uid="uid://u7176gi7ni4q" path="res://interactable/furniture/safe/safe.tscn" id="17_pausq"]
+[ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="17_xc0w6"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="18_gep45"]
+[ext_resource type="Script" uid="uid://r7hhqplb10vv" path="res://scripted-events/Chapter1/loops/fourth_loop/sixth_tape_trigger/sixth_tape_audio_trigger.gd" id="19_bwdx5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
 uv1_triplanar = true
 uv1_world_triplanar = true
+
+[sub_resource type="Resource" id="Resource_bjkv5"]
+script = ExtResource("5_vt8sm")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0voef"]
+radius = 0.1
+height = 0.835
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_uli6c"]
+stream_count = 1
+stream_0/volume = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j7vas"]
+streams_count = 3
+stream_0/stream = ExtResource("9_hfthy")
+stream_1/stream = ExtResource("10_snk28")
+stream_2/stream = ExtResource("11_qxh54")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1hew"]
+streams_count = 3
+stream_0/stream = ExtResource("12_oqw16")
+stream_1/stream = ExtResource("13_tedtd")
+stream_2/stream = ExtResource("14_63jam")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfrsr"]
 resource_name = "Wood_05.004"
@@ -90,8 +130,137 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1334343, -0.112495184, -3.
 size = Vector3(24.497993, 0.26757813, 23.073936)
 material = SubResource("StandardMaterial3D_dgxqp")
 
-[node name="Player" parent="." unique_id=443950597 instance=ExtResource("2_dgxqp")]
+[node name="TestPlayer" type="CharacterBody3D" parent="." unique_id=443950597 node_paths=PackedStringArray("pivot") groups=["player"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.0938578, -0.015516102)
+collision_layer = 262153
+script = ExtResource("2_blx18")
+pivot = NodePath("Pivot")
+
+[node name="Pivot" type="Node3D" parent="TestPlayer" unique_id=876858444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17, 0)
+script = ExtResource("3_krrh1")
+
+[node name="Camera3D" type="Node3D" parent="TestPlayer/Pivot" unique_id=1109728346]
+script = ExtResource("4_krrh1")
+tween_resource = SubResource("Resource_bjkv5")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MouseRayCast" parent="TestPlayer/Pivot/Camera3D" unique_id=443681335 groups=["mouse_raycast"] instance=ExtResource("5_bjkv5")]
+transform = Transform3D(-0.5, 8.155604e-09, 4.33049e-07, 0, 0.49991137, -0.009414823, -4.3312576e-07, -0.009414823, -0.49991137, -0.032204334, 0.040217876, 0.035771947)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestPlayer" unique_id=1497191989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4974903, 0)
+shape = SubResource("CapsuleShape3D_0voef")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="InteractionHandler" parent="TestPlayer" unique_id=1150819083 node_paths=PackedStringArray("mouse_ray_cast", "cursor") groups=["interaction_handler"] instance=ExtResource("6_puid6")]
+mouse_ray_cast = NodePath("../Pivot/Camera3D/MouseRayCast")
+cursor = NodePath("../Hud/CenterCursor/Cursor")
+
+[node name="StairsRaycasts" type="Node3D" parent="TestPlayer" unique_id=346080102]
+visible = false
+
+[node name="StairsRaycast" type="RayCast3D" parent="TestPlayer/StairsRaycasts" unique_id=714280054]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.281776, 0.47010314)
+target_position = Vector3(0, -0.55, 0)
+
+[node name="StairsBelowRaycast" type="RayCast3D" parent="TestPlayer/StairsRaycasts" unique_id=20927955]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.88799, -0.00575417)
+target_position = Vector3(0, -0.75, 0)
+
+[node name="AudioController" type="Node3D" parent="TestPlayer" unique_id=574176879 node_paths=PackedStringArray("background_player", "simple_player", "left_back_player", "right_back_player") groups=["audio_controller"]]
+script = ExtResource("7_hlflu")
+background_player = NodePath("Background")
+simple_player = NodePath("Simple")
+left_back_player = NodePath("LeftBackAudio")
+right_back_player = NodePath("RightBackAudio")
+
+[node name="LeftBackAudio" type="AudioStreamPlayer3D" parent="TestPlayer/AudioController" unique_id=659192779 groups=["left_back_audio_player"]]
+transform = Transform3D(0.5, 4.5279407e-09, -4.7681348e-07, 4.569634e-10, 0.49997267, 0.0052270507, 4.7683477e-07, -0.0052270507, 0.49997267, 0.5599899, -0.21511263, -0.042504035)
+visible = false
+volume_db = -10.0
+
+[node name="RightBackAudio" type="AudioStreamPlayer3D" parent="TestPlayer/AudioController" unique_id=581204566 groups=["right_back_audio_player"]]
+transform = Transform3D(0.5, 4.5279407e-09, -4.7681348e-07, 4.569634e-10, 0.49997267, 0.0052270507, 4.7683477e-07, -0.0052270507, 0.49997267, -0.64312613, -0.21472138, -0.0050935224)
+visible = false
+volume_db = -10.0
+
+[node name="Background" type="AudioStreamPlayer" parent="TestPlayer/AudioController" unique_id=824644454 groups=["background_audio_player"]]
+stream = SubResource("AudioStreamSynchronized_uli6c")
+autoplay = true
+max_polyphony = 10
+
+[node name="Simple" type="AudioStreamPlayer" parent="TestPlayer/AudioController" unique_id=386658351 groups=["stinger_player"]]
+
+[node name="Footsteps" type="Node3D" parent="TestPlayer/AudioController" unique_id=88434533 node_paths=PackedStringArray("object", "footsteps_player", "footsteps_creaking", "check_floor_ray_material", "timer")]
+script = ExtResource("8_t4133")
+object = NodePath("../..")
+footsteps_player = NodePath("Footsteps")
+footsteps_creaking = NodePath("FootstepsCreaking")
+check_floor_ray_material = NodePath("CheckFloorMaterialRay")
+timer = NodePath("Timer")
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="TestPlayer/AudioController/Footsteps" unique_id=2101470530]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.8856415, 0)
+stream = SubResource("AudioStreamRandomizer_j7vas")
+volume_db = -10.0
+pitch_scale = 0.7
+max_polyphony = 2
+
+[node name="FootstepsCreaking" type="AudioStreamPlayer3D" parent="TestPlayer/AudioController/Footsteps" unique_id=251122144]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.9101196, 0)
+visible = false
+stream = SubResource("AudioStreamRandomizer_n1hew")
+volume_db = -15.0
+pitch_scale = 0.7
+max_polyphony = 4
+
+[node name="CheckFloorMaterialRay" type="RayCast3D" parent="TestPlayer/AudioController/Footsteps" unique_id=1386254671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8259876, 0)
+hit_from_inside = true
+
+[node name="Timer" type="Timer" parent="TestPlayer/AudioController/Footsteps" unique_id=1407096298]
+
+[node name="Hud" type="CanvasLayer" parent="TestPlayer" unique_id=156496796]
+
+[node name="Inventory" parent="TestPlayer/Hud" unique_id=213834778 node_paths=PackedStringArray("player") instance=ExtResource("15_vsy54")]
+player = NodePath("../..")
+
+[node name="CenterCursor" type="CenterContainer" parent="TestPlayer/Hud" unique_id=2055896665]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cursor" type="Control" parent="TestPlayer/Hud/CenterCursor" unique_id=990466810 groups=["cursor"]]
+layout_mode = 2
+script = ExtResource("16_qkp7b")
+
+[node name="TransitionController" type="Control" parent="TestPlayer" unique_id=2129497866 node_paths=PackedStringArray("black_screen") groups=["transition_controller"]]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("17_xc0w6")
+black_screen = NodePath("BlackScreen")
+
+[node name="BlackScreen" type="ColorRect" parent="TestPlayer/TransitionController" unique_id=1501627670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Stuff" type="Node3D" parent="." unique_id=971973695]
 
@@ -172,3 +341,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment" unique_id=1024718704]
 environment = SubResource("Environment_a1g5e")
+
+[node name="SixthTapeAudioTrigger" type="Node" parent="." unique_id=1898912172]
+script = ExtResource("19_bwdx5")

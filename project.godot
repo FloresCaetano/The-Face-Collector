@@ -25,15 +25,22 @@ PATHS="*uid://ik76pe0oy00s"
 GAMEMANAGER="*uid://0btm6xasob6y"
 SIGNALBUS="*uid://d1wow5rh573gt"
 GAMESTATE="*uid://c6bn56rolpstk"
+PhantomCameraManager="*uid://duq6jhf6unyis"
+Shaker="*uid://ckvxea53sg5ld"
 
 [display]
 
 window/size/viewport_width=1366
 window/size/viewport_height=768
 
+[editor]
+
+movie_writer/ogv/encoding_speed=3
+movie_writer/movie_file="C:/Proyectos/RAW ASSETS/Media/Editables/video/camera_travel.avi"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gd-blender-3d-shortcuts/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/gd-blender-3d-shortcuts/plugin.cfg", "res://addons/github_copilot/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [input]
 

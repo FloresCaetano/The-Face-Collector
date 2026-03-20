@@ -11,5 +11,6 @@ audio = ExtResource("1_goyos")
 csv_subtitles = "res://LOCATION/subtitles/sub_6thRecording.csv"
 name = "K_TAPE"
 texture = ExtResource("4_v4etr")
+tag = "sixth_tape"
 model = ExtResource("2_v4etr")
 metadata/_custom_type_script = "uid://dpke4ypjay435"

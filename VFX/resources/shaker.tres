@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ShakerPreset3D" format=3 uid="uid://btkel5ttuwma1"]
+
+[ext_resource type="Script" uid="uid://de08mupkidil4" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="1_5qvru"]
+[ext_resource type="Script" uid="uid://cc3lbt6g20es8" path="res://addons/shaker/data/Vector3/ShakerTypeNoiseShake3D.gd" id="2_qgey2"]
+[ext_resource type="Script" uid="uid://dx4231wq782gt" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="3_y85lp"]
+[ext_resource type="Script" uid="uid://ccnmh1nbpdbgy" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="4_f4c7c"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wo3ar"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_tf7bg"]
+noise = SubResource("FastNoiseLite_wo3ar")
+
+[sub_resource type="Resource" id="Resource_4to46"]
+script = ExtResource("2_qgey2")
+noise_texture = SubResource("NoiseTexture3D_tf7bg")
+amplitude = Vector3(1, 0.2, 1)
+
+[sub_resource type="Resource" id="Resource_v044d"]
+script = ExtResource("3_y85lp")
+amplitude = Vector3(-0.73, 0, 0)
+
+[resource]
+script = ExtResource("4_f4c7c")
+PositionShake = Array[ExtResource("1_5qvru")]([SubResource("Resource_4to46")])
+RotationShake = Array[ExtResource("1_5qvru")]([SubResource("Resource_v044d")])

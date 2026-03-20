@@ -3,6 +3,8 @@ extends Node3D
 
 @export var background_player : AudioStreamPlayer
 @export var simple_player : AudioStreamPlayer
+@export var left_back_player : AudioStreamPlayer3D
+@export var right_back_player : AudioStreamPlayer3D
 @onready var sync_stream : AudioStreamSynchronized = background_player.stream as AudioStreamSynchronized
 
 var _selected_tracks : Array[AudioStream] = []
@@ -39,3 +41,11 @@ func _interpolate_volume_at(index : int, target_db : float, duration : float) ->
 func simple_play(stream : AudioStream) -> void:
 	simple_player.stream = stream
 	simple_player.play()
+
+func left_simple_play(stream : AudioStream) -> void:
+	left_back_player.stream = stream
+	left_back_player.play()
+
+func right_simple_play(stream : AudioStream) -> void:
+	right_back_player.stream = stream
+	right_back_player.play()

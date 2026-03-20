@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://lli75befu6mc"]
+
+[ext_resource type="Texture2D" uid="uid://csw6pynk2kfb6" path="res://core/auxiliar/first_cinematic/COLECCIONISTArig_Brazos_BaseColor.png" id="1_gg32p"]
+[ext_resource type="Texture2D" uid="uid://bdicqtbpnaltf" path="res://core/auxiliar/first_cinematic/COLECCIONISTArig_Brazos_Roughness.png" id="2_27c45"]
+[ext_resource type="Texture2D" uid="uid://ch3diiht4lmch" path="res://core/auxiliar/first_cinematic/COLECCIONISTArig_Brazos_Normal.png" id="3_2bkru"]
+
+[resource]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_gg32p")
+metallic_texture = ExtResource("2_27c45")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_27c45")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 0.4
+normal_texture = ExtResource("3_2bkru")
+texture_filter = 0
