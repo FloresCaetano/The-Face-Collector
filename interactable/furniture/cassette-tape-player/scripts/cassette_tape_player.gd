@@ -5,10 +5,10 @@ extends Interactable
 @export var animation_player : AnimationPlayer
 @export var lbl_subtitles: Label
 @export var lbl_subtitles_3d: Label3D
-@export var camera_reference : Marker3D
+@export var camera_reference : PhantomCamera3D
 
-@onready var camera : Camera = PATHS.camera
 @onready var inventory : Inventory = PATHS.inventory
+@onready var camera_host : PhantomCameraHost = PATHS.camera_host
 
 var triggers = []
 
@@ -29,15 +29,15 @@ func _ready() -> void:
 	SIGNALBUS.item_selected.connect(_on_item_selected)
 
 func mouse_interaction() -> void:
-	if Input.is_action_just_pressed("interact") and not camera.is_transitioning and not is_interacting:
+	if Input.is_action_just_pressed("interact"):
 		set_process_input(true)
 		
 		is_interacting = true
 		lbl_subtitles.visible = true
 		lbl_subtitles_3d.visible = false
-
-		camera.transition(camera_reference.global_transform, 0.5)
-		await camera.finished_transition
+		
+		camera_reference.priority = 20
+		await camera_reference.tween_completed
 
 		inventory.open()
 		inventory.can_be_closed = false
@@ -46,10 +46,12 @@ func mouse_interaction() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("scape") and not camera.is_transitioning:
+	if Input.is_action_just_pressed("scape"):
 		inventory.reset_vars()
 		inventory.close()
-		camera.return_to_original_pos(0.5)
+		
+		camera_reference.priority = 0
+		
 		lbl_subtitles.visible = false
 		lbl_subtitles_3d.visible = true
 		is_interacting = false

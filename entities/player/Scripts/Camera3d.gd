@@ -1,4 +1,4 @@
-class_name Camera
+#class_name Camera
 extends Camera3D
 
 @onready var player = $"../.."
@@ -16,20 +16,9 @@ func _ready() -> void:
 
 func transition(reference : Transform3D, duration : float = 2.0):
 	player.desactivate()
-
-	temporal_camera = self.duplicate() as Camera3D
-	PATHS.mouse_raycast.target = temporal_camera
-	temporal_camera.current = true
-	temporal_camera.transform = transform
-	get_parent().add_child(temporal_camera)
 	is_transitioning = true
-
-	tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(temporal_camera, "global_transform", reference, duration)
-	await tween.finished
-	finished_transition.emit()
-	is_transitioning = false
-	is_on_destiny = true
+	
+	
 
 	
 

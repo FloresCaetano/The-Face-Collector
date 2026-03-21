@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://m6s4ueiybg0d"]
 
-[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="1_p7adr"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="2_bsvog"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_lmut6"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="4_atdwi"]
@@ -824,7 +823,6 @@ _data = {
 [node name="DecoyHouse" type="Node3D" unique_id=457484893]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
-environment = ExtResource("1_p7adr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -923,7 +921,7 @@ door = NodePath("../FullHouse/InteractableFurniture/Doors/Door16")
 light = NodePath("Collector/OmniLight3D")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="FirstCinematic" unique_id=1379875749]
-transform = Transform3D(0.9987924, -0.00564969, -0.04503416, 0.008731691, 0.99756473, 0.068542026, 0.04453905, -0.06887348, 0.996458, 9.113023, -0.15581344, -16.538568)
+transform = Transform3D(0.9987924, -0.00564969, -0.04503415, 0.008731691, 0.99756473, 0.06854202, 0.04453905, -0.06887348, 0.9964578, 9.113023, -0.15581344, -16.538568)
 progress = 47.942547
 
 [node name="CameraContainer" type="Node3D" parent="FirstCinematic/PathFollow3D" unique_id=61178070]

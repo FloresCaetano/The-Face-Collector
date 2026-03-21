@@ -4,8 +4,7 @@ extends CharacterBody3D
 var drag_data
 var drag_target_data
 @export var pivot : Pivot
-@onready var camera : Camera = PATHS.camera
-@onready var mouse_ray_cast = $Pivot/Camera3D/MouseRayCast
+@export var real_camera : Camera3D
 @export var player_spotlight : SpotLight3D
 
 #FLAGS
@@ -99,7 +98,7 @@ func _run_body_test_motion(from: Transform3D, motion : Vector3, result = null):
 
 func flashlight_delay():
 	var tween2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween2.tween_property(player_spotlight, "global_transform", camera.global_transform, 0.24)
+	tween2.tween_property(player_spotlight, "global_transform", real_camera.global_transform, 0.24)
 
 func move(delta, input):
 	var impulse : Vector3

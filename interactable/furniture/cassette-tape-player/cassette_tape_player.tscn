@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="2_wluub"]
 [ext_resource type="PackedScene" uid="uid://ib5av1351flg" path="res://interactable/furniture/cassette-tape-player/assets/tape.glb" id="3_58oym"]
 [ext_resource type="Texture2D" uid="uid://lcijuukqfev2" path="res://interactable/furniture/cassette-tape-player/assets/cassete_tape_player_cap_cassette_tape_texture-cap.png" id="6_84tdu"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_58oym"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_84tdu"]
+[ext_resource type="Resource" uid="uid://db8nl7b2kinmp" path="res://VFX/resources/phantom_shaker.tres" id="9_84tdu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4mspo"]
 size = Vector3(0.535862, 0.12558, 0.954498)
@@ -145,6 +148,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5lhji")
 
+[sub_resource type="Resource" id="Resource_q3i86"]
+script = ExtResource("8_84tdu")
+transition = 1
+
 [node name="CassetteTapePlayer" type="StaticBody3D" unique_id=1783986654 node_paths=PackedStringArray("audio_stream_player", "animation_player", "lbl_subtitles", "lbl_subtitles_3d", "camera_reference") groups=["cassette_tape_player", "interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000306547, 0.00383806, -0.00269043)
 script = ExtResource("1_hixu3")
@@ -208,8 +215,12 @@ transform = Transform3D(-1, 0, 0, 0, 1, 2.5351817e-06, 0, -2.5351817e-06, 1, -0.
 transform = Transform3D(-0.165539, 0, 0, 0, 0.162603, 0.0310427, 0, -0.0310427, 0.162603, -0.0304656, -0.00744074, 0.0260471)
 mesh = SubResource("ArrayMesh_3rc14")
 
-[node name="camera_reference" type="Marker3D" parent="." unique_id=1374774601]
+[node name="camera_reference" type="Node3D" parent="." unique_id=2065988488]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0.978909, 0)
+script = ExtResource("7_58oym")
+tween_resource = SubResource("Resource_q3i86")
+noise = ExtResource("9_84tdu")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
 

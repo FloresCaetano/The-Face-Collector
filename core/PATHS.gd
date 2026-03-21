@@ -1,8 +1,8 @@
 extends Node
 
-var camera : Camera3D :
+var camera_host : PhantomCameraHost :
 	get:
-		return get_tree().get_first_node_in_group("camera")
+		return get_tree().get_first_node_in_group("camera_host")
 
 var inventory : Inventory :
 	get:

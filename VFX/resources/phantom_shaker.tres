@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PhantomCameraNoise3D" format=3 uid="uid://db8nl7b2kinmp"]
+
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="1_prmti"]
+
+[resource]
+script = ExtResource("1_prmti")
+frequency = 0.06
+positional_noise = true
+rotational_multiplier_x = 2.0
+rotational_multiplier_z = 0.0
+positional_multiplier_x = 0.25
+positional_multiplier_y = 0.25
+positional_multiplier_z = 0.25
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"

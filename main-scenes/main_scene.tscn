@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://brk7fhrihmfm7"]
 
-[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="1_bt7hu"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
@@ -21,7 +20,6 @@ metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
-environment = ExtResource("1_bt7hu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)

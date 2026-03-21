@@ -10,9 +10,8 @@ extends Interactable
 @export var correct_code_audio_stream : AudioStream
 @export var wrong_code_audio_stream : AudioStream
 @export var open_safe_audio_stream : AudioStream
-@export var camera_reference : Marker3D
+@export var camera_reference : PhantomCamera3D
 
-@onready var camera : Camera = PATHS.camera
 @onready var player : Player = PATHS.player
 @onready var inventory : Inventory = PATHS.inventory
 
@@ -36,8 +35,8 @@ func mouse_interaction() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		inventory.can_be_opened = false
 
-		camera.transition(camera_reference.global_transform, 0.5)
-		await camera.finished_transition
+		camera_reference.priority = 20
+		await camera_reference.tween_completed
 		can_use_keypad = true
 
 func on_mouse_exited() -> void:
@@ -49,7 +48,7 @@ func _input(_event: InputEvent) -> void:
 
 func leave_interaction() -> void:
 		player.activate()
-		camera.return_to_original_pos(0.5)
+		camera_reference.priority = 0
 		is_interacting = false
 		can_use_keypad = false
 		set_process_input(false)
