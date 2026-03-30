@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dkqq67g4o747"]
+
+[ext_resource type="PackedScene" uid="uid://co10tylk4x17e" path="res://interactable/furniture/lights/assets/light_switch.glb" id="1_ei6lt"]
+[ext_resource type="Script" uid="uid://bitsuwhw8247w" path="res://interactable/furniture/lights/scripts/light_switch.gd" id="1_hw2ce"]
+[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="3_720en"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hw2ce"]
+size = Vector3(0.15826416, 0.14077759, 0.04272461)
+
+[node name="LightSwitch" type="StaticBody3D" unique_id=1771683789 node_paths=PackedStringArray("audio_stream_player_3d")]
+script = ExtResource("1_hw2ce")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+
+[node name="light_switch" parent="." unique_id=285509210 instance=ExtResource("1_ei6lt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=750835922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00064086914, -0.00010681152, 0.018188477)
+shape = SubResource("BoxShape3D_hw2ce")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1976404637]
+stream = ExtResource("3_720en")
+max_distance = 2.0
+bus = &"FX"

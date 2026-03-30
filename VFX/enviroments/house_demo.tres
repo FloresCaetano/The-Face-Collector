@@ -2,8 +2,11 @@
 
 [resource]
 background_energy_multiplier = 0.05
+tonemap_mode = 3
+tonemap_agx_contrast = 1.44
 ssao_enabled = true
 ssil_enabled = true
+sdfgi_read_sky_light = false
 glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01

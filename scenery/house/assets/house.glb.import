@@ -37,6 +37,1080 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"house_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Cube_001.res",
+"save_to_file/path": "uid://dfof21q7x1753"
+},
+"house_Cube_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Cube_002.res",
+"save_to_file/path": "uid://bbhkqasa364fn"
+},
+"house_Cube_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Cube_003.res",
+"save_to_file/path": "uid://68pufl2eeddw"
+},
+"house_Cube_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Cube_004.res",
+"save_to_file/path": "uid://b5cfequa83qhd"
+},
+"house_Cube_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Cube_005.res",
+"save_to_file/path": "uid://dnvrlk80sjnll"
+},
+"house_Cube_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Cube_014.res",
+"save_to_file/path": "uid://dcyu1fuec1mvp"
+},
+"house_Plane_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_001.res",
+"save_to_file/path": "uid://boywdsnkob3iw"
+},
+"house_Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_002.res",
+"save_to_file/path": "uid://lm74st114a3v"
+},
+"house_Plane_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_003.res",
+"save_to_file/path": "uid://bs6hpak8e2q0t"
+},
+"house_Plane_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_004.res",
+"save_to_file/path": "uid://di6m4esiq78f1"
+},
+"house_Plane_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_005.res",
+"save_to_file/path": "uid://cjqr4g6ssmca5"
+},
+"house_Plane_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_006.res",
+"save_to_file/path": "uid://dmink2wkngvl4"
+},
+"house_Plane_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_007.res",
+"save_to_file/path": "uid://c5cqdpjihd3f6"
+},
+"house_Plane_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_008.res",
+"save_to_file/path": "uid://qyii13kg668f"
+},
+"house_Plane_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_010.res",
+"save_to_file/path": "uid://d3qeodb6ifgqh"
+},
+"house_Plane_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_011.res",
+"save_to_file/path": "uid://b5e3udiemm7ta"
+},
+"house_Plane_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_012.res",
+"save_to_file/path": "uid://dfkgdct8lxaeg"
+},
+"house_Plane_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_014.res",
+"save_to_file/path": "uid://bd8q5grny7ijb"
+},
+"house_Plane_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_015.res",
+"save_to_file/path": "uid://5vgcxbofbyy6"
+},
+"house_Plane_016": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_016.res",
+"save_to_file/path": "uid://dvgycl4yd1k51"
+},
+"house_Plane_019": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_019.res",
+"save_to_file/path": "uid://v3f3sotvki4c"
+},
+"house_Plane_020": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_020.res",
+"save_to_file/path": "uid://dqq2jjjc4jqx6"
+},
+"house_Plane_022": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_022.res",
+"save_to_file/path": "uid://n8p3yws7w3iv"
+},
+"house_Plane_023": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_023.res",
+"save_to_file/path": "uid://b46n6hsgph61y"
+},
+"house_Plane_026": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_Plane_026.res",
+"save_to_file/path": "uid://ttn1pcsh8uw0"
+},
+"house_door_double_05": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_double_05.res",
+"save_to_file/path": "uid://pewb8j1te5ap"
+},
+"house_door_double_05_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_double_05_001.res",
+"save_to_file/path": "uid://b3l6p1gm6bskx"
+},
+"house_door_single_06_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_001.res",
+"save_to_file/path": "uid://t8ax0rvsaxgo"
+},
+"house_door_single_06_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_003.res",
+"save_to_file/path": "uid://brf1owqaf78xu"
+},
+"house_door_single_06_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_004.res",
+"save_to_file/path": "uid://1erlw7m5dvpr"
+},
+"house_door_single_06_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_005.res",
+"save_to_file/path": "uid://7er44a68pyd"
+},
+"house_door_single_06_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_006.res",
+"save_to_file/path": "uid://bpq7s4d2ckgwm"
+},
+"house_door_single_06_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_008.res",
+"save_to_file/path": "uid://dw2ehy7cxujku"
+},
+"house_door_single_06_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_009.res",
+"save_to_file/path": "uid://w6fve6xewqlj"
+},
+"house_door_single_06_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_010.res",
+"save_to_file/path": "uid://dhur7pmohq4ou"
+},
+"house_door_single_06_017": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_017.res",
+"save_to_file/path": "uid://dq7hfdl08u50p"
+},
+"house_door_single_06_018": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_018.res",
+"save_to_file/path": "uid://teqqeyomuied"
+},
+"house_door_single_06_019": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_019.res",
+"save_to_file/path": "uid://d1ms8mxlkfu16"
+},
+"house_door_single_06_020": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_020.res",
+"save_to_file/path": "uid://cnbdwl23ernc8"
+},
+"house_door_single_06_021": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_021.res",
+"save_to_file/path": "uid://vm30mpcmbgyx"
+},
+"house_door_single_06_022": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_022.res",
+"save_to_file/path": "uid://brj5gthnkebxq"
+},
+"house_door_single_06_024": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_024.res",
+"save_to_file/path": "uid://bwp57owkbs0ux"
+},
+"house_door_single_06_026": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_026.res",
+"save_to_file/path": "uid://baaxhs37pig7m"
+},
+"house_door_single_06_027": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_027.res",
+"save_to_file/path": "uid://csvajw718rgsi"
+},
+"house_door_single_06_028": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_028.res",
+"save_to_file/path": "uid://d0uj6a5yqevj7"
+},
+"house_door_single_06_029": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_029.res",
+"save_to_file/path": "uid://b1t6e1xj5hooj"
+},
+"house_door_single_06_030": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_030.res",
+"save_to_file/path": "uid://bc3dbc4ludtg4"
+},
+"house_door_single_06_031": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_031.res",
+"save_to_file/path": "uid://bqp1w0kap344n"
+},
+"house_door_single_06_032": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_032.res",
+"save_to_file/path": "uid://cl11suhy4yivr"
+},
+"house_door_single_06_033": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_033.res",
+"save_to_file/path": "uid://dqag5ygkfv5tw"
+},
+"house_door_single_06_034": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_034.res",
+"save_to_file/path": "uid://w050nkqqof34"
+},
+"house_door_single_06_035": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_035.res",
+"save_to_file/path": "uid://ygyc4drqrvmw"
+},
+"house_door_single_06_036": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_036.res",
+"save_to_file/path": "uid://ddtfrmdq4qmqq"
+},
+"house_door_single_06_037": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_037.res",
+"save_to_file/path": "uid://dm32tjhqdqxik"
+},
+"house_door_single_06_038": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_door_single_06_038.res",
+"save_to_file/path": "uid://c20y48svtr2ui"
+},
+"house_railing_balcony_02_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_002.res",
+"save_to_file/path": "uid://tgncxvwotkfs"
+},
+"house_railing_balcony_02_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_008.res",
+"save_to_file/path": "uid://bc5jigx17t4pb"
+},
+"house_railing_balcony_02_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_010.res",
+"save_to_file/path": "uid://dlt52cdjbybrl"
+},
+"house_railing_balcony_02_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_011.res",
+"save_to_file/path": "uid://cpibbag4n6imn"
+},
+"house_railing_balcony_02_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_012.res",
+"save_to_file/path": "uid://bpv4whnst7hwj"
+},
+"house_railing_balcony_02_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_013.res",
+"save_to_file/path": "uid://dheivw4xxodm5"
+},
+"house_railing_balcony_02_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_014.res",
+"save_to_file/path": "uid://c528i0awevvag"
+},
+"house_railing_balcony_02_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_02_015.res",
+"save_to_file/path": "uid://dh2q3xdv2ofd"
+},
+"house_railing_balcony_03_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_001.res",
+"save_to_file/path": "uid://dbg1xlodxyeox"
+},
+"house_railing_balcony_03_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_002.res",
+"save_to_file/path": "uid://c0l77d7pbytux"
+},
+"house_railing_balcony_03_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_003.res",
+"save_to_file/path": "uid://bc5gde6ilochi"
+},
+"house_railing_balcony_03_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_004.res",
+"save_to_file/path": "uid://d3cjtjoaqcv58"
+},
+"house_railing_balcony_03_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_005.res",
+"save_to_file/path": "uid://dnsgere0gl8yj"
+},
+"house_railing_balcony_03_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_006.res",
+"save_to_file/path": "uid://dl8x01wsasehh"
+},
+"house_railing_balcony_03_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_007.res",
+"save_to_file/path": "uid://517u61fmsawe"
+},
+"house_railing_balcony_03_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_008.res",
+"save_to_file/path": "uid://c05pnguik2rht"
+},
+"house_railing_balcony_03_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_009.res",
+"save_to_file/path": "uid://bjwbft0tcwvxy"
+},
+"house_railing_balcony_03_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_balcony_03_010.res",
+"save_to_file/path": "uid://cu2pxpxgcwtyt"
+},
+"house_railing_pillar_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_001.res",
+"save_to_file/path": "uid://bejvm1tcsqlus"
+},
+"house_railing_pillar_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_002.res",
+"save_to_file/path": "uid://dms3t2ejqctl4"
+},
+"house_railing_pillar_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_003.res",
+"save_to_file/path": "uid://c8v3gjw7wqryl"
+},
+"house_railing_pillar_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_004.res",
+"save_to_file/path": "uid://dhdwcqbph4acr"
+},
+"house_railing_pillar_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_006.res",
+"save_to_file/path": "uid://cm0xe3hl6cniw"
+},
+"house_railing_pillar_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_007.res",
+"save_to_file/path": "uid://evq27c00ul1k"
+},
+"house_railing_pillar_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_010.res",
+"save_to_file/path": "uid://bc5pe8as4iuhx"
+},
+"house_railing_pillar_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_011.res",
+"save_to_file/path": "uid://v43gkrcbmaxt"
+},
+"house_railing_pillar_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_012.res",
+"save_to_file/path": "uid://bwp77udx7kqxy"
+},
+"house_railing_pillar_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_013.res",
+"save_to_file/path": "uid://yspg4tpobb41"
+},
+"house_railing_pillar_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_014.res",
+"save_to_file/path": "uid://bq7l22xpnrjdv"
+},
+"house_railing_pillar_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_015.res",
+"save_to_file/path": "uid://cfbm8yvswqhgd"
+},
+"house_railing_pillar_016": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_016.res",
+"save_to_file/path": "uid://cpblhm08llyui"
+},
+"house_railing_pillar_017": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_017.res",
+"save_to_file/path": "uid://d0lj3qns4ix3r"
+},
+"house_railing_pillar_018": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_018.res",
+"save_to_file/path": "uid://c3qi78qo55x3u"
+},
+"house_railing_pillar_019": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_019.res",
+"save_to_file/path": "uid://dc0fva0n7l55v"
+},
+"house_railing_pillar_020": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_020.res",
+"save_to_file/path": "uid://7c4y5buun5ot"
+},
+"house_railing_pillar_021": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_021.res",
+"save_to_file/path": "uid://cf74idue566ih"
+},
+"house_railing_pillar_022": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_pillar_022.res",
+"save_to_file/path": "uid://c2fdig3tqb0mu"
+},
+"house_railing_stair_03_L_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_stair_03_L_001.res",
+"save_to_file/path": "uid://yf82n646n3yd"
+},
+"house_railing_stair_03_L_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_stair_03_L_005.res",
+"save_to_file/path": "uid://cuo3tvbffle8i"
+},
+"house_railing_stair_03_L_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_railing_stair_03_L_008.res",
+"save_to_file/path": "uid://cfibp0wcfb1c3"
+},
+"house_stair_big_01_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_stair_big_01_002.res",
+"save_to_file/path": "uid://cxbsd13111qxj"
+},
+"house_stair_big_01_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_stair_big_01_003.res",
+"save_to_file/path": "uid://boedap0x3wgw0"
+},
+"house_stair_big_02_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_stair_big_02_001.res",
+"save_to_file/path": "uid://ddw0n6qgc46eq"
+},
+"house_window_01_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_001.res",
+"save_to_file/path": "uid://umkgo2ur3k3"
+},
+"house_window_01_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_002.res",
+"save_to_file/path": "uid://b3ujiyaaqulra"
+},
+"house_window_01_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_003.res",
+"save_to_file/path": "uid://b2e0kin6o7yq"
+},
+"house_window_01_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_004.res",
+"save_to_file/path": "uid://bupp8u0s07l0m"
+},
+"house_window_01_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_005.res",
+"save_to_file/path": "uid://si5xoe74tmhr"
+},
+"house_window_01_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_006.res",
+"save_to_file/path": "uid://1yh8xo2wq4ui"
+},
+"house_window_01_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_007.res",
+"save_to_file/path": "uid://diape1ve42buc"
+},
+"house_window_01_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_01_008.res",
+"save_to_file/path": "uid://ck1vjtutfhnsr"
+},
+"house_window_03_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_03_001.res",
+"save_to_file/path": "uid://dqfg78kcjci1x"
+},
+"house_window_03_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_03_002.res",
+"save_to_file/path": "uid://2k4oat4pkj4e"
+},
+"house_window_03_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_03_003.res",
+"save_to_file/path": "uid://dbltpa22r8q12"
+},
+"house_window_03_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_03_004.res",
+"save_to_file/path": "uid://cu8lso816bqfh"
+},
+"house_window_03_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_03_005.res",
+"save_to_file/path": "uid://bm4y7lqpck0g3"
+},
+"house_window_03_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_03_006.res",
+"save_to_file/path": "uid://6q44dbniq5dw"
+},
+"house_window_double_02_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_double_02_001.res",
+"save_to_file/path": "uid://cqo3b44j6octl"
+},
+"house_window_double_02_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_double_02_002.res",
+"save_to_file/path": "uid://bx8xqr4fkmql3"
+},
+"house_window_double_02_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_double_02_005.res",
+"save_to_file/path": "uid://uu5ibn4fm55x"
+},
+"house_window_double_02_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_double_02_006.res",
+"save_to_file/path": "uid://c0rs73edqqkao"
+},
+"house_window_double_02_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_double_02_007.res",
+"save_to_file/path": "uid://de3g1b4q4ict0"
+},
+"house_window_double_02_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_double_02_008.res",
+"save_to_file/path": "uid://bgtabfxscqjdp"
+},
+"house_window_double_02_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://scenery/house/assets/meshes/house_window_double_02_009.res",
+"save_to_file/path": "uid://0onmmg8khx32"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

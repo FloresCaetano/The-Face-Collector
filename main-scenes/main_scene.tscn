@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://brk7fhrihmfm7"]
 
+[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="1_dli6d"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
@@ -10,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="5_g721p"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="6_8bqn5"]
 [ext_resource type="AudioStream" uid="uid://b3jiptgr5drqf" path="res://interactable/items/item-resources/tapes/sixth_tape/6th recording.mp3" id="7_uvaer"]
+[ext_resource type="PackedScene" uid="uid://ck6i0rha0sels" path="res://scripted-events/Chapter1/first_audio_loop/first_audio_loop_controller.tscn" id="9_bt7hu"]
+[ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="12_fw6df"]
+[ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="14_144cg"]
 
 [sub_resource type="Resource" id="Resource_144cg"]
 script = ExtResource("5_fw6df")
@@ -20,6 +24,7 @@ metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
+environment = ExtResource("1_dli6d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -102,12 +107,50 @@ transform = Transform3D(0.734, 0, 0, 0, 0.734, 0, 0, 0, 0.734, 9.077443, 1.07574
 
 [node name="AudioStreamPlayer3D" parent="FullHouse/InteractableFurniture/CassetteTapePlayer" index="1" unique_id=1976693250]
 stream = ExtResource("7_uvaer")
-attenuation_model = 2
-max_distance = 166.05
+max_distance = 14.15
 bus = &"LowPass"
+
+[node name="FirstAudioLoopController" parent="FullHouse/InteractableFurniture/CassetteTapePlayer" unique_id=27973457 node_paths=PackedStringArray("cassete_tape_player") instance=ExtResource("9_bt7hu")]
+cassete_tape_player = NodePath("..")
 
 [node name="photoFrame" parent="FullHouse/InteractableFurniture" unique_id=1883362346 instance=ExtResource("6_8bqn5")]
 transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
+
+[node name="Lights" type="Node3D" parent="FullHouse" unique_id=775111381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3526125, 2.7932158, -8.775536)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FullHouse/Lights" unique_id=1589737087]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 15.869491, 0.5283928, 0.4594488)
+shadow_enabled = true
+shadow_opacity = 0.65
+shadow_blur = 6.045
+
+[node name="CeilingLamp" parent="FullHouse/Lights" unique_id=867264494 node_paths=PackedStringArray("lights") instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.970766, 0.16120791, -8.219727)
+lights = []
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="FullHouse/Lights" unique_id=1917766755]
+transform = Transform3D(-0.6140674, 4.575158e-09, -0.7892536, -0.087572664, 0.99382526, 0.06813465, 0.7843802, 0.110956304, -0.61027575, -3.8473167, -1.1547471, -10.067215)
+light_energy = 0.915
+light_volumetric_fog_energy = 19.38
+spot_range = 4.2670484
+spot_angle = 34.52
+
+[node name="KitchenLight" parent="FullHouse/Lights" unique_id=526448078 node_paths=PackedStringArray("lights") instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, 1, -5.563627e-08, 0, 5.563627e-08, 1, 7.8498964, 0.15620613, 4.0396857)
+lights = [NodePath("Lights"), NodePath("Spot")]
+
+[node name="Spot" type="SpotLight3D" parent="FullHouse/Lights/KitchenLight" unique_id=259993019]
+transform = Transform3D(1, 0, 0, 0, 0.9799247, 0.19936799, 0, -0.19936799, 0.9799247, 0.53238106, -0.7428415, -0.24540281)
+light_energy = 0.37
+light_volumetric_fog_energy = 2.88
+spot_range = 6.724903
+spot_angle = 94.5
+spot_angle_attenuation = 7.210002
+
+[node name="LightSwitch" parent="FullHouse/Lights/KitchenLight" unique_id=899551397 node_paths=PackedStringArray("lamp") instance=ExtResource("14_144cg")]
+transform = Transform3D(1, 0, 0, 0, 1, 5.563627e-08, 0, -5.563627e-08, 1, 0.10972023, -1.3567525, -3.3385901)
+lamp = NodePath("..")
 
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.994057, 0.24460065, -12.884838)
@@ -116,8 +159,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.994057, 0.24460065, -12.88
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.8338972, 0)
 player_spotlight = NodePath("../SpotLight3D")
 
+[node name="PlayerRealCamera" parent="PlayerAndLight/Player" index="0" unique_id=1153064012]
+transform = Transform3D(-0.99938315, -0.0012979998, 0.03509521, 0, 0.99931675, 0.036959827, -0.03511921, 0.03693703, -0.9987003, 33.020535, 2.0281827, -12.831583)
+
+[node name="OmniLight3D" parent="PlayerAndLight/Player" index="8" unique_id=1849199684]
+light_energy = 0.02
+light_volumetric_fog_energy = 0.0
+omni_range = 1.1495956
+omni_attenuation = 1.016
+
 [node name="SpotLight3D" type="SpotLight3D" parent="PlayerAndLight" unique_id=1002102326]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.8338972, 0)
+visible = false
 light_energy = 1.3
 shadow_enabled = true
 spot_range = 17.346638
@@ -128,3 +181,4 @@ spot_angle_attenuation = 9.849135
 
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer"]
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder/Cap"]
+[editable path="PlayerAndLight/Player"]

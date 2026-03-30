@@ -52,7 +52,7 @@ real_camera = NodePath("PlayerRealCamera")
 
 [node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.99960476, -0.00085508334, -0.028098902, 2.910383e-11, 0.9995373, -0.030417122, 0.02811191, -0.0304051, -0.9991423, -0.021788022, 1.8784524, -0.050054368)
+transform = Transform3D(-0.99988663, -0.00047289976, 0.015050677, 0, 0.9995067, 0.031405002, -0.015058105, 0.03140144, -0.9993934, 0.022495875, 1.8166099, 0.024596523)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="PlayerRealCamera" unique_id=814895238]
@@ -188,3 +188,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1849199684]
