@@ -7,9 +7,6 @@ extends Interactable
 @export var lbl_subtitles_3d: Label3D
 @export var camera_reference : PhantomCamera3D
 
-@onready var inventory : Inventory = PATHS.inventory
-@onready var camera_host : PhantomCameraHost = PATHS.camera_host
-
 var triggers = []
 
 var timestamps = []

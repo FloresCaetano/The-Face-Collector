@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://gb7m7vwbhkmd" path="res://entities/player/Scripts/Player.gd" id="1_ea5mg"]
 [ext_resource type="Script" uid="uid://mco5dswxqvi4" path="res://entities/player/Scripts/Pivot.gd" id="2_4h0ee"]
+[ext_resource type="Script" uid="uid://1qyvwav27y0t" path="res://entities/player/Scripts/player_real_camera.gd" id="2_pdd5r"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_lxrxp"]
-[ext_resource type="PackedScene" uid="uid://cpnx3hhyuewlk" path="res://entities/player/Scenes/MouseRayCast.tscn" id="5_p7jie"]
 [ext_resource type="Script" uid="uid://dmsy0jfrxsrqa" path="res://shared/audio_system/audio_controller.gd" id="6_gdq0t"]
 [ext_resource type="Resource" uid="uid://db8nl7b2kinmp" path="res://VFX/resources/phantom_shaker.tres" id="6_ggdqt"]
 [ext_resource type="Script" uid="uid://hnt1qb71l50a" path="res://shared/footsteps_system/footsteps.gd" id="6_j7vas"]
@@ -13,12 +13,14 @@
 [ext_resource type="AudioStream" uid="uid://xsehv3010qci" path="res://shared/footsteps_system/assets/3.mp3" id="9_uli6c"]
 [ext_resource type="AudioStream" uid="uid://u837pntoh66c" path="res://shared/footsteps_system/assets/c1.mp3" id="10_lxrxp"]
 [ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="10_y6d2e"]
-[ext_resource type="PackedScene" uid="uid://dq5qtkxbgdhrg" path="res://entities/player/Scenes/InteractionHandler.tscn" id="11_2glnp"]
 [ext_resource type="AudioStream" uid="uid://4gmc5o1b4ihh" path="res://shared/footsteps_system/assets/c2.mp3" id="11_pdd5r"]
 [ext_resource type="AudioStream" uid="uid://teb8i38r6h8r" path="res://shared/footsteps_system/assets/c3.mp3" id="12_ggdqt"]
 [ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="16_uli6c"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="19_jgvhu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxrxp"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="Resource" id="Resource_msn7k"]
 script = ExtResource("19_jgvhu")
@@ -45,44 +47,48 @@ stream_2/stream = ExtResource("12_ggdqt")
 
 [node name="Player" type="CharacterBody3D" unique_id=443950597 node_paths=PackedStringArray("pivot", "real_camera") groups=["player"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.83818, 0)
-collision_layer = 262153
+collision_layer = 262152
 script = ExtResource("1_ea5mg")
 pivot = NodePath("Pivot")
 real_camera = NodePath("PlayerRealCamera")
 
-[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012]
+[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("shape_cast")]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.99988663, -0.00047289976, 0.015050677, 0, 0.9995067, 0.031405002, -0.015058105, 0.03140144, -0.9993934, 0.022495875, 1.8166099, 0.024596523)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.6060017, 0)
 top_level = true
+script = ExtResource("2_pdd5r")
+shape_cast = NodePath("ShapeCast3D")
 
 [node name="PhantomCameraHost" type="Node" parent="PlayerRealCamera" unique_id=814895238]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("5_lxrxp")
 
+[node name="ShapeCast3D" type="ShapeCast3D" parent="PlayerRealCamera" unique_id=1195522642]
+transform = Transform3D(-2.0080004, -1.7554497e-07, 7.673311e-15, 0, -8.7772484e-08, -2.0079997, 1.7554497e-07, -2.0080004, 8.7772456e-08, 6.0530456e-09, 3.026523e-09, 0.06923878)
+shape = SubResource("BoxShape3D_lxrxp")
+target_position = Vector3(0, 1.5, 0)
+margin = 0.05
+max_results = 8
+debug_shape_custom_color = Color(0.90588236, 0.34509805, 1, 0.1764706)
+
 [node name="Pivot" type="Node3D" parent="." unique_id=876858444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116089106, 0)
 script = ExtResource("2_4h0ee")
 
 [node name="PhantomCamera3D" type="Node3D" parent="Pivot" unique_id=291564409]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.17000002, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("18_ggdqt")
 priority = 10
 tween_resource = SubResource("Resource_msn7k")
 noise = ExtResource("6_ggdqt")
+_preview_noise = false
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="MouseRayCast" parent="Pivot/PhantomCamera3D" unique_id=32015274 node_paths=PackedStringArray("target") groups=["mouse_raycast"] instance=ExtResource("5_p7jie")]
-target = NodePath("../../../PlayerRealCamera")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1497191989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4974903, 0)
 shape = SubResource("CapsuleShape3D_0voef")
 debug_color = Color(0, 0.6, 0.69803923, 1)
-
-[node name="InteractionHandler" parent="." unique_id=1150819083 node_paths=PackedStringArray("mouse_ray_cast", "cursor") groups=["interaction_handler"] instance=ExtResource("11_2glnp")]
-mouse_ray_cast = NodePath("../Pivot/PhantomCamera3D/MouseRayCast")
-cursor = NodePath("../Hud/CenterCursor/Cursor")
 
 [node name="StairsRaycasts" type="Node3D" parent="." unique_id=346080102]
 visible = false

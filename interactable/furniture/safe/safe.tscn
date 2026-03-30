@@ -9,12 +9,32 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_ta6jp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_k5u5e"]
 [ext_resource type="Resource" uid="uid://db8nl7b2kinmp" path="res://VFX/resources/phantom_shaker.tres" id="8_k5u5e"]
+[ext_resource type="Shader" uid="uid://sbexutiuu1xs" path="res://VFX/shaders/fresnel_transparency.gdshader" id="9_wnceq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3p8rd"]
 size = Vector3(1.7866821, 2.2525024, 1.5268555)
 
 [sub_resource type="Resource" id="Resource_wnceq"]
 script = ExtResource("7_k5u5e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5u5e"]
+render_priority = 0
+shader = ExtResource("9_wnceq")
+shader_parameter/animate_noise = false
+shader_parameter/uv_scroll_speed = Vector2(0.01, 0.01)
+shader_parameter/edgefade = 0.1470000069825
+shader_parameter/globalfade = 0.1450000068875
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnceq"]
+next_pass = SubResource("ShaderMaterial_k5u5e")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 11.82
+
+[sub_resource type="SphereMesh" id="SphereMesh_l4dx0"]
+material = SubResource("StandardMaterial3D_wnceq")
+radius = 0.033
+height = 0.067
 
 [node name="Safe" type="StaticBody3D" unique_id=655616190 node_paths=PackedStringArray("keys", "animation_player", "audio_stream_player_3d", "camera_reference")]
 script = ExtResource("1_koksm")
@@ -45,6 +65,10 @@ script = ExtResource("6_ta6jp")
 tween_resource = SubResource("Resource_wnceq")
 noise = ExtResource("8_k5u5e")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraReference" unique_id=1339164634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.062455893, -1.7577986)
+mesh = SubResource("SphereMesh_l4dx0")
 
 [node name="0" parent="." unique_id=599746619 instance=ExtResource("3_3p8rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45758712, 0.834013, 0.8358937)

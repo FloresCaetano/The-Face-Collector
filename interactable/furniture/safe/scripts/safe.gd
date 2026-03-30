@@ -12,8 +12,6 @@ extends Interactable
 @export var open_safe_audio_stream : AudioStream
 @export var camera_reference : PhantomCamera3D
 
-@onready var player : Player = PATHS.player
-@onready var inventory : Inventory = PATHS.inventory
 
 
 var code_input : String = ""
@@ -29,11 +27,8 @@ func _ready() -> void:
 func mouse_interaction() -> void:
 	if Input.is_action_just_pressed("interact") and not is_interacting:
 		player.desactivate()
-		set_process_input(true)
-		is_interacting = true
 
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		inventory.can_be_opened = false
 
 		camera_reference.priority = 20
 		await camera_reference.tween_completed
@@ -41,19 +36,6 @@ func mouse_interaction() -> void:
 
 func on_mouse_exited() -> void:
 	pass
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("scape") and is_interacting:
-		leave_interaction()
-
-func leave_interaction() -> void:
-		player.activate()
-		camera_reference.priority = 0
-		is_interacting = false
-		can_use_keypad = false
-		set_process_input(false)
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		inventory.reset_vars()
 
 func open_safe() -> void:
 	audio_stream_player_3d.stream = open_safe_audio_stream
@@ -68,6 +50,10 @@ func open_safe() -> void:
 func _on_key_pressed(number : String) -> void:
 	code_input += number
 	check_code()
+
+func on_interaction_leave() -> void:
+	camera_reference.priority = 0
+	can_use_keypad = false
 
 func check_code() -> void:
 	if code_input.length() == correct_code.length():
