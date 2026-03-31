@@ -7,9 +7,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hw2ce"]
 size = Vector3(0.15826416, 0.14077759, 0.04272461)
 
-[node name="LightSwitch" type="StaticBody3D" unique_id=1771683789 node_paths=PackedStringArray("audio_stream_player_3d")]
+[node name="LightSwitch" type="StaticBody3D" unique_id=1771683789 node_paths=PackedStringArray("audio_stream_player_3d", "indicator_last_pose_reference")]
 script = ExtResource("1_hw2ce")
 audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+indicator_last_pose_reference = NodePath("IndicatorPosition")
+indicator_size = Vector3(0.3, 0.3, 0.3)
 
 [node name="light_switch" parent="." unique_id=285509210 instance=ExtResource("1_ei6lt")]
 
@@ -21,3 +23,6 @@ shape = SubResource("BoxShape3D_hw2ce")
 stream = ExtResource("3_720en")
 max_distance = 2.0
 bus = &"FX"
+
+[node name="IndicatorPosition" type="Marker3D" parent="." unique_id=1414279466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.093381345)

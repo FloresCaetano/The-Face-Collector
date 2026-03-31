@@ -256,9 +256,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_knpbl")
 
-[node name="CeilingLamp" type="Node3D" unique_id=867264494 node_paths=PackedStringArray("on_model", "lights")]
+[node name="CeilingLamp" type="Node3D" unique_id=867264494 node_paths=PackedStringArray("on_model", "off_model", "lights")]
 script = ExtResource("1_qx4t8")
 on_model = NodePath("Models/on")
+off_model = NodePath("Models/of")
 lights = [NodePath("Lights")]
 
 [node name="Models" type="Node3D" parent="." unique_id=716749397]

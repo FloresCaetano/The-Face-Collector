@@ -22,8 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="18_gep45"]
 [ext_resource type="Script" uid="uid://r7hhqplb10vv" path="res://scripted-events/Chapter1/loops/fourth_loop/sixth_tape_trigger/sixth_tape_audio_trigger.gd" id="19_bwdx5"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="19_kvyoc"]
-[ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="22_3n4sk"]
-[ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="22_qku6u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -174,15 +172,6 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 3.7292438, 0.072822094,
 [node name="photoFrame" parent="Stuff" unique_id=1883362346 instance=ExtResource("18_gep45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33929366, -2.3866367)
 is_on_inventory = false
-
-[node name="Light" type="Node3D" parent="Stuff" unique_id=1796925324]
-
-[node name="LightSwitch" parent="Stuff/Light" unique_id=1771683789 node_paths=PackedStringArray("lamp") instance=ExtResource("22_qku6u")]
-transform = Transform3D(-0.27083567, 0, 0.9626256, 0, 1, 0, -0.9626256, 0, -0.27083567, -4.0547247, 1.4087949, 0)
-lamp = NodePath("../CeilingLamp")
-
-[node name="CeilingLamp" parent="Stuff/Light" unique_id=867264494 instance=ExtResource("22_3n4sk")]
-transform = Transform3D(0.86454684, -0.5025523, 0, 0.5025523, 0.86454684, 0, 0, 0, 1, -4.9930625, 1.9827435, -0.36847425)
 
 [node name="Enviroment" type="Node3D" parent="." unique_id=336902588]
 

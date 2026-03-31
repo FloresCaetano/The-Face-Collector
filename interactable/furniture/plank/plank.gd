@@ -2,7 +2,6 @@ class_name Plank
 extends Interactable
 
 @export var timer : Timer
-@onready var inventory : Inventory = PATHS.inventory
 
 signal plank_removed
 

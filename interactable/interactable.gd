@@ -2,6 +2,10 @@
 class_name Interactable
 extends PhysicsBody3D
 
+@export var indicator_last_pose_reference : Marker3D
+@export var indicator_size : Vector3 = Vector3.ONE
+var interactable_indicator : InteractableIndicator
+
 var is_interacting := false
 
 @onready var player : Player = PATHS.player
@@ -12,16 +16,25 @@ func mouse_interaction() -> void
 @abstract
 func on_mouse_exited() -> void
 
-func on_interaction_leave() -> void:
-	pass
-
-
+func on_leave_interaction() -> void: pass
 
 func interact() -> void:
-	set_process_input(true)
-	is_interacting = true
-	inventory.can_be_opened = false
-	mouse_interaction()
+	if is_interacting:
+		return
+	
+	if not interactable_indicator and indicator_last_pose_reference:
+			interactable_indicator = load("uid://c3aovnmj54oeg").instantiate() as InteractableIndicator
+			add_child(interactable_indicator)
+			interactable_indicator.scale = Vector3.ZERO
+			interactable_indicator.global_position = indicator_last_pose_reference.global_position
+			interactable_indicator.grow(indicator_size)
+	
+	if Input.is_action_just_pressed("interact"):
+		_delete_indicator()
+		set_process_input(true)
+		is_interacting = true
+		inventory.can_be_opened = false
+		mouse_interaction()
 
 func leave_interaction() -> void:
 		player.activate()
@@ -29,8 +42,18 @@ func leave_interaction() -> void:
 		set_process_input(false)
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		inventory.reset_vars()
-		on_interaction_leave()
+		on_leave_interaction()
+
+func mouse_exited():
+	_delete_indicator()
+	on_mouse_exited()
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("scape") and is_interacting:
 		leave_interaction()
+
+func _delete_indicator():
+	if interactable_indicator:
+		await interactable_indicator.shrink()
+		interactable_indicator.queue_free()
+		interactable_indicator = null

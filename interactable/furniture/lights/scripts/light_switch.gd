@@ -14,6 +14,7 @@ func mouse_interaction() -> void:
 			lamp.turn_off()
 		else:
 			lamp.turn_on()
+		is_interacting = false
 
 func on_mouse_exited() -> void:
 	pass

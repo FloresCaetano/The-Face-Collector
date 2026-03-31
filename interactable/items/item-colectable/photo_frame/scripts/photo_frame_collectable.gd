@@ -9,7 +9,6 @@ extends Interactable
 @export var collision_shape : CollisionShape3D
 @export var audio_stream_player_3d : AudioStreamPlayer3D
 @export var animations_player : AnimationPlayer
-@onready var inventory : Inventory = PATHS.inventory
 
 
 

@@ -1,7 +1,6 @@
 extends Interactable
 
 @export var audio_stream_player : AudioStreamPlayer3D
-@onready var inventory : Inventory = PATHS.inventory
 
 @export var tape_item : TapeResource
 

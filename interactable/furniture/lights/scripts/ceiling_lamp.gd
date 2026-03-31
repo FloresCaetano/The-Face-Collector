@@ -5,6 +5,7 @@ extends Node3D
 
 @export_category("dependencies")
 @export var on_model : MeshInstance3D
+@export var off_model : MeshInstance3D
 @export var lights: Array[Light3D]
 
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 
 func turn_on():
 	on_model.visible = true
+	off_model.visible = false
 	is_on = true
 	for light in lights:
 		light.visible = true
@@ -22,6 +24,7 @@ func turn_on():
 
 func turn_off():
 	on_model.visible = false
+	off_model.visible = true
 	is_on = false
 	for light in lights:
 		light.visible = false

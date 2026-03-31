@@ -1,30 +1,19 @@
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_lambert,specular_schlick_ggx, shadows_disabled;
+render_mode blend_mix, depth_test_disabled, unshaded;
 
-uniform bool animate_noise = true;
-uniform vec2  uv_scroll_speed = vec2(0.01, 0.01);
-uniform sampler2D noise;
-uniform lowp float edgefade : hint_range(0, 1) = 0.2;
-uniform lowp float globalfade : hint_range(0, 1) = 0.5;
-varying vec2 uv_scrolled;
+uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
+uniform vec4 edge_color : source_color = vec4(0.0, 0.5, 1.0, 0.0);
+uniform float fresnel_power : hint_range(0.1, 10.0) = 2.0;
 
-
-void vertex ()
-{
-uv_scrolled = ( UV + TIME * uv_scroll_speed );
-}
-
-void fragment () {
-    float sinvresnel = pow(dot(normalize(NORMAL), normalize(VIEW)), (edgefade*25.0))*(1.0-globalfade);
-    sinvresnel = clamp(sinvresnel, 0.0, 1.0);
-    if(animate_noise){
-    vec3 noise_tex = texture(noise, uv_scrolled).rgb;
-    ALPHA = sinvresnel * noise_tex.r;
-    ALBEDO += noise_tex.rgb;
-    }
-    else{
-    vec3 noise_tex = texture(noise, UV).rgb;
-    ALPHA = sinvresnel * noise_tex.r;
-    ALBEDO += noise_tex.rgb;
-    }
+void fragment() {
+	vec3 bg_color = texture(screen_texture, SCREEN_UV).rgb;
+	vec3 inverted_bg = vec3(1.0) - bg_color;
+	
+	float fresnel = pow(clamp(dot(NORMAL, VIEW), 0.0, 1.0), fresnel_power);
+	
+	vec3 final_rgb = mix(edge_color.rgb, inverted_bg, fresnel);
+	float final_alpha = mix(edge_color.a, 1.0, fresnel);
+	
+	ALBEDO = final_rgb;
+	ALPHA = final_alpha;
 }

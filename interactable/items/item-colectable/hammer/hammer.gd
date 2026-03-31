@@ -3,7 +3,6 @@ extends Interactable
 
 @export var item : Item
 @export var audio_stream_player_3d : AudioStreamPlayer3D
-@onready var inventory : Inventory = PATHS.inventory
 
 func mouse_interaction() -> void:
 	if Input.is_action_just_pressed("interact") and not is_interacting:

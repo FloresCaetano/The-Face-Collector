@@ -3,10 +3,19 @@ extends Camera3D
 
 @export var shape_cast: ShapeCast3D
 
+var last_best_target : Interactable
+
 func _physics_process(_delta):
 	var best_target : Interactable = _get_most_central_target()
+	
+	if best_target != last_best_target:
+		if last_best_target:
+			last_best_target.mouse_exited()
+		
 	if best_target:
 		best_target.interact()
+
+	last_best_target = best_target
 
 func _get_most_central_target() -> Object:
 	if not shape_cast.is_colliding():

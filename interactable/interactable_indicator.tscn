@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c3aovnmj54oeg"]
+
+[ext_resource type="Shader" uid="uid://sbexutiuu1xs" path="res://VFX/shaders/fresnel_transparency.gdshader" id="1_5ee2j"]
+[ext_resource type="Script" uid="uid://cu7q360i1jihr" path="res://interactable/interactable_indicator.gd" id="2_2hty5"]
+[ext_resource type="AudioStream" uid="uid://dwybanccnys08" path="res://interactable/furniture/assets/sounds/tap_sound.wav" id="3_etejw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ee2j"]
+render_priority = 0
+shader = ExtResource("1_5ee2j")
+shader_parameter/edge_color = Color(1, 1, 1, 0)
+shader_parameter/fresnel_power = 2.83500013140262
+
+[sub_resource type="SphereMesh" id="SphereMesh_l4dx0"]
+material = SubResource("ShaderMaterial_5ee2j")
+radius = 0.059
+height = 0.12
+
+[node name="InteractableIndicator" type="MeshInstance3D" unique_id=391722061 node_paths=PackedStringArray("audio_stream_player_3d")]
+mesh = SubResource("SphereMesh_l4dx0")
+script = ExtResource("2_2hty5")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2064608486]
+stream = ExtResource("3_etejw")
+attenuation_model = 3
+volume_db = -10.0

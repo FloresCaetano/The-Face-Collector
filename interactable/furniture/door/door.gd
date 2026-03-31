@@ -10,8 +10,6 @@ extends Interactable
 
 @export var settings : DoorSettings
 
-@onready var inventory : Inventory = PATHS.inventory
-
 var audio_stream_player_3d: AudioStreamPlayer3D
 
 var is_open = false
@@ -40,32 +38,30 @@ func _on_item_selected(item : Item) -> void:
 		#TODO : MAKE A "YOU UNLOCKED THE DOOR" ANIMATION OR SOMETHING
 
 func mouse_interaction() -> void:
-	if Input.is_action_just_pressed("interact") and not is_interacting:
-		set_process_input(true)
-		is_interacting = true
+	set_process_input(true)
+	is_interacting = true
 
-		if settings.need_key:
-			inventory.open()
-			inventory.can_be_closed = false
-			inventory.can_be_opened = false
-			inventory.can_inspect_items = false
+	if settings.need_key:
+		inventory.open()
+		inventory.can_be_closed = false
+		inventory.can_be_opened = false
+		inventory.can_inspect_items = false
 
-			SIGNALBUS.item_selected.connect(_on_item_selected)
-			return
+		SIGNALBUS.item_selected.connect(_on_item_selected)
+		return
 
-		if is_locked:
-			await locked_anim()
-			stop_interacting()
-			return
-		
-		if is_open:
-			close()
-		elif not obstacle_check or invert_lock_state == not obstacle_check.is_open:
-			open()
-		
-		is_interacting = false
+	if is_locked:
+		await locked_anim()
+		stop_interacting()
+		return
 	
+	if is_open:
+		close()
+	elif not obstacle_check or invert_lock_state == not obstacle_check.is_open:
+		open()
 	
+	is_interacting = false
+
 
 func _input(_event):
 	if Input.is_action_just_pressed("scape") and is_interacting:

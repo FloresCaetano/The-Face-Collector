@@ -19,8 +19,8 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="19_jgvhu"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lxrxp"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_pdd5r"]
+radius = 0.08
 
 [sub_resource type="Resource" id="Resource_msn7k"]
 script = ExtResource("19_jgvhu")
@@ -66,7 +66,7 @@ script = ExtResource("5_lxrxp")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="PlayerRealCamera" unique_id=1195522642]
 transform = Transform3D(-2.0080004, -1.7554497e-07, 7.673311e-15, 0, -8.7772484e-08, -2.0079997, 1.7554497e-07, -2.0080004, 8.7772456e-08, 6.0530456e-09, 3.026523e-09, 0.06923878)
-shape = SubResource("BoxShape3D_lxrxp")
+shape = SubResource("SphereShape3D_pdd5r")
 target_position = Vector3(0, 1.5, 0)
 margin = 0.05
 max_results = 8

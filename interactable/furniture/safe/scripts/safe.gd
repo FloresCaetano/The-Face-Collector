@@ -25,17 +25,19 @@ func _ready() -> void:
 		key.key_pressed.connect(_on_key_pressed)
 
 func mouse_interaction() -> void:
-	if Input.is_action_just_pressed("interact") and not is_interacting:
-		player.desactivate()
+	player.desactivate()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-		camera_reference.priority = 20
-		await camera_reference.tween_completed
-		can_use_keypad = true
+	camera_reference.priority = 20
+	await camera_reference.tween_completed
+	can_use_keypad = true
 
 func on_mouse_exited() -> void:
 	pass
+
+func on_leave_interaction() -> void:
+	camera_reference.priority = 0
+	can_use_keypad = false
 
 func open_safe() -> void:
 	audio_stream_player_3d.stream = open_safe_audio_stream
@@ -50,10 +52,6 @@ func open_safe() -> void:
 func _on_key_pressed(number : String) -> void:
 	code_input += number
 	check_code()
-
-func on_interaction_leave() -> void:
-	camera_reference.priority = 0
-	can_use_keypad = false
 
 func check_code() -> void:
 	if code_input.length() == correct_code.length():
