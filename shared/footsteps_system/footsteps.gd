@@ -10,7 +10,11 @@ extends Node3D
 @export var check_floor_ray_material : RayCast3D
 @export var timer : Timer
 
-# Variable para rastrear la posición anterior
+enum floor_materials {
+	wood, concrete, gravel
+}
+
+#Variable para rastrear la posición anterior
 var last_position : Vector3 = Vector3.ZERO
 var can_footstep = true
 
@@ -20,24 +24,33 @@ func _ready() -> void:
 		last_position = object.global_position
 
 func _process(_delta: float) -> void:
-	if not object:
+	var floor : Node = check_floor_ray_material.get_collider()
+	
+	if not (object or floor):
 		return
 	
 	# Calcular si el objeto se está moviendo
 	var current_position = object.global_position
 	var is_moving = (current_position - last_position).length() > 0.001
 	
+	
 	if is_moving and can_footstep:
-		_play_footstep()
+		var material : String = floor.get_groups()[0]
+		_play_footstep(material)
 		can_footstep = false
 		timer.start(min_time)
 
 	last_position = current_position
 
-func _play_footstep() -> void:
+func _play_footstep(material : String) -> void:
 	# Reproducir sonido de pasos
-	if footsteps_player and not footsteps_player.playing:
-		footsteps_player.play()
+	if footsteps_player.playing or not footsteps_player:
+		return
+	
+	match material:
+		floor_materials.wood
+	
+	footsteps_player.play()
 	
 	# 10% de probabilidad de reproducir crujido
 	if footsteps_creaking and randf() < 0.1:

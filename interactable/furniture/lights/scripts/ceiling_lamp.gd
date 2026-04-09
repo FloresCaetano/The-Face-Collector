@@ -15,16 +15,18 @@ func _ready():
 		turn_off()
 
 func turn_on():
-	on_model.visible = true
-	off_model.visible = false
+	if on_model and off_model:
+		on_model.visible = true
+		off_model.visible = false
 	is_on = true
 	for light in lights:
 		light.visible = true
 	
 
 func turn_off():
-	on_model.visible = false
-	off_model.visible = true
+	if on_model and off_model:
+		on_model.visible = false
+		off_model.visible = true
 	is_on = false
 	for light in lights:
 		light.visible = false

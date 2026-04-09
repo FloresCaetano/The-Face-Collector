@@ -129,6 +129,7 @@ max_polyphony = 10
 
 [node name="Footsteps" type="Node3D" parent="AudioController" unique_id=88434533 node_paths=PackedStringArray("object", "footsteps_player", "footsteps_creaking", "check_floor_ray_material", "timer")]
 script = ExtResource("6_j7vas")
+min_time = null
 object = NodePath("../..")
 footsteps_player = NodePath("Footsteps")
 footsteps_creaking = NodePath("FootstepsCreaking")
@@ -196,3 +197,5 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1849199684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, 0.20578659)
+light_color = Color(0.92412895, 0.6356551, 7.70092e-07, 1)
