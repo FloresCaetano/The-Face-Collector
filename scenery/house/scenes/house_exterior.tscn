@@ -220,11 +220,19 @@ surface_material_override/0 = SubResource("ShaderMaterial_hgsa8")
 [node name="Suelo_002" parent="." index="97" unique_id=569025664]
 surface_material_override/0 = SubResource("ShaderMaterial_pi12x")
 
+[node name="StaticBody3D" parent="Suelo_002" index="0" unique_id=440632368 groups=["gravel"]]
+
 [node name="Suelo_003" parent="." index="98" unique_id=803152171]
 surface_material_override/0 = SubResource("ShaderMaterial_3wp0x")
+
+[node name="StaticBody3D" parent="Suelo_003" index="0" unique_id=1969088733 groups=["gravel"]]
 
 [node name="Suelo_004" parent="." index="99" unique_id=927378136]
 surface_material_override/0 = SubResource("ShaderMaterial_20jt2")
 
+[node name="StaticBody3D" parent="Suelo_004" index="0" unique_id=977925457 groups=["gravel"]]
+
 [node name="Suelo_005" parent="." index="100" unique_id=1703524947]
 surface_material_override/0 = SubResource("ShaderMaterial_h0vh1")
+
+[node name="StaticBody3D" parent="Suelo_005" index="0" unique_id=2055966127 groups=["gravel"]]

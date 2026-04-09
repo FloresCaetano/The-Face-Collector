@@ -14,6 +14,11 @@ enum floor_materials {
 	wood, concrete, gravel
 }
 
+var footsteps_sound_library : Dictionary = {
+	floor_materials.wood : "uid://dnixe0mwgvt6y",
+	floor_materials.gravel : "uid://u8gl3qr4xb7d"
+}
+
 #Variable para rastrear la posición anterior
 var last_position : Vector3 = Vector3.ZERO
 var can_footstep = true
@@ -26,7 +31,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var floor : Node = check_floor_ray_material.get_collider()
 	
-	if not (object or floor):
+	if not (object and floor):
 		return
 	
 	# Calcular si el objeto se está moviendo
@@ -47,14 +52,15 @@ func _play_footstep(material : String) -> void:
 	if footsteps_player.playing or not footsteps_player:
 		return
 	
-	match material:
-		floor_materials.wood
+	if material == str(floor_materials.wood):
+		# 10% de probabilidad de reproducir crujido
+		if footsteps_creaking and randf() < 0.1:
+			footsteps_creaking.play()
 	
+	footsteps_player.stream = load(footsteps_sound_library[floor_materials[material]])
 	footsteps_player.play()
 	
-	# 10% de probabilidad de reproducir crujido
-	if footsteps_creaking and randf() < 0.1:
-		footsteps_creaking.play()
+	
 
 func _on_footsteps_finished() -> void:
 	can_footstep = true

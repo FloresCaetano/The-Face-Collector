@@ -74,5 +74,9 @@ shadow_mesh = SubResource("ArrayMesh_fygsq")
 
 [node name="House" unique_id=735875240 instance=ExtResource("1_bh2qu")]
 
-[node name="ExteriorWalls" parent="." index="14" unique_id=1329402911]
+[node name="ExteriorWalls" parent="." index="14" unique_id=435068057]
 mesh = SubResource("ArrayMesh_qamgq")
+
+[node name="StaticBody3D" parent="1st_floor" parent_id_path=PackedInt32Array(1468707299) index="0" unique_id=1682028709 groups=["wood"]]
+
+[node name="StaticBody3D" parent="stair_big_02_001/railing_stair_03_L_003" parent_id_path=PackedInt32Array(1323216349) index="0" unique_id=38760253 groups=["wood"]]

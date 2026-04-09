@@ -3,13 +3,14 @@
 [ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_jysff"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
-[ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/particles/rain.gd" id="3_jysff"]
+[ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="4_uvaer"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="4_wxp5c"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="5_fw6df"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="5_g721p"]
+[ext_resource type="Resource" uid="uid://bn313ey4muahe" path="res://VFX/rain/lt_rain.tres" id="5_hwofa"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="6_8bqn5"]
 [ext_resource type="AudioStream" uid="uid://b3jiptgr5drqf" path="res://interactable/items/item-resources/tapes/sixth_tape/6th recording.mp3" id="7_uvaer"]
 [ext_resource type="PackedScene" uid="uid://ck6i0rha0sels" path="res://scripted-events/Chapter1/first_audio_loop/first_audio_loop_controller.tscn" id="9_bt7hu"]
@@ -91,6 +92,7 @@ draw_pass_1 = SubResource("RibbonTrailMesh_b5x3p")
 script = ExtResource("3_jysff")
 player = NodePath("../../../PlayerAndLight/Player")
 speed = 3.0
+track = ExtResource("5_hwofa")
 
 [node name="CabinetsAndDrawers" parent="FullHouse" unique_id=862142503 instance=ExtResource("2_wxp5c")]
 

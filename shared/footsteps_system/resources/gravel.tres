@@ -1,0 +1,25 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://u8gl3qr4xb7d"]
+
+[ext_resource type="AudioStream" uid="uid://b4x5ivodgj87v" path="res://shared/footsteps_system/assets/gravel/g-001.wav" id="1_e61y2"]
+[ext_resource type="AudioStream" uid="uid://c8rvxtq8454yt" path="res://shared/footsteps_system/assets/gravel/g-002.wav" id="2_xyi0s"]
+[ext_resource type="AudioStream" uid="uid://c7j43g1buesli" path="res://shared/footsteps_system/assets/gravel/g-003.wav" id="3_j4qic"]
+[ext_resource type="AudioStream" uid="uid://dd4kre6sod0kg" path="res://shared/footsteps_system/assets/gravel/g-004.wav" id="4_vx2qp"]
+[ext_resource type="AudioStream" uid="uid://ctiohnyscmij1" path="res://shared/footsteps_system/assets/gravel/g-005.wav" id="5_to6p6"]
+[ext_resource type="AudioStream" uid="uid://cq31eagxyfat3" path="res://shared/footsteps_system/assets/gravel/g-006.wav" id="6_lwxw3"]
+[ext_resource type="AudioStream" uid="uid://ci1y21p7usuhl" path="res://shared/footsteps_system/assets/gravel/g-007.wav" id="7_vwj58"]
+[ext_resource type="AudioStream" uid="uid://btsipneado6cn" path="res://shared/footsteps_system/assets/gravel/g-008.wav" id="8_7i6s4"]
+[ext_resource type="AudioStream" uid="uid://bnqji55542msb" path="res://shared/footsteps_system/assets/gravel/g-009.wav" id="9_xybcc"]
+[ext_resource type="AudioStream" uid="uid://c41kd8xtgjfl4" path="res://shared/footsteps_system/assets/gravel/g-010.wav" id="10_vv7k8"]
+
+[resource]
+streams_count = 10
+stream_0/stream = ExtResource("1_e61y2")
+stream_1/stream = ExtResource("2_xyi0s")
+stream_2/stream = ExtResource("3_j4qic")
+stream_3/stream = ExtResource("4_vx2qp")
+stream_4/stream = ExtResource("5_to6p6")
+stream_5/stream = ExtResource("6_lwxw3")
+stream_6/stream = ExtResource("7_vwj58")
+stream_7/stream = ExtResource("8_7i6s4")
+stream_8/stream = ExtResource("9_xybcc")
+stream_9/stream = ExtResource("10_vv7k8")

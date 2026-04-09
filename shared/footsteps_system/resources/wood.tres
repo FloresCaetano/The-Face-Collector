@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dnixe0mwgvt6y"]
+
+[ext_resource type="AudioStream" uid="uid://cnm7h4j52mxap" path="res://shared/footsteps_system/assets/1.mp3" id="1_yolhc"]
+[ext_resource type="AudioStream" uid="uid://jrs47idtrhbn" path="res://shared/footsteps_system/assets/2.mp3" id="2_rosan"]
+[ext_resource type="AudioStream" uid="uid://xsehv3010qci" path="res://shared/footsteps_system/assets/3.mp3" id="3_5vbrb"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_yolhc")
+stream_1/stream = ExtResource("2_rosan")
+stream_2/stream = ExtResource("3_5vbrb")

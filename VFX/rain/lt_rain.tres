@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LabeledTrack" format=3 uid="uid://bn313ey4muahe"]
+
+[ext_resource type="Script" uid="uid://dc4cmg5i6dn5s" path="res://shared/audio_system/labeled_track.gd" id="1_5ef26"]
+[ext_resource type="AudioStream" uid="uid://dpl7ordtma2pt" path="res://VFX/rain/rain.wav" id="2_60rn5"]
+
+[resource]
+script = ExtResource("1_5ef26")
+label = "rain1"
+stream = ExtResource("2_60rn5")
+metadata/_custom_type_script = "uid://dc4cmg5i6dn5s"
