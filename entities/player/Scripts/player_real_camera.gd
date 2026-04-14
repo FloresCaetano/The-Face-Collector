@@ -1,7 +1,11 @@
 class_name PlayerRealCamera
 extends Camera3D
 
+@onready var player : Player = PATHS.player
+
 @export var shape_cast: ShapeCast3D
+@export var p_look_at_cam : PhantomCamera3D
+@export var p_main_camera : PhantomCamera3D
 
 var last_best_target : Interactable
 
@@ -39,3 +43,19 @@ func _get_most_central_target() -> Object:
 			closest_obj = collider
 
 	return closest_obj as Interactable
+
+func look_at_target(target: Node3D, duration : float, wait_time : float) -> void:
+	p_look_at_cam.global_transform = p_look_at_cam.global_transform.looking_at(target.global_transform.origin)
+	p_look_at_cam.tween_resource.duration = duration
+	p_look_at_cam.priority = 20
+	
+	p_main_camera.set_noise(null)
+	p_main_camera.teleport_position()
+	player.desactivate()
+	
+	await get_tree().create_timer(wait_time).timeout
+	p_look_at_cam.priority = 0
+	
+	await p_main_camera.tween_completed
+	player.activate()
+	p_main_camera.set_noise(load("uid://cy8qckhmvhur2"))

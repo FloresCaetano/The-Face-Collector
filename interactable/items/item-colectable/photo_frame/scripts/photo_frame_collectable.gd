@@ -10,14 +10,12 @@ extends Interactable
 @export var audio_stream_player_3d : AudioStreamPlayer3D
 @export var animations_player : AnimationPlayer
 
-
-
 func mouse_interaction():
-	if Input.is_action_just_released("interact"):
-		inventory.add_item(photo_frame_item)
-		audio_stream_player_3d.play()
-		visible = false
-		collision_layer = 0 ; collision_mask = 0
+	inventory.add_item(photo_frame_item)
+	audio_stream_player_3d.play()
+	visible = false
+	collision_layer = 0 ; collision_mask = 0
+	leave_interaction()
 
 func on_mouse_exited():
 	pass

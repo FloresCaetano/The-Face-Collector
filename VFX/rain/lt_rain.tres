@@ -7,4 +7,5 @@
 script = ExtResource("1_5ef26")
 label = "rain1"
 stream = ExtResource("2_60rn5")
+volume_db = -11.090000000000003
 metadata/_custom_type_script = "uid://dc4cmg5i6dn5s"

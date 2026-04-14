@@ -25,7 +25,7 @@ func get_track_by_label(label : String) -> Dictionary:
 	for i in range(_selected_tracks.size()):
 		var track = _selected_tracks[i]
 		if track.label == label:
-			return {"index" : i, "stream" : track.stream}
+			return {"index" : i, "stream" : track.stream, "volume" : track.volume_db}
 	return {}
 
 func start_layer(label : String):
@@ -36,10 +36,11 @@ func start_layer(label : String):
 		
 	var stream : AudioStream = track.stream
 	var index : int = track.index
+	var volume : float = track.volume
 	
 	sync_stream.set_sync_stream(index, stream)
 	sync_stream.set_sync_stream_volume(index, linear_to_db(0.0))
-	_interpolate_volume_at(index, linear_to_db(1.0), 2.0)
+	_interpolate_volume_at(index, volume, 2.0)
 	background_player.stream = sync_stream
 	if not background_player.playing: background_player.play()
 

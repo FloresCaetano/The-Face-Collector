@@ -6,6 +6,70 @@
 [ext_resource type="Script" uid="uid://cbesxqicp77y" path="res://interactable/items/item-colectable/photo_frame/scripts/inspector_interactable.gd" id="3_ttxb6"]
 [ext_resource type="AudioStream" uid="uid://cxddqtpctaow6" path="res://interactable/items/item-colectable/tape/assets/tape_pickUp.mp3" id="4_xlx1e"]
 
+[sub_resource type="Animation" id="Animation_r0ipm"]
+resource_name = "back_cover_open"
+length = 0.5833333
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fame/BackCover")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.033333335, 1, 0, 0, 0, 0.06666667, 1, 0, -0.06985158, 3.0533092e-09, 0.1, 1, 0, -0.24605373, 1.075535e-08, 0.13333334, 1, 0, -0.5393045, 2.357375e-08, 0.16666667, 1, 0, -0.93450075, 4.0848324e-08, 0.2, 1, 0, -1.4354184, 6.274412e-08, 0.23333333, 1, 0, -1.9929721, 8.711558e-08, 0.26666668, 1, 0, -2.5920599, 1.13302534e-07, 0.3, 1, 0, -3.2175775, 1.4064477e-07, 0.33333334, 1, 0, -3.854422, 1.6848215e-07, 0.36666667, 1, 0, -4.4761643, 1.9565935e-07, 0.4, 1, 0, -5.063924, 2.2135114e-07, 0.43333334, 1, 0, -5.6025987, 2.4489736e-07, 0.46666667, 1, 0, -6.077086, 2.6563785e-07, 0.5, 1, 0, -6.472282, 2.8291242e-07, 0.53333336, 1, 0, -6.731551, 2.9424544e-07, 0.56666666, 1, 0, -6.8662195, 3.00132e-07, 0.5833333, 1, 0, -6.912787, 3.0216754e-07)
+
+[sub_resource type="Animation" id="Animation_ttxb6"]
+resource_name = "unlock_0"
+length = 0.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fame/Lock0")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1.6187344e-07, 0.11320325, 0.99357194, 1.8443144e-08, 0.033333335, 1, -1.6187344e-07, 0.11320325, 0.99357194, 1.8443144e-08, 0.06666667, 1, -0.03188884, 0.11385045, 0.99297917, -0.0036916968, 0.1, 1, 0.11031844, -0.115060255, -0.9871187, 0.013696585, 0.13333334, 1, 0.23619202, -0.113653496, -0.9645996, 0.029047754, 0.16666667, 1, 0.39468637, -0.10388829, -0.91181564, 0.044968765, 0.2, 1, 0.55638427, -0.09378924, -0.8231778, 0.0633919, 0.23333333, 1, 0.6551673, -0.08510468, -0.74695444, 0.07464679, 0.25, 1, 0.6936738, -0.08104671, -0.711338, 0.07903405)
+
+[sub_resource type="Animation" id="Animation_xlx1e"]
+resource_name = "unlock_1"
+length = 0.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fame/Lock1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.113203265, 0, 0, 0.99357194, 0.033333335, 1, -0.113203265, 0, 0, 0.99357194, 0.06666667, 1, -0.122968554, 0.060903788, -0.015447687, 0.9904195, 0.1, 1, -0.13060671, 0.18587661, -0.038737252, 0.9730834, 0.13333334, 1, -0.12487763, 0.3444039, -0.05719524, 0.92871976, 0.16666667, 1, -0.09926537, 0.47762313, -0.05441832, 0.87124115, 0.2, 1, -0.0942653, 0.5501524, -0.062681966, 0.82735574, 0.23333333, 1, -0.08523642, 0.65384716, -0.074496485, 0.7481103, 0.25, 1, -0.079543225, 0.70695347, -0.08054719, 0.6981417)
+
+[sub_resource type="Animation" id="Animation_gjhwk"]
+resource_name = "unlock_2"
+length = 0.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fame/Lock3")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.113203265, 0, 0, 0.99357194, 0.033333335, 1, -0.113203265, 0, 0, 0.99357194, 0.06666667, 1, -0.11484617, 0.046679392, 0.0015769792, 0.9922848, 0.1, 1, -0.11893879, 0.15335204, -0.0035881896, 0.9809811, 0.13333334, 1, -0.118168846, 0.31048927, -0.021465756, 0.9429591, 0.16666667, 1, -0.09884046, 0.4843649, -0.05518641, 0.86751115, 0.2, 1, -0.08851195, 0.619414, -0.0705734, 0.7768599, 0.23333333, 1, -0.08240465, 0.68123806, -0.07761733, 0.72325635, 0.25, 1, -0.08023098, 0.7009412, -0.079862185, 0.70417786)
+
+[sub_resource type="Animation" id="Animation_08ce1"]
+resource_name = "unlock_3"
+length = 0.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fame/Lock2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1.6187344e-07, 0.11320325, 0.99357194, 1.8443144e-08, 0.033333335, 1, -1.6187344e-07, 0.11320325, 0.99357194, 1.8443144e-08, 0.06666667, 1, -0.044965837, 0.114472836, 0.99239516, -0.005082976, 0.1, 1, 0.14554986, -0.11570327, -0.9824041, 0.017616058, 0.13333334, 1, 0.29023844, -0.112916015, -0.9496167, 0.03521067, 0.16666667, 1, 0.4453167, -0.10119627, -0.8881881, 0.05073736, 0.2, 1, 0.57027185, -0.092700206, -0.81361854, 0.06497403, 0.23333333, 1, 0.65132415, -0.08548691, -0.7503079, 0.07420871, 0.25, 1, 0.68413526, -0.08209262, -0.7205165, 0.07794704)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mby7"]
+_data = {
+&"back_cover_open": SubResource("Animation_r0ipm"),
+&"unlock_0": SubResource("Animation_ttxb6"),
+&"unlock_1": SubResource("Animation_xlx1e"),
+&"unlock_2": SubResource("Animation_gjhwk"),
+&"unlock_3": SubResource("Animation_08ce1")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_qa30t"]
 size = Vector3(0.05, 0.02, 0)
 
@@ -17,16 +81,19 @@ animations_player = NodePath("PhotoFrame/AnimationPlayer")
 [node name="PhotoFrame" parent="." unique_id=141499997 instance=ExtResource("2_r0ipm")]
 
 [node name="Lock0" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="1" unique_id=1817088731]
-transform = Transform3D(-0.09670364, -2.7742823e-08, 1.8714935e-10, 1.42275995e-08, -0.18017367, 0.010082139, -2.870279e-09, 0.04159638, 0.04367053, -0.93814254, -0.3128271, -1.9476368)
+transform = Transform3D(-0.09670364, -2.971943e-08, -1.4229669e-08, 8.237423e-09, -0.18017367, 0.01008214, -3.3411812e-08, 0.041596383, 0.04367053, -0.93814254, -0.3128271, -1.9476368)
 
 [node name="Lock1" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="2" unique_id=637152001]
-transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082139, 0, -0.04159637, 0.04367053, 0.9368784, -0.3128271, -1.9476368)
+transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082141, 0, -0.04159638, 0.04367053, 0.9368784, -0.3128271, -1.9476368)
 
 [node name="Lock2" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="3" unique_id=1879359975]
-transform = Transform3D(-0.09670364, -2.7742823e-08, 1.8714935e-10, 1.42275995e-08, -0.18017367, 0.010082139, -2.870279e-09, 0.04159638, 0.04367053, -0.9415868, 0.03512113, -0.44003332)
+transform = Transform3D(-0.09670364, -2.971943e-08, -1.4229669e-08, 8.237423e-09, -0.18017367, 0.01008214, -3.3411812e-08, 0.041596383, 0.04367053, -0.9415868, 0.03512113, -0.44003332)
 
 [node name="Lock3" parent="PhotoFrame/Fame" parent_id_path=PackedInt32Array(141499997, 838530811) index="4" unique_id=748884259]
-transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082139, 0, -0.04159637, 0.04367053, 0.93520397, 0.0386108, -0.44003332)
+transform = Transform3D(0.09670364, 0, 0, 0, 0.18017365, 0.010082141, 0, -0.04159638, 0.04367053, 0.93520397, 0.0386108, -0.44003332)
+
+[node name="AnimationPlayer" parent="PhotoFrame" index="1" unique_id=300090282]
+libraries/ = SubResource("AnimationLibrary_4mby7")
 
 [node name="lock_1" type="StaticBody3D" parent="." unique_id=1754156478 groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, 0.160634, 0.372644, -0.0605858)

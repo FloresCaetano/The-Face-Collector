@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brk7fhrihmfm7"]
 
-[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_jysff"]
+[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_hwofa"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
@@ -17,6 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="12_fw6df"]
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="12_jysff"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="14_144cg"]
+[ext_resource type="AudioStream" uid="uid://cigrw0k4u0wdb" path="res://scripted-events/Chapter1/raven_on_road/assets/caw.wav" id="18_3o4xq"]
+[ext_resource type="AudioStream" uid="uid://qhltvg7agprw" path="res://scripted-events/Chapter1/raven_on_road/assets/leaves.wav" id="19_w01sd"]
+[ext_resource type="PackedScene" uid="uid://wbmygrl4ikpx" path="res://scripted-events/Chapter1/raven_on_road/assets/PSX_Bird + Rigged.glb" id="20_aaa7r"]
+[ext_resource type="Texture2D" uid="uid://d11kmfxwov47n" path="res://scripted-events/Chapter1/raven_on_road/assets/leave.png" id="20_u0d7r"]
+[ext_resource type="Script" uid="uid://cif8g7udeg3ky" path="res://scripted-events/Chapter1/raven_on_road/scripts/raven_trigger.gd" id="21_rvk4k"]
+[ext_resource type="AudioStream" uid="uid://ddyekio8slmby" path="res://scripted-events/Chapter1/bush_rustling/leave_rustling.wav" id="23_kh7k8"]
+[ext_resource type="Script" uid="uid://b5iei6ghloklu" path="res://scripted-events/Chapter1/bush_rustling/event_trigger.gd" id="24_sfqas"]
+[ext_resource type="Script" uid="uid://c8fkdqewuw4b" path="res://scripted-events/Chapter1/first_look_at_house/scripts/first_house_look.gd" id="25_dkgmy"]
+[ext_resource type="PackedScene" uid="uid://by63c5jm6toa7" path="res://shared/VisibilityTrigger/look_at_trigger.tscn" id="25_ogm41"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_hwofa"]
+density = -1.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jysff"]
 emission_shape = 3
@@ -52,15 +64,146 @@ need_key = true
 key_id = "storage_key"
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
+[sub_resource type="Animation" id="Animation_w01sd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Raven:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.31250095, 0.04856491)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3o4xq"]
+resource_name = "fly_in"
+length = 3.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Raven")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_3o4xq")
+}],
+"times": PackedFloat32Array(0.06666666)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Raven:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.096666634, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.31250095, 0.04856491), Vector3(0, 0.31250095, -31.022724)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Leaves")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("19_w01sd")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.23333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w01sd"]
+_data = {
+&"RESET": SubResource("Animation_w01sd"),
+&"fly_in": SubResource("Animation_3o4xq")
+}
+
+[sub_resource type="Curve" id="Curve_u0d7r"]
+_limits = [-30.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.094017096, -21.460676), 0.0, 0.0, 0, 0, Vector2(0.2735043, 10), -60.272026, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rvk4k"]
+curve_z = SubResource("Curve_u0d7r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rvk4k"]
+particle_flag_align_y = true
+angle_min = -360.0
+angle_max = 360.00003
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 27.3
+initial_velocity_max = 27.3
+angular_velocity_min = -360.0
+angular_velocity_max = 359.99997
+directional_velocity_min = -1.6093254e-05
+directional_velocity_max = -1.6093254e-05
+directional_velocity_curve = SubResource("CurveXYZTexture_rvk4k")
+gravity = Vector3(0, -32.705, 0)
+damping_min = 13.170001
+damping_max = 13.170001
+turbulence_enabled = true
+turbulence_noise_scale = 3.14
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aaa7r"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("20_u0d7r")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kh7k8"]
+material = SubResource("StandardMaterial3D_aaa7r")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u0d7r"]
+size = Vector3(1.5203857, 4.678467, 14.849758)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh7k8"]
+size = Vector3(1.5203857, 4.678467, 11.680579)
+
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
-environment = ExtResource("1_jysff")
+environment = ExtResource("1_hwofa")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
 light_energy = 0.3
-shadow_enabled = true
 
 [node name="FullHouse" type="Node3D" parent="." unique_id=1905956402]
 
@@ -77,6 +220,11 @@ size = Vector3(36.051758, 11.186523, 1.8873291)
 [node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="FullHouse/House" unique_id=2071864352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.17066, 4.5932617, 2.5942268)
 size = Vector3(36.051758, 11.186523, 2.9037476)
+
+[node name="FogVolume" type="FogVolume" parent="FullHouse/House" unique_id=1216411402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.251593, 4.7678223, -9.380737)
+size = Vector3(36.11609, 11.535645, 27.040283)
+material = SubResource("FogMaterial_hwofa")
 
 [node name="HouseExterior" parent="FullHouse" unique_id=330532458 instance=ExtResource("3_t6h63")]
 
@@ -309,6 +457,79 @@ spot_angle = 35.0
 spot_angle_attenuation = 9.849135
 
 [node name="Entities" type="Node3D" parent="." unique_id=1328729940]
+
+[node name="Chapter1" type="Node3D" parent="." unique_id=2070725139]
+
+[node name="ScriptedEvents" type="Node" parent="Chapter1" unique_id=1700587579]
+
+[node name="RavenAppearance" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=485608444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.268976, 10.70151, 44.13067)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/RavenAppearance" unique_id=1522780849]
+libraries/ = SubResource("AnimationLibrary_w01sd")
+
+[node name="Raven" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/RavenAppearance" unique_id=1497507936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31250095, 0.04856491)
+volume_db = 2.878
+max_distance = 50.0
+bus = &"Reverb"
+
+[node name="PSX_Bird + Rigged" parent="Chapter1/ScriptedEvents/RavenAppearance/Raven" unique_id=1105801245 instance=ExtResource("20_aaa7r")]
+transform = Transform3D(0.9868416, -0.16168994, 0, 0.16168994, 0.9868416, 0, 0, 0, 1, -0.020589828, -0.31250095, 1.2976303)
+
+[node name="Leaves" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/RavenAppearance" unique_id=909632943]
+max_distance = 40.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Chapter1/ScriptedEvents/RavenAppearance" unique_id=1078736807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5360298, -0.30333042, -0.27884293)
+emitting = false
+amount = 50
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 3065978411
+fixed_fps = 60
+visibility_aabb = AABB(-7.12, -12.755, -15.675, 30, 30, 30)
+process_material = SubResource("ParticleProcessMaterial_rvk4k")
+draw_pass_1 = SubResource("QuadMesh_kh7k8")
+
+[node name="EventTrigger" type="Area3D" parent="Chapter1/ScriptedEvents/RavenAppearance" unique_id=86485822 node_paths=PackedStringArray("animation_player")]
+transform = Transform3D(0.999982, 0, -0.0060039163, 0, 1, 0, 0.0060039163, 0, 0.999982, -11.807611, -9.711296, -8.416565)
+input_ray_pickable = false
+script = ExtResource("21_rvk4k")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/RavenAppearance/EventTrigger" unique_id=1793291525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0161018, 0.80773926, 0.6239586)
+shape = SubResource("BoxShape3D_u0d7r")
+
+[node name="BrushRustling" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1766054258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.312931, 0, 42.6264)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/BrushRustling" unique_id=758741695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.344929, 1.7443693, -1.4217873)
+stream = ExtResource("23_kh7k8")
+max_distance = 30.0
+
+[node name="EventTrigger" type="Area3D" parent="Chapter1/ScriptedEvents/BrushRustling" unique_id=1043989145 node_paths=PackedStringArray("audio_stream_player_3d")]
+transform = Transform3D(0.999982, 0, -0.0060039163, 0, 1, 0, 0.0060039163, 0, 0.999982, -18.55061, 0, -8.685745)
+input_ray_pickable = false
+script = ExtResource("24_sfqas")
+audio_stream_player_3d = NodePath("../AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/BrushRustling/EventTrigger" unique_id=19825964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0161018, 0.80773926, -0.96064377)
+shape = SubResource("BoxShape3D_kh7k8")
+
+[node name="FirstHouseLook" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=95495691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.766176, 4.8489075, 21.329056)
+script = ExtResource("25_dkgmy")
+
+[node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/FirstHouseLook" unique_id=927364855 instance=ExtResource("25_ogm41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1090832, 0.83364105, -19.34923)
+
+[connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer"]
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder/Cap"]

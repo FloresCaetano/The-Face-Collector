@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://by63c5jm6toa7"]
+
+[ext_resource type="Script" uid="uid://bu3du3li8ypyy" path="res://shared/VisibilityTrigger/look_at_trigger.gd" id="1_qbvm2"]
+
+[node name="LookAtTrigger" type="VisibleOnScreenNotifier3D" unique_id=927364855]
+script = ExtResource("1_qbvm2")
+
+[connection signal="screen_entered" from="." to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="." to="." method="_on_screen_exited"]

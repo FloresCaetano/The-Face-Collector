@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_prmti")
 frequency = 0.06
+randomize_noise_seed = false
+noise_seed = 5252
 positional_noise = true
 rotational_multiplier_x = 2.0
 rotational_multiplier_z = 0.0

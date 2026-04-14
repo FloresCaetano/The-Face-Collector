@@ -12,5 +12,5 @@ ambient_light_source = 3
 reflected_light_source = 2
 sdfgi_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.06
+volumetric_fog_density = 0.08
 adjustment_saturation = 5.49

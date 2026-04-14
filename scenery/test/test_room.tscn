@@ -24,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="19_kvyoc"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="22_3n4sk"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="22_qku6u"]
+[ext_resource type="PackedScene" uid="uid://co10tylk4x17e" path="res://interactable/furniture/lights/assets/light_switch.glb" id="23_n6pmd"]
+[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="24_ecbd5"]
+[ext_resource type="PackedScene" uid="uid://jui44wmfdh3o" path="res://core/auxiliar/first_cinematic/colector_decimate.glb" id="25_krrso"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -81,6 +84,32 @@ metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 [sub_resource type="Resource" id="Resource_rjqpm"]
 script = ExtResource("11_4wny6")
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
+
+[sub_resource type="GDScript" id="GDScript_m0eob"]
+script/source = "extends Interactable
+
+
+@onready var player_real_camera : PlayerRealCamera = PATHS.player_real_camera
+
+@export var target : Node3D
+
+@export_category(\"Dependencies\")
+@export var audio_stream_player_3d: AudioStreamPlayer3D
+
+func mouse_interaction() -> void:
+	if Input.is_action_just_pressed(\"interact\"):
+		audio_stream_player_3d.play()
+		
+		player_real_camera.look_at_target(target, 1.0, 2.0)
+		
+		is_interacting = false
+
+func on_mouse_exited() -> void:
+	pass
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hw2ce"]
+size = Vector3(0.15826416, 0.14077759, 0.04272461)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1g5e"]
 
@@ -183,6 +212,32 @@ lamp = NodePath("../CeilingLamp")
 
 [node name="CeilingLamp" parent="Stuff/Light" unique_id=867264494 instance=ExtResource("22_3n4sk")]
 transform = Transform3D(0.86454684, -0.5025523, 0, 0.5025523, 0.86454684, 0, 0, 0, 1, -4.9930625, 1.9827435, -0.36847425)
+
+[node name="LookAtTester" type="Node3D" parent="Stuff" unique_id=332508042]
+
+[node name="Button" type="StaticBody3D" parent="Stuff/LookAtTester" unique_id=1602192608 node_paths=PackedStringArray("target", "audio_stream_player_3d", "indicator_last_pose_reference")]
+transform = Transform3D(-0.061118245, 0, 0.99813056, 0, 1, 0, -0.99813056, 0, -0.061118245, -4.0547247, 1.4087949, 2.2015438)
+script = SubResource("GDScript_m0eob")
+target = NodePath("../colector_decimate")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+indicator_last_pose_reference = NodePath("IndicatorPosition")
+
+[node name="light_switch" parent="Stuff/LookAtTester/Button" unique_id=285509210 instance=ExtResource("23_n6pmd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stuff/LookAtTester/Button" unique_id=750835922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00064086914, -0.00010681152, 0.018188477)
+shape = SubResource("BoxShape3D_hw2ce")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Stuff/LookAtTester/Button" unique_id=1976404637]
+stream = ExtResource("24_ecbd5")
+max_distance = 2.0
+bus = &"FX"
+
+[node name="IndicatorPosition" type="Marker3D" parent="Stuff/LookAtTester/Button" unique_id=1414279466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.093381345)
+
+[node name="colector_decimate" parent="Stuff/LookAtTester" unique_id=1141618694 instance=ExtResource("25_krrso")]
+transform = Transform3D(-0.99548614, 0, 0.09490755, 0, 1, 0, -0.09490755, 0, -0.99548614, -7.4738193, 2.5710087, 5.0261803)
 
 [node name="Enviroment" type="Node3D" parent="." unique_id=336902588]
 
