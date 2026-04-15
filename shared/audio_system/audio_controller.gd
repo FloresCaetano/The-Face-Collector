@@ -79,3 +79,13 @@ func left_simple_play(stream : AudioStream) -> void:
 func right_simple_play(stream : AudioStream) -> void:
 	right_back_player.stream = stream
 	right_back_player.play()
+
+func fade_bus_volume(bus_name : String, target_db : float, duration : float):
+	var bus_index = AudioServer.get_bus_index(bus_name)
+	var tween = create_tween()
+	tween.tween_method(
+		func(value): AudioServer.set_bus_volume_db(bus_index, value),
+		AudioServer.get_bus_volume_db(bus_index),
+		target_db,
+		duration
+	)

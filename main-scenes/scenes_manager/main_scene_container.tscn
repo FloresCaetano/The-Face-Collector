@@ -124,6 +124,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1599260835]
@@ -134,14 +135,17 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=1120172572]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=440575582]
 material = SubResource("ShaderMaterial_51qsq")
 custom_minimum_size = Vector2(232.22, 130.56)
 layout_mode = 2
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
