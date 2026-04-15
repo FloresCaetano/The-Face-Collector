@@ -138,6 +138,7 @@ mesh = SubResource("ArrayMesh_7v8ao")
 
 [node name="CassetteTapePlayer" parent="Stuff/Desk" unique_id=1783986654 instance=ExtResource("4_gr0nq")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.0003066063, 0.6239166, -0.002690792)
+indicator_size = Vector3(1, 1, 1)
 
 [node name="FirstAudioLoopController" parent="Stuff/Desk/CassetteTapePlayer" unique_id=27973457 node_paths=PackedStringArray("cassete_tape_player") instance=ExtResource("4_kvyoc")]
 cassete_tape_player = NodePath("..")

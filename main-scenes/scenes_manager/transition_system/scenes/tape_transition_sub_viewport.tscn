@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bhp54cwawcdvo"]
+
+[ext_resource type="Script" uid="uid://u2wi6gfm7vdt" path="res://main-scenes/scenes_manager/transition_system/scripts/tape_transition_manager.gd" id="1_lkckv"]
+
+[node name="TapeTransitionSubViewport" type="SubViewport" unique_id=1435986803 node_paths=PackedStringArray("transition_camera")]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1366, 768)
+render_target_update_mode = 4
+script = ExtResource("1_lkckv")
+transition_camera = NodePath("TransitionCamera")
+
+[node name="TransitionCamera" type="Camera3D" parent="." unique_id=144064294]
+transform = Transform3D(1, 0, 0, 0, 0.0077666016, 0.99996984, 0, -0.99996984, 0.0077666016, 9.130487, 1.7962209, -19.065453)
+cull_mask = 1048574
+current = true

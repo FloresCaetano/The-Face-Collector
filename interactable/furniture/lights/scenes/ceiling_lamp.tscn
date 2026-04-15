@@ -272,6 +272,7 @@ mesh = SubResource("ArrayMesh_t2lgw")
 
 [node name="Lights" type="SpotLight3D" parent="." unique_id=691383771]
 transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.16524696, 0)
+layers = 3
 light_volumetric_fog_energy = 2.88
 shadow_enabled = true
 spot_range = 10.39
@@ -280,6 +281,7 @@ spot_angle_attenuation = 1.569166
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights" unique_id=388683652]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.110223e-16, -0.26075292)
+layers = 3
 light_energy = 0.03
 shadow_enabled = true
 shadow_opacity = 0.65

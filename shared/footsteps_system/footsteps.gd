@@ -29,7 +29,7 @@ func _ready() -> void:
 		last_position = object.global_position
 
 func _process(_delta: float) -> void:
-	var floor : Node = check_floor_ray_material.get_collider()
+	var _floor : Node = check_floor_ray_material.get_collider()
 	
 	if not (object and floor):
 		return
@@ -39,8 +39,8 @@ func _process(_delta: float) -> void:
 	var is_moving = (current_position - last_position).length() > 0.001
 	
 	
-	if is_moving and can_footstep and floor.get_groups():
-		var material : String = floor.get_groups()[0]
+	if is_moving and can_footstep and _floor.get_groups():
+		var material : String = _floor.get_groups()[0]
 		_play_footstep(material)
 		can_footstep = false
 		timer.start(min_time)

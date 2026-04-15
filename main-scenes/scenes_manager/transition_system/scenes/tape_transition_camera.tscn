@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://njxuctu1af7q"]
+
+[ext_resource type="Script" uid="uid://u2wi6gfm7vdt" path="res://main-scenes/scenes_manager/transition_system/scripts/tape_transition_manager.gd" id="1_1y8vn"]
+
+[node name="TapeTransitionCamera" type="SubViewportContainer" unique_id=1189909029 node_paths=PackedStringArray("transition_camera", "sub_viewport")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_1y8vn")
+transition_camera = NodePath("SubViewport/TransitionCamera")
+sub_viewport = NodePath("SubViewport")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1132155131]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1366, 768)
+render_target_update_mode = 4
+
+[node name="TransitionCamera" type="Camera3D" parent="SubViewport" unique_id=2093032398]
+transform = Transform3D(1, 0, 0, 0, 0.0077666016, 0.99996984, 0, -0.99996984, 0.0077666016, 9.130487, 1.7962209, -19.16224)
+cull_mask = 1048574

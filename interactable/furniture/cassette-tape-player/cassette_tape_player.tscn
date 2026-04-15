@@ -160,6 +160,7 @@ animation_player = NodePath("AnimationPlayer")
 lbl_subtitles = NodePath("VBoxContainer/CenterContainer/MarginContainer/Subtitles")
 lbl_subtitles_3d = NodePath("Label3D")
 camera_reference = NodePath("camera_reference")
+indicator_size = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=712682972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00749788, -0.0310541, 0.00196842)
@@ -208,11 +209,15 @@ visible = false
 [node name="Recorder" parent="." unique_id=1676626547 instance=ExtResource("1_nss1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0479206, 0, 0)
 
+[node name="Cube" parent="Recorder" index="0" unique_id=1868062064]
+layers = 3
+
 [node name="Cap" parent="Recorder" unique_id=654701069 instance=ExtResource("2_1a7d7")]
 transform = Transform3D(-1, 0, 0, 0, 1, 2.5351817e-06, 0, -2.5351817e-06, 1, -0.0844507, 0.0326899, 0.00713017)
 
 [node name="Plane" parent="Recorder/Cap" index="0" unique_id=961593430]
 transform = Transform3D(-0.165539, 0, 0, 0, 0.162603, 0.0310427, 0, -0.0310427, 0.162603, -0.0304656, -0.00744074, 0.0260471)
+layers = 3
 mesh = SubResource("ArrayMesh_3rc14")
 
 [node name="camera_reference" type="Node3D" parent="." unique_id=2065988488]
@@ -224,4 +229,5 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
 
+[editable path="Recorder"]
 [editable path="Recorder/Cap"]

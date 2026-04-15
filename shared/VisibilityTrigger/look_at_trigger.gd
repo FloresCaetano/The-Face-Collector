@@ -15,18 +15,15 @@ func _ready() -> void:
 func _on_screen_entered() -> void:
 	set_process(true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(global_position, camera_host.get_global_position())
 	query.collision_mask = 0b1001
 	var result = space_state.intersect_ray(query)
 	
 	if result and result.collider is Player:
-		print("viendo")
 		entered_view.emit()
 		set_process(false)
-	else:
-		print(result.collider)
 
 
 func _on_screen_exited() -> void:

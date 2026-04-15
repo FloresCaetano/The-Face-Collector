@@ -35,11 +35,13 @@ func mouse_interaction() -> void:
 		
 		camera_reference.priority = 20
 		await camera_reference.tween_completed
-
-		inventory.open()
-		inventory.can_be_closed = false
-		inventory.can_be_opened = false
-		inventory.can_inspect_items = false
+		PATHS.scene_manager.instantiate_flashsback("uid://cyk1soxeco6bs")
+		
+		
+		#inventory.open()
+		#inventory.can_be_closed = false
+		#inventory.can_be_opened = false
+		#inventory.can_inspect_items = false
 
 
 func _input(_event: InputEvent) -> void:
@@ -86,7 +88,13 @@ func _on_item_selected(item : Item) -> void:
 		return
 	
 	if item is TapeResource:
-		play_tape(item)
+		PATHS.scene_manager.instantiate_flashsback("uid://cyk1soxeco6bs")
+		#play_tape(item)
+
+func start_transition():
+	pass
+
+#region OldMethods
 
 func play_tape(tape : TapeResource, with_anim : bool = true) -> void:
 	if audio_stream_player.playing: audio_stream_player.stop()
@@ -186,4 +194,5 @@ func parse_csv_line(line: String) -> Array:
 	columns.append(current_column)
 	
 	return columns
-		
+
+#endregion

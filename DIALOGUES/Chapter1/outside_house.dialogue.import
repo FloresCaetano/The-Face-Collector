@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cg2dn2rsbsege"
+path="res://.godot/imported/outside_house.dialogue-ab88cfad33413814595d6947c9ebca9b.tres"
+
+[deps]
+
+source_file="res://DIALOGUES/Chapter1/outside_house.dialogue"
+dest_files=["res://.godot/imported/outside_house.dialogue-ab88cfad33413814595d6947c9ebca9b.tres"]
+
+[params]
+
+defaults=true

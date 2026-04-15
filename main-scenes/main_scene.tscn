@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brk7fhrihmfm7"]
 
-[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_hwofa"]
+[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="1_dkgmy"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
@@ -199,10 +199,12 @@ size = Vector3(1.5203857, 4.678467, 11.680579)
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
-environment = ExtResource("1_hwofa")
+environment = ExtResource("1_dkgmy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
+visible = false
+layers = 3
 light_energy = 0.3
 
 [node name="FullHouse" type="Node3D" parent="." unique_id=1905956402]
@@ -309,6 +311,7 @@ is_locked = true
 
 [node name="CassetteTapePlayer" parent="FullHouse/InteractableFurniture" unique_id=1783986654 instance=ExtResource("5_g721p")]
 transform = Transform3D(0.734, 0, 0, 0, 0.734, 0, 0, 0, 0.734, 9.077443, 1.0757467, -19.11533)
+indicator_size = Vector3(1, 1, 1)
 
 [node name="AudioStreamPlayer3D" parent="FullHouse/InteractableFurniture/CassetteTapePlayer" index="1" unique_id=1976693250]
 stream = ExtResource("7_uvaer")
@@ -432,11 +435,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.994057, 0.24460065, -12.884838)
 
 [node name="Player" parent="PlayerAndLight" unique_id=443950597 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -119.8289, 1.8338972, 58.546494)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -23.470291, 1.9199997, -4.086874)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="PlayerRealCamera" parent="PlayerAndLight/Player" index="0" unique_id=1153064012]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -86.83485, 1.8463197, 45.661655)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.523766, 1.9324222, -16.971712)
 
 [node name="OmniLight3D" parent="PlayerAndLight/Player" index="7" unique_id=1849199684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, 0.19979429)
@@ -532,6 +535,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1090832, 0.83364105, -19.3
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer"]
+[editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder"]
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder/Cap"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
 [editable path="PlayerAndLight/Player"]
