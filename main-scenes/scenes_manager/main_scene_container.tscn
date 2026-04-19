@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://hicn5qmlvirf" path="res://VFX/shaders/psx2.gdshader" id="4_udqio"]
 [ext_resource type="Shader" uid="uid://d14nctxgr8g87" path="res://VFX/shaders/vhs.gdshader" id="5_laruv"]
 [ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="7_lv6u2"]
+[ext_resource type="FontFile" uid="uid://dv31bty8qdoll" path="res://shared/fonts/SpaceMono-Regular.ttf" id="9_51qsq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_udqio"]
 shader = ExtResource("3_4fw3x")
@@ -118,6 +119,10 @@ render_target_update_mode = 4
 
 [node name="MainScene" parent="MainSceneSubViewport/SubViewport" unique_id=457484893 instance=ExtResource("2_laruv")]
 
+[node name="StaticBody3D" parent="MainSceneSubViewport/SubViewport/MainScene/FullHouse/casita5/Cube_039" parent_id_path=PackedInt32Array(457484893, 2145191296, 1235309777) index="0" unique_id=1644718617 groups=["wood"]]
+
+[node name="StaticBody3D" parent="MainSceneSubViewport/SubViewport/MainScene/FullHouse/casita5/Cube_008_001" parent_id_path=PackedInt32Array(457484893, 2145191296, 1216662678) index="0" unique_id=124838198 groups=["wood"]]
+
 [node name="ViewportOverlayRect" type="ColorRect" parent="MainSceneSubViewport/SubViewport" unique_id=697671492]
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,10 +156,12 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=255638614]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("9_51qsq")
 
 [editable path="MainSceneSubViewport/SubViewport/MainScene"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/InteractableFurniture/CassetteTapePlayer"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder/Cap"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/casita5"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/PlayerAndLight/Player"]

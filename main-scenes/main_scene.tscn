@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brk7fhrihmfm7"]
 
-[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="1_dkgmy"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
+[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_nl6sm"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="12_fw6df"]
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="12_jysff"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="14_144cg"]
+[ext_resource type="PackedScene" uid="uid://f3t082g66mds" path="res://scenery/placeholder/casita5.glb" id="17_11ddv"]
 [ext_resource type="AudioStream" uid="uid://cigrw0k4u0wdb" path="res://scripted-events/Chapter1/raven_on_road/assets/caw.wav" id="18_3o4xq"]
 [ext_resource type="AudioStream" uid="uid://qhltvg7agprw" path="res://scripted-events/Chapter1/raven_on_road/assets/leaves.wav" id="19_w01sd"]
 [ext_resource type="PackedScene" uid="uid://wbmygrl4ikpx" path="res://scripted-events/Chapter1/raven_on_road/assets/PSX_Bird + Rigged.glb" id="20_aaa7r"]
@@ -199,7 +200,7 @@ size = Vector3(1.5203857, 4.678467, 11.680579)
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
-environment = ExtResource("1_dkgmy")
+environment = ExtResource("1_nl6sm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -431,15 +432,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6343813, -1.9073486e-06, -
 [node name="CeilingLamp3" parent="FullHouse/Lights/CorridorLights" unique_id=314581895 instance=ExtResource("12_fw6df")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6358156)
 
+[node name="casita5" parent="FullHouse" unique_id=2145191296 instance=ExtResource("17_11ddv")]
+
+[node name="Cube_046_001" parent="FullHouse/casita5" index="9" unique_id=1076789264]
+transform = Transform3D(0.28894043, 0.9135863, -0.28613544, -0.90506566, 0.35809404, 0.22940059, 0.31204078, 0.19268824, 0.9303235, 12.563105, 0.7052973, -23.061642)
+
+[node name="Cube_041" parent="FullHouse/casita5" index="10" unique_id=2047354145]
+transform = Transform3D(0.4425124, -0.85520977, 0.2698127, 0.857434, 0.4916256, 0.1520235, -0.26265883, 0.1640743, 0.95083654, 9.548847, 0.73715687, -23.061642)
+
+[node name="StaticBody3D" parent="FullHouse/casita5/Cube_039" parent_id_path=PackedInt32Array(2145191296, 1235309777) index="0" unique_id=1644718617 groups=["climbeable"]]
+
+[node name="StaticBody3D" parent="FullHouse/casita5/Cube_008_001" parent_id_path=PackedInt32Array(2145191296, 1216662678) index="0" unique_id=124838198 groups=["climbeable"]]
+
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.994057, 0.24460065, -12.884838)
 
 [node name="Player" parent="PlayerAndLight" unique_id=443950597 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -23.470291, 1.9199997, -4.086874)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.738058, 2.5018725, -14.495588)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="PlayerRealCamera" parent="PlayerAndLight/Player" index="0" unique_id=1153064012]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.523766, 1.9324222, -16.971712)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 14.255999, 2.514295, -27.380426)
 
 [node name="OmniLight3D" parent="PlayerAndLight/Player" index="7" unique_id=1849199684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, 0.19979429)
@@ -451,8 +464,7 @@ omni_range = 3.8288195
 omni_attenuation = 1.016
 
 [node name="SpotLight3D" type="SpotLight3D" parent="PlayerAndLight" unique_id=1002102326]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.8338972, 0)
-visible = false
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.178822, 1.8338972, 2.3114624)
 light_energy = 1.3
 shadow_enabled = true
 spot_range = 17.346638
@@ -538,4 +550,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1090832, 0.83364105, -19.3
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder"]
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder/Cap"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="FullHouse/casita5"]
 [editable path="PlayerAndLight/Player"]

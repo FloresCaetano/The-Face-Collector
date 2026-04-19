@@ -41,6 +41,8 @@ func _process(_delta: float) -> void:
 	
 	if is_moving and can_footstep and _floor.get_groups():
 		var material : String = _floor.get_groups()[0]
+		if not material in floor_materials.values():
+			return
 		_play_footstep(material)
 		can_footstep = false
 		timer.start(min_time)

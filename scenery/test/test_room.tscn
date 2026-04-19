@@ -133,7 +133,7 @@ material = SubResource("StandardMaterial3D_dgxqp")
 [node name="Stuff" type="Node3D" parent="." unique_id=971973695]
 
 [node name="Desk" type="MeshInstance3D" parent="Stuff" unique_id=308412808]
-transform = Transform3D(0.87209237, 0, 0, 0, 0.87209237, 0, 0, 0, 0.87209237, -1.0134175, 0.57717514, -5.5203648)
+transform = Transform3D(0.87209237, 0, 0, 0, 0.87209237, 0, 0, 0, 0.87209237, -1.0134175, 0.90298045, -5.5203648)
 mesh = SubResource("ArrayMesh_7v8ao")
 
 [node name="CassetteTapePlayer" parent="Stuff/Desk" unique_id=1783986654 instance=ExtResource("4_gr0nq")]
