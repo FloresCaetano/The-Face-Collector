@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://yiosuuu5hda"]
+
+[ext_resource type="Script" uid="uid://83fynmnuuo0f" path="res://shared/dialogue_system/scripts/dialogue_reader.gd" id="1_irsqp"]
+[ext_resource type="Script" uid="uid://5roccv8s6p7o" path="res://shared/dialogue_system/scripts/dialogue_loader.gd" id="2_deeud"]
+
+[node name="DialogueReader" type="Node3D" unique_id=1237833211]
+script = ExtResource("1_irsqp")
+dialogue_file = "res://DIALOGUES/Chapter1/outside_house_talk.json"
+
+[node name="DialogueLoader" type="Node3D" parent="." unique_id=1288962049]
+script = ExtResource("2_deeud")

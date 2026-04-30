@@ -10,7 +10,7 @@ size = Vector3(0.11328888, 0.11328125, 0.024902344)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p8rd"]
 transparency = 1
-albedo_color = Color(0, 0, 0, 0.23529412)
+albedo_color = Color(0, 0, 0, 0.54901963)
 
 [node name="key" type="StaticBody3D" unique_id=2128369992 node_paths=PackedStringArray("mesh_instance", "audio_stream_player_3d")]
 script = ExtResource("1_y0q2f")
@@ -23,7 +23,6 @@ shape = SubResource("BoxShape3D_14xnw")
 
 [node name="KeyBackground" type="MeshInstance3D" parent="." unique_id=204942342]
 transform = Transform3D(0.055, 0, 0, 0, -2.4041265e-09, -0.055, 0, 0.055, -2.4041265e-09, -0.0040730834, -0.004073024, 0)
-visible = false
 mesh = SubResource("PlaneMesh_mvwep")
 surface_material_override/0 = SubResource("StandardMaterial3D_3p8rd")
 

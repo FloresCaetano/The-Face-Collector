@@ -10,8 +10,10 @@ var zoom : int = 25 #THIS IS FOV VALUE (less = more zoom)
 
 var mouse_input : Vector2 = Vector2.ZERO
 
+signal mouse_stopped
 func _input(event: InputEvent) -> void:
 	if cameraLock:
+		mouse_stopped.emit()
 		return
 		
 	if event is InputEventMouseMotion:
@@ -24,3 +26,8 @@ func _input(event: InputEvent) -> void:
 		rotate_x(deg_to_rad(event.relative.y * sensitivity))
 		
 		rotation.x = clamp(rotation.x, deg_to_rad(min_look_angle), deg_to_rad(max_look_angle))
+		
+
+func set_camera_lock(lock: bool) -> void:
+	cameraLock = lock
+	await mouse_stopped

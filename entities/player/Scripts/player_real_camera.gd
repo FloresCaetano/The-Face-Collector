@@ -2,14 +2,125 @@ class_name PlayerRealCamera
 extends Camera3D
 
 @onready var player : Player = PATHS.player
+@onready var phantom_camera_host: PhantomCameraHost = $PhantomCameraHost
 
 @export var shape_cast: ShapeCast3D
 @export var p_look_at_cam : PhantomCamera3D
 @export var p_main_camera : PhantomCamera3D
+@export var pivot: Pivot
 
 var last_best_target : Interactable
+var can_interact : bool = true
+
+enum State { IDLE, BLOQUED, FOLLOW_CURSOR }
+var actual_state : State = State.IDLE
+var active_camera : PhantomCamera3D :
+	get:
+		return phantom_camera_host.get_active_pcam()
+
+var _is_transitioning := false
+func change_state(new_state: State):
+	if actual_state == new_state or _is_transitioning:
+		push_error("Estado: " + str(actual_state) + " ya activo o sistema en transición")
+		return
+	
+	_is_transitioning = true
+	
+	match actual_state: #This code will execute when leaving a state
+		pass
+			
+	
+	match new_state: #This will execute when entering a state
+		State.BLOQUED:
+			await pivot.set_camera_lock(true)
+		State.IDLE:
+			await pivot.set_camera_lock(false)
+		State.FOLLOW_CURSOR:
+			await pivot.set_camera_lock(true)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			_base_rotation = active_camera.rotation
+	
+	actual_state = new_state
+	await get_tree().physics_frame
+	_is_transitioning = false
 
 func _physics_process(_delta):
+	match actual_state:
+		State.IDLE:
+			if can_interact: idle_interact()
+		State.FOLLOW_CURSOR:
+			follow_cursor(_delta)
+			if can_interact: point_interact()
+
+
+var _base_rotation : Vector3
+func follow_cursor(delta: float) -> void:
+	var viewport_size = get_viewport().get_visible_rect().size
+	var mouse_pos = get_viewport().get_mouse_position()
+	
+	var mouse_normalized = (mouse_pos / viewport_size) * 2.0 - Vector2.ONE
+	
+	var max_yaw   = deg_to_rad(30.0)  # izquierda/derecha
+	var max_pitch = deg_to_rad(15.0)  # arriba/abajo
+	
+	var target_yaw   = -mouse_normalized.x * max_yaw
+	var target_pitch = -mouse_normalized.y * max_pitch
+	
+	var target_rot = _base_rotation + Vector3(target_pitch, target_yaw, 0)
+	
+	var final_transform = Transform3D(
+		Basis.from_euler(target_rot),
+		global_transform.origin
+	)
+	
+	active_camera.global_transform = \
+		active_camera.global_transform.interpolate_with(final_transform, 5.0 * delta)
+
+func point_interact():
+	var raycast_result : Dictionary = throw_raycast(5.0)
+	if not raycast_result.has("collider"):
+		return
+	
+	var collider = raycast_result.collider
+	if collider is Interactable:
+		if collider != last_best_target and last_best_target:
+			last_best_target.mouse_exited()
+		last_best_target = collider
+		collider.interact()
+	
+
+func throw_raycast(ray_distance : float, interaction_mask : int = 0b1) -> Dictionary:
+	var space_state = get_world_3d().direct_space_state
+	var mouse_pos = get_viewport().get_mouse_position()
+	
+	var origin : Vector3 = project_ray_origin(mouse_pos)
+	var end : Vector3 = origin + project_ray_normal(mouse_pos) * ray_distance
+	
+	var query = PhysicsRayQueryParameters3D.create(origin, end, interaction_mask)
+	query.collide_with_areas = true
+	
+	var result = space_state.intersect_ray(query)
+	result["end"] = end
+	
+	return result
+
+func look_at_target(target: Node3D, duration : float, wait_time : float) -> void:
+	p_look_at_cam.global_transform = p_look_at_cam.global_transform.looking_at(target.global_transform.origin)
+	p_look_at_cam.tween_resource.duration = duration
+	p_look_at_cam.priority = 20
+	
+	p_main_camera.set_noise(null)
+	p_main_camera.teleport_position()
+	player.desactivate()
+	
+	await get_tree().create_timer(wait_time).timeout
+	p_look_at_cam.priority = 0
+	
+	await p_main_camera.tween_completed
+	player.activate()
+	p_main_camera.set_noise(load("uid://cy8qckhmvhur2"))
+
+func idle_interact():
 	var best_target : Interactable = _get_most_central_target()
 	if best_target != last_best_target:
 		if last_best_target:
@@ -42,19 +153,3 @@ func _get_most_central_target() -> Object:
 			closest_obj = collider
 
 	return closest_obj as Interactable
-
-func look_at_target(target: Node3D, duration : float, wait_time : float) -> void:
-	p_look_at_cam.global_transform = p_look_at_cam.global_transform.looking_at(target.global_transform.origin)
-	p_look_at_cam.tween_resource.duration = duration
-	p_look_at_cam.priority = 20
-	
-	p_main_camera.set_noise(null)
-	p_main_camera.teleport_position()
-	player.desactivate()
-	
-	await get_tree().create_timer(wait_time).timeout
-	p_look_at_cam.priority = 0
-	
-	await p_main_camera.tween_completed
-	player.activate()
-	p_main_camera.set_noise(load("uid://cy8qckhmvhur2"))

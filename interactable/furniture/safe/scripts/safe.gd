@@ -26,18 +26,24 @@ func _ready() -> void:
 
 func mouse_interaction() -> void:
 	player.desactivate()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
+	
 	camera_reference.priority = 20
 	await camera_reference.tween_completed
 	can_use_keypad = true
+	PATHS.player_real_camera.change_state(PlayerRealCamera.State.FOLLOW_CURSOR)
 
 func on_mouse_exited() -> void:
 	pass
 
 func on_leave_interaction() -> void:
+	await PATHS.player_real_camera.change_state(PlayerRealCamera.State.BLOQUED)
 	camera_reference.priority = 0
 	can_use_keypad = false
+	await PATHS.player_real_camera.active_camera.tween_completed
+	PATHS.player_real_camera.change_state(PlayerRealCamera.State.IDLE)
+	is_interacting = false
+	
+	
 
 func open_safe() -> void:
 	audio_stream_player_3d.stream = open_safe_audio_stream

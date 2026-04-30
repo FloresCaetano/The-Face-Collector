@@ -14,6 +14,14 @@ var mouse_is_over = false
 
 signal key_pressed
 
+func interact() -> void:
+	if is_interacting:
+		return
+	
+	set_process_input(true)
+	inventory.can_be_opened = false
+	mouse_interaction()
+
 func mouse_interaction() -> void:
 	if not safe.can_use_keypad:
 		return
@@ -22,7 +30,7 @@ func mouse_interaction() -> void:
 		mouse_is_over = true
 		mesh_instance.visible = true
 
-	if Input.is_action_just_pressed("select_item") and not is_interacting:
+	if Input.is_action_just_pressed("select_item"):
 		is_interacting = true
 		audio_stream_player_3d.play()
 		key_pressed.emit(asociated_number)

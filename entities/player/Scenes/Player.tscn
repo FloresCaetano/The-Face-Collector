@@ -48,7 +48,7 @@ script = ExtResource("1_ea5mg")
 pivot = NodePath("Pivot")
 real_camera = NodePath("PlayerRealCamera")
 
-[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("shape_cast", "p_look_at_cam", "p_main_camera") groups=["real_camera"]]
+[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("shape_cast", "p_look_at_cam", "p_main_camera", "pivot") groups=["real_camera"]]
 physics_interpolation_mode = 1
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.6060017, 0)
 top_level = true
@@ -56,6 +56,7 @@ script = ExtResource("2_pdd5r")
 shape_cast = NodePath("ShapeCast3D")
 p_look_at_cam = NodePath("../Pivot/LookAtCamera")
 p_main_camera = NodePath("../Pivot/MainCamera")
+pivot = NodePath("../Pivot")
 
 [node name="PhantomCameraHost" type="Node" parent="PlayerRealCamera" unique_id=814895238]
 process_priority = 300

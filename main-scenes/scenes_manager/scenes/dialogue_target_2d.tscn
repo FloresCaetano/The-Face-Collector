@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c5arljwygxedp"]
+
+[ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="1_e7b6s"]
+[ext_resource type="FontFile" uid="uid://dv31bty8qdoll" path="res://shared/fonts/SpaceMono-Regular.ttf" id="2_mkxav"]
+[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="3_xskjv"]
+
+[node name="DialogueTarget2D" type="Control" unique_id=1660569423 groups=["harry_internal"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e7b6s")
+
+[node name="Label" type="Label" parent="." unique_id=303944887]
+layout_mode = 0
+offset_right = 1366.0
+offset_bottom = 24.0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_mkxav")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=698975800]
+stream = ExtResource("3_xskjv")
+volume_db = -30.0
+max_polyphony = 40

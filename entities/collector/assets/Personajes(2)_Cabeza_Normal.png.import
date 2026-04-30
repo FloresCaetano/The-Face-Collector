@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ce2u1g8bv508q"
+path.s3tc="res://.godot/imported/Personajes(2)_Cabeza_Normal.png-7c05fd587a6b0a6bd5aee68c714c8e45.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "bc00fb2378dd97cbbb25a829257d8446"
+}
+
+[deps]
+
+source_file="res://entities/collector/assets/Personajes(2)_Cabeza_Normal.png"
+dest_files=["res://.godot/imported/Personajes(2)_Cabeza_Normal.png-7c05fd587a6b0a6bd5aee68c714c8e45.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://entities/collector/assets/Personajes(2)_Cabeza_Normal.png"
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

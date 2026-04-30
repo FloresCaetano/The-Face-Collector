@@ -15,6 +15,7 @@ var audio_stream_player_3d: AudioStreamPlayer3D
 var is_open = false
 @export var is_locked := false
 
+signal door_interacted
 
 func _ready() -> void:
 	set_process_input(false)
@@ -40,7 +41,6 @@ func _on_item_selected(item : Item) -> void:
 func mouse_interaction() -> void:
 	set_process_input(true)
 	is_interacting = true
-
 	if settings.need_key:
 		inventory.open()
 		inventory.can_be_closed = false
@@ -89,6 +89,8 @@ func open() -> void:
 
 	await tween.finished
 
+	door_interacted.emit()
+	
 	collision_mask = 0b1 ; collision_layer = 0b1
 	is_open = true
 	is_interacting = false
@@ -103,7 +105,9 @@ func close() -> void:
 	collision_mask = 0 ; collision_layer = 0
 
 	await tween.finished
-
+	
+	door_interacted.emit()
+	
 	collision_mask = 0b1 ; collision_layer = 0b1
 	is_open = false
 	is_interacting = false
@@ -121,3 +125,4 @@ func locked_anim() -> void:
 	var tween2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween2.tween_property(object, "rotation_degrees:y", -2, 0.1).as_relative()
 	await tween2.finished
+	door_interacted.emit()

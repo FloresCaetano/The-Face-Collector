@@ -31,7 +31,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var _floor : Node = check_floor_ray_material.get_collider()
 	
-	if not (object and floor):
+	if not object or not _floor:
 		return
 	
 	# Calcular si el objeto se está moviendo

@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://e5lpvglvi7o7" path="res://interactable/furniture/safe/assets/audio/open_safe.mp3" id="4_ta6jp"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_ta6jp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_k5u5e"]
-[ext_resource type="Resource" uid="uid://db8nl7b2kinmp" path="res://VFX/resources/phantom_shaker.tres" id="8_k5u5e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3p8rd"]
 size = Vector3(1.7866821, 2.2525024, 1.5268555)
@@ -44,7 +43,6 @@ max_polyphony = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2537822, 2.7516322)
 script = ExtResource("6_ta6jp")
 tween_resource = SubResource("Resource_wnceq")
-noise = ExtResource("8_k5u5e")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="0" parent="." unique_id=599746619 instance=ExtResource("3_3p8rd")]

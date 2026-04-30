@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="12_fw6df"]
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="12_jysff"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="14_144cg"]
-[ext_resource type="PackedScene" uid="uid://f3t082g66mds" path="res://scenery/placeholder/casita5.glb" id="17_11ddv"]
 [ext_resource type="AudioStream" uid="uid://cigrw0k4u0wdb" path="res://scripted-events/Chapter1/raven_on_road/assets/caw.wav" id="18_3o4xq"]
+[ext_resource type="PackedScene" uid="uid://bkmkgotflx7c4" path="res://entities/collector/assets/Personajes(2).glb" id="18_11ddv"]
 [ext_resource type="AudioStream" uid="uid://qhltvg7agprw" path="res://scripted-events/Chapter1/raven_on_road/assets/leaves.wav" id="19_w01sd"]
 [ext_resource type="PackedScene" uid="uid://wbmygrl4ikpx" path="res://scripted-events/Chapter1/raven_on_road/assets/PSX_Bird + Rigged.glb" id="20_aaa7r"]
 [ext_resource type="Texture2D" uid="uid://d11kmfxwov47n" path="res://scripted-events/Chapter1/raven_on_road/assets/leave.png" id="20_u0d7r"]
@@ -27,6 +27,9 @@
 [ext_resource type="Script" uid="uid://b5iei6ghloklu" path="res://scripted-events/Chapter1/bush_rustling/event_trigger.gd" id="24_sfqas"]
 [ext_resource type="Script" uid="uid://c8fkdqewuw4b" path="res://scripted-events/Chapter1/first_look_at_house/scripts/first_house_look.gd" id="25_dkgmy"]
 [ext_resource type="PackedScene" uid="uid://by63c5jm6toa7" path="res://shared/VisibilityTrigger/look_at_trigger.tscn" id="25_ogm41"]
+[ext_resource type="Script" uid="uid://rvplfa4tojdg" path="res://scripted-events/Chapter1/door_open_first_try/event_trigger.gd" id="28_11ddv"]
+[ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="29_8b4ak"]
+[ext_resource type="Script" uid="uid://dbwk7vm0bbmoh" path="res://shared/dialogue_system/scripts/dialogue_event_trigger.gd" id="30_2n0du"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_hwofa"]
 density = -1.0
@@ -254,30 +257,39 @@ track = ExtResource("5_hwofa")
 [node name="Doors" type="Node3D" parent="FullHouse/InteractableFurniture" unique_id=1313906599]
 
 [node name="Door" parent="FullHouse/InteractableFurniture/Doors" unique_id=2083674971 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 31.805166, 0.045, -0.080251575)
 
 [node name="Door2" parent="FullHouse/InteractableFurniture/Doors" unique_id=490107143 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.808817, 0.045, -0.080251575)
 
 [node name="Door3" parent="FullHouse/InteractableFurniture/Doors" unique_id=1684379520 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.405857, 0.045, -9.139389)
 
 [node name="Door4" parent="FullHouse/InteractableFurniture/Doors" unique_id=1393820111 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.405857, 0.045, -11.149406)
 
 [node name="Door5" parent="FullHouse/InteractableFurniture/Doors" unique_id=104786648 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.06267, 0.045, -13.52384)
 
 [node name="Door6" parent="FullHouse/InteractableFurniture/Doors" unique_id=1847846214 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.68389, 0.045, -8.176515)
 
 [node name="Door7" parent="FullHouse/InteractableFurniture/Doors" unique_id=756372250 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.56875, 0.045, -8.176515)
 
 [node name="Door8" parent="FullHouse/InteractableFurniture/Doors" unique_id=928296214 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.307037, 0.045, -8.176515)
 
 [node name="Door9" parent="FullHouse/InteractableFurniture/Doors" unique_id=1328698649 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.192372, 0.045, -8.176515)
 
 [node name="Door10" parent="FullHouse/InteractableFurniture/Doors" unique_id=1610481694 instance=ExtResource("4_t6h63")]
@@ -285,28 +297,35 @@ unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.562089, 0.045, -7.6335845)
 
 [node name="Door11" parent="FullHouse/InteractableFurniture/Doors" unique_id=2061769666 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.830487, 0.045, -8.1546955)
 
 [node name="Door12" parent="FullHouse/InteractableFurniture/Doors" unique_id=287107877 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.230537, 0.045, -9.586787)
 is_locked = true
 
 [node name="Door16" parent="FullHouse/InteractableFurniture/Doors" unique_id=664381695 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8050585, 0.045, -13.552457)
 
 [node name="Door17" parent="FullHouse/InteractableFurniture/Doors" unique_id=846841841 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9122386, 0.045, -15.840191)
 settings = SubResource("Resource_144cg")
 
 [node name="Door14" parent="FullHouse/InteractableFurniture/Doors" unique_id=205658585 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.27702, 0.045, -18.666368)
 is_locked = true
 
 [node name="Door15" parent="FullHouse/InteractableFurniture/Doors" unique_id=1107417830 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.368015, 0.045, -18.666368)
 is_locked = true
 
 [node name="Door13" parent="FullHouse/InteractableFurniture/Doors" unique_id=125479078 instance=ExtResource("4_t6h63")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.569588, 0.045, -9.585199)
 is_locked = true
 
@@ -432,27 +451,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6343813, -1.9073486e-06, -
 [node name="CeilingLamp3" parent="FullHouse/Lights/CorridorLights" unique_id=314581895 instance=ExtResource("12_fw6df")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6358156)
 
-[node name="casita5" parent="FullHouse" unique_id=2145191296 instance=ExtResource("17_11ddv")]
-
-[node name="Cube_046_001" parent="FullHouse/casita5" index="9" unique_id=1076789264]
-transform = Transform3D(0.28894043, 0.9135863, -0.28613544, -0.90506566, 0.35809404, 0.22940059, 0.31204078, 0.19268824, 0.9303235, 12.563105, 0.7052973, -23.061642)
-
-[node name="Cube_041" parent="FullHouse/casita5" index="10" unique_id=2047354145]
-transform = Transform3D(0.4425124, -0.85520977, 0.2698127, 0.857434, 0.4916256, 0.1520235, -0.26265883, 0.1640743, 0.95083654, 9.548847, 0.73715687, -23.061642)
-
-[node name="StaticBody3D" parent="FullHouse/casita5/Cube_039" parent_id_path=PackedInt32Array(2145191296, 1235309777) index="0" unique_id=1644718617 groups=["climbeable"]]
-
-[node name="StaticBody3D" parent="FullHouse/casita5/Cube_008_001" parent_id_path=PackedInt32Array(2145191296, 1216662678) index="0" unique_id=124838198 groups=["climbeable"]]
-
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.994057, 0.24460065, -12.884838)
 
 [node name="Player" parent="PlayerAndLight" unique_id=443950597 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.738058, 2.5018725, -14.495588)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.636307, 2.4603581, 18.593151)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="PlayerRealCamera" parent="PlayerAndLight/Player" index="0" unique_id=1153064012]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 14.255999, 2.514295, -27.380426)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 27.35775, 2.4727807, 5.708313)
 
 [node name="OmniLight3D" parent="PlayerAndLight/Player" index="7" unique_id=1849199684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, 0.19979429)
@@ -472,6 +479,12 @@ spot_angle = 35.0
 spot_angle_attenuation = 9.849135
 
 [node name="Entities" type="Node3D" parent="." unique_id=1328729940]
+
+[node name="Personajes(2)" parent="Entities" unique_id=829996811 instance=ExtResource("18_11ddv")]
+transform = Transform3D(0.1633748, 0.019582048, 0.98636985, -0.030151293, 0.999435, -0.014847397, -0.98610336, -0.027314633, 0.16387293, 13.084666, 0, -11.044138)
+
+[node name="Coleccionista_001" parent="Entities/Personajes(2)" index="0" unique_id=1048963240]
+transform = Transform3D(0.36865026, -0.032847606, -0.9289874, -0.005237523, 0.999286, -0.037411675, 0.9295532, 0.018657425, 0.36821496, 0.2077856, 0.007554531, 0.08656025)
 
 [node name="Chapter1" type="Node3D" parent="." unique_id=2070725139]
 
@@ -544,11 +557,24 @@ script = ExtResource("25_dkgmy")
 [node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/FirstHouseLook" unique_id=927364855 instance=ExtResource("25_ogm41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1090832, 0.83364105, -19.34923)
 
+[node name="DoorOpenFirstTry" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1311481484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.929152, 0, 1.1577873)
+
+[node name="EventTrigger" type="Node" parent="Chapter1/ScriptedEvents/DoorOpenFirstTry" unique_id=1298413463]
+script = ExtResource("28_11ddv")
+
+[node name="DialogueReader" parent="Chapter1/ScriptedEvents/DoorOpenFirstTry" unique_id=1237833211 node_paths=PackedStringArray("event_trigger") instance=ExtResource("29_8b4ak")]
+dialogue_file = "res://DIALOGUES/Chapter1/on_alice_scream.json"
+event_trigger = NodePath("DialogueEventTrigger2")
+
+[node name="DialogueEventTrigger2" type="Node" parent="Chapter1/ScriptedEvents/DoorOpenFirstTry/DialogueReader" unique_id=1311333088]
+script = ExtResource("30_2n0du")
+
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer"]
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder"]
 [editable path="FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder/Cap"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
-[editable path="FullHouse/casita5"]
 [editable path="PlayerAndLight/Player"]
+[editable path="Entities/Personajes(2)"]

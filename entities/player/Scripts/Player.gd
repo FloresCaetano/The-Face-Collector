@@ -4,7 +4,7 @@ extends CharacterBody3D
 var drag_data
 var drag_target_data
 @export var pivot : Pivot
-@export var real_camera : Camera3D
+@export var real_camera : PlayerRealCamera
 @export var player_spotlight : SpotLight3D
 
 #FLAGS
@@ -152,11 +152,11 @@ func _on_footsteps_finished():
 
 func desactivate():
 	can_move = false
-	pivot.cameraLock = true
+	real_camera.change_state(real_camera.State.BLOQUED)
 
 func activate():
 	can_move = true
-	pivot.cameraLock = false
+	real_camera.change_state(real_camera.State.IDLE)
 
 func _on_footsteps_timer_timeout():
 	can_footstep = true

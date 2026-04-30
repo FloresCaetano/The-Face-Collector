@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://djnb2h3fr0tyx"]
+
+[ext_resource type="Script" uid="uid://1qyvwav27y0t" path="res://entities/player/Scripts/player_real_camera.gd" id="1_jjfbe"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_b07vo"]
+[ext_resource type="Script" uid="uid://mco5dswxqvi4" path="res://entities/player/Scripts/Pivot.gd" id="3_qieqg"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_k1ekt"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_6ma35"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rill6"]
+radius = 0.08
+
+[sub_resource type="Resource" id="Resource_sb5aa"]
+script = ExtResource("5_6ma35")
+
+[sub_resource type="Resource" id="Resource_hd6r1"]
+script = ExtResource("5_6ma35")
+transition = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_jjfbe"]
+
+[node name="CameraTest" type="Node3D" unique_id=1794321263]
+
+[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=335557406 node_paths=PackedStringArray("shape_cast", "pivot") groups=["real_camera"]]
+transform = Transform3D(-0.82643247, 0, -0.5630358, 0, 1, 0, 0.5630358, 0, -0.82643247, 0, -0.116089106, 0)
+top_level = true
+script = ExtResource("1_jjfbe")
+shape_cast = NodePath("ShapeCast3D")
+pivot = NodePath("../Pivot")
+
+[node name="PhantomCameraHost" type="Node" parent="PlayerRealCamera" unique_id=1074331214]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_b07vo")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="PlayerRealCamera" unique_id=559013399]
+transform = Transform3D(-2.0080004, -1.7554497e-07, 7.673311e-15, 0, -8.7772484e-08, -2.0079997, 1.7554497e-07, -2.0080004, 8.7772456e-08, 6.0530456e-09, 3.026523e-09, 0.06923878)
+shape = SubResource("SphereShape3D_rill6")
+target_position = Vector3(0, 1.5, 0)
+margin = 0.05
+max_results = 8
+debug_shape_custom_color = Color(0.90588236, 0.34509805, 1, 0.1764706)
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1313042257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116089106, 0)
+script = ExtResource("3_qieqg")
+
+[node name="MainCamera" type="Node3D" parent="Pivot" unique_id=1243294727]
+transform = Transform3D(-0.82643247, 0, -0.5630358, 0, 1, 0, 0.5630358, 0, -0.82643247, 0, 0, 0)
+script = ExtResource("4_k1ekt")
+priority = 10
+tween_resource = SubResource("Resource_sb5aa")
+_preview_noise = false
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="LookAtCamera" type="Node3D" parent="Pivot" unique_id=1253870564]
+visible = false
+script = ExtResource("4_k1ekt")
+tween_resource = SubResource("Resource_hd6r1")
+tween_on_load = false
+_preview_noise = false
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1418525069]
+transform = Transform3D(0.345, 0, 0, 0, 0.345, 0, 0, 0, 0.345, -0.015580177, -0.082334936, 1.3308513)
+mesh = SubResource("SphereMesh_jjfbe")

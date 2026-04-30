@@ -31,3 +31,7 @@ var cassette_tape_player : CassetteTapePlayer :
 var scene_manager : SceneManager :
 	get:
 		return get_tree().get_first_node_in_group("scene_manager")
+
+var harry_internal : DialogueTarget2D:
+	get:
+		return get_tree().get_first_node_in_group("harry_internal")
