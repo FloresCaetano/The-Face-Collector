@@ -4,6 +4,10 @@ var player_real_camera : PlayerRealCamera :
 	get:
 		return get_tree().get_first_node_in_group("real_camera")
 
+var main_pcamera : PhantomCamera3D :
+	get:
+		return get_tree().get_first_node_in_group("main_pcamera")
+
 var inventory : Inventory :
 	get:
 		return get_tree().get_first_node_in_group("inventory")

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpl7gxbhagsle" path="res://scenery/house/assets/furniture_Lamp_01.png" id="2_4ss0r"]
 [ext_resource type="Texture2D" uid="uid://jvc87bagms6k" path="res://interactable/furniture/lights/assets/ceiling_lamp_lamp_1_on_yellow.png" id="3_w3t73"]
 [ext_resource type="Texture2D" uid="uid://f6vk4i0oduel" path="res://scenery/house/assets/furniture_lamp_3_off.png" id="4_j7x2h"]
+[ext_resource type="Texture2D" uid="uid://dh3slo68c5g5x" path="res://scenery/house/assets/furniture_carpet_mp_1.png" id="5_w3t73"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbsu2"]
 resource_name = "Lamp_01"
@@ -108,8 +109,52 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kfrw2")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7x2h"]
+resource_name = "carpet_mp_1"
+cull_mode = 2
+albedo_texture = ExtResource("5_w3t73")
+texture_filter = 2
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2tpd3"]
+_surfaces = [{
+"aabb": AABB(-1.6139241, 0, -1.0200001, 3.2278483, 0.0102, 2.0400002),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AQADAAMAAQABAAMAAQAEAAMAAwAEAAUABQAEAAYAAQAGAAQABQAGAAcAAgAGAAEAAgAHAAYAAgABAAEAAgACAAEAAAAFAAcAAAAHAAIAAwAFAAAAAwADAAAAAwAAAAAAAAAAAAIAAAACAAIA"),
+"lods": [0.31338942, PackedByteArray("AAABAAIAAAADAAEA")],
+"name": "carpet_mp_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAB2Cv//5goAAHYK/v8Y9QAAiPX//+YKAACI9f7/GPUAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0t1pc"]
+resource_name = "furniture_carpet_1_001"
+_surfaces = [{
+"aabb": AABB(-1.6139241, 0, -1.0200001, 3.2278483, 0.0102, 2.0400002),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAAAAAAAAAP////8AAP////92Chj1iPXmCoj1GPV2CuYKAAAAAHYKGPUAAP//dgrmCgAA//+I9Rj1/////3YKGPX/////iPXmCv//AACI9Rj1//8AAHYK5goAAAAAiPXmCg=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AQAEAAMAAwAEAAUAAQAGAAQAAwAFAAAAAgAGAAEAAAAFAAcAAgAHAAYAAAAHAAIACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkA"),
+"lods": [0.31338942, PackedByteArray("AAABAAIAAAADAAEA")],
+"material": SubResource("StandardMaterial3D_j7x2h"),
+"name": "carpet_mp_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/78AAAAAAAD/vwAAAAD///+///8AAAAA/7///wAA////v3YK/v8Y9f+/iPX//+YK/7+I9f7/GPX/v3YK///mCv+/AAAAAAAADsB2Cv7/GPUOwAAAAAD//w7Adgr//+YKDsAAAAAA//88u4j1/v8Y9Ty7//8AAP//PLt2Cv7/GPU8u///AAD//w7AiPX//+YKDsD//wAAAAAOwIj1/v8Y9Q7A//8AAAAAwsR2Cv//5grCxAAAAAAAAMLEiPX//+YKwsT///9/////f////3////9/////f////3////9/////f////3////9/////f////39o+yyJaPssiWj7LIlo+yyJ////f////3////9/////f9L2aXvS9ml70vZpe9L2aXv///9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2tpd3")
+
 [node name="furniture" unique_id=2066871549 instance=ExtResource("1_rep5f")]
 
 [node name="Lamp_01" parent="." index="141" unique_id=1333273134]
 transform = Transform3D(0.6780019, 0, -0.7350601, 0, 1, 0, 0.7350601, 0, 0.6780019, 10.3348055, 1.0908979, -19.052792)
 mesh = SubResource("ArrayMesh_8fq2o")
+
+[node name="carpet_mp_1_001" parent="." index="192" unique_id=1133839605]
+mesh = SubResource("ArrayMesh_0t1pc")

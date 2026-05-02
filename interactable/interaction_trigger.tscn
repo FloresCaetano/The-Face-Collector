@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cy7lh0ubhfixi"]
+
+[ext_resource type="Script" uid="uid://d1272c3ncuu42" path="res://interactable/interaction_trigger.gd" id="1_asxec"]
+
+[node name="InteractionTrigger" type="StaticBody3D" unique_id=1772597884 node_paths=PackedStringArray("indicator_last_pose_references")]
+script = ExtResource("1_asxec")
+indicator_last_pose_references = [NodePath("Marker3D")]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1467441792]

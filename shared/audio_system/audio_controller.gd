@@ -40,7 +40,7 @@ func start_layer(label : String):
 	
 	sync_stream.set_sync_stream(index, stream)
 	sync_stream.set_sync_stream_volume(index, linear_to_db(0.0))
-	_interpolate_volume_at(index, volume, 2.0)
+	_interpolate_volume_at(index, linear_to_db(0.001), volume, 2.0)
 	background_player.stream = sync_stream
 	if not background_player.playing: background_player.play()
 
@@ -52,18 +52,20 @@ func stop_layer(label : String):
 		
 	var index : int = track.index
 	
-	_interpolate_volume_at(index, linear_to_db(0.0), 0.5)
+	_interpolate_volume_at(index, sync_stream.get_sync_stream_volume(index), linear_to_db(0.0), 10.0)
 	await interpolation_finished
-	sync_stream.set_stream(index, null)
+	sync_stream.set_sync_stream(index, null)
 
 signal interpolation_finished(index : int)
-func _interpolate_volume_at(index : int, target_db : float, duration : float) -> void:
+func _interpolate_volume_at(index : int, from : float, to : float, duration : float) -> void:
 	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	
+	to = clamp(to, linear_to_db(0.001), 0.0)
+	from = clamp(from, linear_to_db(0.001), 0.0)
 	tween.tween_method(
 		func(value): sync_stream.set_sync_stream_volume(index, value),
-		linear_to_db(0.001),
-		target_db,
+		from,
+		to,
 		duration
 	)
 	tween.tween_callback(func(): interpolation_finished.emit(index))

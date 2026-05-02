@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://co10tylk4x17e" path="res://interactable/furniture/lights/assets/light_switch.glb" id="23_n6pmd"]
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="24_ecbd5"]
 [ext_resource type="PackedScene" uid="uid://jui44wmfdh3o" path="res://core/auxiliar/first_cinematic/colector_decimate.glb" id="25_krrso"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="26_ecbd5"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_1gm3x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -111,6 +113,16 @@ func on_mouse_exited() -> void:
 [sub_resource type="BoxShape3D" id="BoxShape3D_hw2ce"]
 size = Vector3(0.15826416, 0.14077759, 0.04272461)
 
+[sub_resource type="Curve3D" id="Curve3D_gi0nu"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.747, 0, 0.028, 0, 0, 0, 0, 0, 0, 0.4656453, 0, -0.0710001),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_5qnvc"]
+script = ExtResource("27_1gm3x")
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1g5e"]
 
 [sub_resource type="Sky" id="Sky_y1cow"]
@@ -124,10 +136,21 @@ sky = SubResource("Sky_y1cow")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=195069824]
 use_collision = true
+metadata/material = "wood"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=787915037]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1334343, -0.112495184, -3.2734337)
 size = Vector3(24.497993, 0.26757813, 23.073936)
+material = SubResource("StandardMaterial3D_dgxqp")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1641484731]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.8527737, 1.9437182, 4.1070523)
+size = Vector3(0.45067024, 4.380005, 2.113699)
+material = SubResource("StandardMaterial3D_dgxqp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=827829892]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.8527737, 1.9437182, 5.022496)
+size = Vector3(0.45067024, 4.380005, 2.113699)
 material = SubResource("StandardMaterial3D_dgxqp")
 
 [node name="Stuff" type="Node3D" parent="." unique_id=971973695]
@@ -168,12 +191,12 @@ tape_item = ExtResource("9_y1cow")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.158125, 0, -5.4853783)
 settings = SubResource("Resource_dw86f")
 
-[node name="Door2" parent="Stuff/Doors" unique_id=1888698391 instance=ExtResource("10_y1cow")]
+[node name="Door2" parent="Stuff/Doors" unique_id=265898312 instance=ExtResource("10_y1cow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.661916, 0, -5.4853783)
 settings = SubResource("Resource_rjqpm")
 is_locked = true
 
-[node name="Door3" parent="Stuff/Doors" unique_id=341384506 instance=ExtResource("10_y1cow")]
+[node name="Door3" parent="Stuff/Doors" unique_id=1514510106 instance=ExtResource("10_y1cow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1829233, 0, -5.4853783)
 settings = SubResource("Resource_rjqpm")
 is_locked = true
@@ -216,12 +239,11 @@ transform = Transform3D(0.86454684, -0.5025523, 0, 0.5025523, 0.86454684, 0, 0, 
 
 [node name="LookAtTester" type="Node3D" parent="Stuff" unique_id=332508042]
 
-[node name="Button" type="StaticBody3D" parent="Stuff/LookAtTester" unique_id=1602192608 node_paths=PackedStringArray("target", "audio_stream_player_3d", "indicator_last_pose_reference")]
+[node name="Button" type="StaticBody3D" parent="Stuff/LookAtTester" unique_id=1602192608 node_paths=PackedStringArray("target", "audio_stream_player_3d")]
 transform = Transform3D(-0.061118245, 0, 0.99813056, 0, 1, 0, -0.99813056, 0, -0.061118245, -4.0547247, 1.4087949, 2.2015438)
 script = SubResource("GDScript_m0eob")
 target = NodePath("../colector_decimate")
 audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
-indicator_last_pose_reference = NodePath("IndicatorPosition")
 
 [node name="light_switch" parent="Stuff/LookAtTester/Button" unique_id=285509210 instance=ExtResource("23_n6pmd")]
 
@@ -239,6 +261,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.093381345)
 
 [node name="colector_decimate" parent="Stuff/LookAtTester" unique_id=1141618694 instance=ExtResource("25_krrso")]
 transform = Transform3D(-0.99548614, 0, 0.09490755, 0, 1, 0, -0.09490755, 0, -0.99548614, -7.4738193, 2.5710087, 5.0261803)
+
+[node name="SideStepArea" type="Node3D" parent="Stuff" unique_id=649126534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.664105, 2.229124, 4.585364)
+
+[node name="Area3D" type="Area3D" parent="Stuff/SideStepArea" unique_id=575689707]
+
+[node name="Path3D" type="Path3D" parent="Stuff/SideStepArea" unique_id=804463509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78739595, -0.27478886, 0.15235567)
+curve = SubResource("Curve3D_gi0nu")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Stuff/SideStepArea/Path3D" unique_id=1714328686]
+transform = Transform3D(0.044697873, 0, -0.99899864, 0, 0.99999994, 0, 0.99899864, 0, 0.044697873, -1.747, 0, 0.028)
+
+[node name="PhantomCamera3D" type="Node3D" parent="Stuff/SideStepArea/Path3D/PathFollow3D" unique_id=998183461]
+transform = Transform3D(0.044698045, 0, 0.9990025, 0, 1.0000001, 0, -0.9990025, 0, 0.044698045, 0, 0, 0)
+script = ExtResource("26_ecbd5")
+tween_resource = SubResource("Resource_5qnvc")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Enviroment" type="Node3D" parent="." unique_id=336902588]
 

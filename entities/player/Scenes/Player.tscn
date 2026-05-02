@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dmsy0jfrxsrqa" path="res://shared/audio_system/audio_controller.gd" id="6_gdq0t"]
 [ext_resource type="Script" uid="uid://hnt1qb71l50a" path="res://shared/footsteps_system/footsteps.gd" id="6_j7vas"]
 [ext_resource type="PackedScene" uid="uid://7f4fxxiv7yq4" path="res://core/inventory/scenes/inventory.tscn" id="7_e013g"]
-[ext_resource type="Resource" uid="uid://cy8qckhmvhur2" path="res://VFX/resources/PCamNoise.res" id="7_uli6c"]
 [ext_resource type="AudioStream" uid="uid://u837pntoh66c" path="res://shared/footsteps_system/assets/c1.mp3" id="10_lxrxp"]
 [ext_resource type="AudioStream" uid="uid://u8gl3qr4xb7d" path="res://shared/footsteps_system/resources/gravel.tres" id="10_uli6c"]
 [ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="10_y6d2e"]
@@ -50,7 +49,7 @@ real_camera = NodePath("PlayerRealCamera")
 
 [node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("shape_cast", "p_look_at_cam", "p_main_camera", "pivot") groups=["real_camera"]]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.6060017, 0)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 1.6060017, 0)
 top_level = true
 script = ExtResource("2_pdd5r")
 shape_cast = NodePath("ShapeCast3D")
@@ -75,16 +74,15 @@ debug_shape_custom_color = Color(0.90588236, 0.34509805, 1, 0.1764706)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116089106, 0)
 script = ExtResource("2_4h0ee")
 
-[node name="MainCamera" type="Node3D" parent="Pivot" unique_id=291564409]
+[node name="MainCamera" type="Node3D" parent="Pivot" unique_id=291564409 groups=["main_pcamera"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("18_ggdqt")
 priority = 10
 tween_resource = SubResource("Resource_msn7k")
-noise = ExtResource("7_uli6c")
-_preview_noise = false
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="LookAtCamera" type="Node3D" parent="Pivot" unique_id=1641801748]
+visible = false
 script = ExtResource("18_ggdqt")
 tween_resource = SubResource("Resource_uli6c")
 tween_on_load = false
@@ -203,5 +201,5 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1849199684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, 0.20578659)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, -0.006744981)
 light_color = Color(0.92412895, 0.6356551, 7.70092e-07, 1)

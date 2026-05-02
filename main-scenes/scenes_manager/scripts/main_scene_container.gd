@@ -19,7 +19,6 @@ func instantiate_flashsback(scene_path : String):
 	
 	var tween_fade = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween_fade.tween_property(viewport_overlay_rect, "color", Color.BLACK, 0.8)
-	var tween_audio_fade = create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	PATHS.audio_controller.fade_bus_volume("Master", -80.0, 0.8)
 	await tween_fade.finished
 	

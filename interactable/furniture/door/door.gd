@@ -34,7 +34,7 @@ func _on_item_selected(item : Item) -> void:
 		settings.need_key = false
 		is_locked = false
 
-		stop_interacting()
+		leave_interaction()
 		open()
 		#TODO : MAKE A "YOU UNLOCKED THE DOOR" ANIMATION OR SOMETHING
 
@@ -52,7 +52,7 @@ func mouse_interaction() -> void:
 
 	if is_locked:
 		await locked_anim()
-		stop_interacting()
+		leave_interaction()
 		return
 	
 	if is_open:
@@ -62,14 +62,7 @@ func mouse_interaction() -> void:
 	
 	is_interacting = false
 
-
-func _input(_event):
-	if Input.is_action_just_pressed("scape") and is_interacting:
-		stop_interacting()
-	
-
-func stop_interacting() -> void:
-	is_interacting = false
+func on_leave_interaction() -> void:
 	inventory.reset_vars()
 	set_process_input(false)
 	inventory.close()

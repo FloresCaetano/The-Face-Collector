@@ -152,11 +152,9 @@ func _on_footsteps_finished():
 
 func desactivate():
 	can_move = false
-	real_camera.change_state(real_camera.State.BLOQUED)
 
 func activate():
 	can_move = true
-	real_camera.change_state(real_camera.State.IDLE)
 
 func _on_footsteps_timer_timeout():
 	can_footstep = true

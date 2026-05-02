@@ -214,25 +214,29 @@ shader_parameter/uv_size = 1.0
 
 [node name="HouseExterior" unique_id=330532458 instance=ExtResource("1_qog6j")]
 
-[node name="Suelo_001" parent="." index="96" unique_id=1826967921]
+[node name="Suelo_001" parent="." index="72" unique_id=1677186636]
 surface_material_override/0 = SubResource("ShaderMaterial_hgsa8")
 
-[node name="Suelo_002" parent="." index="97" unique_id=569025664]
+[node name="Suelo_002" parent="." index="73" unique_id=1407324749]
 surface_material_override/0 = SubResource("ShaderMaterial_pi12x")
 
-[node name="StaticBody3D" parent="Suelo_002" index="0" unique_id=440632368 groups=["gravel"]]
+[node name="StaticBody3D" parent="Suelo_002" index="0" unique_id=1050764959]
+metadata/material = "gravel"
 
-[node name="Suelo_003" parent="." index="98" unique_id=803152171]
+[node name="Suelo_003" parent="." index="74" unique_id=696551875]
 surface_material_override/0 = SubResource("ShaderMaterial_3wp0x")
 
-[node name="StaticBody3D" parent="Suelo_003" index="0" unique_id=1969088733 groups=["gravel"]]
+[node name="StaticBody3D" parent="Suelo_003" index="0" unique_id=723984968]
+metadata/material = "gravel"
 
-[node name="Suelo_004" parent="." index="99" unique_id=927378136]
+[node name="Suelo_004" parent="." index="75" unique_id=567671363]
 surface_material_override/0 = SubResource("ShaderMaterial_20jt2")
 
-[node name="StaticBody3D" parent="Suelo_004" index="0" unique_id=977925457 groups=["gravel"]]
+[node name="StaticBody3D" parent="Suelo_004" index="0" unique_id=411147618]
+metadata/material = "gravel"
 
-[node name="Suelo_005" parent="." index="100" unique_id=1703524947]
+[node name="Suelo_005" parent="." index="76" unique_id=2119305498]
 surface_material_override/0 = SubResource("ShaderMaterial_h0vh1")
 
-[node name="StaticBody3D" parent="Suelo_005" index="0" unique_id=2055966127 groups=["gravel"]]
+[node name="StaticBody3D" parent="Suelo_005" index="0" unique_id=1785126683]
+metadata/material = "gravel"

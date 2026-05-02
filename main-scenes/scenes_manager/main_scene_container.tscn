@@ -137,6 +137,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=1120172572]
@@ -163,6 +164,7 @@ anchor_bottom = 1.0
 offset_top = -24.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 2
 theme_override_constants/margin_bottom = 44
@@ -170,11 +172,21 @@ theme_override_constants/margin_bottom = 44
 [node name="DialogueTarget2D" parent="HUD/HarryInternal" unique_id=1660569423 instance=ExtResource("9_j2rw4")]
 layout_mode = 2
 
+[node name="Label" parent="HUD/HarryInternal/DialogueTarget2D" index="0" unique_id=303944887]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+
 [editable path="MainSceneSubViewport/SubViewport/MainScene"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/InteractableFurniture/CassetteTapePlayer"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/InteractableFurniture/CassetteTapePlayer/Recorder/Cap"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/KitchenLights/KitchenLight"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/PlayerAndLight/Player"]
-[editable path="MainSceneSubViewport/SubViewport/MainScene/Entities/Personajes(2)"]
 [editable path="HUD/HarryInternal/DialogueTarget2D"]

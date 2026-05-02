@@ -15,6 +15,8 @@ var current_line := 0
 var targets : Dictionary = {}
 var actual_target : DialogueTarget
 
+signal dialogue_finished
+
 func start():
 	dialogue_loader.dialogue_file = dialogue_file
 	dialogue_data = dialogue_loader.load_and_process_dialogue()
@@ -75,3 +77,4 @@ func get_wait_time(token : RefCounted) -> float:
 
 func end_dialogue():
 	actual_target.deselect()
+	dialogue_finished.emit()

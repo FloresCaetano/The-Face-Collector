@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TFC"
-run/main_scene="uid://brk7fhrihmfm7"
+run/main_scene="uid://bgcumvv2dyr2u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -37,6 +37,7 @@ runtime/balloon_path="res://LOCATION/balloon.tscn"
 
 window/size/viewport_width=1366
 window/size/viewport_height=768
+window/size/mode=3
 window/size/initial_position_type=4
 
 [editor]
@@ -46,7 +47,7 @@ movie_writer/movie_file="C:/Proyectos/RAW ASSETS/Media/Editables/video/camera_tr
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/github_copilot/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/rich_text_3d/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gd_override_functions/plugin.cfg", "res://addons/github_copilot/plugin.cfg", "res://addons/nhb_functions_on_the_fly/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/rich_text_3d/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [input]
 

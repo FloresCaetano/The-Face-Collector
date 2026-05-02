@@ -32,22 +32,27 @@ func _process(_delta: float) -> void:
 	var _floor : Node = check_floor_ray_material.get_collider()
 	
 	if not object or not _floor:
+		push_error("Footsteps script requires an object and a floor to function properly.")
 		return
 	
 	# Calcular si el objeto se está moviendo
 	var current_position = object.global_position
 	var is_moving = (current_position - last_position).length() > 0.001
 	
+	last_position = current_position
 	
-	if is_moving and can_footstep and _floor.get_groups():
-		var material : String = _floor.get_groups()[0]
-		if not material in floor_materials.values():
+	if is_moving and can_footstep:
+		
+		if not _floor.has_meta("material"):
+			push_error("The floor collider must have a 'material' metadata assigned.")
 			return
+		
+		var material : String = _floor.get_meta("material")
 		_play_footstep(material)
 		can_footstep = false
 		timer.start(min_time)
 
-	last_position = current_position
+	
 
 func _play_footstep(material : String) -> void:
 	# Reproducir sonido de pasos

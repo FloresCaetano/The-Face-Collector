@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_mix, depth_test_disabled, unshaded;
+render_mode blend_mix, unshaded;
 
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
 uniform vec4 edge_color : source_color = vec4(0.0, 0.5, 1.0, 0.0);

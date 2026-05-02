@@ -18,33 +18,26 @@ var active_camera : PhantomCamera3D :
 	get:
 		return phantom_camera_host.get_active_pcam()
 
-var _is_transitioning := false
 func change_state(new_state: State):
-	if actual_state == new_state or _is_transitioning:
-		push_error("Estado: " + str(actual_state) + " ya activo o sistema en transición")
-		return
-	
-	_is_transitioning = true
-	
 	match actual_state: #This code will execute when leaving a state
 		pass
 			
 	
 	match new_state: #This will execute when entering a state
 		State.BLOQUED:
-			await pivot.set_camera_lock(true)
+			pivot.set_camera_lock(true)
 		State.IDLE:
-			await pivot.set_camera_lock(false)
+			pivot.set_camera_lock(false)
 		State.FOLLOW_CURSOR:
 			await pivot.set_camera_lock(true)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			_base_rotation = active_camera.rotation
 	
 	actual_state = new_state
+	print("State: " + str(State.keys()[actual_state]))
 	await get_tree().physics_frame
-	_is_transitioning = false
 
-func _physics_process(_delta):
+func _process(_delta):
 	match actual_state:
 		State.IDLE:
 			if can_interact: idle_interact()
@@ -104,21 +97,24 @@ func throw_raycast(ray_distance : float, interaction_mask : int = 0b1) -> Dictio
 	
 	return result
 
+signal target_spotted       
+signal sequence_finished   
 func look_at_target(target: Node3D, duration : float, wait_time : float) -> void:
 	p_look_at_cam.global_transform = p_look_at_cam.global_transform.looking_at(target.global_transform.origin)
 	p_look_at_cam.tween_resource.duration = duration
 	p_look_at_cam.priority = 20
 	
-	p_main_camera.set_noise(null)
-	p_main_camera.teleport_position()
+	await p_look_at_cam.tween_completed
+	target_spotted.emit()
+	
 	player.desactivate()
+	await change_state(State.BLOQUED)
 	
 	await get_tree().create_timer(wait_time).timeout
 	p_look_at_cam.priority = 0
 	
 	await p_main_camera.tween_completed
-	player.activate()
-	p_main_camera.set_noise(load("uid://cy8qckhmvhur2"))
+	sequence_finished.emit()
 
 func idle_interact():
 	var best_target : Interactable = _get_most_central_target()

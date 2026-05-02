@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5jjcc7nuwlq0"]
+
+[ext_resource type="Script" uid="uid://c2sd1ye7iquao" path="res://shared/animation_manager/scripts/fp_animation_manager.gd" id="1_5o7vk"]
+
+[node name="FpAnimationManager" type="Node3D" unique_id=401460800]
+script = ExtResource("1_5o7vk")

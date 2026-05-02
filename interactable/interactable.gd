@@ -2,9 +2,9 @@
 class_name Interactable
 extends PhysicsBody3D
 
-@export var indicator_last_pose_reference : Marker3D
+@export var indicator_last_pose_references : Array[Marker3D]
 @export var indicator_size : Vector3 = Vector3.ONE
-var interactable_indicator : InteractableIndicator
+var interactable_indicators : Array[InteractableIndicator]
 
 var is_interacting := false
 
@@ -22,12 +22,14 @@ func interact() -> void:
 	if is_interacting:
 		return
 	
-	if not interactable_indicator and indicator_last_pose_reference:
-			interactable_indicator = load("uid://c3aovnmj54oeg").instantiate() as InteractableIndicator
-			add_child(interactable_indicator)
-			interactable_indicator.scale = Vector3.ZERO
-			interactable_indicator.global_position = indicator_last_pose_reference.global_position
-			interactable_indicator.grow(indicator_size)
+	if interactable_indicators.is_empty() and indicator_last_pose_references:
+		for i in range(indicator_last_pose_references.size()):
+			var indicator_last_pose_reference = indicator_last_pose_references[i]
+			interactable_indicators.append(load("uid://c3aovnmj54oeg").instantiate() as InteractableIndicator)
+			add_child(interactable_indicators[i])
+			interactable_indicators[i].scale = Vector3.ZERO
+			interactable_indicators[i].global_position = indicator_last_pose_reference.global_position
+			interactable_indicators[i].grow(indicator_size)
 	
 	if Input.is_action_just_pressed("interact"):
 		_delete_indicator()
@@ -53,7 +55,10 @@ func _input(_event: InputEvent) -> void:
 		leave_interaction()
 
 func _delete_indicator():
-	if interactable_indicator:
-		await interactable_indicator.shrink()
-		interactable_indicator.queue_free()
-		interactable_indicator = null
+	if not interactable_indicators.is_empty():
+		for interactable_indicator in interactable_indicators:
+			if interactable_indicator:
+				await interactable_indicator.shrink()
+				interactable_indicator.queue_free()
+				interactable_indicator = null
+		interactable_indicators.clear()
