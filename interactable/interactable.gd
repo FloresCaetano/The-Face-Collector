@@ -39,7 +39,6 @@ func interact() -> void:
 		mouse_interaction()
 
 func leave_interaction() -> void:
-		player.activate()
 		is_interacting = false
 		set_process_input(false)
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

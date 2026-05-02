@@ -27,8 +27,13 @@
 [ext_resource type="PackedScene" uid="uid://co10tylk4x17e" path="res://interactable/furniture/lights/assets/light_switch.glb" id="23_n6pmd"]
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="24_ecbd5"]
 [ext_resource type="PackedScene" uid="uid://jui44wmfdh3o" path="res://core/auxiliar/first_cinematic/colector_decimate.glb" id="25_krrso"]
+[ext_resource type="Script" uid="uid://bowkp8mf6ek8r" path="res://shared/side_step_area/scripts/side_step_area.gd" id="26_1gm3x"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="26_ecbd5"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_1gm3x"]
+[ext_resource type="PackedScene" uid="uid://7ebk6vosei45" path="res://entities/player/Scenes/footsteps.tscn" id="29_gi0nu"]
+[ext_resource type="PackedScene" uid="uid://cy7lh0ubhfixi" path="res://interactable/interaction_trigger.tscn" id="30_5qnvc"]
+[ext_resource type="Script" uid="uid://bx53wj3fmfg2h" path="res://shared/side_step_area/scripts/start_interaction_trigger.gd" id="31_30efs"]
+[ext_resource type="Script" uid="uid://dt23ymtrps05u" path="res://shared/side_step_area/scripts/end_interaction_trigger.gd" id="32_blx18"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -122,6 +127,9 @@ point_count = 2
 
 [sub_resource type="Resource" id="Resource_5qnvc"]
 script = ExtResource("27_1gm3x")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_30efs"]
+size = Vector3(0.35717773, 1, 0.41937256)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1g5e"]
 
@@ -264,8 +272,7 @@ transform = Transform3D(-0.99548614, 0, 0.09490755, 0, 1, 0, -0.09490755, 0, -0.
 
 [node name="SideStepArea" type="Node3D" parent="Stuff" unique_id=649126534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.664105, 2.229124, 4.585364)
-
-[node name="Area3D" type="Area3D" parent="Stuff/SideStepArea" unique_id=575689707]
+script = ExtResource("26_1gm3x")
 
 [node name="Path3D" type="Path3D" parent="Stuff/SideStepArea" unique_id=804463509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78739595, -0.27478886, 0.15235567)
@@ -280,6 +287,43 @@ script = ExtResource("26_ecbd5")
 tween_resource = SubResource("Resource_5qnvc")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
+[node name="Footsteps" parent="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D" unique_id=93673007 node_paths=PackedStringArray("object") instance=ExtResource("29_gi0nu")]
+min_time = 0.0
+object = NodePath("..")
+
+[node name="CheckFloorMaterialRay" parent="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps" index="2" unique_id=229782812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1101992, 0)
+
+[node name="Start" type="Marker3D" parent="Stuff/SideStepArea" unique_id=644517008]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.8680787, 1.9196334, 0)
+
+[node name="End" type="Marker3D" parent="Stuff/SideStepArea" unique_id=536159867]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.4213595, 1.9196334, 0)
+
+[node name="StartInteractionTrigger" parent="Stuff/SideStepArea" unique_id=1772597884 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_5qnvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1967735, -0.5410335, 0)
+event_behavior = NodePath("EventBehavior")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stuff/SideStepArea/StartInteractionTrigger" unique_id=1109663626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13146973, 0, 0.03237915)
+shape = SubResource("BoxShape3D_30efs")
+
+[node name="EventBehavior" type="Node" parent="Stuff/SideStepArea/StartInteractionTrigger" unique_id=1649773211 node_paths=PackedStringArray("side_step_area")]
+script = ExtResource("31_30efs")
+side_step_area = NodePath("../..")
+
+[node name="EndInteractionTrigger" parent="Stuff/SideStepArea" unique_id=932553354 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_5qnvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3090839, -0.5410335, 0)
+event_behavior = NodePath("EventBehavior")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stuff/SideStepArea/EndInteractionTrigger" unique_id=1559886592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13146973, 0, 0.03237915)
+shape = SubResource("BoxShape3D_30efs")
+
+[node name="EventBehavior" type="Node" parent="Stuff/SideStepArea/EndInteractionTrigger" unique_id=489042348 node_paths=PackedStringArray("side_step_area")]
+script = ExtResource("32_blx18")
+side_step_area = NodePath("../..")
+
 [node name="Enviroment" type="Node3D" parent="." unique_id=336902588]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment" unique_id=28235975]
@@ -293,4 +337,6 @@ environment = SubResource("Environment_a1g5e")
 [node name="SixthTapeAudioTrigger" type="Node" parent="." unique_id=1898912172]
 script = ExtResource("19_bwdx5")
 
-[node name="Player" parent="." unique_id=443950597 instance=ExtResource("19_kvyoc")]
+[node name="Player" parent="." unique_id=1999695980 instance=ExtResource("19_kvyoc")]
+
+[editable path="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]

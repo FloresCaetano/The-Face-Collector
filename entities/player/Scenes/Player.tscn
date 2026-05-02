@@ -5,13 +5,10 @@
 [ext_resource type="Script" uid="uid://1qyvwav27y0t" path="res://entities/player/Scripts/player_real_camera.gd" id="2_pdd5r"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_lxrxp"]
 [ext_resource type="Script" uid="uid://dmsy0jfrxsrqa" path="res://shared/audio_system/audio_controller.gd" id="6_gdq0t"]
-[ext_resource type="Script" uid="uid://hnt1qb71l50a" path="res://shared/footsteps_system/footsteps.gd" id="6_j7vas"]
 [ext_resource type="PackedScene" uid="uid://7f4fxxiv7yq4" path="res://core/inventory/scenes/inventory.tscn" id="7_e013g"]
-[ext_resource type="AudioStream" uid="uid://u837pntoh66c" path="res://shared/footsteps_system/assets/c1.mp3" id="10_lxrxp"]
-[ext_resource type="AudioStream" uid="uid://u8gl3qr4xb7d" path="res://shared/footsteps_system/resources/gravel.tres" id="10_uli6c"]
+[ext_resource type="Script" uid="uid://6o3d2gliiles" path="res://entities/player/Scripts/bobbing_and_tilt.gd" id="7_uli6c"]
+[ext_resource type="PackedScene" uid="uid://7ebk6vosei45" path="res://entities/player/Scenes/footsteps.tscn" id="9_g5i86"]
 [ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="10_y6d2e"]
-[ext_resource type="AudioStream" uid="uid://4gmc5o1b4ihh" path="res://shared/footsteps_system/assets/c2.mp3" id="11_pdd5r"]
-[ext_resource type="AudioStream" uid="uid://teb8i38r6h8r" path="res://shared/footsteps_system/assets/c3.mp3" id="12_ggdqt"]
 [ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="16_uli6c"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="19_jgvhu"]
@@ -33,12 +30,6 @@ height = 0.835
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_uli6c"]
 stream_count = 1
 stream_0/volume = 0.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1hew"]
-streams_count = 3
-stream_0/stream = ExtResource("10_lxrxp")
-stream_1/stream = ExtResource("11_pdd5r")
-stream_2/stream = ExtResource("12_ggdqt")
 
 [node name="Player" type="CharacterBody3D" unique_id=443950597 node_paths=PackedStringArray("pivot", "real_camera") groups=["player"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.83818, 0)
@@ -80,6 +71,11 @@ script = ExtResource("18_ggdqt")
 priority = 10
 tween_resource = SubResource("Resource_msn7k")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="BobbingAndTilt" type="Node" parent="Pivot/MainCamera" unique_id=1207634038 node_paths=PackedStringArray("player", "main_camera")]
+script = ExtResource("7_uli6c")
+player = NodePath("../../..")
+main_camera = NodePath("..")
 
 [node name="LookAtCamera" type="Node3D" parent="Pivot" unique_id=1641801748]
 visible = false
@@ -132,34 +128,8 @@ max_polyphony = 10
 [node name="Simple" type="AudioStreamPlayer" parent="AudioController" unique_id=386658351 groups=["stinger_player"]]
 max_polyphony = 20
 
-[node name="Footsteps" type="Node3D" parent="AudioController" unique_id=88434533 node_paths=PackedStringArray("object", "footsteps_player", "footsteps_creaking", "check_floor_ray_material", "timer")]
-script = ExtResource("6_j7vas")
+[node name="Footsteps" parent="AudioController" unique_id=93673007 node_paths=PackedStringArray("object") instance=ExtResource("9_g5i86")]
 object = NodePath("../..")
-footsteps_player = NodePath("Footsteps")
-footsteps_creaking = NodePath("FootstepsCreaking")
-check_floor_ray_material = NodePath("CheckFloorMaterialRay")
-timer = NodePath("Timer")
-
-[node name="Footsteps" type="AudioStreamPlayer3D" parent="AudioController/Footsteps" unique_id=2101470530]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.8856415, 0)
-stream = ExtResource("10_uli6c")
-volume_db = -10.0
-pitch_scale = 0.7
-max_polyphony = 2
-
-[node name="FootstepsCreaking" type="AudioStreamPlayer3D" parent="AudioController/Footsteps" unique_id=251122144]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.9101196, 0)
-visible = false
-stream = SubResource("AudioStreamRandomizer_n1hew")
-volume_db = -15.0
-pitch_scale = 0.7
-max_polyphony = 4
-
-[node name="CheckFloorMaterialRay" type="RayCast3D" parent="AudioController/Footsteps" unique_id=1386254671]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8259876, 0)
-hit_from_inside = true
-
-[node name="Timer" type="Timer" parent="AudioController/Footsteps" unique_id=1407096298]
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=156496796]
 

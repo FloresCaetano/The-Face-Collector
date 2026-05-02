@@ -34,7 +34,6 @@ func change_state(new_state: State):
 			_base_rotation = active_camera.rotation
 	
 	actual_state = new_state
-	print("State: " + str(State.keys()[actual_state]))
 	await get_tree().physics_frame
 
 func _process(_delta):

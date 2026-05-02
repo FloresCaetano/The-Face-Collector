@@ -65,7 +65,6 @@ func mouse_interaction() -> void:
 func on_leave_interaction() -> void:
 	inventory.reset_vars()
 	set_process_input(false)
-	inventory.close()
 	SIGNALBUS.item_selected.disconnect(_on_item_selected)
 
 func on_mouse_exited() -> void:

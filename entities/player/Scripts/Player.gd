@@ -15,8 +15,8 @@ var on_debug := false
 var last_part_started : bool = false
 
 #MOVE
-var max_speed = 2.0
-var sprint_speed = 2.0
+var max_speed = 1.6
+var sprint_speed = 1.6
 var acceleration = 0.5
 var desaceleration = 0.5
 var can_footstep : bool = true
@@ -130,7 +130,7 @@ func sprint():
 		max_speed = 3.0
 
 func get_input():
-	var input = Vector3()
+	var input = Vector3.ZERO
 	if can_move:
 		if Input.is_action_pressed("m_forward"):
 			input.z += 1

@@ -1,3 +1,4 @@
+class_name FootstepsPlayer
 extends Node3D
 
 @export_category("configs")
@@ -29,10 +30,8 @@ func _ready() -> void:
 		last_position = object.global_position
 
 func _process(_delta: float) -> void:
-	var _floor : Node = check_floor_ray_material.get_collider()
-	
-	if not object or not _floor:
-		push_error("Footsteps script requires an object and a floor to function properly.")
+	if not object:
+		push_error("Footsteps script requires an object to function properly.")
 		return
 	
 	# Calcular si el objeto se está moviendo
@@ -43,18 +42,22 @@ func _process(_delta: float) -> void:
 	
 	if is_moving and can_footstep:
 		
-		if not _floor.has_meta("material"):
-			push_error("The floor collider must have a 'material' metadata assigned.")
-			return
 		
-		var material : String = _floor.get_meta("material")
-		_play_footstep(material)
+		_play_footstep()
 		can_footstep = false
 		timer.start(min_time)
 
 	
 
-func _play_footstep(material : String) -> void:
+func _play_footstep() -> void:
+	var _floor : Node = check_floor_ray_material.get_collider()
+	if not _floor:
+		push_error("No floor detected under the object. Ensure the RayCast3D is properly set up and colliding with the floor.")
+		return
+	if not _floor.has_meta("material"):
+			push_error("The floor collider must have a 'material' metadata assigned.")
+			return
+	var material : String = _floor.get_meta("material")
 	# Reproducir sonido de pasos
 	if footsteps_player.playing or not footsteps_player:
 		return
