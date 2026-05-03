@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1ks6qpagrgtl"
-path="res://.godot/imported/lift_tape_box.glb-4925f6c4b9abf640c90e406cc2bfefcb.scn"
+uid="uid://bjianbwglycb1"
+path="res://.godot/imported/insert_casette.glb-ac8c45a96f9707186b8080da91441775.scn"
 
 [deps]
 
-source_file="res://entities/player/animations/generic/lift_tape_box.glb"
-dest_files=["res://.godot/imported/lift_tape_box.glb-4925f6c4b9abf640c90e406cc2bfefcb.scn"]
+source_file="res://entities/player/animations/generic/insert_casette.glb"
+dest_files=["res://.godot/imported/insert_casette.glb-ac8c45a96f9707186b8080da91441775.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
