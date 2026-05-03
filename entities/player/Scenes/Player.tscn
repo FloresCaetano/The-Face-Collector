@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://6o3d2gliiles" path="res://entities/player/Scripts/bobbing_and_tilt.gd" id="7_uli6c"]
 [ext_resource type="PackedScene" uid="uid://7ebk6vosei45" path="res://entities/player/Scenes/footsteps.tscn" id="9_g5i86"]
 [ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="10_y6d2e"]
+[ext_resource type="PackedScene" uid="uid://1ks6qpagrgtl" path="res://entities/player/animations/generic/lift_tape_box.glb" id="13_xpeio"]
+[ext_resource type="Script" uid="uid://b365bierei4qr" path="res://entities/player/Scenes/tape_linear_container.gd" id="14_6lnal"]
 [ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="16_uli6c"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="19_jgvhu"]
@@ -173,3 +175,46 @@ color = Color(0, 0, 0, 1)
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1849199684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, -0.006744981)
 light_color = Color(0.92412895, 0.6356551, 7.70092e-07, 1)
+
+[node name="lift_tape_box" parent="." unique_id=644976734 instance=ExtResource("13_xpeio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6650276, 0)
+
+[node name="Skeleton3D" parent="lift_tape_box/Brazos Harry" parent_id_path=PackedInt32Array(644976734, 1676437935) index="0" unique_id=1016848321]
+bones/1/rotation = Quaternion(0.7479111, 0.65396786, -0.051699877, -0.10140135)
+bones/2/rotation = Quaternion(0.114980996, 0.6693017, -0.73385644, 0.016412517)
+bones/3/rotation = Quaternion(0.109347984, -0.8731358, -0.23013742, 0.4155885)
+bones/4/rotation = Quaternion(0.28085187, -0.4295496, -0.47539034, 0.7145722)
+bones/5/position = Vector3(0.018361012, 0.10561257, 0.020213624)
+bones/5/rotation = Quaternion(-0.1393754, -0.6315449, -0.21579286, 0.7315456)
+bones/6/rotation = Quaternion(-0.36659256, 0.022403758, -1.9874424e-06, 0.9301119)
+bones/7/rotation = Quaternion(-0.16956805, 0.0038660371, -0.013537755, 0.98541796)
+bones/8/position = Vector3(0.011264419, 0.10628604, -0.0007575094)
+bones/8/rotation = Quaternion(-0.16405566, -0.50193954, -0.18752939, 0.8282362)
+bones/9/rotation = Quaternion(-0.39544824, -0.046089016, -0.02446729, 0.9170049)
+bones/10/rotation = Quaternion(-0.16906324, 0.0030341381, -0.0065136002, 0.985579)
+bones/11/position = Vector3(0.0050360705, 0.10366367, -0.019946694)
+bones/11/rotation = Quaternion(-0.24323036, -0.5373696, -0.10080902, 0.8011931)
+bones/12/rotation = Quaternion(-0.3052752, -0.0322204, -0.012348071, 0.9516388)
+bones/13/rotation = Quaternion(-0.32061797, 0.0074323835, -0.0153191835, 0.9470555)
+bones/14/position = Vector3(-0.0010477509, 0.09738542, -0.039873943)
+bones/14/rotation = Quaternion(-0.27853352, -0.5248372, -0.060008638, 0.80209976)
+bones/15/rotation = Quaternion(-0.16315235, -0.06077105, -0.024295634, 0.9844277)
+bones/16/rotation = Quaternion(-0.054154366, 0.02236223, 0.0062967567, 0.9982623)
+bones/17/rotation = Quaternion(0.049071208, -0.30116808, -0.36410752, 0.8799521)
+bones/18/rotation = Quaternion(-0.16738716, -0.036757957, 0.054208267, 0.9837134)
+bones/19/rotation = Quaternion(-0.13463672, 0.12952845, 0.022976933, 0.98212403)
+bones/20/rotation = Quaternion(0.8101947, -0.58281004, -0.03118872, -0.05426224)
+bones/21/rotation = Quaternion(-0.33564743, -0.60508335, 0.5220175, 0.49871117)
+bones/22/rotation = Quaternion(0.1404596, 0.1580021, 0.094106086, 0.9728569)
+bones/23/rotation = Quaternion(0.07186095, -0.08404355, 0.032165196, 0.99334687)
+
+[node name="cardboard_box_1_001" parent="lift_tape_box" index="1" unique_id=591662987]
+transform = Transform3D(0.0431527, 0.008914937, 0.16464926, 0.26541552, 0.012578903, -0.026988626, -0.013851008, 0.26881364, -0.004197519, 0.13535357, 1.1168647, 0.059438515)
+
+[node name="TapeLinearContainer" type="Marker3D" parent="lift_tape_box/cardboard_box_1_001" index="0" unique_id=561872064 node_paths=PackedStringArray("animation_player", "lift_tape_box") groups=["tape_container"]]
+transform = Transform3D(1, -7.450581e-09, 0, -1.1175871e-08, 1, -9.313226e-10, 0, -1.9557774e-08, 0.9999999, -0.33567232, 0.12399443, 0.031620104)
+script = ExtResource("14_6lnal")
+animation_player = NodePath("../../AnimationPlayer")
+lift_tape_box = NodePath("../..")
+
+[editable path="lift_tape_box"]

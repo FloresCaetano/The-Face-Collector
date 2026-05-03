@@ -39,3 +39,7 @@ var scene_manager : SceneManager :
 var harry_internal : DialogueTarget2D:
 	get:
 		return get_tree().get_first_node_in_group("harry_internal")
+
+var tape_container : TapeContainer:
+	get:
+		return get_tree().get_first_node_in_group("tape_container")

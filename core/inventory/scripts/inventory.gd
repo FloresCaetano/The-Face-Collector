@@ -15,11 +15,12 @@ var last_item_selected : Item = null
 signal inventory_closed
 
 func _ready() -> void:
-	SIGNALBUS.item_selected.connect(
-		func(item : Item) -> void:
-			last_item_selected = item
-	)
-	close()
+	pass
+	#SIGNALBUS.item_selected.connect(
+	#	func(item : Item) -> void:
+	#		last_item_selected = item
+	#)
+	#close()
 
 func open():
 	player.desactivate()

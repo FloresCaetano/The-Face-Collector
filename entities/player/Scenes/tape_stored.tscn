@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://43brsodmfjul"]
+
+[ext_resource type="Script" uid="uid://iqe37y2m786i" path="res://entities/player/Scripts/tape_stored.gd" id="1_5sqwx"]
+[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="1_18vtp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5sqwx"]
+size = Vector3(0.039916992, 0.25317383, 0.42260742)
+
+[node name="TapeStored" type="StaticBody3D" unique_id=782859161]
+script = ExtResource("1_5sqwx")
+
+[node name="TapeMesh" parent="." unique_id=134295697 instance=ExtResource("1_18vtp")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=298731546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00091552734, 0.0020751953, 0.0028076172)
+shape = SubResource("BoxShape3D_5sqwx")

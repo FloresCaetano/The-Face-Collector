@@ -23,7 +23,7 @@ signal event_triggered(tape_tag, trigger_event)
 func _ready() -> void:
 	set_process_input(false)
 	audio_stream_player.finished.connect(func(): tape_finished.emit(last_tape))
-	SIGNALBUS.item_selected.connect(_on_item_selected)
+	SIGNALBUS.tape_selected.connect(_on_tape_selected)
 
 func mouse_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
@@ -83,13 +83,13 @@ func set_subtitle(index : int) -> void:
 	lbl_subtitles_3d.text = text
 
 
-func _on_item_selected(item : Item) -> void:
+func _on_tape_selected(tape_resource  : TapeResource) -> void:
 	if not is_interacting:
 		return
 	
-	if item is TapeResource:
+	if tape_resource is TapeResource:
 		PATHS.scene_manager.instantiate_flashsback("uid://cyk1soxeco6bs")
-		#play_tape(item)
+		#TODO Flashback on tape_resource
 
 func start_transition():
 	pass

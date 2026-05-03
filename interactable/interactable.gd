@@ -15,6 +15,7 @@ var is_interacting := false
 func mouse_interaction() -> void
 @abstract
 func on_mouse_exited() -> void
+func on_look() -> void: pass
 
 func on_leave_interaction() -> void: pass
 
@@ -30,6 +31,8 @@ func interact() -> void:
 			interactable_indicators[i].scale = Vector3.ZERO
 			interactable_indicators[i].global_position = indicator_last_pose_reference.global_position
 			interactable_indicators[i].grow(indicator_size)
+	
+	on_look()
 	
 	if Input.is_action_just_pressed("interact"):
 		_delete_indicator()

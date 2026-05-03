@@ -1,9 +1,9 @@
 extends Node
 
 ####INVENTORY RELATED SIGNALS####
-signal item_selected(item : Item)
-func _on_item_selected(item : Item) -> void:
-	item_selected.emit(item)
+signal tape_selected(tape : TapeResource)
+func _on_tape_selected(tape : TapeResource) -> void:
+	tape_selected.emit(tape)
 
 signal item_inspected(item : Item)
 func _on_item_inspected(item : Item) -> void:
