@@ -1,0 +1,1 @@
+extends DialogueTarget2D

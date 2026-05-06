@@ -33,6 +33,10 @@ func load_targets():
 		if target_needed == "harry_internal":
 			targets[target_needed] = PATHS.harry_internal
 			continue
+		elif target_needed == "tape_recording":
+			targets[target_needed] = PATHS.tape_recording_voice
+			continue
+			
 		if not loaded_ids.has(target_needed):
 			push_error("Dialogue line with ID ", dialogue_line.ID, " references TARGET '", target_needed, "' which is not in the loaded dialogue_targets array.")
 		else:

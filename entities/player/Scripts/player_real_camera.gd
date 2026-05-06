@@ -11,6 +11,7 @@ extends Camera3D
 
 var last_best_target : Interactable
 var can_interact : bool = true
+var original_rotation := Vector3.ZERO
 
 enum State { IDLE, BLOQUED, FOLLOW_CURSOR }
 var actual_state : State = State.IDLE
@@ -20,18 +21,21 @@ var active_camera : PhantomCamera3D :
 
 func change_state(new_state: State):
 	match actual_state: #This code will execute when leaving a state
-		pass
-			
+		State.FOLLOW_CURSOR:
+			pass
+			#p_main_camera.global_rotation = original_rotation
 	
 	match new_state: #This will execute when entering a state
 		State.BLOQUED:
 			pivot.set_camera_lock(true)
 		State.IDLE:
 			pivot.set_camera_lock(false)
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		State.FOLLOW_CURSOR:
 			await pivot.set_camera_lock(true)
+			#original_rotation = p_main_camera.global_rotation
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			_base_rotation = active_camera.rotation
+			_base_rotation = active_camera.global_transform.basis.get_euler()
 	
 	actual_state = new_state
 	await get_tree().physics_frame
@@ -59,7 +63,6 @@ func follow_cursor(delta: float) -> void:
 	var target_pitch = -mouse_normalized.y * max_pitch
 	
 	var target_rot = _base_rotation + Vector3(target_pitch, target_yaw, 0)
-	
 	var final_transform = Transform3D(
 		Basis.from_euler(target_rot),
 		global_transform.origin
@@ -71,14 +74,23 @@ func follow_cursor(delta: float) -> void:
 func point_interact():
 	var raycast_result : Dictionary = throw_raycast(5.0)
 	if not raycast_result.has("collider"):
+		if last_best_target:
+			last_best_target.mouse_exited()
+			last_best_target = null
+		return
+	
+	if not raycast_result.collider is Interactable:
+		if last_best_target:
+			last_best_target.mouse_exited()
+			last_best_target = null
 		return
 	
 	var collider = raycast_result.collider
-	if collider is Interactable:
-		if collider != last_best_target and last_best_target:
-			last_best_target.mouse_exited()
-		last_best_target = collider
-		collider.interact()
+
+	if collider != last_best_target and last_best_target:
+		last_best_target.mouse_exited()
+	last_best_target = collider
+	collider.interact()
 	
 
 func throw_raycast(ray_distance : float, interaction_mask : int = 0b1) -> Dictionary:

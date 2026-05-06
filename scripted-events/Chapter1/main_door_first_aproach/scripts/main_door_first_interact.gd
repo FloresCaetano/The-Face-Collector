@@ -3,7 +3,6 @@ extends Node3D
 @onready var rcam : PlayerRealCamera = PATHS.player_real_camera
 @onready var player : Player = PATHS.player
 @onready var dialogue_reader: DialogueReader = $DialogueReader
-@onready var fp_animation_manager: AnimationManager = $FpAnimationManager
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
 @onready var interior_env : Environment = preload("uid://dc6cxt4hxrydi")
 

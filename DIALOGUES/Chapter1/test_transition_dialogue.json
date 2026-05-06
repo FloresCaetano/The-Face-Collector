@@ -1,0 +1,29 @@
+[
+    {
+        "CHARACTER": "tape_recording",
+        "PITCH-RANGE": "1.0-1.1",
+        "TARGET": "tape_recording",
+        "ID": "1",
+        "text": {
+            "ES": "Este es un texto de prueba, se supone que aquí Lena va narrando lo que grabó."
+        }
+    },
+    {
+        "CHARACTER": "tape_recording",
+        "PITCH-RANGE": "1.0-1.1",
+        "TARGET": "tape_recording",
+        "ID": "2",
+        "text": {
+            "ES": "De esta forma le damos a entender al jugador que esta escuchando la tape."
+        }
+    },
+    {
+        "CHARACTER": "tape_recording",
+        "PITCH-RANGE": "1.0-1.1",
+        "TARGET": "tape_recording",
+        "ID": "3",
+        "text": {
+            "ES": "y . . . Que todo esto, es una reimaginacion de lo ocurrido."
+        }
+    }
+]

@@ -2,90 +2,70 @@ class_name InspectContainer
 extends SubViewportContainer
 
 var is_inspecting = false
-var current_item_model = null  # Referencia al modelo actualmente inspeccionado
-
+var current_item_model = null
 var dragging = false
-var last_mouse_position = Vector2()
-var rotation_velocity = Vector3.ZERO  # Velocidad de rotación acumulada
-var rotation_damping = 0.95  # Factor de amortiguamiento
-var rotation_sensitivity = 0.001  # Sensibilidad de rotación
+var last_mouse_pos = Vector2()
+var rotation_velocity = Vector2.ZERO
+
+const SENSITIVITY = 0.005
+const DAMPING = 0.9
 
 @onready var inventory = PATHS.inventory
 @export var sub_viewport : SubViewport
 @export var camera : Camera3D
 
-
 func _ready() -> void:
-	SIGNALBUS.item_inspected.connect(_on_item_inspected)
+	inventory.item_inspected.connect(_on_item_inspected)
 	inventory.inventory_closed.connect(_on_inventory_closed)
+	mouse_filter = Control.MOUSE_FILTER_STOP
 
-func _input(event):
+func _gui_input(event: InputEvent) -> void:
 	if not is_inspecting:
 		return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			dragging = true
-			last_mouse_position = event.position
-			rotation_velocity = Vector3.ZERO  # Resetear velocidad al comenzar a arrastrar
-		else:
-			dragging = false
+		dragging = event.pressed
+		last_mouse_pos = event.position
+		if dragging:
+			rotation_velocity = Vector2.ZERO
 
-	if dragging and event is InputEventMouseMotion:
-		var delta = event.position - last_mouse_position
-		rotation_velocity.x += delta.y * rotation_sensitivity
-		rotation_velocity.y += delta.x * rotation_sensitivity
-		last_mouse_position = event.position
+	if event is InputEventMouseMotion and dragging:
+		var delta = event.position - last_mouse_pos
+		rotation_velocity = delta * SENSITIVITY
+		last_mouse_pos = event.position
 
-func _process(_delta):
-	sub_viewport.size = self.size
-	if !rotation_velocity == Vector3.ZERO and is_inspecting and current_item_model:
-		current_item_model.rotate(Vector3.UP, rotation_velocity.y)
-		current_item_model.rotate(Vector3.RIGHT, rotation_velocity.x)
-		rotation_velocity *= rotation_damping
-		if rotation_velocity.length() < 0.001:
-			rotation_velocity = Vector3.ZERO
-
-func _on_item_inspected(item):
-	if item == null:
-		is_inspecting = false
-		if current_item_model:
-			current_item_model.queue_free()
-			current_item_model = null
+func _process(_delta: float) -> void:
+	sub_viewport.size = size
+	
+	if not is_inspecting or current_item_model == null or rotation_velocity.length() < 0.0001:
 		return
 	
-	# Eliminar el modelo anterior si existe
+	current_item_model.rotate(Vector3.UP, rotation_velocity.x)
+	current_item_model.rotate(Vector3.RIGHT, rotation_velocity.y)
+	rotation_velocity *= DAMPING
+
+func _on_item_inspected(item) -> void:
 	if current_item_model:
 		current_item_model.queue_free()
 		current_item_model = null
 	
+	if item == null:
+		is_inspecting = false
+		return
+	
 	is_inspecting = true
-	rotation_velocity = Vector3.ZERO  # Resetear velocidad al inspeccionar nuevo objeto
-	dragging = false  # Asegurar que no esté arrastrando
+	dragging = false
+	rotation_velocity = Vector2.ZERO
 	current_item_model = item.model.instantiate()
 	current_item_model.position = Vector3(0, 0, -0.3) + item.offset
 	get_child(0).add_child(current_item_model)
 
+func _on_inventory_closed() -> void:
+	stop_inspecting()
+
 func stop_inspecting():
 	is_inspecting = false
+	dragging = false
 	if current_item_model:
 		current_item_model.queue_free()
 		current_item_model = null
-
-
-@onready var subviewport_container := self
-@export var subviewport : SubViewport
-
-func _unhandled_input(event):
-	if event is InputEventMouse and not (is_inspecting and dragging):
-		var local_mouse = subviewport_container.get_local_mouse_position()
-		var new_event = event.duplicate()
-		new_event.position = local_mouse
-		subviewport.push_input(new_event)
-
-func _on_inventory_closed() -> void:
-	if is_inspecting:
-		is_inspecting = false
-		if current_item_model:
-			current_item_model.queue_free()
-			current_item_model = null

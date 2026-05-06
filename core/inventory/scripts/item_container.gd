@@ -7,7 +7,6 @@ extends CenterContainer
 @export var item_name: Label
 
 @export_category("Options Container")
-@export var item_options_container: ColorRect
 @export var btn_inspect : Button
 @export var btn_use : Button
 
@@ -18,11 +17,10 @@ var active_tween : Tween = null
 
 var resize_factor : Vector2 = Vector2(1.1, 1.1)
 
-signal item_selected(item : Item)
+signal item_inspected(item : Item)
 
 func _ready() -> void:
 	inventory.inventory_closed.connect(_on_inventory_closed)
-	item_selected.connect(SIGNALBUS._on_item_selected)
 
 func load_item():
 	item_image.texture = item.texture
@@ -50,17 +48,17 @@ func lose_focus() -> void:
 func _process(_delta):
 	if mouse_is_over:
 		if Input.is_action_just_pressed("select_item"):
-			item_options_container.set_visible_with_anim(true)
+			item_inspected.emit(item)
 	
 	if mouse_is_over:
 		var mouse_pos = get_global_mouse_position()
 		var rect = Rect2(global_position, size)
 		if not rect.has_point(mouse_pos):
-			item_options_container.set_visible_with_anim(false)
 			lose_focus()
 
 func _on_inventory_closed() -> void:
-	item_options_container.set_visible_with_anim(false)
 	lose_focus()
-	btn_inspect.set_pressed_no_signal(false)
-	btn_inspect.text = tr("K_INSPECT")
+
+func _on_item_container_gui_input(event: InputEvent) -> void:
+	if event.is_action_released("select_item"):
+		item_inspected.emit(item)

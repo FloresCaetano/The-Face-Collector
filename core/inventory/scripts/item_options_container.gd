@@ -21,7 +21,6 @@ func _on_btn_use_pressed() -> void:
 
 
 func _ready() -> void:
-	item_selected.connect(SIGNALBUS._on_item_selected)
 	item_inspected.connect(SIGNALBUS._on_item_inspected)
 
 func _on_btn_inspect_toggled(toggled_on: bool) -> void:

@@ -19,7 +19,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		
 		var sensitivity = GAMEMANAGER.look_sensitivity
 		
 		player.rotate_y(deg_to_rad(-event.relative.x * sensitivity))

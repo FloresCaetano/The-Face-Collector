@@ -101,6 +101,10 @@ scape={
 
 locale/translations=PackedStringArray("res://LOCATION/items-and-interface.en.translation", "res://LOCATION/items-and-interface.es.translation")
 
+[layer_names]
+
+3d_render/layer_20="unshaded"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

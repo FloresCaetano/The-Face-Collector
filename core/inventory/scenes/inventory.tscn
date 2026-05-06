@@ -41,13 +41,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="InspectContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer" unique_id=125211569 node_paths=PackedStringArray("sub_viewport", "camera", "subviewport")]
+[node name="InspectContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer" unique_id=125211569 node_paths=PackedStringArray("sub_viewport", "camera")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_k3pjn")
 sub_viewport = NodePath("SubViewport")
 camera = NodePath("SubViewport/Camera3D")
-subviewport = NodePath("SubViewport")
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/InspectContainer" unique_id=642823305]
 own_world_3d = true

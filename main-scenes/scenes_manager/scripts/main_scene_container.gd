@@ -13,6 +13,7 @@ extends Control
 
 func instantiate_flashsback(scene_path : String):
 	var tape_transition_sv: SubViewport = load("uid://bhp54cwawcdvo").instantiate()
+	tape_transition_sv.size = get_viewport_rect().size
 	main_scene_sub_viewport.add_child(tape_transition_sv)
 	
 	ResourceLoader.load_threaded_request(scene_path)

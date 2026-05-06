@@ -2,9 +2,18 @@
 
 [ext_resource type="Script" uid="uid://iqe37y2m786i" path="res://entities/player/Scripts/tape_stored.gd" id="1_5sqwx"]
 [ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="1_18vtp"]
+[ext_resource type="Script" uid="uid://cofw7sywoopgu" path="res://addons/rich_text_3d/rich_text_3d.gd" id="3_vldkd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfprs"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k8dly"]
+size = Vector2(0.7, 0.5)
+orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5sqwx"]
-size = Vector3(0.039916992, 0.25317383, 0.42260742)
+size = Vector3(0.04, 0.506, 0.423)
 
 [node name="TapeStored" type="StaticBody3D" unique_id=782859161]
 script = ExtResource("1_5sqwx")
@@ -12,6 +21,18 @@ script = ExtResource("1_5sqwx")
 [node name="TapeMesh" parent="." unique_id=134295697 instance=ExtResource("1_18vtp")]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
 
+[node name="Label3D" type="MeshInstance3D" parent="TapeMesh" unique_id=1133575269]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.5654912, 1.3262117e-08, -5.7970554e-16)
+material_override = SubResource("StandardMaterial3D_wfprs")
+transparency = 1.0
+mesh = SubResource("PlaneMesh_k8dly")
+script = ExtResource("3_vldkd")
+text = "asdasdsd"
+horizontal_alignment = 0
+font_size = 23
+outline_size = 2
+metadata/_custom_type_script = "uid://cofw7sywoopgu"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=298731546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00091552734, 0.0020751953, 0.0028076172)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00091552734, -0.12773079, 0.0028076172)
 shape = SubResource("BoxShape3D_5sqwx")

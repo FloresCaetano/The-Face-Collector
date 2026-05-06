@@ -4,10 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://p10y6wc0ipwa" path="res://scenery/house/assets/house_Wood_05_88.jpg" id="3_5ubiv"]
 [ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="4_7v8ao"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="4_gr0nq"]
-[ext_resource type="PackedScene" uid="uid://ck6i0rha0sels" path="res://scripted-events/Chapter1/first_audio_loop/first_audio_loop_controller.tscn" id="4_kvyoc"]
-[ext_resource type="AudioStream" uid="uid://bvl4nhi6vsqv6" path="res://core/auxiliar/first_cinematic/pink_noise.wav" id="5_vqgti"]
 [ext_resource type="Resource" uid="uid://2x84gf4oh2vo" path="res://interactable/items/item-resources/tapes/first_tape/first_tape.tres" id="6_a1g5e"]
-[ext_resource type="Script" uid="uid://dpke4ypjay435" path="res://interactable/items/item-resources/tapes/tape_resource.gd" id="6_lymge"]
 [ext_resource type="Resource" uid="uid://68liv2cplpcn" path="res://interactable/items/item-resources/tapes/fifth_tape/fifth_tape.tres" id="8_y1cow"]
 [ext_resource type="Resource" uid="uid://juymsbnsddx6" path="res://interactable/items/item-resources/tapes/third_tape/third_tape.tres" id="9_a1g5e"]
 [ext_resource type="Resource" uid="uid://cobwetohm2gwn" path="res://interactable/items/item-resources/tapes/sixth_tape/sixth_tape.tres" id="9_y1cow"]
@@ -20,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://bcsohbw3801lu" path="res://interactable/items/item-colectable/hammer/hammer.tscn" id="16_etn8j"]
 [ext_resource type="PackedScene" uid="uid://u7176gi7ni4q" path="res://interactable/furniture/safe/safe.tscn" id="17_pausq"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="18_gep45"]
-[ext_resource type="Script" uid="uid://r7hhqplb10vv" path="res://scripted-events/Chapter1/loops/fourth_loop/sixth_tape_trigger/sixth_tape_audio_trigger.gd" id="19_bwdx5"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="19_kvyoc"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="22_3n4sk"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="22_qku6u"]
@@ -77,11 +73,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y1n2c")
-
-[sub_resource type="Resource" id="Resource_3n4sk"]
-script = ExtResource("6_lymge")
-audio = ExtResource("5_vqgti")
-metadata/_custom_type_script = "uid://dpke4ypjay435"
 
 [sub_resource type="Resource" id="Resource_dw86f"]
 script = ExtResource("11_4wny6")
@@ -170,11 +161,6 @@ mesh = SubResource("ArrayMesh_7v8ao")
 
 [node name="CassetteTapePlayer" parent="Stuff/Desk" unique_id=1783986654 instance=ExtResource("4_gr0nq")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.0003066063, 0.6239166, -0.002690792)
-indicator_size = Vector3(1, 1, 1)
-
-[node name="FirstAudioLoopController" parent="Stuff/Desk/CassetteTapePlayer" unique_id=27973457 node_paths=PackedStringArray("cassete_tape_player") instance=ExtResource("4_kvyoc")]
-cassete_tape_player = NodePath("..")
-tape = SubResource("Resource_3n4sk")
 
 [node name="Tapes" type="Node3D" parent="Stuff" unique_id=682511293]
 
@@ -353,9 +339,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment" unique_id=1024718704]
 environment = SubResource("Environment_a1g5e")
 
-[node name="SixthTapeAudioTrigger" type="Node" parent="." unique_id=1898912172]
-script = ExtResource("19_bwdx5")
-
 [node name="Player" parent="." unique_id=1999695980 instance=ExtResource("19_kvyoc")]
+transform = Transform3D(-1.9960754, 0, -0.12523256, 0, 2, 0, 0.12523256, 0, -1.9960754, 0, 1.8074147, 0)
 
 [editable path="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]

@@ -2,8 +2,10 @@ class_name Inventory
 extends Control
 
 @export var item_list: VBoxContainer
-@export var player : Player
 @export var inspect_container : InspectContainer
+
+@onready var player : Player = PATHS.player
+@onready var p_rcam : PlayerRealCamera = PATHS.player_real_camera
 
 var is_open = false
 var can_be_opened = true
@@ -13,27 +15,24 @@ var can_inspect_items = true
 var last_item_selected : Item = null
 
 signal inventory_closed
+signal item_inspected(item : Item)
 
 func _ready() -> void:
-	pass
-	#SIGNALBUS.item_selected.connect(
-	#	func(item : Item) -> void:
-	#		last_item_selected = item
-	#)
-	#close()
+	close()
 
 func open():
 	player.desactivate()
+	await p_rcam.change_state(p_rcam.State.BLOQUED)
 	visible = true
 	is_open = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func close():
 	player.activate()
+	p_rcam.change_state(p_rcam.State.IDLE)
 	visible = false
 	is_open = false
 
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	reset_vars()
 	inventory_closed.emit() #USED TO NOTIFY ITEM CONTAINERS TO HIDE OPTIONS, RESET BUTTON STATES AND DESINSPECT ITEMS
 
@@ -42,6 +41,7 @@ func add_item(item : Item) -> void:
 	item_container.item = item
 	item_container.load_item()
 	item_list.add_child(item_container)
+	item_container.item_inspected.connect(_on_item_inspected)
 
 func remove_item(item : Item) -> void:
 	for i in item_list.get_children():
@@ -84,3 +84,11 @@ func reset_vars() -> void:
 	can_be_opened = true
 	can_be_closed = true
 	can_inspect_items = true
+
+
+func _on_item_inspected(item: Item) -> void:
+	if not can_inspect_items:
+		return
+	
+	last_item_selected = item
+	item_inspected.emit(item)
