@@ -32,8 +32,7 @@ func change_state(new_state: State):
 			pivot.set_camera_lock(false)
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		State.FOLLOW_CURSOR:
-			await pivot.set_camera_lock(true)
-			#original_rotation = p_main_camera.global_rotation
+			pivot.set_camera_lock(true)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			_base_rotation = active_camera.global_transform.basis.get_euler()
 	

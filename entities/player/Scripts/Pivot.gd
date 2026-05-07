@@ -11,6 +11,7 @@ var zoom : int = 25 #THIS IS FOV VALUE (less = more zoom)
 var mouse_input : Vector2 = Vector2.ZERO
 
 signal mouse_stopped
+
 func _input(event: InputEvent) -> void:
 	if cameraLock:
 		mouse_stopped.emit()

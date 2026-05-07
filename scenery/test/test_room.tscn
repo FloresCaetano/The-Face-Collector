@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://cy7lh0ubhfixi" path="res://interactable/interaction_trigger.tscn" id="30_5qnvc"]
 [ext_resource type="Script" uid="uid://bx53wj3fmfg2h" path="res://shared/side_step_area/scripts/start_interaction_trigger.gd" id="31_30efs"]
 [ext_resource type="Script" uid="uid://dt23ymtrps05u" path="res://shared/side_step_area/scripts/end_interaction_trigger.gd" id="32_blx18"]
-[ext_resource type="PackedScene" uid="uid://43brsodmfjul" path="res://entities/player/Scenes/tape_stored.tscn" id="33_krrh1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -310,24 +309,6 @@ shape = SubResource("BoxShape3D_30efs")
 [node name="EventBehavior" type="Node" parent="Stuff/SideStepArea/EndInteractionTrigger" unique_id=489042348 node_paths=PackedStringArray("side_step_area")]
 script = ExtResource("32_blx18")
 side_step_area = NodePath("../..")
-
-[node name="TapeStored" parent="Stuff" unique_id=782859161 instance=ExtResource("33_krrh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6224632, 1.2707945, 0)
-
-[node name="TapeStored2" parent="Stuff" unique_id=1278022942 instance=ExtResource("33_krrh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.675232, 1.2707945, 0)
-
-[node name="TapeStored3" parent="Stuff" unique_id=1501508059 instance=ExtResource("33_krrh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7479472, 1.2707945, 0)
-
-[node name="TapeStored4" parent="Stuff" unique_id=189400912 instance=ExtResource("33_krrh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.830408, 1.2707945, 0)
-
-[node name="TapeStored5" parent="Stuff" unique_id=431128465 instance=ExtResource("33_krrh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9277906, 1.2707945, 0)
-
-[node name="TapeStored6" parent="Stuff" unique_id=1310685334 instance=ExtResource("33_krrh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.009129, 1.2707945, 0)
 
 [node name="Enviroment" type="Node3D" parent="." unique_id=336902588]
 

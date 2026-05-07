@@ -10,4 +10,7 @@ func mouse_interaction() -> void:
 	event_behavior.execute()
 
 func on_mouse_exited() -> void:
-	is_interacting = false
+	pass
+
+func on_leave_interaction() -> void:
+	event_behavior.on_interaction_end()
