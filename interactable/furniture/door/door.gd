@@ -47,7 +47,6 @@ func mouse_interaction() -> void:
 		inventory.can_be_opened = false
 		inventory.can_inspect_items = false
 
-		SIGNALBUS.item_selected.connect(_on_item_selected)
 		return
 
 	if is_locked:
@@ -65,7 +64,6 @@ func mouse_interaction() -> void:
 func on_leave_interaction() -> void:
 	inventory.reset_vars()
 	set_process_input(false)
-	SIGNALBUS.item_selected.disconnect(_on_item_selected)
 
 func on_mouse_exited() -> void:
 	pass

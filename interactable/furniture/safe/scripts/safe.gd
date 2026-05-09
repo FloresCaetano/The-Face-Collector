@@ -41,6 +41,7 @@ func on_leave_interaction() -> void:
 	can_use_keypad = false
 	await PATHS.player_real_camera.active_camera.tween_completed
 	await PATHS.player_real_camera.change_state(PlayerRealCamera.State.IDLE)
+	player.activate()
 
 func open_safe() -> void:
 	audio_stream_player_3d.stream = open_safe_audio_stream

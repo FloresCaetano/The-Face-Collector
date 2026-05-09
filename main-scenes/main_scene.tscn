@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://brk7fhrihmfm7"]
 
+[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_n3di8"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
@@ -41,7 +42,9 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="30_nmiv7"]
 [ext_resource type="Texture2D" uid="uid://j7qtfvuj4tyf" path="res://scripted-events/Chapter1/ANIMATIONS/HarryClimbTravesaign_Harry.png" id="31_7fmd3"]
 [ext_resource type="Script" uid="uid://cbumgb3jn1q7f" path="res://scripted-events/Chapter1/main_door_first_aproach/scripts/ib_climb_transom.gd" id="31_ddxeo"]
+[ext_resource type="Script" uid="uid://bhlbrvw8tisx3" path="res://scripted-events/Chapter1/AliceFlashback/script/trigger.gd" id="42_723sf"]
 [ext_resource type="Script" uid="uid://c35cmbe2kq228" path="res://interactable/Chapter1/StudyWindow/script/ev_look_at_window.gd" id="42_csog6"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="42_p1fxg"]
 [ext_resource type="PackedScene" uid="uid://dqrglq624h3gy" path="res://interactable/items/item-colectable/key/key.tscn" id="43_nqn01"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_hwofa"]
@@ -240,6 +243,11 @@ size = Vector3(1.2671967, 0.2791443, 0.20410156)
 [sub_resource type="Resource" id="Resource_ddxeo"]
 script = ExtResource("30_nmiv7")
 transition = 1
+
+[sub_resource type="Resource" id="Resource_ightq"]
+script = ExtResource("42_p1fxg")
+fov = 45.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgc13"]
 resource_name = "Harry"
@@ -721,6 +729,7 @@ script = ExtResource("30_nmiv7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
+environment = ExtResource("1_n3di8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -1042,11 +1051,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 3.4897356, 1.2528054, -2.12467)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 21.428673, 1.6346673, 17.51677)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="PlayerRealCamera" parent="PlayerAndLight/Player" index="0" unique_id=1153064012]
-transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 13.165963, 1.5411506, -18.159128)
+transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 31.1049, 1.9230125, 1.4823112)
 
 [node name="OmniLight3D" parent="PlayerAndLight/Player" index="7" unique_id=1849199684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, 0.19979429)
@@ -1182,6 +1191,7 @@ far = 1000.0
 [node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/MainDoorFirstInteract/InteractionTrigger/FpAnimationManager/HarryClimbTravesaign/FpCamera" unique_id=846811305]
 script = ExtResource("29_ujjmv")
 tween_resource = SubResource("Resource_ddxeo")
+camera_3d_resource = SubResource("Resource_ightq")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Brazos Harry" type="Node3D" parent="Chapter1/ScriptedEvents/MainDoorFirstInteract/InteractionTrigger/FpAnimationManager/HarryClimbTravesaign" unique_id=838580027]
@@ -1473,6 +1483,7 @@ libraries/ = SubResource("AnimationLibrary_7orxa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.90608, 0, -7.218386)
 
 [node name="Trigger" type="Area3D" parent="Chapter1/ScriptedEvents/AliceFlashback" unique_id=810142566]
+script = ExtResource("42_723sf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger" unique_id=1576951934]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3650513, 0.1487732)
@@ -1502,6 +1513,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(0.9555309, 0, -0.29489097, 0, 1, 0, 0.29489097, 0, 0.9555309, -0.77435684, -0.87404644, -0.47250557)
 
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
+[connection signal="body_entered" from="Chapter1/ScriptedEvents/AliceFlashback/Trigger" to="Chapter1/ScriptedEvents/AliceFlashback/Trigger" method="_on_body_entered"]
 
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]

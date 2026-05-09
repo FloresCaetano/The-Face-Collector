@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dloessbb2ugf5"]
+
+[ext_resource type="Script" uid="uid://b36kqxhjmdqlc" path="res://interactable/items/item-colectable/food_can/food_can.gd" id="1_i7y5p"]
+[ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="2_3dbvf"]
+[ext_resource type="Resource" uid="uid://cyxoprtd4lsdm" path="res://interactable/items/item-resources/generic/food_can/food_can.tres" id="2_gxm20"]
+[ext_resource type="PackedScene" uid="uid://kvx8h7xgpdil" path="res://interactable/items/item-colectable/food_can/food_can.glb" id="2_u0uax"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3dbvf"]
+size = Vector3(0.111816406, 0.16699219, 0.1116333)
+
+[node name="FoodCan" type="StaticBody3D" unique_id=512462406 node_paths=PackedStringArray("audio_stream_player_3d")]
+script = ExtResource("1_i7y5p")
+item = ExtResource("2_gxm20")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=653258302]
+stream = ExtResource("2_3dbvf")
+
+[node name="food_can" parent="." unique_id=743901552 instance=ExtResource("2_u0uax")]
+
+[node name="canned_food_mp_1" parent="food_can" index="0" unique_id=491470263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1654776939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00024414063, 0.08251953, 0.0012512207)
+shape = SubResource("BoxShape3D_3dbvf")
+
+[editable path="food_can"]

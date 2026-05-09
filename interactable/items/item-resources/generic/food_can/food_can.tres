@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cyxoprtd4lsdm"]
+
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_u85p2"]
+
+[resource]
+script = ExtResource("1_u85p2")
+name = "Tomatoe Soup"
+tag = "food_can"
+metadata/_custom_type_script = "uid://c5effmi27pymr"
