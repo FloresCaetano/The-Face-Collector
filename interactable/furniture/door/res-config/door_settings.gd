@@ -11,4 +11,3 @@ extends Resource
 @export var locked_sound : AudioStream = load("uid://r6lqlek1smat")
 @export var open_sound : AudioStream = load("uid://ce52ef7u72i4x")
 @export var close_sound : AudioStream = load("uid://dye38x4yih7v7")
-

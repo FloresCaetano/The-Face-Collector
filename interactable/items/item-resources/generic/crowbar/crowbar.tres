@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://33yi2eyj5acj"]
+
+[ext_resource type="PackedScene" uid="uid://dutc6yap62506" path="res://interactable/items/item-colectable/crowbar/assets/Crowbar.glb" id="1_bf5ow"]
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_lyn4u"]
+[ext_resource type="Texture2D" uid="uid://b51curchv8f1" path="res://interactable/items/item-resources/generic/crowbar/icon/icon_crowbar.png" id="2_n570y"]
+
+[resource]
+script = ExtResource("1_lyn4u")
+name = "crowbar"
+texture = ExtResource("2_n570y")
+tag = "crowbar"
+model = ExtResource("1_bf5ow")
+metadata/_custom_type_script = "uid://c5effmi27pymr"

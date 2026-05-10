@@ -1,6 +1,6 @@
 extends Node
 
-var current_chapter : int = 0
+var current_chapter : String = "1"
 var events_registry : Dictionary = {}
 
 func register_event(event_id : String) -> void:

@@ -66,6 +66,13 @@ func get_item_at_index(index : int) -> Item:
 	var item_container : ItemContainer = item_list.get_child(index)
 	return item_container.item
 
+func has_item(item_tag : String) -> int:
+	var ammount : int = 0
+	for i in item_list.get_children():
+		if i.item.tag == item_tag:
+			ammount += 1
+	return ammount
+
 func get_items() -> Array[Item]:
 	var items : Array[Item] = []
 	for i in item_list.get_children():

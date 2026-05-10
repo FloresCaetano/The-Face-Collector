@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cipflgtvarr0m"]
 
 [ext_resource type="Script" uid="uid://dn4g4ycdcgoir" path="res://core/inventory/scripts/item_container.gd" id="1_0f5a5"]
-[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resources/tapes/icons/1st.png" id="1_dy851"]
 [ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="2_0f5a5"]
+[ext_resource type="Texture2D" uid="uid://dn2v4xnkgskxs" path="res://interactable/items/item-resources/generic/food_can/icon/icon_food_can.png" id="2_pdocr"]
 
 [node name="ItemCenterContainer" type="CenterContainer" unique_id=677316470 node_paths=PackedStringArray("item_image", "item_name")]
 offset_right = 200.0
@@ -24,7 +24,8 @@ theme_override_constants/separation = -10
 modulate = Color(1, 1, 1, 0.4)
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_dy851")
+texture = ExtResource("2_pdocr")
+expand_mode = 5
 
 [node name="ItemName" type="Label" parent="ItemContainer" unique_id=904624953]
 layout_mode = 2

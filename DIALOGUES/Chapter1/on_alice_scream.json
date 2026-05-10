@@ -1,9 +1,9 @@
 [
     {
-        "CHARACTER": "harry_internal",
+        "ID": "0",
+        "CHARACTER": "Harry",
         "PITCH-RANGE": "1.0-1.1",
-        "TARGET": "harry_internal",
-        "ID": "1",
+        "TARGET": "internal_voice",
         "text": {
             "ES": "¡¿Alice?! … ¡Cariño! ¿Donde estas?"
         }

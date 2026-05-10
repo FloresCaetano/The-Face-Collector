@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kvx8h7xgpdil" path="res://interactable/items/item-colectable/food_can/food_can.glb" id="2_u0uax"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3dbvf"]
-size = Vector3(0.111816406, 0.16699219, 0.1116333)
+size = Vector3(0.10986328, 0.16699219, 0.112262726)
 
 [node name="FoodCan" type="StaticBody3D" unique_id=512462406 node_paths=PackedStringArray("audio_stream_player_3d")]
 script = ExtResource("1_i7y5p")
@@ -16,13 +16,13 @@ audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=653258302]
 stream = ExtResource("2_3dbvf")
 
-[node name="food_can" parent="." unique_id=743901552 instance=ExtResource("2_u0uax")]
+[node name="food_can" parent="." unique_id=1583964508 instance=ExtResource("2_u0uax")]
 
-[node name="canned_food_mp_1" parent="food_can" index="0" unique_id=491470263]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="canned_food_mp_2_004" parent="food_can" index="0" unique_id=1805624864]
+transform = Transform3D(-0.039649844, 0, -0.9992137, 0, 1, 0, 0.9992137, 0, -0.039649844, 0, 0.081562266, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1654776939]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00024414063, 0.08251953, 0.0012512207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036621094, 0.08251953, 0.0011463165)
 shape = SubResource("BoxShape3D_3dbvf")
 
 [editable path="food_can"]

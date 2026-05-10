@@ -3,13 +3,17 @@ class_name Interactable
 extends PhysicsBody3D
 
 @export var indicator_last_pose_references : Array[Marker3D]
-@export var indicator_size : Vector3 = Vector3.ONE
-var interactable_indicators : Array[InteractableIndicator]
+@export var indicator_size : Vector3 = Vector3(0.4, 0.4, 0.4)
 
-var is_interacting := false
 
 @onready var player : Player = PATHS.player
 @onready var inventory : Inventory = PATHS.inventory
+
+var is_interacting := false
+var interactable_indicators : Array[InteractableIndicator]
+
+signal interacted
+
 
 @abstract
 func mouse_interaction() -> void

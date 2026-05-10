@@ -11,6 +11,8 @@ extends Control
 @export var flash_back_voice_icon: TextureRect
 @export var flashback_voice: MarginContainer
 
+signal flashback_transition_ends
+
 func instantiate_flashsback(scene_path : String):
 	var tape_transition_sv: SubViewport = load("uid://bhp54cwawcdvo").instantiate()
 	tape_transition_sv.size = get_viewport_rect().size
@@ -58,5 +60,8 @@ func instantiate_flashsback(scene_path : String):
 	var tween_reveal = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween_reveal.tween_property(viewport_overlay_rect, "color", Color.TRANSPARENT, 0.8)
 	PATHS.audio_controller.fade_bus_volume("Master", 0.0, 0.8)
+	
+	await tween_reveal.finished
+	flashback_transition_ends.emit()
 	
 	

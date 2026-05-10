@@ -5,11 +5,9 @@
 [ext_resource type="Script" uid="uid://1qyvwav27y0t" path="res://entities/player/Scripts/player_real_camera.gd" id="2_pdd5r"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_lxrxp"]
 [ext_resource type="Script" uid="uid://dmsy0jfrxsrqa" path="res://shared/audio_system/audio_controller.gd" id="6_gdq0t"]
-[ext_resource type="PackedScene" uid="uid://7f4fxxiv7yq4" path="res://core/inventory/scenes/inventory.tscn" id="7_e013g"]
 [ext_resource type="Script" uid="uid://6o3d2gliiles" path="res://entities/player/Scripts/bobbing_and_tilt.gd" id="7_uli6c"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="7_xpeio"]
 [ext_resource type="PackedScene" uid="uid://7ebk6vosei45" path="res://entities/player/Scenes/footsteps.tscn" id="9_g5i86"]
-[ext_resource type="Script" uid="uid://cd2gh6mn8slo4" path="res://entities/player/Scripts/CenterCursor.gd" id="10_y6d2e"]
 [ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="16_uli6c"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="19_jgvhu"]
@@ -140,21 +138,6 @@ max_polyphony = 20
 object = NodePath("../..")
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=156496796]
-
-[node name="Inventory" parent="Hud" unique_id=213834778 instance=ExtResource("7_e013g")]
-
-[node name="CenterCursor" type="CenterContainer" parent="Hud" unique_id=2055896665]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Cursor" type="Control" parent="Hud/CenterCursor" unique_id=990466810 groups=["cursor"]]
-layout_mode = 2
-script = ExtResource("10_y6d2e")
 
 [node name="TransitionController" type="Control" parent="." unique_id=2129497866 node_paths=PackedStringArray("black_screen") groups=["transition_controller"]]
 modulate = Color(1, 1, 1, 0)

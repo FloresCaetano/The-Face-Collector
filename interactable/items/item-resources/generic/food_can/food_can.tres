@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cyxoprtd4lsdm"]
 
+[ext_resource type="PackedScene" uid="uid://kvx8h7xgpdil" path="res://interactable/items/item-colectable/food_can/food_can.glb" id="1_smv33"]
 [ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_u85p2"]
+[ext_resource type="Texture2D" uid="uid://dn2v4xnkgskxs" path="res://interactable/items/item-resources/generic/food_can/icon/icon_food_can.png" id="2_2q7ds"]
 
 [resource]
 script = ExtResource("1_u85p2")
 name = "Tomatoe Soup"
+texture = ExtResource("2_2q7ds")
 tag = "food_can"
+model = ExtResource("1_smv33")
 metadata/_custom_type_script = "uid://c5effmi27pymr"

@@ -1,19 +1,19 @@
 [
     {
-        "CHARACTER": "harry_internal",
+        "ID": "0",
+        "CHARACTER": "Harry",
         "PITCH-RANGE": "1.0-1.1",
-        "TARGET": "harry_internal",
+        "TARGET": "internal_voice",
         "GAME_EVENT": "camera_looks_to_transom",
-        "ID": "1",
         "text": {
             "ES": "Imposible, parece bloqueada desde el interior."
         }
     },
     {
-        "CHARACTER": "harry_internal",
+        "ID": "1",
+        "CHARACTER": "Harry",
         "PITCH-RANGE": "1.0-1.1",
-        "TARGET": "harry_internal",
-        "ID": "2",
+        "TARGET": "internal_voice",
         "text": {
             "ES": "Quiza consiga entrar por la abertura."
         }

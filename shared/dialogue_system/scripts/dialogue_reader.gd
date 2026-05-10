@@ -15,7 +15,10 @@ var current_line := 0
 var targets : Dictionary = {}
 var actual_target : DialogueTarget
 
+var can_continue := true
+
 signal dialogue_finished
+signal line_sended(line : int)
 
 func start():
 	dialogue_loader.dialogue_file = dialogue_file
@@ -30,11 +33,11 @@ func load_targets():
 	
 	for dialogue_line in dialogue_data.values():
 		var target_needed = dialogue_line.TARGET
-		if target_needed == "harry_internal":
-			targets[target_needed] = PATHS.harry_internal
+		if target_needed == "internal_voice":
+			targets[target_needed] = PATHS.internal_voice
 			continue
-		elif target_needed == "tape_recording":
-			targets[target_needed] = PATHS.tape_recording_voice
+		elif target_needed == "flashback_recording_voice":
+			targets[target_needed] = PATHS.flashback_recording_voice
 			continue
 			
 		if not loaded_ids.has(target_needed):
@@ -45,6 +48,10 @@ func load_targets():
 func send_line():
 	if dialogue_data.is_empty():
 		push_error("Dialogue data is empty. Ensure the DialogueLoader is properly set up and loaded.")
+		return
+	
+	if not can_continue:
+		end_dialogue()
 		return
 	
 	var keys := dialogue_data.keys()
@@ -61,6 +68,9 @@ func send_line():
 		actual_target.set_text(token)
 		await get_tree().create_timer(get_wait_time(token)).timeout
 	await get_tree().create_timer(2.0).timeout
+	actual_target.deselect()
+	
+	line_sended.emit(current_line)
 	
 	if line_data.has("GAME_EVENT"):
 		var event_name = line_data["GAME_EVENT"]
@@ -69,6 +79,7 @@ func send_line():
 		else:
 			push_error("Dialogue line with ID ", line_id, " references GAME_EVENT '", event_name, "' which is not a method of the event_trigger node.")
 	current_line += 1
+	
 	send_line()
 
 func get_wait_time(token : RefCounted) -> float:

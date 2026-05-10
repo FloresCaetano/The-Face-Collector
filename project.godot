@@ -27,7 +27,6 @@ SIGNALBUS="*uid://d1wow5rh573gt"
 GAMESTATE="*uid://c6bn56rolpstk"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 Shaker="*uid://ckvxea53sg5ld"
-DialogueManager="*uid://c3rodes2l3gxb"
 
 [dialogue_manager]
 
@@ -47,7 +46,7 @@ movie_writer/movie_file="C:/Proyectos/RAW ASSETS/Media/Editables/video/camera_tr
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gd-blender-3d-shortcuts/plugin.cfg", "res://addons/gd_override_functions/plugin.cfg", "res://addons/github_copilot/plugin.cfg", "res://addons/nhb_functions_on_the_fly/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/rich_text_3d/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/gd_override_functions/plugin.cfg", "res://addons/github_copilot/plugin.cfg", "res://addons/nhb_functions_on_the_fly/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/rich_text_3d/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [input]
 
