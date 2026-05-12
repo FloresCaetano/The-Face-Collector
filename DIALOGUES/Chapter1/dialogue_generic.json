@@ -1,0 +1,10 @@
+[
+    {
+        "ID": "0",
+        "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "alice_eating_alone_transition",
+        "text": {
+            "ES": "Luego lleve la comida a la mesa y me senté a esperarlos."
+        }
+    }
+]

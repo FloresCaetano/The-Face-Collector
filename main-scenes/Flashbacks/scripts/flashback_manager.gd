@@ -4,9 +4,7 @@ extends Node3D
 @onready var scene_manager : SceneManager = PATHS.scene_manager
 @onready var dialogue_reader: DialogueReader = $DialogueReader
 
-@export_category("Dependencies")
-@export var food_can: FoodCan
 
 func _ready():
-	await get_tree().process_frame
+	await PATHS.scene_manager.flashback_transition_ends
 	dialogue_reader.start()

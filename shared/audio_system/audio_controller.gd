@@ -91,3 +91,19 @@ func fade_bus_volume(bus_name : String, target_db : float, duration : float):
 		target_db,
 		duration
 	)
+	await tween.finished
+
+var original_audio_volumes = {}
+func stop_all_volumes_in_scene(scene : Node3D):
+	var scene_node_volumes = {}
+	for node in scene.find_children("*", "", true, false):
+		if (node is AudioStreamPlayer) or (node is AudioStreamPlayer3D):
+			scene_node_volumes[node] = node.volume_db
+			node.volume_db = -80.0
+	original_audio_volumes[scene] = scene_node_volumes
+
+func restore_all_volumes_in_scene(scene : Node3D):
+	for node in scene.find_children("*", "", true, false):
+		if node is AudioStreamPlayer or node is AudioStreamPlayer3D:
+			node.volume_db = original_audio_volumes[scene].get(node)
+	original_audio_volumes.erase(scene)

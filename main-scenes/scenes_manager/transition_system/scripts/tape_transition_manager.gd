@@ -6,6 +6,7 @@ extends SubViewport
 
 func _ready() -> void:
 	get_tree().root.size_changed.connect(_on_window_resized)
+	$TransitionCamera.fov = player_real_camera.fov
 	
 	await get_tree().process_frame
 	update_sub_viewport_size()

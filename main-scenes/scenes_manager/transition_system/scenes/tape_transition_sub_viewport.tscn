@@ -5,7 +5,6 @@
 [node name="TapeTransitionSubViewport" type="SubViewport" unique_id=1435986803 node_paths=PackedStringArray("transition_camera")]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1366, 768)
 render_target_update_mode = 4
 script = ExtResource("1_lkckv")
 transition_camera = NodePath("TransitionCamera")
@@ -14,3 +13,4 @@ transition_camera = NodePath("TransitionCamera")
 transform = Transform3D(1, 0, 0, 0, 0.0077666016, 0.99996984, 0, -0.99996984, 0.0077666016, 9.130487, 1.7962209, -19.065453)
 cull_mask = 1048574
 current = true
+fov = 70.0

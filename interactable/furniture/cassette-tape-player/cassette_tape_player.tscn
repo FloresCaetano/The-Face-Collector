@@ -485,7 +485,7 @@ tape_linear_container = NodePath("insert_casette/BoneAttachment3D/Box/TapeLinear
 [node name="insert_casette" type="Node3D" parent="CassetteTapePlayerInterface" unique_id=1239440987]
 
 [node name="Camera" type="Node3D" parent="CassetteTapePlayerInterface/insert_casette" unique_id=1209086434]
-transform = Transform3D(-1, 4.0415696e-07, -2.260924e-06, -1.4210855e-13, 0.98439586, 0.17596813, 2.2967631e-06, 0.17596813, -0.98439586, 0, 1.6, 0)
+transform = Transform3D(-1, 4.0415702e-07, -2.260924e-06, -1.4210855e-13, 0.98439586, 0.17596816, 2.2967631e-06, 0.17596816, -0.98439586, 0, 1.6, 0)
 
 [node name="Pcam" type="Node3D" parent="CassetteTapePlayerInterface/insert_casette/Camera" unique_id=175254691]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -778,7 +778,7 @@ skin = SubResource("Skin_stbu1")
 skeleton = NodePath("..")
 
 [node name="Caset_001" type="MeshInstance3D" parent="CassetteTapePlayerInterface/insert_casette" unique_id=1804967886]
-transform = Transform3D(0.9989693, 0.04496367, 0.006207388, 0.014649263, -0.18994114, -0.98168606, -0.042961188, 0.98076504, -0.19040407, -0.07423459, 1.5214047, 0.5012004)
+transform = Transform3D(0.99896926, 0.04496367, 0.006207399, 0.014649288, -0.18994148, -0.98168594, -0.042961176, 0.980765, -0.19040442, -0.07423459, 1.5214047, 0.5012004)
 layers = 524288
 mesh = SubResource("ArrayMesh_2c1f8")
 

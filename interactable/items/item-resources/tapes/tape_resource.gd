@@ -1,4 +1,4 @@
 class_name TapeResource
 extends Item
 
-@export var flashback : NodePath
+@export var flashback : String

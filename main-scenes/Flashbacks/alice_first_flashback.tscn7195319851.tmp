@@ -31,9 +31,14 @@
 [ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="30_5gqch"]
 [ext_resource type="Script" uid="uid://cew4ae2mo62bj" path="res://main-scenes/Flashbacks/scripts/event_behavior.gd" id="31_mrdhv"]
 [ext_resource type="Script" uid="uid://fcw2nld5p6py" path="res://main-scenes/Flashbacks/scripts/DialogueEventTrigger.gd" id="31_ni0s7"]
+[ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="33_1ikpx"]
 [ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="33_rorwn"]
 [ext_resource type="PackedScene" uid="uid://kvx8h7xgpdil" path="res://interactable/items/item-colectable/food_can/food_can.glb" id="33_s4nm1"]
 [ext_resource type="Script" uid="uid://cfoqm7b0ufnid" path="res://main-scenes/Flashbacks/scripts/trg_sit_on_table.gd" id="34_2bu0v"]
+[ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="34_s4nm1"]
+[ext_resource type="FontFile" uid="uid://dv31bty8qdoll" path="res://shared/fonts/SpaceMono-Regular.ttf" id="35_2bu0v"]
+[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="36_14jw5"]
+[ext_resource type="PackedScene" uid="uid://7f4fxxiv7yq4" path="res://core/inventory/scenes/inventory.tscn" id="37_iyqwu"]
 
 [sub_resource type="Resource" id="Resource_144cg"]
 script = ExtResource("8_rorwn")
@@ -62,22 +67,15 @@ tag = "first_tape"
 model = ExtResource("20_c8m2v")
 metadata/_custom_type_script = "uid://dpke4ypjay435"
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_14jw5"]
-radius = 0.1
-height = 0.5677197
-
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_4nlmj"]
-stream_count = 1
-stream_0/volume = 0.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_mrdhv"]
 size = Vector3(0.7720337, 0.08111572, 0.8379917)
 
-[sub_resource type="Resource" id="Resource_4nlmj"]
+[sub_resource type="Resource" id="Resource_s4nm1"]
 script = ExtResource("14_2bu0v")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2bu0v"]
-size = Vector3(0.58143616, 0.7949219, 0.47375488)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ajdon"]
+shader = ExtResource("33_1ikpx")
+shader_parameter/brightness = 2.6350001251625
 
 [node name="AliceFirstFlashback" type="Node3D" unique_id=457484893]
 
@@ -424,20 +422,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 10.575183, 1.8573427, -10.193777)
 
 [node name="PlayerRealCamera" parent="Player" index="0" unique_id=1153064012]
-transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 10.575183, 1.0405796, -10.193777)
-
-[node name="Pivot" parent="Player" index="1" unique_id=876858444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40838158, 0)
-
-[node name="CollisionShape3D" parent="Player" index="2" unique_id=1497191989]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63194513, 0)
-shape = SubResource("CapsuleShape3D_14jw5")
-
-[node name="Background" parent="Player/AudioController" parent_id_path=PackedInt32Array(686971766, 574176879) index="2" unique_id=824644454]
-stream = SubResource("AudioStreamSynchronized_4nlmj")
+transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 10.575183, 1.6251645, -10.193777)
 
 [node name="OmniLight3D" parent="Player" index="7" unique_id=1849199684]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.4659496, -0.0067448616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19696856, 0.19979429)
 light_color = Color(0.99999994, 0.89086133, 0.7385886, 1)
 light_energy = 0.055
 light_volumetric_fog_energy = 0.0
@@ -453,7 +441,6 @@ script = ExtResource("29_mrdhv")
 transform = Transform3D(0.97958595, 0, 0, 0, 0.97958595, 0, 0, 0, 0.97958595, 0, 0, 0)
 dialogue_file = "res://DIALOGUES/Chapter1/alice_first_flashback.json"
 event_trigger = NodePath("EventTrigger")
-default_wait_time = 0.03
 
 [node name="EventTrigger" type="Node" parent="FlashbackManager/DialogueReader" unique_id=43164200]
 script = ExtResource("31_ni0s7")
@@ -503,22 +490,17 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 15.19
 [node name="PhantomCamera3D" type="Node3D" parent="FlashbackManager/FoodCans/TableFoodCanScene" unique_id=214590790]
 transform = Transform3D(-0.036258113, 0.18543524, -0.9819883, -0.00037211613, 0.98263186, 0.18557051, 0.99934334, 0.0070938403, -0.035559334, -0.5805092, 0.264279, 0)
 script = ExtResource("13_s4nm1")
-tween_resource = SubResource("Resource_4nlmj")
-tween_on_load = false
+tween_resource = SubResource("Resource_s4nm1")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="FoodCans" type="Node3D" parent="FlashbackManager/FoodCans/TableFoodCanScene" unique_id=307125888]
-transform = Transform3D(1.0000019, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000019, 0, -1.1920929e-07, -4.7683716e-07)
-visible = false
+[node name="food_can" parent="FlashbackManager/FoodCans/TableFoodCanScene" unique_id=682165454 instance=ExtResource("33_s4nm1")]
+transform = Transform3D(1.0000018, 0, 0, 0, 1.0000018, 0, 0, 0, 1.0000018, 0, -1.1920929e-07, -4.7683716e-07)
 
-[node name="food_can" parent="FlashbackManager/FoodCans/TableFoodCanScene/FoodCans" unique_id=682165454 instance=ExtResource("33_s4nm1")]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+[node name="food_can2" parent="FlashbackManager/FoodCans/TableFoodCanScene" unique_id=2073319095 instance=ExtResource("33_s4nm1")]
+transform = Transform3D(1.000002, 0, 0, 0, 1.000002, 0, 0, 0, 1.000002, 0.98568726, 1.1920929e-07, 0.012866735)
 
-[node name="food_can2" parent="FlashbackManager/FoodCans/TableFoodCanScene/FoodCans" unique_id=2073319095 instance=ExtResource("33_s4nm1")]
-transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0.98568535, 2.3841858e-07, 0.012867212)
-
-[node name="food_can3" parent="FlashbackManager/FoodCans/TableFoodCanScene/FoodCans" unique_id=152247597 instance=ExtResource("33_s4nm1")]
-transform = Transform3D(1.0000007, 0, 0, 0, 1.0000007, 0, 0, 0, 1.0000007, 0.50221443, 7.1525574e-07, 0.32134604)
+[node name="food_can3" parent="FlashbackManager/FoodCans/TableFoodCanScene" unique_id=152247597 instance=ExtResource("33_s4nm1")]
+transform = Transform3D(1.0000025, 0, 0, 0, 1.0000025, 0, 0, 0, 1.0000025, 0.50221634, 5.9604645e-07, 0.32134628)
 
 [node name="InteractionTrigger" parent="FlashbackManager/FoodCans/TableFoodCanScene" unique_id=949316470 node_paths=PackedStringArray("event_behavior") instance=ExtResource("16_iyqwu")]
 transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -0.5046234, 0.040780544, 0.3193395)
@@ -527,9 +509,88 @@ event_behavior = NodePath("TrgSitOnTable")
 [node name="TrgSitOnTable" type="Node" parent="FlashbackManager/FoodCans/TableFoodCanScene/InteractionTrigger" unique_id=1497823007]
 script = ExtResource("34_2bu0v")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FlashbackManager/FoodCans/TableFoodCanScene/InteractionTrigger" unique_id=766240669]
-transform = Transform3D(1.0000376, 0, 0, 0, 1.0000376, 0, 0, 0, 1.0000376, 0.1578846, 0.10254133, -0.26958275)
-shape = SubResource("BoxShape3D_2bu0v")
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1803300150]
+layer = 2
+
+[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=911579788]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=1534281963]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -131
+
+[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=2143536816]
+material = SubResource("ShaderMaterial_ajdon")
+custom_minimum_size = Vector2(348.33, 195.84)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1362251216 groups=["flashback_recording_voice"]]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("34_s4nm1")
+
+[node name="Label" type="Label" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=1414701647]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("35_2bu0v")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=220363405]
+stream = ExtResource("36_14jw5")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=1808130340]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_bottom = 44
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=2068798769 groups=["internal_voice"]]
+layout_mode = 2
+script = ExtResource("34_s4nm1")
+
+[node name="Label" type="Label" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1201551209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("35_2bu0v")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1126717793]
+stream = ExtResource("36_14jw5")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="Inventory" parent="HUD" unique_id=213834778 instance=ExtResource("37_iyqwu")]
 
 [editable path="FullHouse/furniture"]
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]

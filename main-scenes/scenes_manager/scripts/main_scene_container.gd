@@ -5,6 +5,7 @@ extends Control
 @export var main_scene_sub_viewport: SubViewportContainer
 @export var sub_viewport: SubViewport
 @export var main_scene: Node3D
+var new_flashback_scene
 
 @export var hud: CanvasLayer
 @export var viewport_overlay_rect: ColorRect
@@ -13,10 +14,19 @@ extends Control
 
 signal flashback_transition_ends
 
+var old_player : Player
+var old_camera : PlayerRealCamera
+
 func instantiate_flashsback(scene_path : String):
+	old_player = PATHS.player
+	old_camera = PATHS.player_real_camera
+	
 	var tape_transition_sv: SubViewport = load("uid://bhp54cwawcdvo").instantiate()
 	tape_transition_sv.size = get_viewport_rect().size
+	tape_transition_sv.disable_3d = true
 	main_scene_sub_viewport.add_child(tape_transition_sv)
+	await get_tree().process_frame
+	tape_transition_sv.disable_3d = false
 	
 	ResourceLoader.load_threaded_request(scene_path)
 	
@@ -24,21 +34,26 @@ func instantiate_flashsback(scene_path : String):
 	tween_fade.tween_property(viewport_overlay_rect, "color", Color.BLACK, 0.8)
 	PATHS.audio_controller.fade_bus_volume("Master", -80.0, 0.8)
 	await tween_fade.finished
+	PATHS.audio_controller.stop_all_volumes_in_scene(main_scene)
 	
 	tape_transition_sv.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await RenderingServer.frame_post_draw
 	var transition_camera_texture : Texture = ImageTexture.create_from_image(tape_transition_sv.get_texture().get_image())
-	main_scene.set_process(false)
+	main_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	while ResourceLoader.load_threaded_get_status(scene_path) == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 		await get_tree().process_frame
 	
 	await get_tree().create_timer(4.0).timeout
 	
 	var new_scene_res = ResourceLoader.load_threaded_get(scene_path)
-	var new_flashback_scene = new_scene_res.instantiate()
+	new_flashback_scene = new_scene_res.instantiate()
+	
+	desactivate_player_systems()
 	
 	sub_viewport.remove_child(main_scene)
 	sub_viewport.add_child(new_flashback_scene)
+	
+	old_camera.current = false
 	
 	var vp_texture_rect : TextureRect = TextureRect.new()
 	vp_texture_rect.texture = transition_camera_texture
@@ -63,5 +78,44 @@ func instantiate_flashsback(scene_path : String):
 	
 	await tween_reveal.finished
 	flashback_transition_ends.emit()
+
+func end_flashback():
+	PATHS.fade_controller.fade_in(5.0)
+	await PATHS.fade_controller.fade_in_finished
+	sub_viewport.remove_child(new_flashback_scene)
+	sub_viewport.add_child(main_scene)
 	
+	new_flashback_scene.queue_free()
 	
+	main_scene.process_mode = Node.PROCESS_MODE_INHERIT
+	reactivate_player_systems()
+	old_player.get_node("Pivot/MainCamera").priority = 10
+	
+	await PATHS.audio_controller.fade_bus_volume("Master", -80.0, 5.0)
+	PATHS.audio_controller.restore_all_volumes_in_scene(main_scene)
+	
+	PATHS.fade_controller.fade_out(3.0)
+	await PATHS.audio_controller.fade_bus_volume("Master", 0.0, 5.0)
+	
+	old_player = null
+
+var old_player_groups = {}
+func desactivate_player_systems() -> void:
+	old_player.get_node("Pivot/MainCamera").priority = 0
+	old_player_groups.clear()
+	var nodes = [old_player] + old_player.find_children("*", "", true, false)
+	for node in nodes:
+		var non_internal_groups = node.get_groups().filter(
+			func(g): return not str(g).begins_with("_")
+		)
+		old_player_groups[node] = non_internal_groups
+		for group in non_internal_groups:
+			node.remove_from_group(group)
+
+func reactivate_player_systems() -> void:
+	old_player.get_node("Pivot/MainCamera").priority = 10
+	for node in old_player_groups.keys():
+		if is_instance_valid(node):
+			for group in old_player_groups[node]:
+				node.add_to_group(group)
+	old_player_groups.clear()

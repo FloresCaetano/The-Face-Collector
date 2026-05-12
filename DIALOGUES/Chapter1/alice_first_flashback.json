@@ -31,9 +31,9 @@
         "CHARACTER": "Alice",
         "PITCH-RANGE": "1.3-1.7",
         "TARGET": "flashback_recording_voice",
-        "GAME_EVENT": "player_prepare_three_food_cans",
+        "GAME_EVENT": "flash_back_start",
         "text": {
-            "ES": "Asi podemos comer todos juntos!"
+            "ES": "¡Así podemos comer todos juntos!"
         }
     },
     {
@@ -41,13 +41,61 @@
         "CHARACTER": "Alice",
         "PITCH-RANGE": "1.3-1.7",
         "TARGET": "flashback_recording_voice",
-        "GAME_EVENT": "alice_eating_alone_transition",
+        "GAME_EVENT": "player_pick_three_food_cans",
+        "text": {
+            "ES": "Entonces, fui por TRES latas de comida."
+        }
+    },
+    {
+        "ID": "5",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.3-1.7",
+        "TARGET": "internal_voice",
+        "GAME_EVENT": "player_prepare_three_food_cans",
+        "text": {
+            "ES": "Bien, ahora solo tengo que abrirlas"
+        }
+    },
+    {
+        "ID": "6",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.3-1.7",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "No se como  mami puede comerla todos los dias, ¡debe gustarle muchisimo! O eso creo .. . ."
+        }
+    },
+    {
+        "ID": "7",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.3-1.7",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "¡Siempre se ve muy feliz cuando vamos a comer!"
+        }
+    },
+    {
+        "ID": "8",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.3-1.7",
+        "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "alice_waits_on_table",
+        "text": {
+            "ES": "Luego lleve la comida a la mesa y me senté a esperarlos."
+        }
+    },
+    {
+        "ID": "9",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.3-1.7",
+        "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "alice_eating_alone",
         "text": {
             "ES": "Espere y espere, hasta que por error me quede dormida, perdon mami se que no es correcto dormise en la mesa."
         }
     },
     {
-        "ID": "5",
+        "ID": "10",
         "CHARACTER": "Alice",
         "PITCH-RANGE": "1.3-1.7",
         "TARGET": "flashback_recording_voice",
