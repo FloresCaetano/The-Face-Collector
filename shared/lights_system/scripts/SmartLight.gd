@@ -61,13 +61,13 @@ func blink():
 
 func check_timer_time():
 	if is_exploded:
-		light_energy = 0.0
+		visible = false
 		return
 
 	if timer.time_left < 0.2:
-		light_energy = default_energy
+		visible = true
 	elif timer.time_left < 0.704:
-		light_energy = 0.0
+		visible = false
 
 func explode():
 	if is_exploded:
@@ -81,11 +81,11 @@ func explode():
 	is_exploded = true
 	audio_player.stream = explode_sound
 	audio_player.play()
-	light_energy = 0.0
+	visible = false
 
 func _process(_delta: float) -> void:
 	if is_exploded:
-		light_energy = 0.0
+		visible = false
 		return
 
 	if !timer.is_stopped():

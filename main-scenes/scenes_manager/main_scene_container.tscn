@@ -3,43 +3,11 @@
 [ext_resource type="Script" uid="uid://dsje5kxmq7f43" path="res://main-scenes/scenes_manager/scripts/main_scene_container.gd" id="1_kndb5"]
 [ext_resource type="Script" uid="uid://c76u2pmpb85je" path="res://main-scenes/scenes_manager/scripts/main_scene_sub_viewport.gd" id="1_li6ji"]
 [ext_resource type="PackedScene" uid="uid://brk7fhrihmfm7" path="res://main-scenes/main_scene.tscn" id="2_laruv"]
-[ext_resource type="Shader" path="res://VFX/shaders/Psx.gdshader" id="3_4fw3x"]
-[ext_resource type="Shader" uid="uid://hicn5qmlvirf" path="res://VFX/shaders/psx2.gdshader" id="4_udqio"]
-[ext_resource type="Shader" uid="uid://d14nctxgr8g87" path="res://VFX/shaders/vhs.gdshader" id="5_laruv"]
 [ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="7_lv6u2"]
 [ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="8_ju5mr"]
 [ext_resource type="FontFile" uid="uid://dv31bty8qdoll" path="res://shared/fonts/SpaceMono-Regular.ttf" id="9_51qsq"]
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="10_h8vw2"]
-[ext_resource type="PackedScene" uid="uid://7f4fxxiv7yq4" path="res://core/inventory/scenes/inventory.tscn" id="11_ju5mr"]
 [ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="12_h8vw2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_udqio"]
-shader = ExtResource("3_4fw3x")
-shader_parameter/pixel_resolution = 512.0
-shader_parameter/color_steps = 16
-shader_parameter/noise_strength = 0.1
-shader_parameter/enable_dither = true
-shader_parameter/dither_strength = 0.10000000475
-shader_parameter/enable_glow = false
-shader_parameter/glow_strength = 0.4
-shader_parameter/glow_spread = 0.005
-shader_parameter/enable_vintage = false
-shader_parameter/vintage_strength = 0.8
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_laruv"]
-shader = ExtResource("4_udqio")
-shader_parameter/enabled = true
-shader_parameter/dithering = true
-shader_parameter/colors = 16
-shader_parameter/dither_size = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kndb5"]
-shader = ExtResource("5_laruv")
-shader_parameter/shake = 0.0
-shader_parameter/noiseQuality = 250.0
-shader_parameter/noiseIntensity = 0.001
-shader_parameter/offsetIntensity = 0.05
-shader_parameter/colorOffsetIntensity = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_51qsq"]
 shader = ExtResource("7_lv6u2")
@@ -61,48 +29,6 @@ viewport_overlay_rect = NodePath("MainSceneSubViewport/SubViewport/ViewportOverl
 flash_back_voice_icon = NodePath("HUD/FlashbackVoice/HBoxContainer/FlashBackVoiceIcon")
 flashback_voice = NodePath("HUD/FlashbackVoice")
 
-[node name="VFX" type="Control" parent="." unique_id=644735549]
-z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="PsxShader" type="ColorRect" parent="VFX" unique_id=908745213]
-visible = false
-material = SubResource("ShaderMaterial_udqio")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Psx2Shader" type="ColorRect" parent="VFX" unique_id=415769778]
-visible = false
-material = SubResource("ShaderMaterial_laruv")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VhsShader" type="ColorRect" parent="VFX" unique_id=2105471922]
-material = SubResource("ShaderMaterial_kndb5")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="MainSceneSubViewport" type="SubViewportContainer" parent="." unique_id=206451690 node_paths=PackedStringArray("sub_viewport")]
 layout_mode = 1
 anchors_preset = 15
@@ -123,99 +49,8 @@ render_target_update_mode = 4
 
 [node name="MainScene" parent="MainSceneSubViewport/SubViewport" unique_id=457484893 instance=ExtResource("2_laruv")]
 
-[node name="Skeleton3D" parent="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette/Brazos Harry" parent_id_path=PackedInt32Array(457484893, 1783986654, 1101129066) index="0" unique_id=1332061672]
-bones/1/position = Vector3(0.025416754, 0.12955055, -1.5006617)
-bones/1/rotation = Quaternion(0.80974394, 0.5756385, -0.041266583, -0.10607626)
-bones/2/rotation = Quaternion(-0.029426152, 0.6979507, -0.22910221, 0.6778725)
-bones/3/rotation = Quaternion(0.15730079, -0.071685925, 0.07147598, 0.9823486)
-bones/4/rotation = Quaternion(0.052278917, -0.05206058, -0.035400458, 0.9966461)
-bones/5/position = Vector3(0.0071960934, 0.109913364, 0.025275111)
-bones/5/rotation = Quaternion(0.029105417, -0.6368809, 0.020538336, 0.77013886)
-bones/6/rotation = Quaternion(0.013417808, 0.020730324, -0.00849597, 0.999659)
-bones/7/rotation = Quaternion(0.0015045844, 0.0014931925, -0.0139995655, 0.99989974)
-bones/8/position = Vector3(9.9499244e-05, 0.110586844, 0.0043039564)
-bones/8/rotation = Quaternion(0.004329723, -0.5603229, 0.041324034, 0.82723147)
-bones/9/rotation = Quaternion(0.016999234, -0.052074496, -0.003330633, 0.99849296)
-bones/10/rotation = Quaternion(0.0020294504, 0.0018751589, -0.0069366475, 0.9999721)
-bones/11/position = Vector3(-0.006128864, 0.107964516, -0.014885208)
-bones/11/rotation = Quaternion(-0.030646916, -0.59748375, 0.079598084, 0.79733187)
-bones/12/rotation = Quaternion(0.018101119, -0.03448135, -0.0012916221, 0.9992406)
-bones/13/rotation = Quaternion(0.0020999853, 0.0020920776, -0.016897967, 0.99985284)
-bones/14/position = Vector3(-0.012212684, 0.1016862, -0.03481245)
-bones/14/rotation = Quaternion(-0.037250042, -0.6121028, 0.12682511, 0.7796525)
-bones/15/rotation = Quaternion(-0.055340435, -0.06698067, -0.0044639776, 0.99620837)
-bones/16/rotation = Quaternion(-0.0054129628, -0.007196664, 0.006584328, 0.9999378)
-bones/17/rotation = Quaternion(0.19159497, -0.35639885, -0.31025198, 0.86024123)
-bones/18/rotation = Quaternion(-0.0050958307, -0.02744785, 0.059466794, 0.9978398)
-bones/19/rotation = Quaternion(0.02695963, 0.13154092, 0.0015950616, 0.9909428)
-bones/20/rotation = Quaternion(0.809744, -0.57563853, 0.041265693, -0.10607574)
-bones/21/position = Vector3(0.026737515, 0.15658623, -0.013533249)
-bones/21/rotation = Quaternion(-0.02942627, -0.6979506, 0.22910228, 0.6778726)
-bones/22/rotation = Quaternion(0.15730079, 0.071685895, -0.071475975, 0.9823486)
-bones/23/rotation = Quaternion(0.052278947, 0.052060563, 0.035400458, 0.9966461)
-bones/24/position = Vector3(-0.007195952, 0.1099134, 0.025275037)
-bones/24/rotation = Quaternion(0.029105391, 0.6368809, -0.020538313, 0.77013886)
-bones/25/rotation = Quaternion(0.013417851, -0.020730319, 0.008495978, 0.999659)
-bones/26/rotation = Quaternion(0.0015045835, -0.0014931888, 0.013999595, 0.99989974)
-bones/27/rotation = Quaternion(0.0043297242, 0.5603228, -0.041324038, 0.82723147)
-bones/28/rotation = Quaternion(0.016999258, 0.05207452, 0.0033306042, 0.99849296)
-bones/29/rotation = Quaternion(0.002029449, -0.0018751555, 0.0069366414, 0.9999721)
-bones/30/position = Vector3(0.0061289994, 0.10796449, -0.014885225)
-bones/30/rotation = Quaternion(-0.030646868, 0.59748363, -0.07959806, 0.797332)
-bones/31/rotation = Quaternion(0.018101092, 0.03448135, 0.001291597, 0.9992406)
-bones/32/rotation = Quaternion(0.00209999, -0.0020920706, 0.016897963, 0.99985284)
-bones/33/position = Vector3(0.0122129405, 0.10168623, -0.03481248)
-bones/33/rotation = Quaternion(-0.03724988, 0.6121028, -0.12682508, 0.7796525)
-bones/34/rotation = Quaternion(-0.05534051, 0.06698065, 0.0044638417, 0.99620837)
-bones/35/rotation = Quaternion(-0.0054129562, 0.007196675, -0.0065843333, 0.9999378)
-bones/36/position = Vector3(-0.012325563, 0.0674377, 0.03244228)
-bones/36/rotation = Quaternion(0.19159496, 0.3563989, 0.31025207, 0.8602412)
-bones/37/rotation = Quaternion(-0.0050957776, 0.02744779, -0.059466776, 0.99783987)
-bones/38/rotation = Quaternion(0.026959619, -0.13154086, -0.0015950161, 0.9909428)
-
-[node name="BoneAttachment3D" parent="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(457484893, 1783986654, 1239440987) index="3" unique_id=137104513]
-transform = Transform3D(-0.14344445, 0.933342, -0.32908347, -0.97768235, -0.08207014, 0.19339629, 0.15349695, 0.34948066, 0.92428434, 0.6890106, 1.4673548, -0.01984024)
-
-[node name="Skeleton3D" parent="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/MainDoorFirstInteract/InteractionTrigger/FpAnimationManager/HarryClimbTravesaign/Brazos Harry" parent_id_path=PackedInt32Array(457484893, 838580027) index="0" unique_id=1479493600]
-bones/1/position = Vector3(0.025416754, 0.12955055, -1.5006617)
-bones/1/rotation = Quaternion(0.80974394, 0.5756385, -0.041266583, -0.10607626)
-bones/2/rotation = Quaternion(-0.029426152, 0.6979507, -0.22910221, 0.6778725)
-bones/3/rotation = Quaternion(0.15730079, -0.071685925, 0.07147598, 0.9823486)
-bones/4/rotation = Quaternion(0.052278917, -0.05206058, -0.035400458, 0.9966461)
-bones/5/rotation = Quaternion(0.029105417, -0.6368809, 0.020538336, 0.77013886)
-bones/6/rotation = Quaternion(0.013417808, 0.020730324, -0.00849597, 0.999659)
-bones/7/rotation = Quaternion(0.0015045844, 0.0014931925, -0.0139995655, 0.99989974)
-bones/8/rotation = Quaternion(0.004329723, -0.5603229, 0.041324034, 0.82723147)
-bones/9/rotation = Quaternion(0.016999234, -0.052074496, -0.003330633, 0.99849296)
-bones/10/rotation = Quaternion(0.0020294504, 0.0018751589, -0.0069366475, 0.9999721)
-bones/11/rotation = Quaternion(-0.030646916, -0.59748375, 0.079598084, 0.79733187)
-bones/12/rotation = Quaternion(0.018101119, -0.03448135, -0.0012916221, 0.9992406)
-bones/13/rotation = Quaternion(0.0020999853, 0.0020920776, -0.016897967, 0.99985284)
-bones/14/rotation = Quaternion(-0.037250042, -0.6121028, 0.12682511, 0.7796525)
-bones/15/rotation = Quaternion(-0.055340435, -0.06698067, -0.0044639776, 0.99620837)
-bones/16/rotation = Quaternion(-0.0054129628, -0.007196664, 0.006584328, 0.9999378)
-bones/17/rotation = Quaternion(0.19159497, -0.35639885, -0.31025198, 0.86024123)
-bones/18/rotation = Quaternion(-0.0050958307, -0.02744785, 0.059466794, 0.9978398)
-bones/19/rotation = Quaternion(0.02695963, 0.13154092, 0.0015950616, 0.9909428)
-bones/20/rotation = Quaternion(0.809744, -0.57563853, 0.041265693, -0.10607574)
-bones/21/rotation = Quaternion(-0.02942627, -0.6979506, 0.22910228, 0.6778726)
-bones/22/rotation = Quaternion(0.15730079, 0.071685895, -0.071475975, 0.9823486)
-bones/23/rotation = Quaternion(0.052278947, 0.052060563, 0.035400458, 0.9966461)
-bones/24/rotation = Quaternion(0.029105391, 0.6368809, -0.020538313, 0.77013886)
-bones/25/rotation = Quaternion(0.013417851, -0.020730319, 0.008495978, 0.999659)
-bones/26/rotation = Quaternion(0.0015045835, -0.0014931888, 0.013999595, 0.99989974)
-bones/27/rotation = Quaternion(0.0043297242, 0.5603228, -0.041324038, 0.82723147)
-bones/28/rotation = Quaternion(0.016999258, 0.05207452, 0.0033306042, 0.99849296)
-bones/29/rotation = Quaternion(0.002029449, -0.0018751555, 0.0069366414, 0.9999721)
-bones/30/rotation = Quaternion(-0.030646868, 0.59748363, -0.07959806, 0.797332)
-bones/31/rotation = Quaternion(0.018101092, 0.03448135, 0.001291597, 0.9992406)
-bones/32/rotation = Quaternion(0.00209999, -0.0020920706, 0.016897963, 0.99985284)
-bones/33/rotation = Quaternion(-0.03724988, 0.6121028, -0.12682508, 0.7796525)
-bones/34/rotation = Quaternion(-0.05534051, 0.06698065, 0.0044638417, 0.99620837)
-bones/35/rotation = Quaternion(-0.0054129562, 0.007196675, -0.0065843333, 0.9999378)
-bones/36/rotation = Quaternion(0.19159496, 0.3563989, 0.31025207, 0.8602412)
-bones/37/rotation = Quaternion(-0.0050957776, 0.02744779, -0.059466776, 0.99783987)
-bones/38/rotation = Quaternion(0.026959619, -0.13154086, -0.0015950161, 0.9909428)
+[node name="Camera" parent="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(457484893, 1783986654, 1239440987) index="0" unique_id=1209086434]
+transform = Transform3D(-0.97437, 0.084268086, -0.20857106, -2.6077029e-08, 0.9271831, 0.37460667, 0.22495109, 0.36500522, -0.90342027, 0, 1.6, 0)
 
 [node name="ViewportOverlayRect" type="ColorRect" parent="MainSceneSubViewport/SubViewport" unique_id=697671492]
 anchors_preset = 15
@@ -329,9 +164,10 @@ stream = ExtResource("10_h8vw2")
 volume_db = -30.0
 max_polyphony = 40
 
-[node name="Inventory" parent="HUD" unique_id=213834778 instance=ExtResource("11_ju5mr")]
-
 [editable path="MainSceneSubViewport/SubViewport/MainScene"]
-[editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/StudyLights/CeilingLamp"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key"]

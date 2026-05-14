@@ -15,4 +15,4 @@ func _on_plank_removed() -> void:
 	planks_to_be_removed -= 1
 	if planks_to_be_removed == 0:
 		looked_door.is_locked = false
-
+		queue_free()

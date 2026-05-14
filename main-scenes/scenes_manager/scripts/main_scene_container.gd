@@ -84,6 +84,9 @@ func end_flashback():
 	await PATHS.fade_controller.fade_in_finished
 	sub_viewport.remove_child(new_flashback_scene)
 	sub_viewport.add_child(main_scene)
+	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property(flash_back_voice_icon, "modulate:a", 0.0, 5.0) #TODO Fix this modulate
+	tween.tween_callback(func(): flash_back_voice_icon.texture = null ; flash_back_voice_icon.modulate.a = 1.0)
 	
 	new_flashback_scene.queue_free()
 	

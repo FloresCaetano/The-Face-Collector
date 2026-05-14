@@ -1,7 +1,6 @@
 class_name Door
 extends Interactable
 
-
 @export var object: Node3D
 
 @export_category("Obstacle Settings")
@@ -26,27 +25,14 @@ func _ready() -> void:
 	if not object:
 		object = self
 
-func _on_item_selected(item : Item) -> void:
-	if item is not KeyResource or item.key_id != settings.key_id:
-		is_locked = true #TODO: MAKE A "THIS IS NOT THE RIGHT ITEM" ANIMATION OR SOMETHING
-		locked_anim()
-	else:
-		settings.need_key = false
-		is_locked = false
-
-		leave_interaction()
-		open()
-		#TODO : MAKE A "YOU UNLOCKED THE DOOR" ANIMATION OR SOMETHING
-
 func mouse_interaction() -> void:
 	set_process_input(true)
 	is_interacting = true
 	if settings.need_key:
-		inventory.open()
-		inventory.can_be_closed = false
-		inventory.can_be_opened = false
-		inventory.can_inspect_items = false
-
+		if inventory.has_item(settings.key_id) > 0:
+			settings.need_key = false
+			open()
+		is_interacting = false
 		return
 
 	if is_locked:
@@ -68,9 +54,10 @@ func on_leave_interaction() -> void:
 func on_mouse_exited() -> void:
 	pass
 
-func open() -> void:
-	audio_stream_player_3d.stream = settings.open_sound
-	audio_stream_player_3d.play()
+func open(sound := true) -> void:
+	if sound:
+		audio_stream_player_3d.stream = settings.open_sound
+		audio_stream_player_3d.play()
 
 	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(object, "rotation_degrees:y", settings.open_angle, settings.open_speed).as_relative()
@@ -85,9 +72,10 @@ func open() -> void:
 	is_open = true
 	is_interacting = false
 
-func close() -> void:
-	audio_stream_player_3d.stream = settings.close_sound
-	audio_stream_player_3d.play()
+func close(sound := true) -> void:
+	if sound:
+		audio_stream_player_3d.stream = settings.close_sound
+		audio_stream_player_3d.play()
 
 	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(object, "rotation_degrees:y", -settings.open_angle, settings.open_speed).as_relative()

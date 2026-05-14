@@ -1,17 +1,21 @@
 [gd_scene format=4 uid="uid://brk7fhrihmfm7"]
 
-[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_n3di8"]
+[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_bp2wh"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
+[ext_resource type="PackedScene" uid="uid://c6xmli380uupx" path="res://scenery/props/postItOnFridge.glb" id="3_hv77v"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
+[ext_resource type="PackedScene" uid="uid://cqpp7labx0ak5" path="res://scenery/props/safePassHint.glb" id="4_tiq5w"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="4_uvaer"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="4_wxp5c"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="5_fw6df"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="5_g721p"]
 [ext_resource type="Resource" uid="uid://bn313ey4muahe" path="res://VFX/rain/lt_rain.tres" id="5_hwofa"]
+[ext_resource type="PackedScene" uid="uid://brbbaylgh10uy" path="res://interactable/furniture/plank/plank_group.tscn" id="5_kmx7f"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="6_8bqn5"]
+[ext_resource type="PackedScene" uid="uid://bcu34ojoq6rcm" path="res://interactable/furniture/plank/plank.tscn" id="6_x28hp"]
 [ext_resource type="AudioStream" uid="uid://b3jiptgr5drqf" path="res://interactable/items/item-resources/tapes/sixth_tape/6th recording.mp3" id="7_uvaer"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="12_fw6df"]
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="12_jysff"]
@@ -20,21 +24,21 @@
 [ext_resource type="PackedScene" uid="uid://7ebk6vosei45" path="res://entities/player/Scenes/footsteps.tscn" id="17_7orxa"]
 [ext_resource type="AudioStream" uid="uid://cigrw0k4u0wdb" path="res://scripted-events/Chapter1/raven_on_road/assets/caw.wav" id="18_3o4xq"]
 [ext_resource type="Script" uid="uid://bx53wj3fmfg2h" path="res://shared/side_step_area/scripts/start_interaction_trigger.gd" id="19_shqur"]
-[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="19_sojn1"]
 [ext_resource type="AudioStream" uid="uid://qhltvg7agprw" path="res://scripted-events/Chapter1/raven_on_road/assets/leaves.wav" id="19_w01sd"]
 [ext_resource type="PackedScene" uid="uid://wbmygrl4ikpx" path="res://scripted-events/Chapter1/raven_on_road/assets/PSX_Bird + Rigged.glb" id="20_aaa7r"]
 [ext_resource type="Script" uid="uid://dt23ymtrps05u" path="res://shared/side_step_area/scripts/end_interaction_trigger.gd" id="20_sojn1"]
 [ext_resource type="Texture2D" uid="uid://d11kmfxwov47n" path="res://scripted-events/Chapter1/raven_on_road/assets/leave.png" id="20_u0d7r"]
-[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="21_csog6"]
 [ext_resource type="Script" uid="uid://cif8g7udeg3ky" path="res://scripted-events/Chapter1/raven_on_road/scripts/raven_trigger.gd" id="21_rvk4k"]
-[ext_resource type="Script" uid="uid://dpke4ypjay435" path="res://interactable/items/item-resources/tapes/tape_resource.gd" id="22_nqn01"]
-[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resources/tapes/icons/1st.png" id="23_723sf"]
 [ext_resource type="AudioStream" uid="uid://ddyekio8slmby" path="res://scripted-events/Chapter1/bush_rustling/leave_rustling.wav" id="23_kh7k8"]
 [ext_resource type="Script" uid="uid://b5iei6ghloklu" path="res://scripted-events/Chapter1/bush_rustling/event_trigger.gd" id="24_sfqas"]
 [ext_resource type="Script" uid="uid://c8fkdqewuw4b" path="res://scripted-events/Chapter1/first_look_at_house/scripts/first_house_look.gd" id="25_dkgmy"]
 [ext_resource type="PackedScene" uid="uid://by63c5jm6toa7" path="res://shared/VisibilityTrigger/look_at_trigger.tscn" id="25_ogm41"]
+[ext_resource type="PackedScene" uid="uid://u7176gi7ni4q" path="res://interactable/furniture/safe/safe.tscn" id="26_4lsji"]
 [ext_resource type="Script" uid="uid://pnmrqymhodjg" path="res://scripted-events/Chapter1/main_door_first_aproach/scripts/main_door_first_interact.gd" id="27_nmiv7"]
+[ext_resource type="Script" uid="uid://b6au5w8ag34fi" path="res://interactable/items/item-resources/keys/key_resource.gd" id="28_ewew4"]
 [ext_resource type="PackedScene" uid="uid://c5jjcc7nuwlq0" path="res://shared/animation_manager/scenes/fp_animation_manager.tscn" id="28_fbswt"]
+[ext_resource type="PackedScene" uid="uid://8uusi0v2gnys" path="res://interactable/items/item-colectable/key/assets/Key.glb" id="28_ffnvv"]
+[ext_resource type="Script" uid="uid://bran1d531q8wi" path="res://scripted-events/General/scripts/ev_climb_through_the_window.gd" id="28_x28hp"]
 [ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="29_8b4ak"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="29_ujjmv"]
 [ext_resource type="Script" uid="uid://dbwk7vm0bbmoh" path="res://shared/dialogue_system/scripts/dialogue_event_trigger.gd" id="30_2n0du"]
@@ -42,11 +46,20 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="30_nmiv7"]
 [ext_resource type="Texture2D" uid="uid://j7qtfvuj4tyf" path="res://scripted-events/Chapter1/ANIMATIONS/HarryClimbTravesaign_Harry.png" id="31_7fmd3"]
 [ext_resource type="Script" uid="uid://cbumgb3jn1q7f" path="res://scripted-events/Chapter1/main_door_first_aproach/scripts/ib_climb_transom.gd" id="31_ddxeo"]
+[ext_resource type="Script" uid="uid://ds6cm44uqmxxa" path="res://shared/lights_system/scripts/SmartLight.gd" id="33_rlakd"]
+[ext_resource type="AudioStream" uid="uid://bivw4ujsf5aas" path="res://shared/lights_system/audio/blinking.mp3" id="34_8guji"]
+[ext_resource type="AudioStream" uid="uid://c6wfitkueyq8p" path="res://shared/lights_system/audio/lightbulb_break.mp3" id="35_kmx7f"]
 [ext_resource type="Script" uid="uid://bhlbrvw8tisx3" path="res://scripted-events/Chapter1/AliceFlashback/script/trigger.gd" id="42_723sf"]
 [ext_resource type="Script" uid="uid://c35cmbe2kq228" path="res://interactable/Chapter1/StudyWindow/script/ev_look_at_window.gd" id="42_csog6"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="42_p1fxg"]
 [ext_resource type="PackedScene" uid="uid://dqrglq624h3gy" path="res://interactable/items/item-colectable/key/key.tscn" id="43_nqn01"]
 [ext_resource type="PackedScene" uid="uid://bor3iishjtda8" path="res://interactable/items/item-colectable/crowbar/crowbar.tscn" id="45_ightq"]
+[ext_resource type="Script" uid="uid://ck3j0n77r8fut" path="res://scripted-events/Chapter1/player_picks_study_key/scripts/player_picks_study_key.gd" id="51_l3bb1"]
+[ext_resource type="AudioStream" uid="uid://bjv8lfxbggpji" path="res://scripted-events/Chapter1/player_picks_study_key/assets/breathing.wav" id="53_rnk46"]
+[ext_resource type="Texture2D" uid="uid://bvjjpnneynv5k" path="res://interactable/items/item-resources/keys/icons/icon_key.png" id="56_x28hp"]
+[ext_resource type="AudioStream" uid="uid://bvl4nhi6vsqv6" path="res://core/auxiliar/first_cinematic/pink_noise.wav" id="58_bp2wh"]
+[ext_resource type="Texture2D" uid="uid://pcge80i3i72l" path="res://interactable/items/item-colectable/key/assets/Key_key.png" id="58_kmx7f"]
+[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="60_bp2wh"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_hwofa"]
 density = -1.0
@@ -79,6 +92,14 @@ use_particle_trails = true
 material = SubResource("StandardMaterial3D_3n4sk")
 curve = SubResource("Curve_3n4sk")
 
+[sub_resource type="Resource" id="Resource_l3bb1"]
+script = ExtResource("5_fw6df")
+metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
+
+[sub_resource type="Resource" id="Resource_rnmlu"]
+script = ExtResource("5_fw6df")
+metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
+
 [sub_resource type="Resource" id="Resource_144cg"]
 script = ExtResource("5_fw6df")
 need_key = true
@@ -98,14 +119,16 @@ script = ExtResource("30_nmiv7")
 [sub_resource type="BoxShape3D" id="BoxShape3D_wwoi1"]
 size = Vector3(0.35717773, 1.5454102, 0.56307983)
 
-[sub_resource type="Resource" id="Resource_n3di8"]
-script = ExtResource("22_nqn01")
-flashback = "uid://bc4gf7yh5vkag"
-name = "Primera Cinta"
-texture = ExtResource("23_723sf")
-tag = "first_tape"
-model = ExtResource("21_csog6")
-metadata/_custom_type_script = "uid://dpke4ypjay435"
+[sub_resource type="Resource" id="Resource_ffnvv"]
+script = ExtResource("28_ewew4")
+key_id = "storage_key"
+name = "Storage Key"
+tag = "storage_key"
+model = ExtResource("28_ffnvv")
+metadata/_custom_type_script = "uid://b6au5w8ag34fi"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
+size = Vector3(1.9338379, 1.7108154, 0.08111572)
 
 [sub_resource type="Animation" id="Animation_w01sd"]
 length = 0.001
@@ -726,12 +749,62 @@ size = Vector3(0.14935303, 0.34960938, 2.000061)
 
 [sub_resource type="Resource" id="Resource_csog6"]
 script = ExtResource("30_nmiv7")
+duration = 0.4
+
+[sub_resource type="Resource" id="Resource_kmx7f"]
+script = ExtResource("28_ewew4")
+key_id = "study_key"
+name = "Study Key"
+texture = ExtResource("56_x28hp")
+tag = "study_key"
+model = ExtResource("28_ffnvv")
+metadata/_custom_type_script = "uid://b6au5w8ag34fi"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x28hp"]
+resource_name = "Material.001"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("58_kmx7f")
+metallic = 0.6
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gqdqw"]
+_surfaces = [{
+"aabb": AABB(-0.6931827, -0.09899805, -1.9579395, 1.5601411, 0.09899805, 3.451357),
+"format": 34359742465,
+"index_count": 996,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgAEAAAAAgAFAAQAAwAFAAIAAAAEAAYABAAFAAcABgAEAAgABAAHAAgABgAIAAkAAAAGAAoACgAGAAkACgAJAAsACwAJAAgACgAMAAAACgALAAwAAAAMAAEACwAIAAwADAAIAA0ACAAOAA0ADAANAA8ADwANAA4AEAAMAA8ADwAOABAAAQAMABEADAASABEADAAQABIAEgAHABEAEwAIAAcADgAIABMAEgATAAcAEQAHABQAEQAUAAEABwAFABQAFQATABIAEgAQABUAFQAWABMADgATABYAFwAWABUAEAAXABUAFwAYABYAGAAOABYAGQAYABcAGQAaABgAGgAOABgAFwAbABkAGwAaABkAEAAbABcAGwAcABoAHAAOABoAHQAcABsAHQAeABwAGwAfAB0AHwAeAB0AIAAcAB4AHwAgAB4AIAAOABwAIQAgAB8AGwAiAB8AHwAiACEAEAAiABsAIQAjACAAIgAjACEAJAAgACMAIgAkACMAJAAOACAAJQAkACIAJQAmACQAIgAnACUAJwAmACUAIgAoACcAEAAoACIAJwApACYAKQAkACYAKgApACcAJwAoACoAKgArACkAKAArACoALAApACsALAAkACkAKAAsACsALAAOACQALQAsACgAEAAtACgALQAuACwALgAOACwALwAuAC0ALQAwAC8AEAAwAC0ALwAxAC4AMAAxAC8AMgAuADEAMAAyADEAMgAOAC4AMwAyADAAMwA0ADIAMAA1ADMANQA0ADMAEAA1ADAANgAyADQANQA2ADQANgAOADIANwA2ADUANwA4ADYANQA5ADcAOQA4ADcANQA6ADkAEAA6ADUAOQA7ADgAOwA2ADgAPAA7ADkAOQA6ADwAPAA9ADsAOgA9ADwAPgA7AD0APgA2ADsAOgA+AD0APgAOADYAPwA+ADoAPwBAAD4AOgBBAD8AQQBAAD8AQgA+AEAAQQBCAEAAQwBCAEEAOgBDAEEARAA+AEIAQwBEAEIAOgBFAEMARgBEAEMAQwBFAEYARgBHAEQARQBHAEYASAA+AEQASABEAEcARQBIAEcASAAOAD4AEABFADoASQBIAEUASQBKAEgARQBLAEkASwBKAEkARQBMAEsAEABMAEUASwBNAEoATQBIAEoATgBNAEsASwBMAE4ATgBPAE0ATABPAE4AUABNAE8AUABIAE0ATABQAE8AUAAOAEgAUQBQAEwAUQBSAFAATABTAFEAUwBSAFEAEABTAEwAVABQAFIAUwBUAFIADgBQAFQAVQBUAFMAUwAQAFUADgBUAFYAVQBWAFQAVwBWAFUAVwBYAFYAVQBZAFcAWQBYAFcAWgBWAFgAWQBaAFgAWwBaAFkAWwBcAFoAWQBdAFsAXQBcAFsAVQBdAFkAXgBaAFwAXgBWAFoAXQBeAFwAXwBWAF4ADgBWAF8AVQBgAF0AVQAQAGAAYQBeAF0AYQBiAF4AXQBjAGEAYwBiAGEAXQBkAGMAXQBgAGQAYwBlAGIAZQBeAGIAZgBlAGMAYwBkAGYAZgBnAGUAZABnAGYAaABlAGcAaABeAGUAZABoAGcAXwBeAGgAaQBoAGQAaQBqAGgAZABrAGkAawBqAGkAZABgAGsAbABoAGoAawBsAGoAXwBoAGwAbQBsAGsAawBgAG0AbQBuAGwAXwBsAG4AbwBuAG0AbQBgAG8AbwBwAG4AYABwAG8AXwBuAHAAYABfAHAAcQBfAGAAYAByAHEAcQBzAF8AcgBzAHEAdABfAHMAcgB0AHMAYAAQAHIADgBfAHQAdQB0AHIAdQB2AHQAcgB3AHUAdwB2AHUAcgAQAHcAeAB0AHYAdwB4AHYADgB0AHgAeQB4AHcAdwAQAHkADgB4AHoAeQB6AHgAEAAOAHsADgB6AHwADgB8AHsAfQB6AHkAeQAQAH4AeQB+AH0AfQB/AHoAfAB6AH8AgAB/AH0AfQB+AIAAgACBAH8AfAB/AIEAfgCBAIAAfgB8AIEAfgAQAIIAEAB7AIIAgwB8AH4AggCDAH4AhAB7AHwAgwCEAHwAggB7AIUAhgCEAIMAggCGAIMAhwB7AIQAewCHAIUAhgCHAIQAggCFAIgAhgCCAIgAiACFAIcAiACHAIYAAwCJAIoAiQCLAIoAigCMAAMAigCLAIwAAwCMAAUAjAAUAAUAjQCMAIsAiQCNAIsAjQAUAIwAAwCOAIkAjwCNAIkAiQCOAI8AjwCQAI0AjgCQAI8AkQCNAJAAjgCRAJAAkQAUAI0AAQCOAAMAkgCRAI4AAQCSAI4AkgCTAJEAkwCUAJEAkQCUABQAlQCTAJIAkgCVAJUAlACTAJYAlQCWAJMAlACWAJYAlQCWAJUAlQCWAJYAlwCWAJUAkgCXAJUAlwCUAJYAlwCSAAEAmACUAJcAmACZAJQAlwCaAJgAmgCZAJgAlwCbAJoAlwABAJsAmgCcAJkAnACUAJkAnQCcAJoAmgCbAJ0AnQCeAJwAmwCeAJ0AnwCcAJ4AnwCUAJwAmwCfAJ4AFACUAJ8AoACfAJsAAQAUAKEAoACiAJ8AAQChAKMAmwCkAKAAmwABAKQApACiAKAApAABAKMApQCfAKIApAClAKIAFACfAKUAowClAKQAFAClAKEAowChAKUA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 166,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bp2wh"]
+resource_name = "Key_Plane"
+_surfaces = [{
+"aabb": AABB(-0.6931827, -0.09899805, -1.9579395, 1.5601411, 0.09899805, 3.451357),
+"attribute_data": PackedByteArray("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"),
+"format": 34359742487,
+"index_count": 996,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAEAAUAAwAGAAQABAAGAAcAAQAGAAMAAQAIAAYAAAAJAAEACgAJAAAACgALAAkAAQAJAAwACQANAAwACQAOAA0ADgAJAA8ADQAOABAADgARABAAEgABABMAFAABABIAFAASABUAFgABABQAFgAIAAEAFgAUABcAFwAUABgAFgAXABkACAAWABoACAAaABsAGgAcABsAGgAdABwAEQAeAB8ADgAeABEAHgAgACEAHgAiACAAIAAiACMADgAiAB4AIgAkACUAIgAmACQAJAAmACcADgAmACIADgAoACYAKAApACoADgApACgAKQArACwADgArACkAKwAtAC4AKwAvAC0ALQAvADAADgAvACsALwAxADIALwAzADEALwA0ADMAMwA0ADUADgA0AC8ANAA2ADcANAA4ADYANgA4ADkADgA4ADQAOAA6ADsADgA6ADgAOgAOADwAPAA9AD4APAA/AD0APQA/AEAAPABBAD8APAAOAEEAPwBCAEMAPwBEAEIAQgBEAEUAPwBBAEQARABGAEcARABBAEYARgBBAEgASABBAEkAQQBKAEsAQQAOAEoASgAOAEwASgBMAE0ATAAOAE4ATgAOAE8ATgBPAFAAUABPAFEATwAOAFIAUgBTAE8AUgBUAFMAVABSAFUAVgBXAFgAVgBZAFcAWgBWAFgAWgBYAFsAXABYAFcAVwBZAF0AXgBYAFwAWABeAF8AXgBcAGAAYQBdAFkAYgBeAGAAYwBeAGIAZABeAGMAZQBkAGYAZQBeAGQAZwBhAGgAZwBdAGEAaQBnAGoAaQBdAGcAaQBrAF0AbABrAGkAawBsAG0AawBtAG4AbwBrAHAAcQBrAG8AXQBrAHEAcQBvAHIAXQBxAHMAcwBxAHQAXQBzAHUAdgB3AHgAdwB2AHkAeQB2AHoAXgB6AHYAegB7AHwAegB9AHsAXgB9AHoAXgB+AH0AfgB/AIAAXgB/AH4AfwCBAIIAXgCBAH8AgQCDAIQAgQCFAIMAgQCGAIUAhQCGAIcAhgCIAIkAhgCKAIgAgQCKAIYAiACKAIsAgQCMAIoAXgCMAIEAigCMAI0AigCNAI4AjQCMAI8AXgCQAIwAkACRAJIAXgCRAJAAkQCTAJQAkQCVAJMAkwCVAJYAkQBeAJUAlQCXAJgAlQCZAJcAlQBeAJkAlwCZAJoAmgCZAJsAmQCcAJ0AmQCeAJwAnACeAJ8AmQBeAJ4AngCgAKEAngBeAKAAoABeAKIAoACiAKMAogBeAKQApABeAKUApQBeAGUApQBlAKYApAClAKcApwClAKgApACnAKkAqgCrAKwAqgCtAKsArgCvALAArgCxAK8AsgCzALQAsgC1ALMAtgC3ALgAtgC5ALcAugC7ALwAugC9ALsAvgC/AMAAvgDBAL8AwgDDAMQAwgDFAMMAxgDHAMgAxgDJAMcAygDLAMwAygDNAMsAzgDPANAAzgDRAM8A0gDTANQA0gDVANMA1gDXANgA1gDZANcA2gDbANwA2gDdANsA3gDfAOAA3gDhAN8A4gDjAOQA4gDlAOMA5gDnAOgA5gDpAOcA6gDrAOwA6gDtAOsA7gDvAPAA7gDxAO8A8gDzAPQA8gD1APMA9gD3APgA9gD5APcA+gD7APwA+gD9APsA/gD/AAAB/gABAf8AAgEDAQQBAgEFAQMBBgEHAQgBBgEJAQcBCgELAQwBCgENAQsBDgEPARABDgERAQ8BEgETARQBEgEVARMBFgEXARgBFgEZARcBGgEbARwBGgEdARsBHgEfASABHgEhAR8BIgEjASQBIgElASMBJgEnASgBJgEpAScBKgErASwBKgEtASsBLgEvATABLgExAS8BMgEzATQBMgE1ATMBNgE3ATgBNgE5ATcBOgE7ATwBOgE9ATsBPgE/AUABPgFBAT8BQgFDAUQBQgFFAUMBRgFHAUgBRgFJAUcBSgFLAUwBSgFNAUsBTgFPAVABTgFRAU8BUgFTAVQBUgFVAVMBVgFXAVgBVgFZAVcBWgFbAVwBWgFdAVsBXgFfAWABXgFhAV8BYgFjAWQBYgFlAWMBZgFnAWgBZgFpAWcBagFrAWwBagFtAWsBbgFvAXABbgFxAW8BcgFzAXQBcgF1AXMBdgF3AXgBdgF5AXcBegF7AXwBegF9AXsBfgF/AYABfgGBAX8BggGDAYQBggGFAYMBhgGHAYgBhgGJAYcBigGLAYwBigGNAYsBjgGPAZABjgGRAY8BkgGTAZQBkgGVAZMBlgGXAZgBlgGZAZcBmgGbAZwBmgGdAZsBngGfAaABngGhAZ8BogGjAaQBogGlAaMBpgGnAagBpgGpAacBqgGrAawBqgGtAasBrgGvAbABrgGxAa8BsgGzAbQBsgG1AbMBtgG3AbgBtgG5AbcBugG7AbwBugG9AbsBvgG/AcABvgHBAb8BwgHDAcQBwgHFAcMBxgHHAcgBxgHJAccBygHLAcwBygHNAcsBzgHPAdABzgHRAc8B0gHTAdQB0gHVAdMB1gHXAdgB1gHZAdcB2gHbAdwB2gHdAdsB3gHfAeAB3gHhAd8B4gHjAeQB4gHlAeMB5gHnAegB5gHpAecB6gHrAewB6gHtAesB7gHvAfAB7gHxAe8B8gHzAfQB8gH1AfMB"),
+"material": SubResource("StandardMaterial3D_x28hp"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 502,
+"vertex_data": PackedByteArray("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HOcXPwAAAAC0hKi+VGYSP32/yr0khKS+VGYSPwAAAAAkhKS+HOcXP32/yr20hKi+4J+YvQAAAADgXyC9wHalvX2/yr3w0569wHalvQAAAADw05694J+YvX2/yr3gXyC9gOR9vQAAAAD6ow0/ANhtvX2/yr3CBgk/ANhtvQAAAADCBgk/gOR9vX2/yr36ow0/VGYSPwAAAAAkhKS+aOULP32/yr3kgZS+aOULPwAAAADkgZS+VGYSP32/yr0khKS+wHalvQAAAADw0569YL/AvX2/yr2ApKO9YL/AvQAAAACApKO9wHalvX2/yr3w0569ANhtvQAAAADCBgk/QJkdvX2/yr0KoAg/QJkdvQAAAAAKoAg/ANhtvX2/yr3CBgk/aOULPwAAAADkgZS+iL/HPn2/yr0wgY++iL/HPgAAAAAwgY++aOULP32/yr3kgZS+YL/AvQAAAACApKO9YPvLvX2/yr2AWMW9YPvLvQAAAACAWMW9YL/AvX2/yr2ApKO9QJkdvQAAAAAKoAg/gDonvX2/yr1mNQM/gDonvQAAAABmNQM/QJkdvX2/yr0KoAg/iL/HPgAAAAAwgY++0MTCPn2/yr1XJao/0MTCPgAAAABXJao/iL/HPn2/yr0wgY++YPvLvQAAAACAWMW9AIDyvX2/yr3w/9a9AIDyvQAAAADw/9a9YPvLvX2/yr2AWMW9gDonvQAAAABmNQM/AJZavX2/yr2eNAI/AJZavQAAAACeNAI/gDonvX2/yr1mNQM/0MTCPgAAAABXJao/gHBTPn2/yr1NKL8/gHBTPgAAAABNKL8/0MTCPn2/yr1XJao//3///4P9/7//f/////8nwf9///8A+/+//3///7n+/7//f/////8Pxv9//////7HI/3///0T//7//f///xPP/v/9//////8TB/3///8/+/7//f///////v/9///////+//3//////BcH/f//////swP9//////63A/3///z/7/7//f///0P//v/9////c//+//3//////P8f/f/////+r0v9///+g/P+//3//////hsL/f/////8hwf9///8h9/+//3///z35/7//f///8ez/v/9//////4DF/3//////gMX/f///////v/9///////+//3///93//7//f///////v/9////+//+//3///////7//f///4P//v/9////+//+//3////7//7//f///////v/9////R//+//3///////7//f///tP//v/9///+1//+//3////7//7//f///xv//v/9////+//+//3///////7//f////v//v/9////g//+//3///////7//f///////v/9///////+//3///////7//f///6P//v/9///////+//3///////7//f////f//v/9////n//+//3////7//7//f///2f//v/9////+//+//3///7D//7//f////v//v/9////9//+//3////7//7//f///////v/9////u//+//3////7//7//f////v//v/9///////+//3///////7//f///////v/9///////+//3////3//7//f///////v/9////u//+//3////3//7//f///1v//v/9///////+//3///+X//7//f///1v//v/9///////+//3////7//7//f///5f7/v/9////R/v+//3///yH9/7//f///XPr/v/9/AAD///o+/38AAKL+/z//fwAA///7P/9/AABa/v8//38AAP///z//fwAA////P/9/AAD//xI//38AAP//1D//fwAA//9RP/9/AAA/+/8//38AAND//z//fwAArPz/P/9/AADO//8//38AANP//z//fwAA4f//P/9/AADh//8//38AAP///z//fwAALv//P/9/AAD//003/38AAP//ST7/fwAAxPP/P/9/AAD//+w//38AAP//Pzj/fwAA//9+Ov9/AAD//346/38AACH3/z//fwAA8ez/P/9/AACg/P8//38AAD35/z//fwAA//+/OP9/AAD//3g9/38AAP//Uy3/fwAA5f7/P/9/AAAh/f8//38AAFz6/z//fwAA0f7/P/9/AADW//8//38AAP///z//fwAA/v//P/9/AADl//8//38AANb//z//fwAA7v//P/9/AAD///8//38AAO7//z//fwAA/f//P/9/AAD+//8//38AAP///z//fwAA////P/9/AAD///8//38AAP///z//fwAA/v//P/9/AAD///8//38AAP7//z//fwAA/v//P/9/AACw//8//38AAP7//z//fwAA////P/9/AAD9//8//38AANn//z//fwAA5///P/9/AAD+//8//38AAP///z//fwAA/v//P/9/AADo//8//38AAP3//z//fwAA////P/9/AAD///8//38AAOD//z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AADG//8//38AAP7//z//fwAAtf//P/9/AAD+//8//38AALT//z//fwAA/v//P/9/AADR//8//38AAN///z//fwAA/v//P/9/AAD+//8//38AAP///z//fwAA////PwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/5hD/f////z/mEP9/////P+YQ/3////8/5hD/f////z8Ufv9/////PxR+/3////8/FH7/f////z8Ufv9/////P6pq/3////8/qmr/f////z+qav9/////P6pq/3////8/vWn/f////z+9af9/////P71p/3////8/vWn/f////z+5Jf9/////P7kl/3////8/uSX/f////z+5Jf9/////PwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/3h3/f////z/eHf9/////P94d/3////8/3h3/f////z8tN/9/////Py03/3////8/LTf/f////z8tN/9/////PyQY/3////8/JBj/f////z8kGP9/////PyQY/3////8/llb/f////z+WVv9/////P5ZW/3////8/llb/f////z9ob/9/////P2hv/3////8/aG//f////z9ob/9/////P5d+/3////8/l37/f////z+Xfv9/////P5d+/3////8/YQr/f////z9hCv9/////P2EK/3////8/YQr/f////z/jAP9/////P+MA/3////8/4wD/f////z/jAP9/////P2st/3////8/ay3/f////z9rLf9/////P2st/3////8/z17/f////z/PXv9/////P89e/3////8/z17/f////z8AAM/e////vwAAz97///+/AADP3v///78AAM/e////v0cB/3////8/RwH/f////z9HAf9/////P0cB/3////8/VBX/f////z9UFf9/////P1QV/3////8/VBX/f////z8AAHWC////vwAAdYL///+/AAB1gv///78AAHWC////v24//3////8/bj//f////z9uP/9/////P24//3////8/fG//f////z98b/9/////P3xv/3////8/fG//f////z8eXv9/////Px5e/3////8/Hl7/f////z8eXv9/////PxUq/3////8/FSr/f////z8VKv9/////PxUq/3////8/AAD/f////78AAP9/////vwAA/3////+/AAD/f////7/XAv9/////P9cC/3////8/1wL/f////z/XAv9/////P8QC/3////8/xAL/f////z/EAv9/////P8QC/3////8/AACj5f///78AAKPl////vwAAo+X///+/AACj5f///7//W/9/////P/9b/3////8//1v/f////z//W/9/////P///DYL///+///8Ngv///7///w2C////v///DYL///+/AACCrf///78AAIKt////vwAAgq3///+/AACCrf///78AAKqB////vwAAqoH///+/AACqgf///78AAKqB////v/8H/3////8//wf/f////z//B/9/////P/8H/3////8///8zp////7///zOn////v///M6f///+///8zp////78AAPC7////vwAA8Lv///+/AADwu////78AAPC7////vwAAwvX///+/AADC9f///78AAML1////vwAAwvX///+/S2j/f////z9LaP9/////P0to/3////8/S2j/f////z///2G6////v///Ybr///+///9huv///7///2G6////vwAAk9L///+/AACT0v///78AAJPS////vwAAk9L///+/AAAdhf///78AAB2F////vwAAHYX///+/AAAdhf///7/wAP9/////P/AA/3////8/8AD/f////z/wAP9/////P///VcX///+///9Vxf///7///1XF////v///VcX///+/AADn5v///78AAOfm////vwAA5+b///+/AADn5v///78AADvx////vwAAO/H///+/AAA78f///78AADvx////vwAAZub///+/AABm5v///78AAGbm////vwAAZub///+///9s4P///7///2zg////v///bOD///+///9s4P///7///8T+////v///xP7///+////E/v///7///8T+////vwAAYYf///+/AABhh////78AAGGH////vwAAYYf///+/AADDjv///78AAMOO////vwAAw47///+/AADDjv///78AAFjr////vwAAWOv///+/AABY6////78AAFjr////vwAA7un///+/AADu6f///78AAO7p////vwAA7un///+//////////7//////////v/////////+//////////78AAMOO////vwAAw47///+/AADDjv///78AAMOO////vwAA1of///+/AADWh////78AANaH////vwAA1of///+/5tf/f////z/m1/9/////P+bX/3////8/5tf/f////z8AAITr////vwAAhOv///+/AACE6////78AAITr////vwAAvOn///+/AAC86f///78AALzp////vwAAvOn///+/dMb/f////z90xv9/////P3TG/3////8/dMb/f////z8AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA4KH///+/AADgof///78AAOCh////vwAA4KH///+/C/r/f////z8L+v9/////Pwv6/3////8/C/r/f////z/eXf9/////P95d/3////8/3l3/f////z/eXf9/////PwAALPr///+/AAAs+v///78AACz6////vwAALPr///+///+N4////7///43j////v///jeP///+///+N4////7/aFv9/////P9oW/3////8/2hb/f////z/aFv9/////PwAAR4H///+/AABHgf///78AAEeB////vwAAR4H///+/Ffn/f////z8V+f9/////PxX5/3////8/Ffn/f////z//f/9/////P/9//3////8//3//f////z//f/9/////PwAAjeP///+/AACN4////78AAI3j////vwAAjeP///+/IKL/f////z8gov9/////PyCi/3////8/IKL/f////z/2Ef9/////P/YR/3////8/9hH/f////z/2Ef9/////PwAA2pb///+/AADalv///78AANqW////vwAA2pb///+/ncb/f////z+dxv9/////P53G/3////8/ncb/f////z/MbP9/////P8xs/3////8/zGz/f////z/MbP9/////PwAAhfb///+/AACF9v///78AAIX2////vwAAhfb///+/h4f/f////z+Hh/9/////P4eH/3////8/h4f/f////z//H/9/////P/8f/3////8//x//f////z//H/9/////P8sM/3////8/ywz/f////z/LDP9/////P8sM/3////8/O///f////z87//9/////Pzv//3////8/O///f////z/EV/9/////P8RX/3////8/xFf/f////z/EV/9/////P4Vh/3////8/hWH/f////z+FYf9/////P4Vh/3////8/Jr7/f////z8mvv9/////Pya+/3////8/Jr7/f////z8=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gqdqw")
 
 [node name="MainScene" type="Node3D" unique_id=457484893]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("1_n3di8")
+environment = ExtResource("1_bp2wh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -741,7 +814,7 @@ light_energy = 0.3
 
 [node name="FullHouse" type="Node3D" parent="." unique_id=1905956402]
 
-[node name="House" parent="FullHouse" unique_id=1873906181 instance=ExtResource("1_ngqo1")]
+[node name="House" parent="FullHouse" unique_id=1361162716 instance=ExtResource("1_ngqo1")]
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="FullHouse/House" unique_id=540807651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.17066, 4.5932617, -9.955952)
@@ -759,6 +832,41 @@ size = Vector3(36.051758, 11.186523, 2.9037476)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.251593, 4.7678223, -9.380737)
 size = Vector3(36.11609, 11.535645, 27.040283)
 material = SubResource("FogMaterial_hwofa")
+
+[node name="Props" type="Node3D" parent="FullHouse/House" unique_id=931827059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.569231, 0.83638406, -6.434684)
+
+[node name="postItOnFridge" parent="FullHouse/House/Props" unique_id=991274658 instance=ExtResource("3_hv77v")]
+transform = Transform3D(-0.1, 1.1175871e-08, -2.220446e-16, -6.159584e-18, -4.371139e-09, -0.099999994, -1.1175871e-08, -0.1, 4.3711386e-09, 1.2900162, 0.3258053, 4.229668)
+
+[node name="safePassHint" parent="FullHouse/House/Props" unique_id=1256070595 instance=ExtResource("4_tiq5w")]
+transform = Transform3D(0.46438575, 0, -0.2339783, 0, 0.52, 0, 0.2339783, 0, 0.46438575, -6.0405245, 0.19019246, -12.446633)
+
+[node name="PlankGroup" parent="FullHouse/House/Props" unique_id=339284421 node_paths=PackedStringArray("planks", "looked_door") instance=ExtResource("5_kmx7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.286917, -0.94186157, -7.065487)
+planks = [NodePath("Plank"), NodePath("Plank2"), NodePath("Plank3")]
+looked_door = NodePath("../../../Interactables/Doors/Door5")
+
+[node name="Plank" parent="FullHouse/House/Props/PlankGroup" unique_id=1172716163 node_paths=PackedStringArray("indicator_last_pose_references") instance=ExtResource("6_x28hp")]
+transform = Transform3D(0.9977921, 0.066413224, 0, -0.066413224, 0.9977921, 0, 0, 0, 1, 0.5644436, 1.8327634, 0.08592224)
+indicator_last_pose_references = [NodePath("Marker3D")]
+
+[node name="Marker3D" type="Marker3D" parent="FullHouse/House/Props/PlankGroup/Plank" unique_id=1582648684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04958725)
+
+[node name="Plank2" parent="FullHouse/House/Props/PlankGroup" unique_id=1650011538 node_paths=PackedStringArray("indicator_last_pose_references") instance=ExtResource("6_x28hp")]
+transform = Transform3D(0.99856853, -0.053486258, 0, 0.053486258, 0.99856853, 0, 0, 0, 1, 0.5644436, 1.4942474, 0.08592224)
+indicator_last_pose_references = [NodePath("Marker3D")]
+
+[node name="Marker3D" type="Marker3D" parent="FullHouse/House/Props/PlankGroup/Plank2" unique_id=1645289957]
+transform = Transform3D(0.99281174, 0.119686335, 0, -0.119686335, 0.99281174, 0, 0, 0, 1, -0.025436401, -0.023173451, 0.040519714)
+
+[node name="Plank3" parent="FullHouse/House/Props/PlankGroup" unique_id=117121594 node_paths=PackedStringArray("indicator_last_pose_references") instance=ExtResource("6_x28hp")]
+transform = Transform3D(0.9997943, -0.02027934, 0, 0.02027934, 0.9997943, 0, 0, 0, 1, 0.5644436, 1.1671628, 0.08592224)
+indicator_last_pose_references = [NodePath("Marker3D")]
+
+[node name="Marker3D" type="Marker3D" parent="FullHouse/House/Props/PlankGroup/Plank3" unique_id=1970356274]
+transform = Transform3D(0.9962402, 0.086634144, 0, -0.086634144, 0.9962402, 0, 0, 0, 1, -0.045726776, -0.0155905485, 0.040519714)
 
 [node name="HouseExterior" parent="FullHouse" unique_id=330532458 instance=ExtResource("3_t6h63")]
 
@@ -825,6 +933,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.192372, 0.045, -8.176515)
 [node name="Door10" parent="FullHouse/Interactables/Doors" unique_id=926539643 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.562089, 0.045, -7.6335845)
+settings = SubResource("Resource_l3bb1")
 
 [node name="Door11" parent="FullHouse/Interactables/Doors" unique_id=145602168 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
@@ -838,6 +947,8 @@ is_locked = true
 [node name="Door16" parent="FullHouse/Interactables/Doors" unique_id=32381230 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8050585, 0.045, -13.552457)
+settings = SubResource("Resource_rnmlu")
+is_locked = true
 
 [node name="Door17" parent="FullHouse/Interactables/Doors" unique_id=1225599683 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
@@ -858,26 +969,6 @@ is_locked = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.569588, 0.045, -9.585199)
 is_locked = true
-
-[node name="CassetteTapePlayer" parent="FullHouse/Interactables" unique_id=1783986654 instance=ExtResource("5_g721p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.212826, 1.0757467, -19.11533)
-
-[node name="AudioStreamPlayer3D" parent="FullHouse/Interactables/CassetteTapePlayer" index="2" unique_id=1976693250]
-stream = ExtResource("7_uvaer")
-max_distance = 14.15
-bus = &"LowPass"
-
-[node name="Camera" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="0" unique_id=1209086434]
-transform = Transform3D(-1, 4.041597e-07, -2.2609242e-06, 1.9326762e-12, 0.98439527, 0.17596851, 2.2967636e-06, 0.17596841, -0.9843959, 0, 1.6, 0)
-
-[node name="Caset_001" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="2" unique_id=1804967886]
-transform = Transform3D(0.0046608, 0.8315354, -0.55545145, -0.021267682, -0.5552492, -0.8314117, -0.99976295, 0.015688203, 0.015096931, 0.34916568, 1.4507054, 0.07086971)
-
-[node name="BoneAttachment3D" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="3" unique_id=137104513]
-transform = Transform3D(-0.80853224, 0.27891472, 0.5181525, -0.058137685, -0.9140891, 0.40132323, 0.58557284, 0.29435858, 0.755286, 0.28601742, 1.0160997, -0.07742691)
-
-[node name="photoFrame" parent="FullHouse/Interactables" unique_id=1883362346 instance=ExtResource("6_8bqn5")]
-transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
 
 [node name="SideStepArea" type="Node3D" parent="FullHouse/Interactables" unique_id=574089429]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 33.370636, 1.6239574, -11.925241)
@@ -937,9 +1028,63 @@ shape = SubResource("BoxShape3D_wwoi1")
 script = ExtResource("20_sojn1")
 side_step_area = NodePath("../..")
 
-[node name="Tape" parent="FullHouse/Interactables" unique_id=1746687257 instance=ExtResource("19_sojn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.578953, 0.23782325, -17.280006)
-tape_item = SubResource("Resource_n3di8")
+[node name="CassetteTapePlayer" parent="FullHouse/Interactables" unique_id=1783986654 instance=ExtResource("5_g721p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.212826, 1.0757467, -19.11533)
+
+[node name="AudioStreamPlayer3D" parent="FullHouse/Interactables/CassetteTapePlayer" index="2" unique_id=1976693250]
+stream = ExtResource("7_uvaer")
+max_distance = 14.15
+bus = &"LowPass"
+
+[node name="Camera" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="0" unique_id=1209086434]
+transform = Transform3D(-0.97437006, 0.0842681, -0.20857106, -2.607703e-08, 0.9271832, 0.37460667, 0.2249511, 0.36500525, -0.90342027, 0, 1.6, 0)
+
+[node name="Caset_001" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="2" unique_id=1804967886]
+transform = Transform3D(1, 0, 0, 0, 0.99999946, 0, 0, 0, 0.9999998, 0, 0, 0)
+
+[node name="BoneAttachment3D" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="3" unique_id=137104513]
+transform = Transform3D(0.40782946, -0.015651315, 0.91292393, 0.30832824, 0.94348073, -0.12156403, -0.8594237, 0.33105746, 0.38960493, 0.12169647, 1.326481, 0.3527279)
+
+[node name="photoFrame" parent="FullHouse/Interactables" unique_id=1883362346 instance=ExtResource("6_8bqn5")]
+transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
+
+[node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
+correct_code = "0231505"
+
+[node name="Key" parent="FullHouse/Interactables/Safe" unique_id=1236922951 instance=ExtResource("43_nqn01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0015602112, 0.009052768, 0.24035263)
+item = SubResource("Resource_ffnvv")
+
+[node name="InteractionTrigger" parent="FullHouse/Interactables" unique_id=616896685 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.313084, 1.5948462, -19.838953)
+event_behavior = NodePath("EVClimbThroughTheWindow")
+
+[node name="EVClimbThroughTheWindow" type="Node" parent="FullHouse/Interactables/InteractionTrigger" unique_id=39483532 node_paths=PackedStringArray("last_player_position")]
+script = ExtResource("28_x28hp")
+last_player_position = NodePath("LastPlayerPosition")
+
+[node name="LastPlayerPosition" type="Marker3D" parent="FullHouse/Interactables/InteractionTrigger/EVClimbThroughTheWindow" unique_id=2067998068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.313084, 1.8620076, -21.069826)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FullHouse/Interactables/InteractionTrigger" unique_id=1345605287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003540039, 0.09613037, -0.04269409)
+shape = SubResource("BoxShape3D_x28hp")
+
+[node name="InteractionTrigger2" parent="FullHouse/Interactables" unique_id=1922052331 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 32.313084, 1.5948462, -20.26754)
+event_behavior = NodePath("EVClimbThroughTheWindow")
+
+[node name="EVClimbThroughTheWindow" type="Node" parent="FullHouse/Interactables/InteractionTrigger2" unique_id=936414894 node_paths=PackedStringArray("last_player_position")]
+script = ExtResource("28_x28hp")
+last_player_position = NodePath("LastPlayerPosition")
+
+[node name="LastPlayerPosition" type="Marker3D" parent="FullHouse/Interactables/InteractionTrigger2/EVClimbThroughTheWindow" unique_id=1397267965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.313084, 1.8620076, -19.21851)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FullHouse/Interactables/InteractionTrigger2" unique_id=2101678848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003540039, 0.09613037, -0.04269409)
+shape = SubResource("BoxShape3D_x28hp")
 
 [node name="Lights" type="Node3D" parent="FullHouse" unique_id=775111381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3526125, 2.7932158, -8.775536)
@@ -973,14 +1118,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.970766, 0.16120791, -8.219
 [node name="CeilingLamp" parent="FullHouse/Lights/StudyLights" unique_id=891337064 node_paths=PackedStringArray("lights") instance=ExtResource("12_fw6df")]
 lights = []
 
+[node name="Lights" parent="FullHouse/Lights/StudyLights/CeilingLamp" index="1" unique_id=691383771]
+light_volumetric_fog_energy = 0.0
+script = ExtResource("33_rlakd")
+blink_delay_max = 20.0
+random_blink = true
+blink_sound = ExtResource("34_8guji")
+explode_sound = ExtResource("35_kmx7f")
+
+[node name="Lights2" type="SpotLight3D" parent="FullHouse/Lights/StudyLights/CeilingLamp/Lights" index="0" unique_id=1749288777]
+transform = Transform3D(0.98526794, -2.0393665e-09, -0.17101778, 2.0393667e-09, 1, -1.7567814e-10, 0.17101778, -1.7567814e-10, 0.98526794, 1.3362551, -0.75969887, -0.09053898)
+layers = 3
+light_volumetric_fog_energy = 2.88
+shadow_enabled = true
+shadow_caster_mask = 4294443007
+spot_range = 10.39
+spot_angle = 75.0
+spot_angle_attenuation = 4.5947866
+
 [node name="SpotLight3D2" type="SpotLight3D" parent="FullHouse/Lights/StudyLights" unique_id=1917766755]
-transform = Transform3D(-0.6140674, 9.150317e-09, -0.78925365, -0.087572664, 0.9938253, 0.06813465, 0.7843802, 0.110956304, -0.6102757, 1.1234493, -1.315955, -1.8474884)
+transform = Transform3D(-0.5572418, -0.04056432, 0.829359, -0.08757265, 0.9961068, -0.010119554, -0.8257194, -0.0782682, -0.5586247, -1.4441179, -1.3049811, -1.8841509)
 light_energy = 0.915
-light_volumetric_fog_energy = 19.38
+light_volumetric_fog_energy = 0.54
 shadow_enabled = true
 shadow_caster_mask = 4294443007
 spot_range = 4.2670484
 spot_angle = 34.52
+
+[node name="FogVolume" type="FogVolume" parent="FullHouse/Lights/StudyLights/SpotLight3D2" unique_id=1025915697]
+transform = Transform3D(1.0000001, 0, 1.7881393e-07, 6.631017e-07, 1, -2.5518239e-07, -4.172325e-07, 2.6077032e-08, 1.0000002, -0.5894413, 0.07736206, -1.1612759)
+size = Vector3(2.3916016, 2, 2.946167)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FullHouse/Lights/StudyLights" unique_id=935108589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5609684, -1.668455, -2.4705067)
+light_energy = 0.085
+light_specular = 0.0
+shadow_enabled = true
+shadow_blur = 10.0
+shadow_caster_mask = 4294967279
+omni_attenuation = 1.04
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="FullHouse/Lights/StudyLights" unique_id=539279272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010932922, -1.3199921, -2.2242775)
+light_color = Color(0.9999998, 0.853063, 0.6434916, 1)
+light_energy = 0.1
+light_volumetric_fog_energy = 0.0
+light_cull_mask = 4294443007
+omni_range = 2.48
 
 [node name="KitchenLights" type="Node3D" parent="FullHouse/Lights" unique_id=2120966940]
 transform = Transform3D(1, 0, 0, 0, 1, -5.563627e-08, 0, 5.563627e-08, 1, 7.8498964, 0.15620613, 4.0396857)
@@ -1049,12 +1233,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6343813, -1.9073486e-06, -
 [node name="CeilingLamp3" parent="FullHouse/Lights/CorridorLights" unique_id=314581895 instance=ExtResource("12_fw6df")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6358156)
 
+[node name="CeilingLamp6" parent="FullHouse/Lights/CorridorLights" unique_id=2021176072 instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.484429, -1.9073486e-06, -4.076748)
+
+[node name="RoomLights" type="Node3D" parent="FullHouse/Lights" unique_id=2048796676]
+
+[node name="CeilingLamp1" parent="FullHouse/Lights/RoomLights" unique_id=1432547471 instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, 1, -5.563627e-08, 0, 5.563627e-08, 1, 18.04163, 0.15620542, -10.63854)
+
+[node name="CeilingLamp2" parent="FullHouse/Lights/RoomLights" unique_id=1449324197 instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, 1, -5.563627e-08, 0, 5.563627e-08, 1, 21.019917, 0.15620542, -7.8843536)
+
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -0.5297518, 1.6346673, -0.3392105)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 4.735069, 1.6753258, 9.4458065)
 player_spotlight = NodePath("../SpotLight3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46794003, -0.0067448616)
+light_color = Color(0.9999998, 0.853063, 0.6434916, 1)
+light_energy = 0.1
+light_volumetric_fog_energy = 0.0
+light_cull_mask = 4294443007
+omni_range = 7.175
 
 [node name="SpotLight3D" type="SpotLight3D" parent="PlayerAndLight" unique_id=1002102326]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -1198,267 +1401,267 @@ bones/1/name = "shoulder.L"
 bones/1/parent = 0
 bones/1/rest = Transform3D(0.33387488, 0.9234847, -0.18895386, 0.9409943, -0.3147764, 0.12427996, 0.055292428, -0.21929848, -0.97408974, 0.025416754, 0.12955055, -1.5006617)
 bones/1/enabled = true
-bones/1/position = Vector3(0.025416756, 0.12955055, -1.5006617)
-bones/1/rotation = Quaternion(0.7891625, 0.61051804, 0.0035566837, -0.06691583)
+bones/1/position = Vector3(0.025416754, 0.12955055, -1.5006617)
+bones/1/rotation = Quaternion(0.80974394, 0.5756385, -0.041266583, -0.10607626)
 bones/1/scale = Vector3(1, 1, 0.99999994)
 bones/2/name = "upper_arm.L"
 bones/2/parent = 1
 bones/2/rest = Transform3D(-0.079246044, 0.26952818, 0.9597263, -0.35168016, 0.8932926, -0.2799097, -0.93276, -0.35969844, 0.023997795, -0.026737504, 0.15658621, -0.013533466)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.026737504, 0.15658621, -0.013533466)
-bones/2/rotation = Quaternion(-0.29652178, 0.8204542, -0.39190346, 0.2921327)
+bones/2/rotation = Quaternion(-0.029426152, 0.6979507, -0.22910221, 0.6778725)
 bones/2/scale = Vector3(1, 1, 0.99999994)
 bones/3/name = "forearm.L"
 bones/3/parent = 2
 bones/3/rest = Transform3D(0.9795046, -0.16298114, -0.11835467, 0.117876135, 0.94029516, -0.31929603, 0.16332757, 0.29880074, 0.9402351, -7.590279e-08, 0.29170182, 1.3038516e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(-7.590279e-08, 0.29170182, 1.3038516e-08)
-bones/3/rotation = Quaternion(0.33331627, -0.09941992, -0.084606685, 0.9337332)
+bones/3/rotation = Quaternion(0.15730079, -0.071685925, 0.07147598, 0.9823486)
 bones/3/scale = Vector3(0.99999994, 0.9999998, 0.9999999)
 bones/4/name = "hand.L"
 bones/4/parent = 3
 bones/4/rest = Transform3D(0.9920731, 0.065120116, -0.10747336, -0.07600681, 0.99202746, -0.10052122, 0.10007057, 0.107893094, 0.9891133, 5.1688403e-08, 0.24605446, 1.1175871e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(5.1688403e-08, 0.24605446, 1.1175871e-08)
-bones/4/rotation = Quaternion(-0.05886533, -0.35182202, -0.1430697, 0.92319405)
+bones/4/rotation = Quaternion(0.052278917, -0.05206058, -0.035400458, 0.9966461)
 bones/4/scale = Vector3(1.0000001, 1, 1)
 bones/5/name = "finger.A.L"
 bones/5/parent = 4
 bones/5/rest = Transform3D(0.18792188, -0.0687081, -0.97977775, -0.005438626, 0.99746203, -0.07099137, 0.982169, 0.018669473, 0.18707126, 0.0071960934, 0.109913364, 0.025275111)
 bones/5/enabled = true
 bones/5/position = Vector3(0.0071960934, 0.109913364, 0.025275111)
-bones/5/rotation = Quaternion(0.029105416, -0.6368809, 0.020538334, 0.77013886)
+bones/5/rotation = Quaternion(0.029105417, -0.6368809, 0.020538336, 0.77013886)
 bones/5/scale = Vector3(1, 0.99999994, 0.99999994)
 bones/6/name = "finger.A.L.001"
 bones/6/parent = 5
 bones/6/rest = Transform3D(0.9989961, 0.017542455, 0.04121851, -0.016429834, 0.9994954, -0.027178714, -0.041674502, 0.026474215, 0.99878037, -7.450581e-09, 0.025657263, 7.566996e-08)
 bones/6/enabled = true
 bones/6/position = Vector3(-7.450581e-09, 0.025657263, 7.566996e-08)
-bones/6/rotation = Quaternion(0.013417811, 0.020730333, -0.008495974, 0.999659)
+bones/6/rotation = Quaternion(0.013417808, 0.020730324, -0.00849597, 0.999659)
 bones/6/scale = Vector3(0.99999994, 0.9999998, 0.99999994)
 bones/7/name = "finger.A.L.002"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.99960357, 0.028000819, 0.0029439582, -0.027991831, 0.9996035, -0.0030506747, -0.0030282126, 0.0029670591, 0.9999908, 0, 0.024367444, -1.451699e-07)
 bones/7/enabled = true
 bones/7/position = Vector3(0, 0.024367444, -1.451699e-07)
-bones/7/rotation = Quaternion(0.0015045843, 0.0014931915, -0.013999555, 0.9998998)
+bones/7/rotation = Quaternion(0.0015045844, 0.0014931925, -0.0139995655, 0.99989974)
 bones/7/scale = Vector3(1, 1, 0.9999998)
 bones/8/name = "finger.B.L"
 bones/8/parent = 4
 bones/8/rest = Transform3D(0.36866125, -0.07322116, -0.9266755, 0.06351699, 0.9965471, -0.05347297, 0.9273911, -0.039146226, 0.37203914, 9.9499244e-05, 0.110586844, 0.0043039564)
 bones/8/enabled = true
 bones/8/position = Vector3(9.9499244e-05, 0.110586844, 0.0043039564)
-bones/8/rotation = Quaternion(0.004329712, -0.5603229, 0.04132404, 0.82723147)
+bones/8/rotation = Quaternion(0.004329723, -0.5603229, 0.041324034, 0.82723147)
 bones/8/scale = Vector3(0.9999999, 0.99999994, 0.99999994)
 bones/9/name = "finger.B.L.001"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0.9945543, 0.004880775, -0.104105264, -0.00842168, 0.9994, -0.03360035, 0.103878796, 0.034294117, 0.99399847, 5.029142e-08, 0.027356338, 7.8231096e-08)
 bones/9/enabled = true
 bones/9/position = Vector3(5.029142e-08, 0.027356338, 7.8231096e-08)
-bones/9/rotation = Quaternion(0.016999234, -0.052074485, -0.0033306116, 0.99849296)
+bones/9/rotation = Quaternion(0.016999234, -0.052074496, -0.003330633, 0.99849296)
 bones/9/scale = Vector3(1, 1.0000001, 0.9999999)
 bones/10/name = "finger.B.L.002"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0.9998966, 0.013880516, 0.0037220577, -0.013865293, 0.99989545, -0.0040848018, -0.0037783678, 0.0040327725, 0.9999847, -3.7252903e-09, 0.027303696, -3.632158e-08)
 bones/10/enabled = true
 bones/10/position = Vector3(-3.7252903e-09, 0.027303696, -3.632158e-08)
-bones/10/rotation = Quaternion(0.0020294508, 0.0018751592, -0.0069366395, 0.9999721)
+bones/10/rotation = Quaternion(0.0020294504, 0.0018751589, -0.0069366475, 0.9999721)
 bones/10/scale = Vector3(0.9999998, 0.9999999, 0.99999994)
 bones/11/name = "finger.C.L"
 bones/11/parent = 4
 bones/11/rest = Transform3D(0.27335477, -0.0903101, -0.95766455, 0.16355424, 0.9854498, -0.046245586, 0.9479068, -0.14398861, 0.284148, -0.006128864, 0.107964516, -0.014885208)
 bones/11/enabled = true
 bones/11/position = Vector3(-0.006128864, 0.107964516, -0.014885208)
-bones/11/rotation = Quaternion(-0.030646918, -0.59748363, 0.07959808, 0.797332)
+bones/11/rotation = Quaternion(-0.030646916, -0.59748375, 0.079598084, 0.79733187)
 bones/11/scale = Vector3(1, 0.99999994, 1)
 bones/12/name = "finger.C.L.001"
 bones/12/parent = 11
 bones/12/rest = Transform3D(0.99761873, 0.0013329806, -0.06895709, -0.0038295845, 0.99934137, -0.036085665, 0.06886357, 0.036263816, 0.9969668, 1.6763806e-08, 0.025518687, -8.690404e-08)
 bones/12/enabled = true
 bones/12/position = Vector3(1.6763806e-08, 0.025518687, -8.690404e-08)
-bones/12/rotation = Quaternion(0.018101122, -0.03448135, -0.001291623, 0.9992406)
+bones/12/rotation = Quaternion(0.018101119, -0.03448135, -0.0012916221, 0.9992406)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "finger.C.L.002"
 bones/13/parent = 12
 bones/13/rest = Transform3D(0.9994201, 0.03379975, 0.0041125678, -0.033782173, 0.9994201, -0.0042700553, -0.0042545097, 0.0041286484, 0.99998236, -9.313226e-10, 0.024218837, -8.058851e-08)
 bones/13/enabled = true
 bones/13/position = Vector3(-9.313226e-10, 0.024218837, -8.058851e-08)
-bones/13/rotation = Quaternion(0.002099986, 0.0020920779, -0.016897961, 0.99985284)
+bones/13/rotation = Quaternion(0.0020999853, 0.0020920776, -0.016897967, 0.99985284)
 bones/13/scale = Vector3(0.99999994, 1, 0.99999994)
 bones/14/name = "finger.D.L"
 bones/14/parent = 4
 bones/14/rest = Transform3D(0.21849096, -0.15215734, -0.9639034, 0.24336074, 0.96505576, -0.09717587, 0.9450065, -0.21334425, 0.24788506, -0.012212684, 0.1016862, -0.03481245)
 bones/14/enabled = true
 bones/14/position = Vector3(-0.012212684, 0.1016862, -0.03481245)
-bones/14/rotation = Quaternion(-0.03725005, -0.61210287, 0.12682514, 0.7796525)
+bones/14/rotation = Quaternion(-0.037250042, -0.6121028, 0.12682511, 0.7796525)
 bones/14/scale = Vector3(1, 1.0000001, 1)
 bones/15/name = "finger.D.L.001"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0.9909873, 0.016307577, -0.13295929, -0.0014806269, 0.99383503, 0.11085919, 0.13394745, -0.109663196, 0.9849021, 5.5879354e-09, 0.020013265, -1.0384247e-07)
 bones/15/enabled = true
 bones/15/position = Vector3(5.5879354e-09, 0.020013265, -1.0384247e-07)
-bones/15/rotation = Quaternion(-0.05534043, -0.06698065, -0.004463988, 0.9962084)
+bones/15/rotation = Quaternion(-0.055340435, -0.06698067, -0.0044639776, 0.99620837)
 bones/15/scale = Vector3(0.99999994, 1, 1)
 bones/16/name = "finger.D.L.002"
 bones/16/parent = 15
 bones/16/rest = Transform3D(0.9998096, -0.013089925, -0.014463712, 0.0132457465, 0.9998546, 0.010730481, 0.014321149, -0.010920022, 0.99983776, 2.9802322e-08, 0.018681766, 2.1012966e-07)
 bones/16/enabled = true
 bones/16/position = Vector3(2.9802322e-08, 0.018681766, 2.1012966e-07)
-bones/16/rotation = Quaternion(-0.005412966, -0.007196673, 0.006584324, 0.9999378)
+bones/16/rotation = Quaternion(-0.0054129628, -0.007196664, 0.006584328, 0.9999378)
 bones/16/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 bones/17/name = "thumb.L"
 bones/17/parent = 4
 bones/17/rest = Transform3D(0.5534471, 0.3972147, -0.7320634, -0.6703515, 0.73407024, -0.10848886, 0.49429247, 0.55078274, 0.6725425, 0.012325697, 0.06743772, 0.0324423)
 bones/17/enabled = true
 bones/17/position = Vector3(0.012325697, 0.06743772, 0.0324423)
-bones/17/rotation = Quaternion(0.19159497, -0.35639882, -0.310252, 0.86024123)
+bones/17/rotation = Quaternion(0.19159497, -0.35639885, -0.31025198, 0.86024123)
 bones/17/scale = Vector3(0.99999994, 1.0000001, 1)
 bones/18/name = "thumb.L.001"
 bones/18/parent = 17
 bones/18/rest = Transform3D(0.9914206, -0.118396945, -0.055383187, 0.11895641, 0.9928756, 0.006905176, 0.054171048, -0.013434119, 0.9984414, -8.195639e-08, 0.02486223, 1.73226e-07)
 bones/18/enabled = true
 bones/18/position = Vector3(-8.195639e-08, 0.02486223, 1.73226e-07)
-bones/18/rotation = Quaternion(-0.00509583, -0.027447846, 0.059466824, 0.9978399)
+bones/18/rotation = Quaternion(-0.0050958307, -0.02744785, 0.059466794, 0.9978398)
 bones/18/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/19/name = "thumb.L.002"
 bones/19/parent = 18
 bones/19/rest = Transform3D(0.9653889, 0.003931358, 0.26078507, 0.010253818, 0.9985412, -0.05301127, -0.26061305, 0.05385052, 0.9639404, 6.7055225e-08, 0.022581354, 8.940697e-08)
 bones/19/enabled = true
 bones/19/position = Vector3(6.7055225e-08, 0.022581354, 8.940697e-08)
-bones/19/rotation = Quaternion(0.026959654, 0.13154095, 0.0015950437, 0.9909429)
+bones/19/rotation = Quaternion(0.02695963, 0.13154092, 0.0015950616, 0.9909428)
 bones/19/scale = Vector3(1, 0.9999999, 1)
 bones/20/name = "shoulder.R"
 bones/20/parent = 0
 bones/20/rest = Transform3D(0.3338748, -0.9234851, 0.18895186, -0.9409942, -0.31477642, 0.124280155, -0.055293266, -0.21929663, -0.97409016, -0.02542007, 0.12955055, -1.5006617)
 bones/20/enabled = true
 bones/20/position = Vector3(-0.02542007, 0.12955055, -1.5006617)
-bones/20/rotation = Quaternion(0.6975753, -0.7074135, 0.05904612, -0.097306006)
+bones/20/rotation = Quaternion(0.809744, -0.57563853, 0.041265693, -0.10607574)
 bones/20/scale = Vector3(0.9999999, 0.99999994, 1)
 bones/21/name = "upper_arm.R"
 bones/21/parent = 20
 bones/21/rest = Transform3D(-0.07924569, -0.26952815, -0.9597262, 0.35168046, 0.8932925, -0.27990955, 0.9327599, -0.35969865, 0.023998199, 0.026737515, 0.15658623, -0.013533249)
 bones/21/enabled = true
 bones/21/position = Vector3(0.026737515, 0.15658623, -0.013533249)
-bones/21/rotation = Quaternion(-0.16373305, -0.7432273, 0.46690124, 0.45034194)
+bones/21/rotation = Quaternion(-0.02942627, -0.6979506, 0.22910228, 0.6778726)
 bones/21/scale = Vector3(1, 1, 0.9999998)
 bones/22/name = "forearm.R"
 bones/22/parent = 21
 bones/22/rest = Transform3D(0.9795046, 0.16298114, 0.118354596, -0.11787614, 0.9402953, -0.31929603, -0.16332752, 0.29880077, 0.9402351, 9.126961e-08, 0.2917018, -7.450581e-09)
 bones/22/enabled = true
 bones/22/position = Vector3(9.126961e-08, 0.2917018, -7.450581e-09)
-bones/22/rotation = Quaternion(0.26754433, 0.031377655, 0.17470059, 0.94705606)
+bones/22/rotation = Quaternion(0.15730079, 0.071685895, -0.071475975, 0.9823486)
 bones/22/scale = Vector3(0.99999994, 1, 0.9999999)
 bones/23/name = "hand.R"
 bones/23/parent = 22
 bones/23/rest = Transform3D(0.992073, -0.065120116, 0.10747331, 0.0760068, 0.99202746, -0.100521274, -0.100070514, 0.107893154, 0.98911315, 9.9651515e-08, 0.24605443, 9.313226e-09)
 bones/23/enabled = true
 bones/23/position = Vector3(9.9651515e-08, 0.24605443, 9.313226e-09)
-bones/23/rotation = Quaternion(0.057559807, 0.4138123, 0.19796638, 0.8867106)
+bones/23/rotation = Quaternion(0.052278947, 0.052060563, 0.035400458, 0.9966461)
 bones/23/scale = Vector3(1, 1, 0.9999999)
 bones/24/name = "finger.A.R"
 bones/24/parent = 23
 bones/24/rest = Transform3D(0.18792188, 0.06870804, 0.97977775, 0.005438626, 0.9974621, -0.0709913, -0.982169, 0.018669464, 0.18707126, -0.007195952, 0.1099134, 0.025275037)
 bones/24/enabled = true
 bones/24/position = Vector3(-0.007195952, 0.1099134, 0.025275037)
-bones/24/rotation = Quaternion(-0.19517522, 0.61553675, 0.16478342, 0.74556535)
+bones/24/rotation = Quaternion(0.029105391, 0.6368809, -0.020538313, 0.77013886)
 bones/24/scale = Vector3(1, 1, 0.99999994)
 bones/25/name = "finger.A.R.001"
 bones/25/parent = 24
 bones/25/rest = Transform3D(0.99899614, -0.017542474, -0.041218504, 0.01642985, 0.9994955, -0.027178802, 0.041674495, 0.026474303, 0.9987804, 4.377216e-08, 0.025657319, 1.3688259e-07)
 bones/25/enabled = true
 bones/25/position = Vector3(4.377216e-08, 0.025657319, 1.3688259e-07)
-bones/25/rotation = Quaternion(-0.45937923, -0.02228754, -0.0022788367, 0.88795763)
+bones/25/rotation = Quaternion(0.013417851, -0.020730319, 0.008495978, 0.999659)
 bones/25/scale = Vector3(1, 0.99999994, 1)
 bones/26/name = "finger.A.R.002"
 bones/26/parent = 25
 bones/26/rest = Transform3D(0.99960357, -0.028000876, -0.002943951, 0.02799189, 0.9996035, -0.0030506733, 0.0030282054, 0.0029670573, 0.999991, -3.7252903e-08, 0.024367329, 9.685755e-08)
 bones/26/enabled = true
 bones/26/position = Vector3(-3.7252903e-08, 0.024367329, 9.685755e-08)
-bones/26/rotation = Quaternion(-0.46999937, -0.007915926, 0.01164284, 0.8825545)
+bones/26/rotation = Quaternion(0.0015045835, -0.0014931888, 0.013999595, 0.99989974)
 bones/26/scale = Vector3(1, 1, 1)
 bones/27/name = "finger.B.R"
 bones/27/parent = 23
 bones/27/rest = Transform3D(0.36866125, 0.07322118, 0.92667544, -0.063517, 0.99654716, -0.05347297, -0.9273911, -0.039146237, 0.37203914, -9.93642e-05, 0.110586815, 0.004303938)
 bones/27/enabled = true
 bones/27/position = Vector3(-9.93642e-05, 0.110586815, 0.004303938)
-bones/27/rotation = Quaternion(-0.23542331, 0.54827905, 0.12271713, 0.7930363)
+bones/27/rotation = Quaternion(0.0043297242, 0.5603228, -0.041324038, 0.82723147)
 bones/27/scale = Vector3(0.9999999, 1, 0.99999994)
 bones/28/name = "finger.B.R.001"
 bones/28/parent = 27
 bones/28/rest = Transform3D(0.9945542, -0.0048807133, 0.104105316, 0.008421625, 0.99939984, -0.033600394, -0.10387884, 0.034294154, 0.9939984, -2.6077032e-08, 0.027356364, -1.322478e-07)
 bones/28/enabled = true
 bones/28/position = Vector3(-2.6077032e-08, 0.027356364, -1.322478e-07)
-bones/28/rotation = Quaternion(-0.455671, 0.044356316, 0.027483914, 0.88861746)
+bones/28/rotation = Quaternion(0.016999258, 0.05207452, 0.0033306042, 0.99849296)
 bones/28/scale = Vector3(0.99999994, 1, 0.9999998)
 bones/29/name = "finger.B.R.002"
 bones/29/parent = 28
 bones/29/rest = Transform3D(0.9998966, -0.013880505, -0.0037220512, 0.013865281, 0.9998955, -0.004084799, 0.003778361, 0.0040327697, 0.99998474, 7.450581e-09, 0.02730368, -3.1664968e-08)
 bones/29/enabled = true
 bones/29/position = Vector3(7.450581e-09, 0.02730368, -3.1664968e-08)
-bones/29/rotation = Quaternion(-0.4695706, -0.0049235583, 0.0052337595, 0.8828657)
+bones/29/rotation = Quaternion(0.002029449, -0.0018751555, 0.0069366414, 0.9999721)
 bones/29/scale = Vector3(0.9999998, 0.99999994, 1)
 bones/30/name = "finger.C.R"
 bones/30/parent = 23
 bones/30/rest = Transform3D(0.27335492, 0.09031016, 0.95766443, -0.16355415, 0.98544985, -0.04624562, -0.9479066, -0.14398855, 0.2841482, 0.0061289994, 0.10796449, -0.014885225)
 bones/30/enabled = true
 bones/30/position = Vector3(0.0061289994, 0.10796449, -0.014885225)
-bones/30/rotation = Quaternion(-0.26024216, 0.59493166, 0.09684513, 0.7542886)
+bones/30/rotation = Quaternion(-0.030646868, 0.59748363, -0.07959806, 0.797332)
 bones/30/scale = Vector3(0.9999999, 1, 1)
 bones/31/name = "finger.C.R.001"
 bones/31/parent = 30
 bones/31/rest = Transform3D(0.99761873, -0.0013329322, 0.06895709, 0.0038295328, 0.9993413, -0.03608562, -0.06886357, 0.03626376, 0.9969668, 2.7939677e-09, 0.025518706, -8.090865e-09)
 bones/31/enabled = true
 bones/31/position = Vector3(2.7939677e-09, 0.025518706, -8.090865e-09)
-bones/31/rotation = Quaternion(-0.45505166, 0.029801428, 0.017392723, 0.8897962)
+bones/31/rotation = Quaternion(0.018101092, 0.03448135, 0.001291597, 0.9992406)
 bones/31/scale = Vector3(1, 0.99999994, 1)
 bones/32/name = "finger.C.R.002"
 bones/32/parent = 31
 bones/32/rest = Transform3D(0.99942017, -0.03379974, -0.0041125542, 0.033782165, 0.9994202, -0.0042700646, 0.0042544967, 0.004128658, 0.9999824, -1.8626451e-08, 0.02421886, 4.7468347e-08)
 bones/32/enabled = true
 bones/32/position = Vector3(-1.8626451e-08, 0.02421886, 4.7468347e-08)
-bones/32/rotation = Quaternion(-0.46945226, -0.009810327, 0.013916755, 0.8827938)
+bones/32/rotation = Quaternion(0.00209999, -0.0020920706, 0.016897963, 0.99985284)
 bones/32/scale = Vector3(1, 1.0000001, 1)
 bones/33/name = "finger.D.R"
 bones/33/parent = 23
 bones/33/rest = Transform3D(0.21849091, 0.15215741, 0.96390337, -0.24336043, 0.9650555, -0.09717605, -0.9450064, -0.21334386, 0.24788505, 0.0122129405, 0.10168623, -0.03481248)
 bones/33/enabled = true
 bones/33/position = Vector3(0.0122129405, 0.10168623, -0.03481248)
-bones/33/rotation = Quaternion(-0.26144212, 0.62260133, 0.05587566, 0.7354546)
+bones/33/rotation = Quaternion(-0.03724988, 0.6121028, -0.12682508, 0.7796525)
 bones/33/scale = Vector3(0.99999976, 0.9999998, 0.99999994)
 bones/34/name = "finger.D.R.001"
 bones/34/parent = 33
 bones/34/rest = Transform3D(0.9909873, -0.016307317, 0.13295932, 0.0014803455, 0.9938349, 0.110859334, -0.13394742, -0.10966336, 0.9849021, -1.4901161e-08, 0.02001328, -3.5506673e-09)
 bones/34/enabled = true
 bones/34/position = Vector3(-1.4901161e-08, 0.02001328, -3.5506673e-09)
-bones/34/rotation = Quaternion(-0.51839304, 0.056968372, 0.0355097, 0.85250366)
+bones/34/rotation = Quaternion(-0.05534051, 0.06698065, 0.0044638417, 0.99620837)
 bones/34/scale = Vector3(0.99999994, 0.99999994, 1)
 bones/35/name = "finger.D.R.002"
 bones/35/parent = 34
 bones/35/rest = Transform3D(0.9998096, 0.013089933, 0.014463735, -0.013245757, 0.9998545, 0.010730467, -0.014321172, -0.010920008, 0.99983776, -1.4901161e-08, 0.018681755, 1.2200326e-07)
 bones/35/enabled = true
 bones/35/position = Vector3(-1.4901161e-08, 0.018681755, 1.2200326e-07)
-bones/35/rotation = Quaternion(-0.47611815, 0.009450639, -0.0024145835, 0.87932724)
+bones/35/rotation = Quaternion(-0.0054129562, 0.007196675, -0.0065843333, 0.9999378)
 bones/35/scale = Vector3(0.99999994, 0.9999998, 0.99999994)
 bones/36/name = "thumb.R"
 bones/36/parent = 23
 bones/36/rest = Transform3D(0.55344695, -0.39721477, 0.7320634, 0.6703516, 0.7340701, -0.1084887, -0.49429256, 0.55078274, 0.67254233, -0.012325563, 0.0674377, 0.03244228)
 bones/36/enabled = true
 bones/36/position = Vector3(-0.012325563, 0.0674377, 0.03244228)
-bones/36/rotation = Quaternion(0.017426336, 0.26849377, 0.388004, 0.8815103)
+bones/36/rotation = Quaternion(0.19159496, 0.3563989, 0.31025207, 0.8602412)
 bones/36/scale = Vector3(1, 1, 0.9999999)
 bones/37/name = "thumb.R.001"
 bones/37/parent = 36
 bones/37/rest = Transform3D(0.9914206, 0.118396886, 0.055383064, -0.11895637, 0.99287534, 0.0069050775, -0.054170933, -0.013434, 0.99844146, -3.3527613e-08, 0.024862193, 1.2293458e-07)
 bones/37/enabled = true
 bones/37/position = Vector3(-3.3527613e-08, 0.024862193, 1.2293458e-07)
-bones/37/rotation = Quaternion(-0.32984698, 0.07458457, -0.102003455, 0.93553907)
+bones/37/rotation = Quaternion(-0.0050957776, 0.02744779, -0.059466776, 0.99783987)
 bones/37/scale = Vector3(1, 0.9999999, 1.0000001)
 bones/38/name = "thumb.R.002"
 bones/38/parent = 37
 bones/38/rest = Transform3D(0.9653889, -0.0039314427, -0.26078495, -0.010253722, 0.99854124, -0.053011257, 0.26061293, 0.053850494, 0.9639404, 1.7881393e-07, 0.022581438, 1.5646219e-07)
 bones/38/enabled = true
 bones/38/position = Vector3(1.7881393e-07, 0.022581438, 1.5646219e-07)
-bones/38/rotation = Quaternion(-0.27743202, -0.10693183, -0.18500929, 0.93667966)
+bones/38/rotation = Quaternion(0.026959619, -0.13154086, -0.0015950161, 0.9909428)
 bones/38/scale = Vector3(1, 0.99999994, 1)
 
 [node name="Harry" type="MeshInstance3D" parent="Chapter1/ScriptedEvents/MainDoorFirstInteract/InteractionTrigger/FpAnimationManager/HarryClimbTravesaign/Brazos Harry/Skeleton3D" unique_id=1995804593]
@@ -1476,8 +1679,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.90608, 0, -7.218386)
 script = ExtResource("42_723sf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger" unique_id=1576951934]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3650513, 0.1487732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21410751, 1.3650513, 0.1487732)
 shape = SubResource("BoxShape3D_723sf")
+
+[node name="PlayerPicksStudyKey" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1634813193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12025, 0, -16.322163)
+script = ExtResource("51_l3bb1")
+
+[node name="StudyWindow" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey" unique_id=1047104729 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5212889, 1.8124992, -2.4988956)
+event_behavior = NodePath("EVLookAtWindow")
+can_leave = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/StudyWindow" unique_id=1479047654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009428024, 0, 0)
+shape = SubResource("BoxShape3D_nqn01")
+
+[node name="EVLookAtWindow" type="Node" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/StudyWindow" unique_id=1022615868]
+script = ExtResource("42_csog6")
+
+[node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/StudyWindow" unique_id=404014913]
+transform = Transform3D(-3.2456317e-08, -0.6698307, 0.7425139, -2.9279231e-08, 0.7425139, 0.6698307, -1, 0, -4.371139e-08, -0.16776752, -0.06716418, 0.0109119415)
+script = ExtResource("29_ujjmv")
+tween_resource = SubResource("Resource_csog6")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Breathing" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey" unique_id=1083358314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8469563, 1.9097226, 1.3524847)
+stream = ExtResource("53_rnk46")
+volume_db = -80.0
+autoplay = true
+bus = &"LowPass"
+
+[node name="Noise" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey" unique_id=935431639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15871525, 1.247567, -2.7920494)
+stream = ExtResource("58_bp2wh")
+autoplay = true
+max_distance = 13.15
+
+[node name="Key" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey" unique_id=1270029681 instance=ExtResource("43_nqn01")]
+transform = Transform3D(0.87054473, 0, 0.49208933, 0, 1, 0, -0.49208933, 0, 0.87054473, 2.8467646, 0.8922243, -2.920044)
+item = SubResource("Resource_kmx7f")
+interact_key = "select_item"
+
+[node name="Plane" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key" parent_id_path=PackedInt32Array(1270029681, 1743937477) index="0" unique_id=1952160806]
+mesh = SubResource("ArrayMesh_bp2wh")
 
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 
@@ -1488,29 +1734,15 @@ indicator_last_pose_references = [NodePath("Marker3D")]
 [node name="Marker3D" type="Marker3D" parent="Chapter1/Interactables/Crowbar" unique_id=109630841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.119363785)
 
-[node name="StudyWindow" parent="Chapter1/Interactables" unique_id=1047104729 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.641539, 1.8124992, -18.821058)
-event_behavior = NodePath("EVLookAtWindow")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/Interactables/StudyWindow" unique_id=1479047654]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009428024, 0, 0)
-shape = SubResource("BoxShape3D_nqn01")
-
-[node name="EVLookAtWindow" type="Node" parent="Chapter1/Interactables/StudyWindow" unique_id=1022615868]
-script = ExtResource("42_csog6")
-
-[node name="PhantomCamera3D" type="Node3D" parent="Chapter1/Interactables/StudyWindow" unique_id=404014913]
-transform = Transform3D(-3.2456317e-08, -0.6698307, 0.7425139, -2.9279231e-08, 0.7425139, 0.6698307, -1, 0, -4.371139e-08, -0.16776752, -0.06716418, 0.0109119415)
-script = ExtResource("29_ujjmv")
-tween_resource = SubResource("Resource_csog6")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Key" parent="Chapter1/Interactables/StudyWindow" unique_id=1236922951 instance=ExtResource("43_nqn01")]
-transform = Transform3D(0.9555309, 0, -0.29489097, 0, 1, 0, 0.29489097, 0, 0.9555309, -0.77435684, -0.87404644, -0.47250557)
+[node name="Tape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.218716, -3.088102, -15.733387)
 
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/AliceFlashback/Trigger" to="Chapter1/ScriptedEvents/AliceFlashback/Trigger" method="_on_body_entered"]
 
-[editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
+[editable path="FullHouse/Interactables/CassetteTapePlayer"]
+[editable path="FullHouse/Lights/StudyLights/CeilingLamp"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key"]
+[editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key"]

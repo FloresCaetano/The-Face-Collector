@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bveilxspk5qb5" path="res://interactable/items/item-colectable/crowbar/crowbar.gd" id="1_0e4cn"]
 [ext_resource type="PackedScene" uid="uid://dutc6yap62506" path="res://interactable/items/item-colectable/crowbar/assets/Crowbar.glb" id="1_y383c"]
+[ext_resource type="Resource" uid="uid://33yi2eyj5acj" path="res://interactable/items/item-resources/generic/crowbar/crowbar.tres" id="2_lavh3"]
 [ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="3_athxa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y383c"]
@@ -9,6 +10,7 @@ size = Vector3(0.279068, 0.9840393, 0.10626221)
 
 [node name="Crowbar" type="StaticBody3D" unique_id=1489809720 node_paths=PackedStringArray("audio_stream_player_3d")]
 script = ExtResource("1_0e4cn")
+item = ExtResource("2_lavh3")
 audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
 
 [node name="Crowbar" parent="." unique_id=756011042 instance=ExtResource("1_y383c")]

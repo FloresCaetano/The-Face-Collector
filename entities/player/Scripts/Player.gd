@@ -28,7 +28,7 @@ var reference_jump_height : float
 var gravity = 25 #25
 
 #STAIRS
-const MAX_STEP_HEIGHT = 0.2
+const MAX_STEP_HEIGHT = 0.28
 var _snaped_to_stairs_last_frame := false
 var _last_frame_was_on_floor = -INF
 var snap_speed : float = 0.02

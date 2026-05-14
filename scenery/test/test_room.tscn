@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://db7epe4roj6d1" path="res://interactable/items/item-resources/keys/bedroom_key.tres" id="13_bhgj0"]
 [ext_resource type="PackedScene" uid="uid://bcu34ojoq6rcm" path="res://interactable/furniture/plank/plank.tscn" id="13_etn8j"]
 [ext_resource type="PackedScene" uid="uid://bcsohbw3801lu" path="res://interactable/items/item-colectable/hammer/hammer.tscn" id="16_etn8j"]
+[ext_resource type="PackedScene" uid="uid://bor3iishjtda8" path="res://interactable/items/item-colectable/crowbar/crowbar.tscn" id="16_gi0nu"]
 [ext_resource type="PackedScene" uid="uid://u7176gi7ni4q" path="res://interactable/furniture/safe/safe.tscn" id="17_pausq"]
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="18_gep45"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="19_kvyoc"]
@@ -214,6 +215,9 @@ item = ExtResource("13_bhgj0")
 
 [node name="Hammer" parent="Stuff/Doors" unique_id=861564715 instance=ExtResource("16_etn8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3462653, 0.12730384, 0)
+
+[node name="Crowbar" parent="Stuff/Doors/Hammer" unique_id=1489809720 instance=ExtResource("16_gi0nu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59568024, 0.52797794)
 
 [node name="Safe" parent="Stuff" unique_id=655616190 instance=ExtResource("17_pausq")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 3.7292438, 0.072822094, -2.2393813)

@@ -2,6 +2,7 @@
 class_name Interactable
 extends PhysicsBody3D
 
+@export var interact_key : String = "interact"
 @export var indicator_last_pose_references : Array[Marker3D]
 @export var indicator_size : Vector3 = Vector3(0.4, 0.4, 0.4)
 
@@ -38,7 +39,7 @@ func interact() -> void:
 	
 	on_look()
 	
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed(interact_key):
 		_delete_indicator()
 		set_process_input(true)
 		is_interacting = true

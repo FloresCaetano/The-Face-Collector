@@ -214,6 +214,8 @@ shader_parameter/uv_size = 1.0
 
 [node name="HouseExterior" unique_id=330532458 instance=ExtResource("1_qog6j")]
 
+[node name="StaticBody3D" parent="Suelo" parent_id_path=PackedInt32Array(995888081) index="0" unique_id=163685564 groups=["climbeable"]]
+
 [node name="Suelo_001" parent="." index="72" unique_id=1677186636]
 surface_material_override/0 = SubResource("ShaderMaterial_hgsa8")
 

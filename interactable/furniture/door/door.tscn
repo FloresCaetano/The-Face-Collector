@@ -85,7 +85,6 @@ shadow_mesh = SubResource("ArrayMesh_hxhj3")
 script = ExtResource("1_qrb0y")
 settings = SubResource("Resource_8ah5t")
 indicator_last_pose_references = [NodePath("IndicatorPosition"), NodePath("IndicatorPosition2")]
-indicator_size = Vector3(0.4, 0.4, 0.4)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1378663513]
 transform = Transform3D(-0.01, -1.5099582e-09, -1.5099582e-09, 1.5099582e-09, 0, -0.01, 1.5099582e-09, -0.01, 2.2799737e-16, 0.50364226, 1.057554, 0.001255698)

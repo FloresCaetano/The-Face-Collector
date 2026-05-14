@@ -34,6 +34,11 @@
 [ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="33_rorwn"]
 [ext_resource type="PackedScene" uid="uid://kvx8h7xgpdil" path="res://interactable/items/item-colectable/food_can/food_can.glb" id="33_s4nm1"]
 [ext_resource type="Script" uid="uid://cfoqm7b0ufnid" path="res://main-scenes/Flashbacks/scripts/trg_sit_on_table.gd" id="34_2bu0v"]
+[ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="35_2bu0v"]
+[ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="36_14jw5"]
+[ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="37_iyqwu"]
+[ext_resource type="FontFile" uid="uid://dv31bty8qdoll" path="res://shared/fonts/SpaceMono-Regular.ttf" id="38_ajdon"]
+[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="39_1j5ld"]
 
 [sub_resource type="Resource" id="Resource_144cg"]
 script = ExtResource("8_rorwn")
@@ -62,9 +67,9 @@ tag = "first_tape"
 model = ExtResource("20_c8m2v")
 metadata/_custom_type_script = "uid://dpke4ypjay435"
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_14jw5"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4nlmj"]
 radius = 0.1
-height = 0.5677197
+height = 0.72920805
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_4nlmj"]
 stream_count = 1
@@ -78,6 +83,10 @@ script = ExtResource("14_2bu0v")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2bu0v"]
 size = Vector3(0.58143616, 0.7949219, 0.47375488)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3yitw"]
+shader = ExtResource("36_14jw5")
+shader_parameter/brightness = 2.6350001251625
 
 [node name="AliceFirstFlashback" type="Node3D" unique_id=457484893]
 
@@ -98,8 +107,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.384381, 1.4996852, -1
 
 [node name="furniture" parent="FullHouse" unique_id=2066871549 instance=ExtResource("6_ni0s7")]
 
-[node name="Chair_04_006" parent="FullHouse/furniture" index="33" unique_id=1907317732]
+[node name="Chair_04_006" parent="FullHouse/furniture" index="33" unique_id=972597671]
 transform = Transform3D(0.006343181, 0, -1.1116364, 0, 1.1116545, 0, 1.1116364, 0, 0.006343181, 21.470585, 0.64968204, -4.0875854)
+
+[node name="wooden_crate_2_002" parent="FullHouse/furniture" index="154" unique_id=1620693319]
+transform = Transform3D(-3.6542723e-08, 0, 0.836, 0, 0.836, 0, -0.836, 0, -3.6542723e-08, 11.97583, 0, -5.5549455)
 
 [node name="Interactables" type="Node3D" parent="FullHouse" unique_id=703401865]
 
@@ -145,7 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.192372, 0.045, -8.176515)
 
 [node name="Door10" parent="FullHouse/Interactables/Doors" unique_id=926539643 instance=ExtResource("7_mrdhv")]
 unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.562089, 0.045, -7.6335845)
+transform = Transform3D(0.99876916, 0, -0.049599435, 0, 1, 0, 0.049599435, 0, 0.99876916, 12.562089, 0.045, -7.6335845)
 
 [node name="Door11" parent="FullHouse/Interactables/Doors" unique_id=145602168 instance=ExtResource("7_mrdhv")]
 unique_name_in_owner = true
@@ -189,63 +201,13 @@ max_distance = 14.15
 bus = &"LowPass"
 
 [node name="Camera" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="0" unique_id=1209086434]
-transform = Transform3D(-1, 4.041597e-07, -2.2609242e-06, 1.9326762e-12, 0.98439527, 0.17596851, 2.2967636e-06, 0.17596841, -0.9843959, 0, 1.6, 0)
-
-[node name="Skeleton3D" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette/Brazos Harry" parent_id_path=PackedInt32Array(1783986654, 1101129066) index="0" unique_id=1332061672]
-bones/1/position = Vector3(0.025416754, 0.12955055, -1.5006617)
-bones/1/rotation = Quaternion(0.80974394, 0.5756385, -0.041266583, -0.10607626)
-bones/2/rotation = Quaternion(-0.029426152, 0.6979507, -0.22910221, 0.6778725)
-bones/3/rotation = Quaternion(0.15730079, -0.071685925, 0.07147598, 0.9823486)
-bones/4/rotation = Quaternion(0.052278917, -0.05206058, -0.035400458, 0.9966461)
-bones/5/position = Vector3(0.0071960934, 0.109913364, 0.025275111)
-bones/5/rotation = Quaternion(0.029105417, -0.6368809, 0.020538336, 0.77013886)
-bones/6/rotation = Quaternion(0.013417808, 0.020730324, -0.00849597, 0.999659)
-bones/7/rotation = Quaternion(0.0015045844, 0.0014931925, -0.0139995655, 0.99989974)
-bones/8/position = Vector3(9.9499244e-05, 0.110586844, 0.0043039564)
-bones/8/rotation = Quaternion(0.004329723, -0.5603229, 0.041324034, 0.82723147)
-bones/9/rotation = Quaternion(0.016999234, -0.052074496, -0.003330633, 0.99849296)
-bones/10/rotation = Quaternion(0.0020294504, 0.0018751589, -0.0069366475, 0.9999721)
-bones/11/position = Vector3(-0.006128864, 0.107964516, -0.014885208)
-bones/11/rotation = Quaternion(-0.030646916, -0.59748375, 0.079598084, 0.79733187)
-bones/12/rotation = Quaternion(0.018101119, -0.03448135, -0.0012916221, 0.9992406)
-bones/13/rotation = Quaternion(0.0020999853, 0.0020920776, -0.016897967, 0.99985284)
-bones/14/position = Vector3(-0.012212684, 0.1016862, -0.03481245)
-bones/14/rotation = Quaternion(-0.037250042, -0.6121028, 0.12682511, 0.7796525)
-bones/15/rotation = Quaternion(-0.055340435, -0.06698067, -0.0044639776, 0.99620837)
-bones/16/rotation = Quaternion(-0.0054129628, -0.007196664, 0.006584328, 0.9999378)
-bones/17/rotation = Quaternion(0.19159497, -0.35639885, -0.31025198, 0.86024123)
-bones/18/rotation = Quaternion(-0.0050958307, -0.02744785, 0.059466794, 0.9978398)
-bones/19/rotation = Quaternion(0.02695963, 0.13154092, 0.0015950616, 0.9909428)
-bones/20/rotation = Quaternion(0.809744, -0.57563853, 0.041265693, -0.10607574)
-bones/21/position = Vector3(0.026737515, 0.15658623, -0.013533249)
-bones/21/rotation = Quaternion(-0.02942627, -0.6979506, 0.22910228, 0.6778726)
-bones/22/rotation = Quaternion(0.15730079, 0.071685895, -0.071475975, 0.9823486)
-bones/23/rotation = Quaternion(0.052278947, 0.052060563, 0.035400458, 0.9966461)
-bones/24/position = Vector3(-0.007195952, 0.1099134, 0.025275037)
-bones/24/rotation = Quaternion(0.029105391, 0.6368809, -0.020538313, 0.77013886)
-bones/25/rotation = Quaternion(0.013417851, -0.020730319, 0.008495978, 0.999659)
-bones/26/rotation = Quaternion(0.0015045835, -0.0014931888, 0.013999595, 0.99989974)
-bones/27/rotation = Quaternion(0.0043297242, 0.5603228, -0.041324038, 0.82723147)
-bones/28/rotation = Quaternion(0.016999258, 0.05207452, 0.0033306042, 0.99849296)
-bones/29/rotation = Quaternion(0.002029449, -0.0018751555, 0.0069366414, 0.9999721)
-bones/30/position = Vector3(0.0061289994, 0.10796449, -0.014885225)
-bones/30/rotation = Quaternion(-0.030646868, 0.59748363, -0.07959806, 0.797332)
-bones/31/rotation = Quaternion(0.018101092, 0.03448135, 0.001291597, 0.9992406)
-bones/32/rotation = Quaternion(0.00209999, -0.0020920706, 0.016897963, 0.99985284)
-bones/33/position = Vector3(0.0122129405, 0.10168623, -0.03481248)
-bones/33/rotation = Quaternion(-0.03724988, 0.6121028, -0.12682508, 0.7796525)
-bones/34/rotation = Quaternion(-0.05534051, 0.06698065, 0.0044638417, 0.99620837)
-bones/35/rotation = Quaternion(-0.0054129562, 0.007196675, -0.0065843333, 0.9999378)
-bones/36/position = Vector3(-0.012325563, 0.0674377, 0.03244228)
-bones/36/rotation = Quaternion(0.19159496, 0.3563989, 0.31025207, 0.8602412)
-bones/37/rotation = Quaternion(-0.0050957776, 0.02744779, -0.059466776, 0.99783987)
-bones/38/rotation = Quaternion(0.026959619, -0.13154086, -0.0015950161, 0.9909428)
+transform = Transform3D(-0.97437, 0.0842681, -0.20857106, -2.6077029e-08, 0.9271832, 0.37460667, 0.22495109, 0.36500525, -0.90342027, 0, 1.6, 0)
 
 [node name="Caset_001" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="2" unique_id=1804967886]
-transform = Transform3D(0.0046608, 0.8315354, -0.55545145, -0.021267682, -0.5552492, -0.8314117, -0.99976295, 0.015688203, 0.015096931, 0.34916568, 1.4507054, 0.07086971)
+transform = Transform3D(1, 0, 0, 0, 0.99999946, 0, 0, 0, 0.9999998, 0, 0, 0)
 
 [node name="BoneAttachment3D" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="3" unique_id=137104513]
-transform = Transform3D(-0.14344445, 0.933342, -0.32908347, -0.97768235, -0.08207014, 0.19339629, 0.15349695, 0.34948066, 0.92428434, 0.6890106, 1.4673548, -0.01984024)
+transform = Transform3D(0.40782946, -0.015651315, 0.91292393, 0.30832824, 0.94348073, -0.12156403, -0.8594237, 0.33105746, 0.38960493, 0.12169647, 1.326481, 0.3527279)
 
 [node name="photoFrame" parent="FullHouse/Interactables" unique_id=1883362346 instance=ExtResource("11_6uyyt")]
 transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
@@ -424,26 +386,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 10.575183, 1.8573427, -10.193777)
 
 [node name="PlayerRealCamera" parent="Player" index="0" unique_id=1153064012]
-transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 10.575183, 1.0405796, -10.193777)
+transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 10.575183, 1.3495898, -10.193777)
 
 [node name="Pivot" parent="Player" index="1" unique_id=876858444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40838158, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25387645, 0)
 
 [node name="CollisionShape3D" parent="Player" index="2" unique_id=1497191989]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63194513, 0)
-shape = SubResource("CapsuleShape3D_14jw5")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.551201, 0)
+shape = SubResource("CapsuleShape3D_4nlmj")
 
 [node name="Background" parent="Player/AudioController" parent_id_path=PackedInt32Array(686971766, 574176879) index="2" unique_id=824644454]
 stream = SubResource("AudioStreamSynchronized_4nlmj")
-
-[node name="OmniLight3D" parent="Player" index="7" unique_id=1849199684]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.4659496, -0.0067448616)
-light_color = Color(0.99999994, 0.89086133, 0.7385886, 1)
-light_energy = 0.055
-light_volumetric_fog_energy = 0.0
-shadow_enabled = true
-omni_range = 3.8288195
-omni_attenuation = 1.016
 
 [node name="FlashbackManager" type="Node3D" parent="." unique_id=1429432971]
 transform = Transform3D(0.99941665, 0, 0, 0, 0.99941665, 0, 0, 0, 0.99941665, 9.222276, 0, -5.584531)
@@ -459,7 +412,7 @@ default_wait_time = 0.03
 script = ExtResource("31_ni0s7")
 
 [node name="InteractionTrigger" parent="FlashbackManager" unique_id=827606107 node_paths=PackedStringArray("event_behavior") instance=ExtResource("16_iyqwu")]
-transform = Transform3D(1.0000007, 0, 0, 0, 1.0000007, 0, 0, 0, 1.0000007, 2.306343, 1.0741243, 0)
+transform = Transform3D(1.000001, 0, 0, 0, 1.000001, 0, 0, 0, 1.000001, 2.634821, 0.9204478, 0)
 event_behavior = NodePath("EventBehavior")
 
 [node name="EventBehavior" type="Node" parent="FlashbackManager/InteractionTrigger" unique_id=1737997577]
@@ -530,6 +483,109 @@ script = ExtResource("34_2bu0v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlashbackManager/FoodCans/TableFoodCanScene/InteractionTrigger" unique_id=766240669]
 transform = Transform3D(1.0000376, 0, 0, 0, 1.0000376, 0, 0, 0, 1.0000376, 0.1578846, 0.10254133, -0.26958275)
 shape = SubResource("BoxShape3D_2bu0v")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=422623014]
+layer = 2
+
+[node name="FadeController" type="Control" parent="HUD" unique_id=1481829133 groups=["fade_controller"]]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("35_2bu0v")
+
+[node name="ColorRect" type="ColorRect" parent="HUD/FadeController" unique_id=594359557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=648390715]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=409556908]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -110
+
+[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1965148354]
+material = SubResource("ShaderMaterial_3yitw")
+custom_minimum_size = Vector2(348.33, 195.84)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=45870473 groups=["flashback_recording_voice"]]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("37_iyqwu")
+
+[node name="Label" type="Label" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=157570419]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("38_ajdon")
+theme_override_font_sizes/font_size = 24
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=696417237]
+stream = ExtResource("39_1j5ld")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=1907862323]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_bottom = 44
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=652847860 groups=["internal_voice"]]
+layout_mode = 2
+script = ExtResource("37_iyqwu")
+
+[node name="Label" type="Label" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=2042170925]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("38_ajdon")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1188909075]
+stream = ExtResource("39_1j5ld")
+volume_db = -30.0
+max_polyphony = 40
 
 [editable path="FullHouse/furniture"]
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
