@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bk7xunxgowjo7"]
+
+[ext_resource type="Script" uid="uid://jfoy881nsyfk" path="res://shared/mouse_gestures/mouse_rotator/scripts/mouse_rotator.gd" id="1_h4dab"]
+
+[node name="MouseRotator3D" type="Node3D" unique_id=462307096]
+script = ExtResource("1_h4dab")

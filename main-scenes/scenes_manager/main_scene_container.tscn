@@ -50,7 +50,7 @@ render_target_update_mode = 4
 [node name="MainScene" parent="MainSceneSubViewport/SubViewport" unique_id=457484893 instance=ExtResource("2_laruv")]
 
 [node name="Camera" parent="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(457484893, 1783986654, 1239440987) index="0" unique_id=1209086434]
-transform = Transform3D(-0.97437, 0.084268086, -0.20857106, -2.6077029e-08, 0.9271831, 0.37460667, 0.22495109, 0.36500522, -0.90342027, 0, 1.6, 0)
+transform = Transform3D(-0.9999999, 4.0415645e-07, -2.2609242e-06, -1.5631939e-13, 0.98439485, 0.17596811, 2.296763e-06, 0.17596792, -0.984396, 0, 1.6, 0)
 
 [node name="ViewportOverlayRect" type="ColorRect" parent="MainSceneSubViewport/SubViewport" unique_id=697671492]
 anchors_preset = 15
@@ -169,5 +169,6 @@ max_polyphony = 40
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/StudyLights/CeilingLamp"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key"]

@@ -15,8 +15,8 @@ var on_debug := false
 var last_part_started : bool = false
 
 #MOVE
-var max_speed = 1.6
-var sprint_speed = 1.6
+var max_speed = 1.0
+var sprint_speed = 1.0
 var acceleration = 0.5
 var desaceleration = 0.5
 var can_footstep : bool = true

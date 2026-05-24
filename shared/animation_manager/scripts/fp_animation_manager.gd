@@ -19,13 +19,13 @@ func start_animation(anim_name : String):
 	
 	await fp_camera.tween_completed
 	animation_started.emit()
-	main_node.visible = true
+	if main_node: main_node.visible = true
 	animation_player.play(anim_name)
 	
 	animation_player.animation_finished.connect(_on_animation_finished)
 
 func _on_animation_finished(_anim):
-	main_node.visible = false
+	if main_node: main_node.visible = false
 	player.global_transform.origin = calculate_new_player_position()
 	var rot := calculate_new_player_rotation()
 	

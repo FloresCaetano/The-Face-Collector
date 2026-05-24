@@ -30,9 +30,7 @@ func on_mouse_exited() -> void:
 func _on_start_transition():
 	pass
 
-
 func _on_tape_selected(tape : TapeResource) -> void:
 	cassette_tape_player_interface.anim_tape_selected()
 	await cassette_tape_player_interface.insert_cassette_finished
 	PATHS.scene_manager.instantiate_flashsback(tape.flashback)
-	#TODO Flashback of last_tape

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://brk7fhrihmfm7"]
 
-[ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="1_bp2wh"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_ngqo1"]
+[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="1_wnqli"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="2_wxp5c"]
 [ext_resource type="PackedScene" uid="uid://c6xmli380uupx" path="res://scenery/props/postItOnFridge.glb" id="3_hv77v"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
@@ -56,10 +56,24 @@
 [ext_resource type="PackedScene" uid="uid://bor3iishjtda8" path="res://interactable/items/item-colectable/crowbar/crowbar.tscn" id="45_ightq"]
 [ext_resource type="Script" uid="uid://ck3j0n77r8fut" path="res://scripted-events/Chapter1/player_picks_study_key/scripts/player_picks_study_key.gd" id="51_l3bb1"]
 [ext_resource type="AudioStream" uid="uid://bjv8lfxbggpji" path="res://scripted-events/Chapter1/player_picks_study_key/assets/breathing.wav" id="53_rnk46"]
+[ext_resource type="PackedScene" uid="uid://bteooi6i42amu" path="res://scripted-events/Chapter1/AliceFlashback/assets/pick_up_note.glb" id="53_stnvs"]
 [ext_resource type="Texture2D" uid="uid://bvjjpnneynv5k" path="res://interactable/items/item-resources/keys/icons/icon_key.png" id="56_x28hp"]
 [ext_resource type="AudioStream" uid="uid://bvl4nhi6vsqv6" path="res://core/auxiliar/first_cinematic/pink_noise.wav" id="58_bp2wh"]
 [ext_resource type="Texture2D" uid="uid://pcge80i3i72l" path="res://interactable/items/item-colectable/key/assets/Key_key.png" id="58_kmx7f"]
 [ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="60_bp2wh"]
+[ext_resource type="Script" uid="uid://dpke4ypjay435" path="res://interactable/items/item-resources/tapes/tape_resource.gd" id="61_ummc1"]
+[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="61_wnqli"]
+[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resources/tapes/icons/1st.png" id="62_wnqli"]
+
+[sub_resource type="Resource" id="Resource_1cm50"]
+script = ExtResource("30_nmiv7")
+duration = 0.4
+transition = 1
+
+[sub_resource type="Resource" id="Resource_lnxfr"]
+script = ExtResource("42_p1fxg")
+fov = 94.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="FogMaterial" id="FogMaterial_hwofa"]
 density = -1.0
@@ -108,13 +122,15 @@ metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
 [sub_resource type="Curve3D" id="Curve3D_shqur"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.3919582, 0, 0.027999878, 0, 0, 0, 0, 0, 0, -0.22104836, 0, -0.070999146),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.3919582, 0, 0.027999878, 0, 0, 0, 0, 0, 0, -0.436, 0, -0.071),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
 [sub_resource type="Resource" id="Resource_sojn1"]
 script = ExtResource("30_nmiv7")
+duration = 0.7
+transition = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wwoi1"]
 size = Vector3(0.35717773, 1.5454102, 0.56307983)
@@ -744,6 +760,16 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_723sf"]
 size = Vector3(1, 2.8502197, 1.6987915)
 
+[sub_resource type="Resource" id="Resource_v842d"]
+script = ExtResource("30_nmiv7")
+duration = 1.5
+transition = 1
+
+[sub_resource type="Resource" id="Resource_cu0ku"]
+script = ExtResource("42_p1fxg")
+fov = 94.4
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_nqn01"]
 size = Vector3(0.14935303, 0.34960938, 2.000061)
 
@@ -800,11 +826,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gqdqw")
 
+[sub_resource type="Resource" id="Resource_stnvs"]
+script = ExtResource("61_ummc1")
+flashback = "uid://bc4gf7yh5vkag"
+name = "Tape"
+texture = ExtResource("62_wnqli")
+tag = "tape"
+model = ExtResource("61_wnqli")
+metadata/_custom_type_script = "uid://dpke4ypjay435"
+
 [node name="MainScene" type="Node3D" unique_id=457484893]
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1927154283]
+script = ExtResource("29_ujjmv")
+tween_resource = SubResource("Resource_1cm50")
+camera_3d_resource = SubResource("Resource_lnxfr")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("1_bp2wh")
+environment = ExtResource("1_wnqli")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -979,7 +1020,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7873955, -0.054329157, -0.0
 curve = SubResource("Curve3D_shqur")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="FullHouse/Interactables/SideStepArea/Path3D" unique_id=288962339]
-transform = Transform3D(0.08424743, 0, -0.996436, 0, 0.99999994, 0, 0.996436, 0, 0.08424743, -1.3919582, 0, 0.027999878)
+transform = Transform3D(0.10300837, 0, -0.9946677, 0, 0.99999344, 0, 0.994665, 0, 0.10300864, -1.3919582, 0, 0.027999878)
 
 [node name="PhantomCamera3D" type="Node3D" parent="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D" unique_id=483681056]
 transform = Transform3D(0.044698045, 0, 0.9990025, 0, 1.0000001, 0, -0.9990025, 0, 0.044698045, 0, 0, 0)
@@ -1037,13 +1078,13 @@ max_distance = 14.15
 bus = &"LowPass"
 
 [node name="Camera" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="0" unique_id=1209086434]
-transform = Transform3D(-0.97437006, 0.0842681, -0.20857106, -2.607703e-08, 0.9271832, 0.37460667, 0.2249511, 0.36500525, -0.90342027, 0, 1.6, 0)
+transform = Transform3D(-1, 4.041565e-07, -2.2609242e-06, -1.563194e-13, 0.984395, 0.17596811, 2.2967631e-06, 0.17596795, -0.984396, 0, 1.6, 0)
 
 [node name="Caset_001" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="2" unique_id=1804967886]
 transform = Transform3D(1, 0, 0, 0, 0.99999946, 0, 0, 0, 0.9999998, 0, 0, 0)
 
 [node name="BoneAttachment3D" parent="FullHouse/Interactables/CassetteTapePlayer/CassetteTapePlayerInterface/insert_casette" parent_id_path=PackedInt32Array(1783986654, 1239440987) index="3" unique_id=137104513]
-transform = Transform3D(0.40782946, -0.015651315, 0.91292393, 0.30832824, 0.94348073, -0.12156403, -0.8594237, 0.33105746, 0.38960493, 0.12169647, 1.326481, 0.3527279)
+transform = Transform3D(-0.14344445, 0.933342, -0.32908347, -0.97768235, -0.08207014, 0.19339629, 0.15349695, 0.34948066, 0.92428434, 0.6890106, 1.4673548, -0.01984024)
 
 [node name="photoFrame" parent="FullHouse/Interactables" unique_id=1883362346 instance=ExtResource("6_8bqn5")]
 transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
@@ -1248,11 +1289,12 @@ transform = Transform3D(1, 0, 0, 0, 1, -5.563627e-08, 0, 5.563627e-08, 1, 21.019
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 4.735069, 1.6753258, 9.4458065)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0.6657747, 1.6753258, 10.859992)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46794003, -0.0067448616)
+layers = 3
 light_color = Color(0.9999998, 0.853063, 0.6434916, 1)
 light_energy = 0.1
 light_volumetric_fog_energy = 0.0
@@ -1676,11 +1718,37 @@ libraries/ = SubResource("AnimationLibrary_7orxa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.90608, 0, -7.218386)
 
 [node name="Trigger" type="Area3D" parent="Chapter1/ScriptedEvents/AliceFlashback" unique_id=810142566]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("42_723sf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger" unique_id=1576951934]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21410751, 1.3650513, 0.1487732)
 shape = SubResource("BoxShape3D_723sf")
+
+[node name="FpAnimationManager" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger" unique_id=475648850 node_paths=PackedStringArray("fp_camera", "animation_player") instance=ExtResource("28_fbswt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.162258, 0)
+fp_camera = NodePath("pick_up_note/Camera/PhantomCamera3D")
+animation_player = NodePath("pick_up_note/AnimationPlayer")
+
+[node name="pick_up_note" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager" unique_id=801987186 instance=ExtResource("53_stnvs")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08157349, -1.1512234, 3.5656904e-09)
+
+[node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note/Camera" parent_id_path=PackedInt32Array(801987186, 1170290093) index="0" unique_id=944699242]
+script = ExtResource("29_ujjmv")
+tween_resource = SubResource("Resource_v842d")
+camera_3d_resource = SubResource("Resource_cu0ku")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Brazos Harry" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note" index="1" unique_id=486379901]
+visible = false
+
+[node name="Nota" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note" index="2" unique_id=224120898]
+transform = Transform3D(0.09, 0, 0, 0, 1, 0, 0, 0, 0.10500001, 0, 0, 0.4145854)
+layers = 3
+
+[node name="AnimationPlayer" parent="Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note" index="3" unique_id=60293566]
+speed_scale = 0.6
 
 [node name="PlayerPicksStudyKey" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1634813193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12025, 0, -16.322163)
@@ -1737,6 +1805,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.119363785)
 [node name="Tape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.218716, -3.088102, -15.733387)
 
+[node name="Tape" parent="Chapter1" unique_id=217183959 instance=ExtResource("60_bp2wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.024009, 0.55135286, -16.603603)
+tape_item = SubResource("Resource_stnvs")
+
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/AliceFlashback/Trigger" to="Chapter1/ScriptedEvents/AliceFlashback/Trigger" method="_on_body_entered"]
 
@@ -1744,5 +1816,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.218716, -3.088102, -15.7333
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Lights/StudyLights/CeilingLamp"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note"]
 [editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key"]
 [editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key"]

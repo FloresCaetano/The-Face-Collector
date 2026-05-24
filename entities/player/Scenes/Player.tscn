@@ -23,9 +23,9 @@ radius = 0.08
 script = ExtResource("19_jgvhu")
 duration = 0.4
 
-[sub_resource type="Resource" id="Resource_6lnal"]
+[sub_resource type="Resource" id="Resource_gdq0t"]
 script = ExtResource("7_xpeio")
-fov = 70.0
+fov = 94.4
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="Resource" id="Resource_uli6c"]
@@ -79,7 +79,7 @@ real_camera = NodePath("PlayerRealCamera")
 physics_interpolation_mode = 1
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 1.6060017, 0)
 top_level = true
-fov = 70.0
+fov = 94.4
 script = ExtResource("2_pdd5r")
 shape_cast = NodePath("ShapeCast3D")
 p_look_at_cam = NodePath("../Pivot/LookAtCamera")
@@ -108,7 +108,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 script = ExtResource("18_ggdqt")
 priority = 10
 tween_resource = SubResource("Resource_msn7k")
-camera_3d_resource = SubResource("Resource_6lnal")
+camera_3d_resource = SubResource("Resource_gdq0t")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="BobbingAndTilt" type="Node" parent="Pivot/MainCamera" unique_id=1207634038 node_paths=PackedStringArray("player", "main_camera")]

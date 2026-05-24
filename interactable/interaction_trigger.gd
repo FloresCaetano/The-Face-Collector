@@ -5,7 +5,7 @@ extends Interactable
 @export var can_leave := false
 
 func _ready() -> void:
-	if not event_behavior:
+	if event_behavior:
 		event_behavior.event_finished.connect(_on_event_finished)
 		return
 
