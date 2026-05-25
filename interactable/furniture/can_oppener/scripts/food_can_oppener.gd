@@ -42,7 +42,8 @@ func _on_mouse_rotator_3d_turn_completed() -> void:
 		await take_can_animation()
 		leave_interaction()
 	
-	mouse_rotator_3d.is_active = true
+	if is_interacting:
+		mouse_rotator_3d.is_active = true
 
 func animate_can():
 	var tween := create_tween().set_trans(Tween.TRANS_LINEAR)
@@ -65,6 +66,8 @@ func take_can_animation():
 	inventory.remove_item_by_tag("food_can")
 	inventory.add_item(load("uid://dibc2oux5fyei")) #opened_food_can
 	turn_count = 0
+	
+	mouse_rotator_3d.is_active = false
 
 func on_mouse_exited() -> void:
 	pass

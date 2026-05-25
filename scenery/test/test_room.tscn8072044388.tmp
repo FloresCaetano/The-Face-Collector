@@ -432,7 +432,7 @@ transform = Transform3D(-4.371143e-08, 0, 1.0000011, 0, 1.0000011, 0, -1.0000011
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2532122, 0, -4.18353)
 
 [node name="Key" parent="." unique_id=1236922951 instance=ExtResource("12_dw86f")]
-transform = Transform3D(0.87054473, 0, 0.49208933, 0.31359676, 0.7706356, -0.5547773, -0.37922156, 0.63727605, 0.67087275, -1.1207309, 1.4016752, -2.920044)
+transform = Transform3D(0.87054473, 0, 0.49208933, 0, 1, 0, -0.49208933, 0, 0.87054473, -1.1207309, 0.16128309, -2.920044)
 item = SubResource("Resource_snk28")
 interact_key = "select_item"
 type = 1

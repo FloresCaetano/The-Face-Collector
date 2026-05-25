@@ -2,6 +2,7 @@ class_name MouseRotator3D
 extends Node3D
 
 @onready var player_rcam: Camera3D = PATHS.player_real_camera
+@onready var circular_progress_bar: CircularProgressBar = $CircularProgressBar
 
 signal rotation_updated(total_rotation_degrees: float)
 signal turn_completed
@@ -82,11 +83,16 @@ func _process(_delta: float) -> void:
 	rotation_updated.emit(rad_to_deg(total_rotation_radians))
 
 	var new_turns: int = int(total_rotation_radians / (2.0 * PI))
+	
 
 	if new_turns != _turns_count:
 		_turns_count = new_turns
 		turn_completed.emit()
-
+	
+	var current_turn_rotation = total_rotation_radians - (_turns_count * 2.0 * PI)
+	var normalized_turn_rotation = remap(current_turn_rotation, 0.0, 2.0 * PI, 0.0, 100.0)
+	circular_progress_bar.set_value(normalized_turn_rotation)
+	
 	mouse_moved_this_frame = false
 
 func _clear_deltas() -> void:
@@ -95,7 +101,12 @@ func _clear_deltas() -> void:
 
 func _set_is_active(value: bool) -> void:
 	is_active = value
+	
+	if not is_node_ready():
+		return
+	
 	if not is_active:
+		circular_progress_bar.set_value(0.0)
 		_clear_deltas()
 		has_initialized = false
 

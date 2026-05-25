@@ -3,6 +3,8 @@ class_name Interactable
 extends PhysicsBody3D
 
 @export var interact_key : String = "interact"
+@export var interaction_distance : float = 3.0
+
 @export var indicator_last_pose_references : Array[Marker3D]
 @export var indicator_size : Vector3 = Vector3(0.4, 0.4, 0.4)
 
@@ -26,6 +28,10 @@ func on_leave_interaction() -> void: pass
 
 func interact() -> void:
 	if is_interacting:
+		return
+	
+	if (player.global_position - global_position).length() > interaction_distance:
+		mouse_exited()
 		return
 	
 	if interactable_indicators.is_empty() and indicator_last_pose_references:

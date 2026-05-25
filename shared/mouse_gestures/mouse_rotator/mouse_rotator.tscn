@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://bk7xunxgowjo7"]
 
 [ext_resource type="Script" uid="uid://jfoy881nsyfk" path="res://shared/mouse_gestures/mouse_rotator/scripts/mouse_rotator.gd" id="1_h4dab"]
+[ext_resource type="PackedScene" uid="uid://cofup7qdfsjp8" path="res://shared/visual_indicators/circular_progress_bar/circular_progress_bar.tscn" id="2_pnufb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pnufb"]
+viewport_path = NodePath("SubViewport")
 
 [node name="MouseRotator3D" type="Node3D" unique_id=462307096]
 script = ExtResource("1_h4dab")
+
+[node name="CircularProgressBar" parent="." unique_id=1354272684 instance=ExtResource("2_pnufb")]
+texture = SubResource("ViewportTexture_pnufb")
+
+[editable path="CircularProgressBar"]
