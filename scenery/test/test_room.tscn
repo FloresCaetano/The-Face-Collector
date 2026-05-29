@@ -106,7 +106,7 @@ func mouse_interaction() -> void:
 	if Input.is_action_just_pressed(\"interact\"):
 		audio_stream_player_3d.play()
 		
-		player_real_camera.look_at_target(target, 1.0, 2.0)
+		player_real_camera.look_at_target(target, 1.0, 1.0, false)
 		
 		is_interacting = false
 
@@ -435,7 +435,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2532122, 0, -4.18353)
 transform = Transform3D(0.87054473, 0, 0.49208933, 0.31359676, 0.7706356, -0.5547773, -0.37922156, 0.63727605, 0.67087275, -1.1207309, 1.4016752, -2.920044)
 item = SubResource("Resource_snk28")
 interact_key = "select_item"
-type = 1
 
 [node name="Plane" parent="Key/Key" parent_id_path=PackedInt32Array(1236922951, 1743937477) index="0" unique_id=1952160806]
 mesh = SubResource("ArrayMesh_qxh54")

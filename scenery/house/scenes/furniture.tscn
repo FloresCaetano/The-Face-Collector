@@ -162,6 +162,12 @@ data = PackedVector3Array(0.77, 0.96999997, 0.38, -0.77, 0.96999997, -0.39999998
 
 [node name="furniture" unique_id=1738494526 instance=ExtResource("1_rep5f")]
 
+[node name="Coffee_maker" parent="." index="43" unique_id=1506304795]
+transform = Transform3D(0.6440353, 0, 0.08785547, 0, 0.65, 0, -0.08785547, 0, 0.6440353, 14.631912, 1.212721, -1.6253531)
+
+[node name="Coffee_maker_cup" parent="." index="44" unique_id=42632514]
+transform = Transform3D(-0.6440352, 0, -0.08785521, 0, 0.6499999, 0, 0.08785521, 0, -0.6440352, 14.623064, 1.0879632, -1.6902385)
+
 [node name="Paintings_03_001" parent="." index="94" unique_id=455659364]
 transform = Transform3D(-3.3607094e-08, 0, -0.7688407, 0, 0.7688407, 0, 0.7688407, 0, -3.3607094e-08, 6.214106, 1.7413273, -17.08067)
 

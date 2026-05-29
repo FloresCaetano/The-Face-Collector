@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qq1e41d7noiv" path="res://interactable/furniture/lights/assets/ceiling_lamp_metal_mp_4.png" id="3_lygtv"]
 [ext_resource type="Texture2D" uid="uid://bvp2h5hm2q558" path="res://interactable/furniture/lights/assets/ceiling_lamp_plastic_mp_2.png" id="4_eq3dv"]
 [ext_resource type="Texture2D" uid="uid://cyx5oe6jo1w7n" path="res://interactable/furniture/lights/assets/ceiling_lamp_lamp_1_off.png" id="5_578vq"]
+[ext_resource type="Script" uid="uid://ds6cm44uqmxxa" path="res://shared/lights_system/scripts/SmartLight.gd" id="7_lygtv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1h2cc"]
 resource_name = "lamp_1_on_yellow"
@@ -279,6 +280,7 @@ shadow_caster_mask = 4294443007
 spot_range = 10.39
 spot_angle = 75.0
 spot_angle_attenuation = 1.569166
+script = ExtResource("7_lygtv")
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights" unique_id=388683652]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.110223e-16, -0.26075292)

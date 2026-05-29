@@ -92,7 +92,7 @@ func end_flashback():
 	
 	main_scene.process_mode = Node.PROCESS_MODE_INHERIT
 	reactivate_player_systems()
-	old_player.get_node("Pivot/MainCamera").priority = 10
+	old_player.get_node("Pivot/PMainCamera").priority = 10
 	
 	await PATHS.audio_controller.fade_bus_volume("Master", -80.0, 5.0)
 	PATHS.audio_controller.restore_all_volumes_in_scene(main_scene)
@@ -104,7 +104,7 @@ func end_flashback():
 
 var old_player_groups = {}
 func desactivate_player_systems() -> void:
-	old_player.get_node("Pivot/MainCamera").priority = 0
+	old_player.get_node("Pivot/PMainCamera").priority = 0
 	old_player_groups.clear()
 	var nodes = [old_player] + old_player.find_children("*", "", true, false)
 	for node in nodes:
@@ -116,7 +116,7 @@ func desactivate_player_systems() -> void:
 			node.remove_from_group(group)
 
 func reactivate_player_systems() -> void:
-	old_player.get_node("Pivot/MainCamera").priority = 10
+	old_player.get_node("Pivot/PMainCamera").priority = 10
 	for node in old_player_groups.keys():
 		if is_instance_valid(node):
 			for group in old_player_groups[node]:

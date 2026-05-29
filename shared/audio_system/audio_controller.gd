@@ -70,9 +70,11 @@ func _interpolate_volume_at(index : int, from : float, to : float, duration : fl
 	)
 	tween.tween_callback(func(): interpolation_finished.emit(index))
 
+signal simple_play_finished(stream)
 func simple_play(stream : AudioStream) -> void:
 	simple_player.stream = stream
 	simple_player.play()
+	simple_play_finished.emit(stream)
 
 func left_simple_play(stream : AudioStream) -> void:
 	left_back_player.stream = stream

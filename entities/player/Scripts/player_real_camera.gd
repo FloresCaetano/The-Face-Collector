@@ -4,9 +4,10 @@ extends Camera3D
 @onready var player : Player = PATHS.player
 @onready var phantom_camera_host: PhantomCameraHost = $PhantomCameraHost
 
+
 @export var shape_cast: ShapeCast3D
-@export var p_look_at_cam : PhantomCamera3D
-@export var p_main_camera : PhantomCamera3D
+@export var p_main_camera: PhantomCamera3D
+@export var p_look_at_cam: PhantomCamera3D
 @export var pivot: Pivot
 
 var last_best_target : Interactable
@@ -109,21 +110,35 @@ func throw_raycast(ray_distance : float, interaction_mask : int = 0b1) -> Dictio
 
 signal target_spotted       
 signal sequence_finished   
-func look_at_target(target: Node3D, duration : float, wait_time : float) -> void:
-	p_look_at_cam.global_transform = p_look_at_cam.global_transform.looking_at(target.global_transform.origin)
+func look_at_target(target: Node3D, duration : float, wait_time : float, return_to_original := true) -> void:
+	p_look_at_cam.reparent(player.get_parent())
+	p_look_at_cam.global_transform = p_main_camera.global_transform
+	player.desactivate()
+	await change_state(State.BLOQUED)
+	
+	p_look_at_cam.look_at(target.global_position)
 	p_look_at_cam.tween_resource.duration = duration
 	p_look_at_cam.priority = 20
 	
 	await p_look_at_cam.tween_completed
+	
 	target_spotted.emit()
 	
-	player.desactivate()
-	await change_state(State.BLOQUED)
-	
 	await get_tree().create_timer(wait_time).timeout
-	p_look_at_cam.priority = 0
 	
-	await p_main_camera.tween_completed
+	if not return_to_original:
+		var x_delta = p_main_camera.global_rotation.x - p_look_at_cam.global_rotation.x
+		var y_delta = p_main_camera.global_rotation.y - p_look_at_cam.global_rotation.y
+		pivot.rotate_x(x_delta)
+		player.rotate_y(-y_delta)
+		p_look_at_cam.priority = 0
+	else:
+		p_look_at_cam.priority = 0
+		await get_tree().process_frame
+		if p_main_camera.is_tweening:
+			await p_main_camera.tween_completed
+	
+	p_look_at_cam.reparent(pivot)
 	sequence_finished.emit()
 
 func idle_interact():

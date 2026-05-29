@@ -6,5 +6,7 @@ extends Node3D
 
 
 func _ready():
-	await PATHS.scene_manager.flashback_transition_ends
+	if not scene_manager:
+		return
+	await scene_manager.flashback_transition_ends
 	dialogue_reader.start()

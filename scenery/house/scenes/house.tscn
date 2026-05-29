@@ -7,5 +7,9 @@
 [node name="StaticBody3D" parent="1st_floor" parent_id_path=PackedInt32Array(1474313551) index="0" unique_id=709178931]
 metadata/material = "wood"
 
+[node name="StaticBody3D" parent="Gradas Zotano" parent_id_path=PackedInt32Array(1970496560) index="0" unique_id=241578501 groups=["climbeable"]]
+
 [node name="Puerta z" parent="." index="66" unique_id=353371335]
 transform = Transform3D(0.16695873, 0.93301266, -0.3187665, -0.93790287, 0.25000006, 0.24049616, 0.30407763, 0.25881904, 0.9168148, 12.563105, 0.7371568, -23.061642)
+
+[node name="StaticBody3D" parent="Zotano" parent_id_path=PackedInt32Array(1555689658) index="0" unique_id=996834543 groups=["climbeable"]]

@@ -30,7 +30,6 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="Resource" id="Resource_uli6c"]
 script = ExtResource("19_jgvhu")
-transition = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0voef"]
 radius = 0.1
@@ -75,15 +74,15 @@ script = ExtResource("1_ea5mg")
 pivot = NodePath("Pivot")
 real_camera = NodePath("PlayerRealCamera")
 
-[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("shape_cast", "p_look_at_cam", "p_main_camera", "pivot") groups=["real_camera"]]
+[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("shape_cast", "p_main_camera", "p_look_at_cam", "pivot") groups=["real_camera"]]
 physics_interpolation_mode = 1
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 1.6060017, 0)
 top_level = true
 fov = 94.4
 script = ExtResource("2_pdd5r")
 shape_cast = NodePath("ShapeCast3D")
-p_look_at_cam = NodePath("../Pivot/LookAtCamera")
-p_main_camera = NodePath("../Pivot/MainCamera")
+p_main_camera = NodePath("../Pivot/PMainCamera")
+p_look_at_cam = NodePath("../Pivot/PLookAtCam")
 pivot = NodePath("../Pivot")
 
 [node name="PhantomCameraHost" type="Node" parent="PlayerRealCamera" unique_id=814895238]
@@ -103,7 +102,7 @@ debug_shape_custom_color = Color(0.90588236, 0.34509805, 1, 0.1764706)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116089106, 0)
 script = ExtResource("2_4h0ee")
 
-[node name="MainCamera" type="Node3D" parent="Pivot" unique_id=291564409 groups=["main_pcamera"]]
+[node name="PMainCamera" type="Node3D" parent="Pivot" unique_id=291564409 groups=["main_pcamera"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("18_ggdqt")
 priority = 10
@@ -111,17 +110,15 @@ tween_resource = SubResource("Resource_msn7k")
 camera_3d_resource = SubResource("Resource_gdq0t")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="BobbingAndTilt" type="Node" parent="Pivot/MainCamera" unique_id=1207634038 node_paths=PackedStringArray("player", "main_camera")]
+[node name="BobbingAndTilt" type="Node" parent="Pivot/PMainCamera" unique_id=1207634038 node_paths=PackedStringArray("player", "main_camera")]
 script = ExtResource("7_uli6c")
 player = NodePath("../../..")
 main_camera = NodePath("..")
 
-[node name="LookAtCamera" type="Node3D" parent="Pivot" unique_id=1641801748]
-visible = false
+[node name="PLookAtCam" type="Node3D" parent="Pivot" unique_id=1067829403]
 script = ExtResource("18_ggdqt")
 tween_resource = SubResource("Resource_uli6c")
-tween_on_load = false
-_preview_noise = false
+camera_3d_resource = SubResource("Resource_gdq0t")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1497191989]

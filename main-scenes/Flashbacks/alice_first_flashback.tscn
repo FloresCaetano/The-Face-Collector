@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="2_34iov"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="5_5gqch"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="6_ni0s7"]
+[ext_resource type="PackedScene" uid="uid://bc4g7ulcnedkc" path="res://main-scenes/Flashbacks/alice_1/assets/bench.glb" id="7_4nlmj"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="7_mrdhv"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="8_rorwn"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="9_4nlmj"]
@@ -98,7 +99,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.384381, 1.4996852, -1
 transform = Transform3D(0.006343181, 0, -1.1116364, 0, 1.1116545, 0, 1.1116364, 0, 0.006343181, 21.470585, 0.64968204, -4.0875854)
 
 [node name="wooden_crate_2_002" parent="FullHouse/furniture" index="154" unique_id=1620693319]
-transform = Transform3D(-3.6542723e-08, 0, 0.836, 0, 0.836, 0, -0.836, 0, -3.6542723e-08, 11.97583, 0, -5.5549455)
+transform = Transform3D(-3.6542723e-08, 0, 0.836, 0, 0.836, 0, -0.836, 0, -3.6542723e-08, 11.972863, 0.0028156042, -5.5534186)
+
+[node name="bench" parent="FullHouse/furniture" unique_id=2093422709 instance=ExtResource("7_4nlmj")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 13.891054, 0, -5.4731355)
 
 [node name="Interactables" type="Node3D" parent="FullHouse" unique_id=703401865]
 
@@ -399,7 +403,13 @@ default_wait_time = 0.03
 script = ExtResource("31_ni0s7")
 
 [node name="FoodCanOppener" parent="FlashbackManager" unique_id=1596483466 instance=ExtResource("30_4nlmj")]
-transform = Transform3D(-4.3711424e-08, 0, 1.0000011, 0, 1.0000011, 0, -1.0000011, 0, -4.3711424e-08, 2.7440262, 1.0200746, 0.14546204)
+transform = Transform3D(-4.371147e-08, 0, -1.0000021, 0, 1.0000021, 0, 1.0000021, 0, -4.371147e-08, 3.930789, 1.0200746, 0.014666557)
+
+[node name="PlaceholderCanOppener" parent="FlashbackManager/FoodCanOppener" index="1" unique_id=672523425]
+transform = Transform3D(-0.14660524, 0.9613693, 0.23297739, -0.97160774, -0.18416318, 0.14853776, 0.18570548, -0.20458613, 0.96107227, -0.5762162, 0.23416352, -0.19476318)
+
+[node name="supply_crate_1_1_002" parent="FlashbackManager/FoodCanOppener/open_food_can" parent_id_path=PackedInt32Array(1596483466, 146724472) index="1" unique_id=1338724347]
+transform = Transform3D(0.9998389, -0.006437448, -0.016719371, -0.0155938445, 0.14677931, -0.9890462, 0.008820991, 0.98914784, 0.14665541, -0.11937813, 0.5885624, 0.01598341)
 
 [node name="FoodCans" type="Node3D" parent="FlashbackManager" unique_id=1267067529]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -2.3552852, 0.18545333, -5.6953654)
@@ -465,4 +475,3 @@ shape = SubResource("BoxShape3D_2bu0v")
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
 [editable path="Player"]
 [editable path="FlashbackManager/FoodCanOppener"]
-[editable path="FlashbackManager/FoodCanOppener/open_food_can"]

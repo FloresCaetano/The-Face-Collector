@@ -117,6 +117,7 @@ locale/translations=PackedStringArray("res://LOCATION/items-and-interface.en.tra
 [layer_names]
 
 3d_render/layer_20="unshaded"
+3d_physics/layer_4="Player"
 
 [physics]
 
