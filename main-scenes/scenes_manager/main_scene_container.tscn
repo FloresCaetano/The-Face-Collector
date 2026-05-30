@@ -129,7 +129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("9_51qsq")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=698975800]
 stream = ExtResource("10_h8vw2")
@@ -162,7 +162,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("9_51qsq")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1346252038]
@@ -175,7 +175,9 @@ max_polyphony = 40
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/StudyLights/CeilingLamp"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Lights/CorridorLights/CeilingLamp5"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/CircularProgressBar"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/CollectorAppearance/first_appearance"]

@@ -38,6 +38,7 @@
 [ext_resource type="Script" uid="uid://b6au5w8ag34fi" path="res://interactable/items/item-resources/keys/key_resource.gd" id="36_hlflu"]
 [ext_resource type="Texture2D" uid="uid://bvjjpnneynv5k" path="res://interactable/items/item-resources/keys/icons/icon_key.png" id="37_t4133"]
 [ext_resource type="Texture2D" uid="uid://pcge80i3i72l" path="res://interactable/items/item-colectable/key/assets/Key_key.png" id="38_hfthy"]
+[ext_resource type="PackedScene" uid="uid://b161ad3ixtrp1" path="res://interactable/items/item-colectable/Bowl/bowl.tscn" id="39_hlflu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -431,6 +432,12 @@ transform = Transform3D(-4.371143e-08, 0, 1.0000011, 0, 1.0000011, 0, -1.0000011
 [node name="FoodCan" parent="." unique_id=512462406 instance=ExtResource("34_blx18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2532122, 0, -4.18353)
 
+[node name="FoodCan2" parent="." unique_id=2127732503 instance=ExtResource("34_blx18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2532122, 0, -4.5192394)
+
+[node name="FoodCan3" parent="." unique_id=1360804239 instance=ExtResource("34_blx18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8635135, 0, -4.5192394)
+
 [node name="Key" parent="." unique_id=1236922951 instance=ExtResource("12_dw86f")]
 transform = Transform3D(0.87054473, 0, 0.49208933, 0.31359676, 0.7706356, -0.5547773, -0.37922156, 0.63727605, 0.67087275, -1.1207309, 1.4016752, -2.920044)
 item = SubResource("Resource_snk28")
@@ -438,6 +445,9 @@ interact_key = "select_item"
 
 [node name="Plane" parent="Key/Key" parent_id_path=PackedInt32Array(1236922951, 1743937477) index="0" unique_id=1952160806]
 mesh = SubResource("ArrayMesh_qxh54")
+
+[node name="Bowl" parent="." unique_id=481686845 instance=ExtResource("39_hlflu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19729453, -3.3258667)
 
 [editable path="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
 [editable path="Key"]

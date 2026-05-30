@@ -14,21 +14,29 @@ extends Interactable
 
 var turn_count : int = 0
 var turns_needed_to_end : float = 5
+var already_opened_a_can := false
+
+signal leave_oppener
 
 func mouse_interaction() -> void:
 	if not inventory.has_item("food_can"):
 		GAMEMANAGER.bark_dialogue("bark_alice_first_flashback", [1,1])
+		leave_interaction()
 		return
 	
-	await player_rcam.change_state(player_rcam.State.BLOQUED)
-	pcam.priority = 20
-	await pcam.tween_completed
-	player_rcam.change_state(player_rcam.State.FOLLOW_CURSOR)
+	if not already_opened_a_can:
+		await player_rcam.change_state(player_rcam.State.BLOQUED)
+		pcam.priority = 20
+		await pcam.tween_completed
 	
+	mouse_rotator_3d.visible = true
 	arms_mesh.visible = true
-	a_state_machine.travel("Global_place_can")
-	await animation_tree.animation_finished
+	$placeholder.visible = false
 	
+	a_state_machine.travel("Global_place_can")
+	await wait_for_state_anim_finished("Global_place_can")
+	
+	player_rcam.change_state(player_rcam.State.FOLLOW_CURSOR)
 	mouse_rotator_3d.is_active = true
 
 
@@ -40,7 +48,15 @@ func _on_mouse_rotator_3d_turn_completed() -> void:
 	
 	if turn_count == turns_needed_to_end:
 		await take_can_animation()
-		leave_interaction()
+		if inventory.has_item("food_can"):
+			leave_interaction()
+			already_opened_a_can = true
+			turn_count = 0
+			await get_tree().create_timer(0.5).timeout
+			is_interacting = true
+			mouse_interaction()
+		else:
+			leave_oppener_interaction()
 	
 	if is_interacting:
 		mouse_rotator_3d.is_active = true
@@ -51,6 +67,8 @@ func animate_can():
 	await tween.finished
 
 func take_can_animation():
+	mouse_rotator_3d.visible = false
+	mouse_rotator_3d.is_active = false
 	await player_rcam.change_state(player_rcam.State.BLOQUED)
 	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(pcam, "rotation", Vector3.ZERO, 0.4)
@@ -58,16 +76,27 @@ func take_can_animation():
 	a_state_machine.travel("Global_take_can");
 	while a_state_machine.get_current_node() != "End":
 		await get_tree().process_frame
+	
+	inventory.remove_item_by_tag("food_can")
+	inventory.add_item(load("uid://dibc2oux5fyei")) #opened_food_can
+	
+	
+
+func leave_oppener_interaction():
 	arms_mesh.visible = false
 	pcam.priority = 0
 	await player_rcam.active_camera.tween_completed
 	player_rcam.change_state(player_rcam.State.IDLE)
-	
-	inventory.remove_item_by_tag("food_can")
-	inventory.add_item(load("uid://dibc2oux5fyei")) #opened_food_can
 	turn_count = 0
-	
-	mouse_rotator_3d.is_active = false
+	already_opened_a_can = false
+	leave_interaction()
+	leave_oppener.emit()
+
+func wait_for_state_anim_finished(state : String):
+	var actual_state : String = ""
+	while actual_state != state:
+		actual_state = await a_state_machine.state_started
+	await animation_tree.animation_finished
 
 func on_mouse_exited() -> void:
 	pass

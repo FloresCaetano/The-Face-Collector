@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b161ad3ixtrp1"]
+
+[ext_resource type="Script" uid="uid://oa77davos6wi" path="res://interactable/items/item-colectable/collectable.gd" id="1_kyc01"]
+[ext_resource type="PackedScene" uid="uid://cph47cg2licm0" path="res://main-scenes/Flashbacks/alice_1/assets/bowl.glb" id="1_sfbol"]
+[ext_resource type="Resource" uid="uid://dhrhppy172i8p" path="res://interactable/items/item-resources/generic/bowl/bowl.tres" id="2_p37xn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kyc01"]
+size = Vector3(0.37157965, 0.37502176, 0.36226338)
+
+[node name="Bowl" type="StaticBody3D" unique_id=481686845]
+script = ExtResource("1_kyc01")
+item = ExtResource("2_p37xn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1773089500]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.1292439e-07, 0.061558224, -0.0056641013)
+shape = SubResource("BoxShape3D_kyc01")
+
+[node name="bowl" parent="." unique_id=1116476245 instance=ExtResource("1_sfbol")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1444817177]

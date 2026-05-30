@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dhrhppy172i8p"]
+
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_0db3p"]
+[ext_resource type="PackedScene" uid="uid://cph47cg2licm0" path="res://main-scenes/Flashbacks/alice_1/assets/bowl.glb" id="1_ilsuk"]
+[ext_resource type="Texture2D" uid="uid://b0rkpsyfypq8b" path="res://interactable/items/item-resources/generic/bowl/icon/icon_bowl.png" id="2_rywl0"]
+
+[resource]
+script = ExtResource("1_0db3p")
+name = "bowl"
+texture = ExtResource("2_rywl0")
+tag = "bowl"
+model = ExtResource("1_ilsuk")
+offset = Vector3(0, 0, -0.2)
+metadata/_custom_type_script = "uid://c5effmi27pymr"

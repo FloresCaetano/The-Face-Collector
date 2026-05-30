@@ -5,12 +5,19 @@ extends DialogueTarget
 @onready var label: Label = $Label
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-
+var is_selected : bool :
+	set(value):
+		is_selected = value
+		selected.emit(value)
+		
+signal selected(value)
 
 func select():
+	is_selected = true
 	label.text = ""
 
 func deselect():
+	is_selected = false
 	label.text = ""
 
 func set_text(text : RefCounted):

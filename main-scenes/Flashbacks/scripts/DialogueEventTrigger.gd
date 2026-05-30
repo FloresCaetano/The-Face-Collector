@@ -18,6 +18,7 @@ func player_prepare_three_food_cans():
 		await get_tree().process_frame
 	
 func alice_waits_on_table():
+	$"../../TableFoodCanScene/InteractionTrigger".active = true
 	await wait_for_event("alice_waits_on_table")
 
 func alice_eating_alone():

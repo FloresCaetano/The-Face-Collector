@@ -20,11 +20,14 @@ var can_continue := true
 signal dialogue_finished
 signal line_sended(line : int)
 
+
 func start():
 	dialogue_loader.dialogue_file = dialogue_file
 	dialogue_data = dialogue_loader.load_and_process_dialogue()
 	load_targets()
 	send_line()
+	
+	line_sended.connect(GAMEMANAGER._on_dialogue_line_send)
 
 func load_targets():
 	var loaded_ids := {}
@@ -63,14 +66,19 @@ func send_line():
 	var line_data : Dictionary = dialogue_data[line_id]
 	
 	actual_target = targets[line_data.TARGET]
+	if actual_target.is_selected == true:
+		return
+	
 	await actual_target.select()
+	
 	for token in line_data.text:
 		actual_target.set_text(token)
 		await get_tree().create_timer(get_wait_time(token)).timeout
 	await get_tree().create_timer(2.0).timeout
+	
 	actual_target.deselect()
 	
-	line_sended.emit(current_line)
+	line_sended.emit(line_data.text)
 	
 	if line_data.has("GAME_EVENT"):
 		var event_name = line_data["GAME_EVENT"]
@@ -93,3 +101,5 @@ func get_wait_time(token : RefCounted) -> float:
 func end_dialogue():
 	actual_target.deselect()
 	dialogue_finished.emit()
+	
+	line_sended.disconnect(GAMEMANAGER._on_dialogue_line_send)

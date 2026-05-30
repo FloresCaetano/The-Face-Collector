@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://c6xmli380uupx" path="res://scenery/props/postItOnFridge.glb" id="3_hv77v"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
+[ext_resource type="Environment" uid="uid://xcutn6hsofwm" path="res://VFX/enviroments/develop.tres" id="4_djj5j"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://cqpp7labx0ak5" path="res://scenery/props/safePassHint.glb" id="4_tiq5w"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="4_uvaer"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="4_wxp5c"]
-[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="4_ykmb4"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="5_fw6df"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="5_g721p"]
 [ext_resource type="Resource" uid="uid://bn313ey4muahe" path="res://VFX/rain/lt_rain.tres" id="5_hwofa"]
@@ -50,6 +50,7 @@
 [ext_resource type="Script" uid="uid://cbumgb3jn1q7f" path="res://scripted-events/Chapter1/main_door_first_aproach/scripts/ib_climb_transom.gd" id="31_ddxeo"]
 [ext_resource type="AudioStream" uid="uid://bivw4ujsf5aas" path="res://shared/lights_system/audio/blinking.mp3" id="34_8guji"]
 [ext_resource type="AudioStream" uid="uid://c6wfitkueyq8p" path="res://shared/lights_system/audio/lightbulb_break.mp3" id="35_kmx7f"]
+[ext_resource type="Texture2D" uid="uid://ttf4jedvhxy7" path="res://interactable/furniture/plank/assets/plank_Wood_02.jpg" id="37_iu47m"]
 [ext_resource type="Script" uid="uid://bhlbrvw8tisx3" path="res://scripted-events/Chapter1/AliceFlashback/script/trigger.gd" id="42_723sf"]
 [ext_resource type="Script" uid="uid://c35cmbe2kq228" path="res://interactable/Chapter1/StudyWindow/script/ev_look_at_window.gd" id="42_csog6"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="42_p1fxg"]
@@ -115,6 +116,21 @@ use_particle_trails = true
 material = SubResource("StandardMaterial3D_3n4sk")
 curve = SubResource("Curve_3n4sk")
 
+[sub_resource type="Resource" id="Resource_djj5j"]
+script = ExtResource("5_fw6df")
+open_angle = -90.0
+metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
+
+[sub_resource type="Resource" id="Resource_q50ey"]
+script = ExtResource("5_fw6df")
+open_speed = 0.6
+metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
+
+[sub_resource type="Resource" id="Resource_iu47m"]
+script = ExtResource("5_fw6df")
+open_angle = -90.0
+metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
+
 [sub_resource type="Resource" id="Resource_l3bb1"]
 script = ExtResource("5_fw6df")
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
@@ -154,6 +170,43 @@ metadata/_custom_type_script = "uid://b6au5w8ag34fi"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
 size = Vector3(1.9338379, 1.7108154, 0.08111572)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftw0a"]
+resource_name = "Wood_02"
+cull_mode = 2
+albedo_texture = ExtResource("37_iu47m")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tjfpv"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lwrh2"]
+resource_name = "plank_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("VFWqqgAA//8AAKqqVFX//1RVVFUAAKmqAABVVVRVqaqpqqqqVVX//1VVqqqpqv7/qapUVVVVqapVVVVVqqqpqlRVVFUAAAAAVFUAAAAAVVWqqlRVVVUAAKmqAABVVVRV"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_ftw0a"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWpqlRVqapUVamqVFWqqv+//z//v/8//7//P/8//7+qqlVVqqpVVaqqVVWqqlVV/3//f/9//3//f/9//3//f1VVVFVVVVRVVFVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tjfpv")
 
 [sub_resource type="Animation" id="Animation_w01sd"]
 length = 0.001
@@ -835,7 +888,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_djj5j"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_iu47m"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_x0ijl"]
@@ -864,7 +917,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("4_ykmb4")
+environment = ExtResource("4_djj5j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -976,19 +1029,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.06267, 0.045, -13.52384)
 
 [node name="Door6" parent="FullHouse/Interactables/Doors" unique_id=757646608 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.68389, 0.045, -8.176515)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24.689356, 0.045, -8.177418)
 
 [node name="Door7" parent="FullHouse/Interactables/Doors" unique_id=1397805426 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.56875, 0.045, -8.176515)
+settings = SubResource("Resource_djj5j")
 
 [node name="Door8" parent="FullHouse/Interactables/Doors" unique_id=103286843 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.307037, 0.045, -8.176515)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.312504, 0.045, -8.177418)
+settings = SubResource("Resource_q50ey")
 
 [node name="Door9" parent="FullHouse/Interactables/Doors" unique_id=1765305169 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.192372, 0.045, -8.176515)
+settings = SubResource("Resource_iu47m")
 
 [node name="Door10" parent="FullHouse/Interactables/Doors" unique_id=926539643 instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
@@ -1314,6 +1370,53 @@ transform = Transform3D(1, 0, 0, 0, 1, -5.563627e-08, 0, 5.563627e-08, 1, 18.041
 
 [node name="CeilingLamp2" parent="FullHouse/Lights/RoomLights" unique_id=1449324197 instance=ExtResource("12_fw6df")]
 transform = Transform3D(1, 0, 0, 0, 1, -5.563627e-08, 0, 5.563627e-08, 1, 21.019917, 0.15620542, -7.8843536)
+
+[node name="Planks" type="Node3D" parent="FullHouse" unique_id=1811298467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.835947, 2.0823631, -5.204121)
+
+[node name="Cube" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=186444848]
+transform = Transform3D(0.9988509, 0.006853394, 0, -0.04792583, 0.14283568, 0, 0, 0, 0.016, 1.0017568, 0.37480858, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube2" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1900818383]
+transform = Transform3D(0.99985784, 0.002410849, 0, -0.016859083, 0.14297967, 0, 0, 0, 0.016, 0.9861644, 0.050452422, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube3" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=13883832]
+transform = Transform3D(0.9987751, -0.0070752576, 0, 0.049477328, 0.14282486, 0, 0, 0, 0.016, 0.9844485, -0.33587343, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube4" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=822263311]
+transform = Transform3D(0.9999847, -0.00079117063, 0, 0.0055326633, 0.14299782, 0, 0, 0, 0.016, 0.97515893, -0.7084387, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube5" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=158292093]
+transform = Transform3D(0.9988509, 0.006853394, 0, -0.04792583, 0.14283568, 0, 0, 0, 0.016, 4.853594, 0.37480855, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube6" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=158057924]
+transform = Transform3D(0.99985784, 0.002410849, 0, -0.016859083, 0.14297967, 0, 0, 0, 0.016, 4.8380013, 0.05045247, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube7" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=307507061]
+transform = Transform3D(0.9987751, -0.0070752576, 0, 0.049477328, 0.14282486, 0, 0, 0, 0.016, 4.8362865, -0.33587337, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube8" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1884955056]
+transform = Transform3D(0.9999847, -0.00079117063, 0, 0.0055326633, 0.14299782, 0, 0, 0, 0.016, 4.826996, -0.70843863, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube9" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1080609988]
+transform = Transform3D(0.9988509, 0.006853394, 0, -0.04792583, 0.14283568, 0, 0, 0, 0.016, -4.4056053, 0.31892538, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube10" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=321292198]
+transform = Transform3D(0.9897563, -0.020415701, 0, 0.1427671, 0.14153515, 0, 0, 0, 0.016000003, -4.421198, -0.16772437, 4.005294)
+mesh = SubResource("ArrayMesh_lwrh2")
+
+[node name="Cube12" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1052052346]
+transform = Transform3D(0.99830335, -0.00078983995, -0.0009274366, 0.057963893, -4.5866276e-05, 0.015973097, -0.005532664, -0.1429978, -6.989294e-10, -4.479351, -1.0404401, 3.9005892)
+mesh = SubResource("ArrayMesh_lwrh2")
 
 [node name="PlayerAndLight" type="Node3D" parent="." unique_id=1039570478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
@@ -1826,7 +1929,7 @@ mesh = SubResource("ArrayMesh_bp2wh")
 
 [node name="CircularProgressBar" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_djj5j")
+texture = SubResource("ViewportTexture_iu47m")
 
 [node name="CollectorAppearance" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=203090192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.740726, 1.4685307, -11.844575)

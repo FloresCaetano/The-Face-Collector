@@ -2,6 +2,7 @@
 class_name Interactable
 extends PhysicsBody3D
 
+@export var active := true
 @export var interact_key : String = "interact"
 @export var interaction_distance : float = 3.0
 
@@ -27,6 +28,9 @@ func on_look() -> void: pass
 func on_leave_interaction() -> void: pass
 
 func interact() -> void:
+	if not active:
+		return
+	
 	if is_interacting:
 		return
 	
