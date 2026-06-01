@@ -1,0 +1,11 @@
+[
+    {
+        "ID": "0",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "No tengo ninguna lata para abrir."
+        }
+    }
+]

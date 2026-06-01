@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dsje5kxmq7f43" path="res://main-scenes/scenes_manager/scripts/main_scene_container.gd" id="1_kndb5"]
 [ext_resource type="Script" uid="uid://c76u2pmpb85je" path="res://main-scenes/scenes_manager/scripts/main_scene_sub_viewport.gd" id="1_li6ji"]
 [ext_resource type="PackedScene" uid="uid://brk7fhrihmfm7" path="res://main-scenes/main_scene.tscn" id="2_laruv"]
+[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="7_51qsq"]
 [ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="7_lv6u2"]
 [ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="8_ju5mr"]
-[ext_resource type="FontFile" uid="uid://dv31bty8qdoll" path="res://shared/fonts/SpaceMono-Regular.ttf" id="9_51qsq"]
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="10_h8vw2"]
 [ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="12_h8vw2"]
 
@@ -117,19 +117,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("8_ju5mr")
 
-[node name="Label" type="Label" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=303944887]
+[node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=681969755]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -12.0
-offset_bottom = 12.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("9_51qsq")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/normal_font = ExtResource("7_51qsq")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=698975800]
 stream = ExtResource("10_h8vw2")
@@ -153,16 +153,18 @@ theme_override_constants/margin_bottom = 44
 layout_mode = 2
 script = ExtResource("8_ju5mr")
 
-[node name="Label" type="Label" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1504753204]
+[node name="Label" type="RichTextLabel" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=2006492367]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -15.5
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("9_51qsq")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/normal_font = ExtResource("7_51qsq")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1346252038]

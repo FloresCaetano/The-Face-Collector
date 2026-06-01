@@ -565,7 +565,7 @@ tween_resource = SubResource("Resource_p77de")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="supply_crate_1_1_002" type="MeshInstance3D" parent="open_food_can" unique_id=1338724347]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999999, -0.11937813, 0.5885624, 0.01598341)
+transform = Transform3D(0.999839, -0.006437768, -0.016719552, -0.015593978, 0.1467793, -0.9890462, 0.008821334, 0.9891479, 0.14665538, -0.11937813, 0.5885624, 0.01598341)
 mesh = SubResource("ArrayMesh_k2h75")
 
 [node name="supply_crate_1_1_003" type="MeshInstance3D" parent="open_food_can/supply_crate_1_1_002" unique_id=585855947]
@@ -976,7 +976,7 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="placeholder" parent="." unique_id=986911660 instance=ExtResource("11_m5ajw")]
 transform = Transform3D(-1.229756, 0, -0.71000004, 0, 1.42, 0, 0.71000004, 0, -1.229756, -0.060441136, -0.007763341, -0.25023434)
 
-[node name="Abrelata" parent="placeholder" index="0" unique_id=2085392979]
+[node name="Abrelata" parent="placeholder" index="0" unique_id=1075185631]
 mesh = SubResource("ArrayMesh_1ftrh")
 
 [connection signal="turn_completed" from="MouseRotator3D" to="." method="_on_mouse_rotator_3d_turn_completed"]

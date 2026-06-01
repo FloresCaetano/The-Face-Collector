@@ -52,7 +52,7 @@
         "TARGET": "flashback_recording_voice",
         "GAME_EVENT": "player_pick_three_food_cans",
         "text": {
-            "ES": "Fui por TRES latas de comida."
+            "ES": "Fui por [color=dark_red]TRES[/color] latas de comida."
         }
     },
     {

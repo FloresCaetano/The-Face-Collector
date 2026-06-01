@@ -1,22 +1,32 @@
 class_name DialogueTarget3D
 extends DialogueTarget
 
-@export var target_id: String
 
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
-@onready var rich_text_3d: RichText3D = $PhantomCamera3D/RichText3D
-@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
+var visible_ratio_equivalent_step
+
+func on_actual_line_change():
+	var parsed_text_lenght : float = label._text_2d.get_parsed_text().length()
+	visible_ratio_equivalent_step = 1 / parsed_text_lenght
 
 func select():
-	rich_text_3d.text = ""
+	
+	PATHS.player.desactivate()
+	await PATHS.player_real_camera.change_state(PATHS.player_real_camera.State.BLOQUED)
+	label.text = ""
 	phantom_camera_3d.priority = 20
-	#await phantom_camera_3d.tween_completed
+	await phantom_camera_3d.tween_completed
 
 func deselect():
-	rich_text_3d.text = ""
+	label.text = ""
 	phantom_camera_3d.priority = 0
+	await PATHS.player_real_camera.active_camera.tween_completed
+	PATHS.player.activate()
+	await PATHS.player_real_camera.change_state(PATHS.player_real_camera.State.IDLE)
 
-func set_text(text : RefCounted):
-	rich_text_3d.text += text.char
-	audio_stream_player_3d.play()
+func next_token():
+	label.visible_ratio += visible_ratio_equivalent_step
+	audio_stream_player.play()
+	
+	

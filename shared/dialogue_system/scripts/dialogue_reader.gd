@@ -20,8 +20,8 @@ var can_continue := true
 signal dialogue_finished
 signal line_sended(line : int)
 
-
 func start():
+	reset_values()
 	dialogue_loader.dialogue_file = dialogue_file
 	dialogue_data = dialogue_loader.load_and_process_dialogue()
 	load_targets()
@@ -65,18 +65,21 @@ func send_line():
 	var line_id : String = keys[current_line]
 	var line_data : Dictionary = dialogue_data[line_id]
 	
-	actual_target = targets[line_data.TARGET]
-	if actual_target.is_selected == true:
+	var new_target : DialogueTarget = targets[line_data.TARGET]
+	if new_target.is_selected == true:
 		return
+	if actual_target != new_target:
+		if actual_target: await actual_target.deselect()
+		await new_target.select()
 	
-	await actual_target.select()
+	actual_target = new_target
 	
-	for token in line_data.text:
-		actual_target.set_text(token)
+	#LINE SENDING PROCESS:
+	actual_target.actual_line = line_data
+	for token in filter_parsed_tokens(line_data.text):
+		actual_target.next_token()
 		await get_tree().create_timer(get_wait_time(token)).timeout
 	await get_tree().create_timer(2.0).timeout
-	
-	actual_target.deselect()
 	
 	line_sended.emit(line_data.text)
 	
@@ -98,8 +101,38 @@ func get_wait_time(token : RefCounted) -> float:
 	else:
 		return default_wait_time
 
+func filter_parsed_tokens(original_tokens: Array) -> Array:
+	var filtered_tokens: Array = []
+	var inside_bbcode: bool = false
+	
+	for token in original_tokens:
+		if token.char == "[":
+			inside_bbcode = true
+			continue
+			
+		if token.char == "]":
+			inside_bbcode = false
+			continue
+			
+		if inside_bbcode:
+			continue
+			
+		filtered_tokens.append(token)
+		
+	return filtered_tokens
+	
+	
+
 func end_dialogue():
 	actual_target.deselect()
 	dialogue_finished.emit()
 	
 	line_sended.disconnect(GAMEMANAGER._on_dialogue_line_send)
+	actual_target.deselect()
+
+func reset_values():
+	dialogue_data = {}
+	current_line = 0
+	targets = {}
+	actual_target = null
+	can_continue = true

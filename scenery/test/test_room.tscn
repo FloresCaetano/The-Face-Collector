@@ -39,6 +39,12 @@
 [ext_resource type="Texture2D" uid="uid://bvjjpnneynv5k" path="res://interactable/items/item-resources/keys/icons/icon_key.png" id="37_t4133"]
 [ext_resource type="Texture2D" uid="uid://pcge80i3i72l" path="res://interactable/items/item-colectable/key/assets/Key_key.png" id="38_hfthy"]
 [ext_resource type="PackedScene" uid="uid://b161ad3ixtrp1" path="res://interactable/items/item-colectable/Bowl/bowl.tscn" id="39_hlflu"]
+[ext_resource type="PackedScene" uid="uid://bhmwlpjn4clp7" path="res://interactable/furniture/machine_can_opener/machine_can_opener.tscn" id="40_t4133"]
+[ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="41_oqw16"]
+[ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="42_tedtd"]
+[ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="43_63jam"]
+[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="44_oqw16"]
+[ext_resource type="PackedScene" uid="uid://d0o1m3gstq628" path="res://interactable/furniture/radio/radio.tscn" id="45_tedtd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -226,6 +232,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gqdqw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqw16"]
+shader = ExtResource("42_tedtd")
+shader_parameter/brightness = 2.6350001251625
 
 [node name="TestRoom" type="Node3D" unique_id=23240497]
 
@@ -448,6 +458,117 @@ mesh = SubResource("ArrayMesh_qxh54")
 
 [node name="Bowl" parent="." unique_id=481686845 instance=ExtResource("39_hlflu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19729453, -3.3258667)
+
+[node name="MachineCanOpener" parent="." unique_id=1648045875 instance=ExtResource("40_t4133")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9429893, 0, -5.355766)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1689803474]
+layer = 2
+
+[node name="FadeController" type="Control" parent="HUD" unique_id=327403776 groups=["fade_controller"]]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("41_oqw16")
+
+[node name="ColorRect" type="ColorRect" parent="HUD/FadeController" unique_id=601162331]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=60325204]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=4558871]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -110
+
+[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=592543882]
+material = SubResource("ShaderMaterial_oqw16")
+custom_minimum_size = Vector2(348.33, 195.84)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1586681898 groups=["flashback_recording_voice"]]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("43_63jam")
+
+[node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=1441837205]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("44_oqw16")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=1031805819]
+stream = ExtResource("24_ecbd5")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=2051536366]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_bottom = 44
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=1449708439 groups=["internal_voice"]]
+layout_mode = 2
+script = ExtResource("43_63jam")
+
+[node name="Label" type="RichTextLabel" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1472479447]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("44_oqw16")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=191040004]
+stream = ExtResource("24_ecbd5")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="Radio" parent="." unique_id=126687277 instance=ExtResource("45_tedtd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4666313, -5.20465)
 
 [editable path="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
 [editable path="Key"]

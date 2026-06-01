@@ -39,6 +39,12 @@ extends MeshInstance3D
 		if _text_2d: _text_2d.add_theme_font_size_override("normal_font_size", font_size)
 		_queue_render()
 
+@export var theme : Theme:
+	set(t):
+		theme = t
+		if _text_2d: _text_2d.theme = theme
+		_queue_render()
+
 @export_subgroup("Outline")
 
 ## The size of the outline for the text.

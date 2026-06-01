@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bhmwlpjn4clp7"]
+
+[ext_resource type="Script" uid="uid://lm30h4hoybbd" path="res://interactable/furniture/machine_can_opener/machine_can_opener.gd" id="1_0p2vd"]
+[ext_resource type="PackedScene" uid="uid://kvx8h7xgpdil" path="res://interactable/items/item-colectable/food_can/food_can.glb" id="1_4qeoq"]
+[ext_resource type="PackedScene" uid="uid://cdf15qqq2is45" path="res://interactable/furniture/machine_can_opener/assets/machine_can_opener.glb" id="2_soqcc"]
+[ext_resource type="Resource" uid="uid://dibc2oux5fyei" path="res://interactable/items/item-resources/generic/food_can/food_can_opened.tres" id="2_usple"]
+[ext_resource type="Animation" uid="uid://d10fn7lcg48nx" path="res://interactable/furniture/machine_can_opener/assets/anim_open_can.res" id="3_soqcc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0p2vd"]
+size = Vector3(0.2729988, 0.51956177, 0.2434082)
+
+[sub_resource type="Animation" id="Animation_usple"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FoodCan/food_can:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FoodCan:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lever:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4lpb"]
+_data = {
+&"RESET": SubResource("Animation_usple"),
+&"open_can": ExtResource("3_soqcc")
+}
+
+[node name="MachineCanOpener" type="StaticBody3D" unique_id=1648045875 node_paths=PackedStringArray("animation_player", "indicator_last_pose_references")]
+script = ExtResource("1_0p2vd")
+animation_player = NodePath("AnimationPlayer")
+food_can_opened = ExtResource("2_usple")
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=722943317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038827896, 0.27256775, -0.12585449)
+shape = SubResource("BoxShape3D_0p2vd")
+
+[node name="FoodCan" type="Marker3D" parent="." unique_id=830193754]
+transform = Transform3D(-0.4098556, -0.0012385391, 0.91214955, -0.0008935688, 0.99999917, 0.0009563167, -0.9121499, -0.0004231165, -0.40985644, -0.06226407, 0.36740366, 0.038510535)
+visible = false
+
+[node name="food_can" parent="FoodCan" unique_id=682165454 instance=ExtResource("1_4qeoq")]
+
+[node name="machine_can_opener" parent="." unique_id=998684575 instance=ExtResource("2_soqcc")]
+
+[node name="Lever" parent="machine_can_opener" index="1" unique_id=538909934]
+transform = Transform3D(0.11720892, 0, 0, 0, -5.123365e-09, -0.11720892, 0, 0.11720893, -5.123365e-09, -0.17478675, 0.48767063, -0.013618125)
+
+[node name="Cortadora" parent="machine_can_opener/Lever" index="0" unique_id=373367091]
+transform = Transform3D(18.056787, 0.5939024, -4.628218, -1.3884727, 18.344225, -3.0631027, 4.4547997, 3.310247, 17.805004, 0.77488, 0.06764951, 0.124815464)
+
+[node name="Perilla" parent="machine_can_opener" index="2" unique_id=1858467149]
+transform = Transform3D(-1.5588751, 0.077663004, 1.245288, 1.2318276, -0.22113283, 1.5558171, 0.1984278, 1.9829102, 0.12473053, -0.10055062, 0.43090135, -0.0127658555)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1644803193]
+pitch_scale = 1.2
+max_distance = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=301986937]
+root_node = NodePath("../machine_can_opener")
+libraries/ = SubResource("AnimationLibrary_h4lpb")
+
+[node name="InteractionIndicator" type="Marker3D" parent="." unique_id=555281151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38246164, 0.061641797)
+
+[editable path="machine_can_opener"]

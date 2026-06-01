@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d0o1m3gstq628"]
+
+[ext_resource type="Script" uid="uid://dpy4xbf72h07w" path="res://interactable/furniture/radio/radio.gd" id="1_l1ti7"]
+[ext_resource type="PackedScene" uid="uid://4mhiri1m8tlv" path="res://interactable/furniture/radio/assets/radio.glb" id="2_xhm6h"]
+[ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="3_xhm6h"]
+[ext_resource type="PackedScene" uid="uid://dkjcu77d07t4i" path="res://shared/dialogue_system/scenes/dialogue_target_3d.tscn" id="4_pjcup"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1ti7"]
+size = Vector3(0.31822205, 0.27116394, 0.11791992)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjcup"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tudrb"]
+size = Vector2(2.495, 0.5)
+orientation = 2
+
+[node name="Radio" type="StaticBody3D" unique_id=126687277 node_paths=PackedStringArray("dialogue_reader", "indicator_last_pose_references")]
+script = ExtResource("1_l1ti7")
+dialogue_reader = NodePath("DialogueReader")
+indicator_last_pose_references = [NodePath("InteractableIndicator")]
+
+[node name="radio" parent="." unique_id=690143020 instance=ExtResource("2_xhm6h")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=769614509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021743774, 0.023384094, 0.01550293)
+shape = SubResource("BoxShape3D_l1ti7")
+
+[node name="DialogueReader" parent="." unique_id=1237833211 node_paths=PackedStringArray("dialogue_targets") instance=ExtResource("3_xhm6h")]
+dialogue_file = "res://DIALOGUES/Chapter1/radio_lena_first_flashback.json"
+dialogue_targets = [NodePath("DialogueTarget3D")]
+default_wait_time = 0.03
+
+[node name="DialogueTarget3D" parent="DialogueReader" unique_id=670382269 instance=ExtResource("4_pjcup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.68540174)
+target_id = "radio"
+
+[node name="PhantomCamera3D" parent="DialogueReader/DialogueTarget3D" index="0" unique_id=1026565953]
+transform = Transform3D(1, 0, 0, 0, 0.9894273, 0.14502972, 0, -0.14502972, 0.9894273, 0.2299192, 0.15825981, -0.13502991)
+
+[node name="Label" parent="DialogueReader/DialogueTarget3D" index="1" unique_id=757227980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.430917, -0.02948019, -0.9492351)
+material_override = SubResource("StandardMaterial3D_pjcup")
+mesh = SubResource("PlaneMesh_tudrb")
+
+[node name="InteractableIndicator" type="Marker3D" parent="." unique_id=1645060311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11472458)
+
+[connection signal="dialogue_finished" from="DialogueReader" to="." method="_on_dialogue_reader_dialogue_finished"]
+
+[editable path="DialogueReader/DialogueTarget3D"]

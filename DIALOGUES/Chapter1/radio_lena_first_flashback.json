@@ -1,0 +1,155 @@
+[
+    {
+        "ID": "0",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "[color=dark_red][b]ALERTA. ALERTA.[/b][/color]"
+        }
+    },
+    {
+        "ID": "1",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Se informa a la población de los sectores de"
+        }
+    },
+    {
+        "ID": "2",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Lugar 1"
+        }
+    },
+    {
+        "ID": "3",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Lugar 2"
+        }
+    },
+    {
+        "ID": "4",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Lugar 3"
+        }
+    },
+    {
+        "ID": "5",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Sobre una incidencia atmosférica derivada de actividad hostil."
+        }
+    },
+    {
+        "ID": "6",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "b]MANTENGAN LA CALMA.[/b]"
+        }
+    },
+    {
+        "ID": "7",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "La evacuación [b]no es necesaria[/b] en este momento."
+        }
+    },
+    {
+        "ID": "8",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": ". . ."
+        }
+    },
+    {
+        "ID": "9",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "[b]PROTOCOLOS DE SEGURIDAD INMEDIATA:[/b]"
+        }
+    },
+    {
+        "ID": "10",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "[b]PERMANEZCAN[/b] dentro de sus viviendas."
+        }
+    },
+    {
+        "ID": "11",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "[b]SELLEN[/b] todos los puntos de acceso."
+        }
+    },
+    {
+        "ID": "12",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "[b]TAPEEN[/b] puertas y ventanas con tablones y materiales aislantes"
+        }
+    },
+    {
+        "ID": "13",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Esto impedirá la filtración del gas."
+        }
+    },
+    {
+        "ID": "14",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Evite la exposición directa."
+        }
+    },
+    {
+        "ID": "15",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "Repetimos: la situación está bajo observación."
+        }
+    },
+    {
+        "ID": "16",
+        "CHARACTER": "Radio",
+        "PITCH-RANGE": "1.0-1.0",
+        "TARGET": "radio",
+        "text": {
+            "ES": "No cedan al pánico."
+        }
+    }
+]

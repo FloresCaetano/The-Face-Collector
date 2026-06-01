@@ -38,7 +38,7 @@
 [ext_resource type="Script" uid="uid://cfoqm7b0ufnid" path="res://main-scenes/Flashbacks/scripts/trg_sit_on_table.gd" id="34_2bu0v"]
 [ext_resource type="PackedScene" uid="uid://cckf8w5tril3j" path="res://scripted-events/Chapter1/AliceFlashback/assets/alice_on_table.glb" id="36_s4nm1"]
 [ext_resource type="Animation" uid="uid://bt5o8bf0qnhg0" path="res://scripted-events/Chapter1/AliceFlashback/assets/animations/eat.res" id="37_2bu0v"]
-[ext_resource type="Animation" uid="uid://blnv68jid6tdv" path="res://scripted-events/Chapter1/AliceFlashback/assets/animations/sleep.res" id="38_14jw5"]
+[ext_resource type="Animation" uid="uid://cnjs3cejedki" path="res://scripted-events/Chapter1/AliceFlashback/assets/animations/sleep.res" id="38_14jw5"]
 [ext_resource type="Script" uid="uid://clylx8gii6831" path="res://main-scenes/Flashbacks/alice_1/scripts/on_try_to_leave_kitchen.gd" id="39_2bu0v"]
 
 [sub_resource type="Resource" id="Resource_144cg"]

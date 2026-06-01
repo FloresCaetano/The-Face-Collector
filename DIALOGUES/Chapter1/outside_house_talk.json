@@ -2,7 +2,7 @@
     {
         "ID": "0",
         "CHARACTER": "Harry",
-        "PITCH-RANGE": "1.0-1.1",
+        "PITCH-RANGE": "0.6-0.7",
         "TARGET": "internal_voice",
         "GAME_EVENT": "camera_looks_to_transom",
         "text": {
@@ -12,7 +12,7 @@
     {
         "ID": "1",
         "CHARACTER": "Harry",
-        "PITCH-RANGE": "1.0-1.1",
+        "PITCH-RANGE": "0.6-0.7",
         "TARGET": "internal_voice",
         "text": {
             "ES": "Quiza consiga entrar por la abertura."

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dj2vhilqexp4t" path="res://shared/dialogue_system/scripts/dialogue_target_3d.gd" id="1_oc7ik"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_a4u0r"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_gjggi"]
+[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="3_w51en"]
 [ext_resource type="Script" uid="uid://cofw7sywoopgu" path="res://addons/rich_text_3d/rich_text_3d.gd" id="4_a4u0r"]
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="4_w51en"]
 
@@ -17,8 +18,20 @@ alpha_antialiasing_mode = 0
 shading_mode = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gjggi"]
-size = Vector2(0.7, 0.5)
+size = Vector2(2.495, 0.5)
 orientation = 2
+
+[sub_resource type="Theme" id="Theme_gjggi"]
+RichTextLabel/font_sizes/bold_font_size = 8
+RichTextLabel/font_sizes/bold_italics_font_size = 8
+RichTextLabel/font_sizes/italics_font_size = 8
+RichTextLabel/font_sizes/mono_font_size = 8
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/bold_font = ExtResource("3_w51en")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3_w51en")
+RichTextLabel/fonts/italics_font = ExtResource("3_w51en")
+RichTextLabel/fonts/mono_font = ExtResource("3_w51en")
+RichTextLabel/fonts/normal_font = ExtResource("3_w51en")
 
 [node name="DialogueTarget3D" type="Node3D" unique_id=670382269]
 script = ExtResource("1_oc7ik")
@@ -28,16 +41,20 @@ script = ExtResource("2_a4u0r")
 tween_resource = SubResource("Resource_awyo3")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="RichText3D" type="MeshInstance3D" parent="PhantomCamera3D" unique_id=757227980]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5730654)
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera3D" unique_id=486556955]
+
+[node name="Label" type="MeshInstance3D" parent="." unique_id=757227980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84263104, 0, -0.9492351)
 material_override = SubResource("StandardMaterial3D_a4u0r")
 mesh = SubResource("PlaneMesh_gjggi")
 script = ExtResource("4_a4u0r")
-font_size = 43
+horizontal_alignment = 0
+font = ExtResource("3_w51en")
+font_size = 8
+theme = SubResource("Theme_gjggi")
+size = Vector2(2.495, 0.5)
 metadata/_custom_type_script = "uid://cofw7sywoopgu"
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1474349628]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1474349628]
 stream = ExtResource("4_w51en")
 max_polyphony = 40
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=486556955]

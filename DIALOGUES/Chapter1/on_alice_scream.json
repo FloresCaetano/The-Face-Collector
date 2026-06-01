@@ -2,7 +2,7 @@
     {
         "ID": "0",
         "CHARACTER": "Harry",
-        "PITCH-RANGE": "1.0-1.1",
+        "PITCH-RANGE": "0.6-0.7",
         "TARGET": "internal_voice",
         "text": {
             "ES": "¡¿Alice?! … ¡Cariño! ¿Donde estas?"
