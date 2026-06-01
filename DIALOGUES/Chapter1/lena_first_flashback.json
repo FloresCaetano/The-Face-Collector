@@ -1,0 +1,120 @@
+[
+    {
+        "ID": "0",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.7-2.0",
+        "TARGET": "alice",
+        "text": {
+            "ES": "¿Otra vez esta horrible sopa de tomate?"
+        }
+    },
+    {
+        "ID": "1",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Lo sé, cariño, no es el mejor plato."
+        }
+    },
+    {
+        "ID": "2",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": " ¡pero prometo que en cuanto podamos salir iremos a comer lo que tú quieras!"
+        }
+    },
+    {
+        "ID": "3",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.7-2.0",
+        "TARGET": "alice",
+        "text": {
+            "ES": "¡¿Podemos ir a comer helado?!"
+        }
+    },
+    {
+        "ID": "4",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "¿Tienes ganas de helado con el frío que hace?"
+        }
+    },
+    {
+        "ID": "5",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.7-2.0",
+        "TARGET": "alice",
+        "text": {
+            "ES": "Siempre tengo ganas de helado…"
+        }
+    },
+    {
+        "ID": "6",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Jajajaja."
+        }
+    },
+    {
+        "ID": "7",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Está bien, cariño, iremos por helado entonces."
+        }
+    },
+    {
+        "ID": "8",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.7-2.0",
+        "TARGET": "alice",
+        "text": {
+            "ES": "¿Crees que papá regrese para entonces?"
+        }
+    },
+    {
+        "ID": "9",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.7-2.0",
+        "TARGET": "alice",
+        "text": {
+            "ES": "Así podremos ir todos juntos."
+        }
+    },
+    {
+        "ID": "10",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "GAME_EVENT": "flashback_ends",
+        "text": {
+            "ES": "Sin duda, papá va a estar aquí pronto. . ."
+        }
+    },
+    {
+        "ID": "11",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Las cosas estan en calma por ahora."
+        }
+    },
+    {
+        "ID": "12",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Los avisos insisten en que la zona es segura."
+        }
+    }
+]

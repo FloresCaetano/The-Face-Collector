@@ -66,9 +66,9 @@ func send_line():
 	var line_data : Dictionary = dialogue_data[line_id]
 	
 	var new_target : DialogueTarget = targets[line_data.TARGET]
-	if new_target.is_selected == true:
-		return
-	if actual_target != new_target:
+	
+	if actual_target != new_target: #This occours on target change
+		if new_target.is_selected == true: return
 		if actual_target: await actual_target.deselect()
 		await new_target.select()
 	

@@ -31,6 +31,10 @@
 [ext_resource type="Animation" uid="uid://civt04kc2q2w1" path="res://scripted-events/Chapter1/LenaFlashback/assets/animations/alice_play.res" id="29_i5k6s"]
 [ext_resource type="Animation" uid="uid://c240hkqkyjnxn" path="res://scripted-events/Chapter1/LenaFlashback/assets/animations/rest.res" id="30_wg434"]
 [ext_resource type="Script" uid="uid://b6e2va4lwueor" path="res://scripted-events/Chapter1/LenaFlashback/scripts/alice_animation_tree.gd" id="31_i5k6s"]
+[ext_resource type="Script" uid="uid://ctec84i3vdmja" path="res://scripted-events/Chapter1/LenaFlashback/scripts/talk_to_alice_ib.gd" id="32_78s20"]
+[ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="33_q4eq5"]
+[ext_resource type="PackedScene" uid="uid://dkjcu77d07t4i" path="res://shared/dialogue_system/scenes/dialogue_target_3d.tscn" id="34_vif1m"]
+[ext_resource type="Script" uid="uid://bvcvno6ni2vrg" path="res://scripted-events/Chapter1/LenaFlashback/scripts/lena_first_flashback_det.gd" id="35_q4eq5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cx67m"]
 
@@ -76,6 +80,10 @@ texture = ExtResource("22_8be3j")
 tag = "first_tape"
 model = ExtResource("20_6f7mq")
 metadata/_custom_type_script = "uid://dpke4ypjay435"
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q4eq5"]
+stream_count = 1
+stream_0/volume = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu3dg"]
 
@@ -449,6 +457,24 @@ states/play/position = Vector2(490, 43)
 transitions = ["Start", "play", SubResource("AnimationNodeStateMachineTransition_78s20"), "Start", "draw", SubResource("AnimationNodeStateMachineTransition_q4eq5"), "play", "draw", SubResource("AnimationNodeStateMachineTransition_i5k6s"), "draw", "play", SubResource("AnimationNodeStateMachineTransition_wg434"), "play", "End", SubResource("AnimationNodeStateMachineTransition_7dcgm"), "draw", "End", SubResource("AnimationNodeStateMachineTransition_vif1m")]
 graph_offset = Vector2(5, -16)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5k6s"]
+size = Vector3(0.6647949, 1, 0.47253418)
+
+[sub_resource type="Resource" id="Resource_78s20"]
+script = ExtResource("14_mrip5")
+duration = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4eq5"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mrip5"]
+size = Vector2(2.495, 0.5)
+orientation = 2
+
 [node name="LenaFirstFlashback" type="Node3D" unique_id=252609894]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1613281302]
@@ -794,6 +820,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6
 
 [node name="Lena" parent="." unique_id=443950597 instance=ExtResource("27_661wp")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 16.011889, 1.6753258, -5.364784)
+
+[node name="PlayerRealCamera" parent="Lena" index="0" unique_id=1153064012]
+transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 16.011889, 1.4431475, -5.364784)
+
+[node name="Background" parent="Lena/AudioController" parent_id_path=PackedInt32Array(443950597, 574176879) index="2" unique_id=824644454]
+stream = SubResource("AudioStreamSynchronized_q4eq5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lena" unique_id=60892071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46794003, -0.0067448616)
@@ -1227,9 +1259,49 @@ tree_root = SubResource("AnimationNodeStateMachine_vif1m")
 anim_player = NodePath("../AnimationPlayer")
 script = ExtResource("31_i5k6s")
 
+[node name="InteractionTrigger" parent="FlashbackManager/alice_drawing" unique_id=1827254612 node_paths=PackedStringArray("event_behavior") instance=ExtResource("16_03rfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1448709, 0.08559036)
+event_behavior = NodePath("EventBehavior")
+indicator_size = Vector3(0.8, 0.8, 0.8)
+
+[node name="Marker3D" parent="FlashbackManager/alice_drawing/InteractionTrigger" index="0" unique_id=1467441792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06400561, 0.2594452, -0.3135929)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlashbackManager/alice_drawing/InteractionTrigger" unique_id=479809941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02331543, 0, -0.13575363)
+shape = SubResource("BoxShape3D_i5k6s")
+
+[node name="EventBehavior" type="Node" parent="FlashbackManager/alice_drawing/InteractionTrigger" unique_id=1889454431 node_paths=PackedStringArray("dialogue_reader")]
+script = ExtResource("32_78s20")
+dialogue_reader = NodePath("../DialogueReader")
+
+[node name="DialogueReader" parent="FlashbackManager/alice_drawing/InteractionTrigger" unique_id=1237833211 node_paths=PackedStringArray("dialogue_targets", "event_trigger") instance=ExtResource("33_q4eq5")]
+dialogue_file = "res://DIALOGUES/Chapter1/lena_first_flashback.json"
+dialogue_targets = [NodePath("DialogueTarget3D")]
+event_trigger = NodePath("EventTrigger")
+default_wait_time = 0.03
+
+[node name="DialogueTarget3D" parent="FlashbackManager/alice_drawing/InteractionTrigger/DialogueReader" unique_id=670382269 instance=ExtResource("34_vif1m")]
+transform = Transform3D(0.9643637, -0.09066958, 0.24855904, 7.0365798e-09, 0.93944776, 0.34269252, -0.26458004, -0.3304802, 0.90596926, 0.28205633, 0.26073205, 0.24918747)
+target_id = "alice"
+
+[node name="PhantomCamera3D" parent="FlashbackManager/alice_drawing/InteractionTrigger/DialogueReader/DialogueTarget3D" index="0" unique_id=1026565953]
+tween_resource = SubResource("Resource_78s20")
+
+[node name="Label" parent="FlashbackManager/alice_drawing/InteractionTrigger/DialogueReader/DialogueTarget3D" index="1" unique_id=757227980]
+transform = Transform3D(1, 0, 0, -6.7055225e-08, 1, 1.1175871e-08, 1.4901161e-08, 1.1175871e-08, 1, 1.2477901, 0.01965332, -0.5106487)
+material_override = SubResource("StandardMaterial3D_q4eq5")
+mesh = SubResource("PlaneMesh_mrip5")
+
+[node name="EventTrigger" type="Node" parent="FlashbackManager/alice_drawing/InteractionTrigger/DialogueReader" unique_id=791195955]
+script = ExtResource("35_q4eq5")
+
 [connection signal="animation_finished" from="FlashbackManager/alice_drawing/AnimationTree" to="FlashbackManager/alice_drawing/AnimationTree" method="_on_animation_finished"]
 
 [editable path="FullHouse/furniture"]
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
+[editable path="Lena"]
+[editable path="FlashbackManager/alice_drawing/InteractionTrigger"]
+[editable path="FlashbackManager/alice_drawing/InteractionTrigger/DialogueReader/DialogueTarget3D"]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6xmli380uupx" path="res://scenery/props/postItOnFridge.glb" id="3_hv77v"]
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
-[ext_resource type="Environment" uid="uid://xcutn6hsofwm" path="res://VFX/enviroments/develop.tres" id="4_djj5j"]
+[ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="4_iu47m"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://cqpp7labx0ak5" path="res://scenery/props/safePassHint.glb" id="4_tiq5w"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="4_uvaer"]
@@ -888,7 +888,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_iu47m"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x0ijl"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_x0ijl"]
@@ -898,12 +898,21 @@ seed = 14
 [sub_resource type="BoxShape3D" id="BoxShape3D_x0ijl"]
 size = Vector3(1.2255325, 2.2322693, 0.09692383)
 
-[sub_resource type="Resource" id="Resource_stnvs"]
+[sub_resource type="Resource" id="Resource_fkfrk"]
+script = ExtResource("61_ummc1")
+flashback = "uid://brhm110k5epdl"
+name = "First Tape"
+texture = ExtResource("62_wnqli")
+tag = "first_tape"
+model = ExtResource("61_wnqli")
+metadata/_custom_type_script = "uid://dpke4ypjay435"
+
+[sub_resource type="Resource" id="Resource_c6jh8"]
 script = ExtResource("61_ummc1")
 flashback = "uid://bc4gf7yh5vkag"
-name = "Tape"
+name = "First Tape"
 texture = ExtResource("62_wnqli")
-tag = "tape"
+tag = "first_tape"
 model = ExtResource("61_wnqli")
 metadata/_custom_type_script = "uid://dpke4ypjay435"
 
@@ -917,7 +926,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("4_djj5j")
+environment = ExtResource("4_iu47m")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=351684603]
 transform = Transform3D(1, 0, 0, 0, -0.97553456, -0.2198461, 0, 0.2198461, -0.97553456, 98.352, 74.274, -68.869)
@@ -1275,6 +1284,7 @@ size = Vector3(2.3916016, 2, 2.946167)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FullHouse/Lights/StudyLights" unique_id=935108589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5609684, -1.668455, -2.4705067)
+layers = 3
 light_energy = 0.085
 light_specular = 0.0
 shadow_enabled = true
@@ -1284,6 +1294,7 @@ omni_attenuation = 1.04
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="FullHouse/Lights/StudyLights" unique_id=539279272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010932922, -1.3199921, -2.2242775)
+layers = 3
 light_color = Color(0.9999998, 0.853063, 0.6434916, 1)
 light_energy = 0.1
 light_volumetric_fog_energy = 0.0
@@ -1422,7 +1433,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 25.37048, 1.6753258, 3.331271)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -0.37231636, 1.6753258, -1.1010761)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -1929,7 +1940,7 @@ mesh = SubResource("ArrayMesh_bp2wh")
 
 [node name="CircularProgressBar" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_iu47m")
+texture = SubResource("ViewportTexture_x0ijl")
 
 [node name="CollectorAppearance" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=203090192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.740726, 1.4685307, -11.844575)
@@ -2261,21 +2272,28 @@ indicator_last_pose_references = [NodePath("Marker3D")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.119363785)
 
 [node name="BasementTape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.218716, -3.088102, -15.733387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.218716, 0.38976443, -15.733387)
+tape_item = SubResource("Resource_fkfrk")
 
 [node name="OnTapePickUp" type="Node" parent="Chapter1/Interactables/BasementTape" unique_id=1222559119 node_paths=PackedStringArray("on_player_leaves_bedroom", "collector_appearance")]
 script = ExtResource("67_ykmb4")
 on_player_leaves_bedroom = NodePath("../../../ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom")
 collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 
-[node name="Tape" parent="Chapter1" unique_id=217183959 instance=ExtResource("60_bp2wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.024009, 0.55135286, -16.603603)
-tape_item = SubResource("Resource_stnvs")
+[node name="BasementTape2" parent="Chapter1/Interactables" unique_id=1504366272 instance=ExtResource("60_bp2wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.218716, 0.38976443, -15.733387)
+tape_item = SubResource("Resource_c6jh8")
+
+[node name="OnTapePickUp" type="Node" parent="Chapter1/Interactables/BasementTape2" unique_id=637549701 node_paths=PackedStringArray("on_player_leaves_bedroom", "collector_appearance")]
+script = ExtResource("67_ykmb4")
+on_player_leaves_bedroom = NodePath("../../../ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom")
+collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/AliceFlashback/Trigger" to="Chapter1/ScriptedEvents/AliceFlashback/Trigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_body_entered"]
 [connection signal="interacted" from="Chapter1/Interactables/BasementTape" to="Chapter1/Interactables/BasementTape/OnTapePickUp" method="_on_tape_interacted"]
+[connection signal="interacted" from="Chapter1/Interactables/BasementTape2" to="Chapter1/Interactables/BasementTape2/OnTapePickUp" method="_on_tape_interacted"]
 
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
