@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bc4gf7yh5vkag"]
+[gd_scene format=4 uid="uid://bc4gf7yh5vkag"]
 
 [ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="1_1ikpx"]
 [ext_resource type="PackedScene" uid="uid://y2ai33toan7w" path="res://scenery/house/scenes/house.tscn" id="1_fxjj7"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="23_skvyh"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="24_2gcmw"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="25_0kdhh"]
+[ext_resource type="Texture2D" uid="uid://ttf4jedvhxy7" path="res://interactable/furniture/plank/assets/plank_Wood_02.jpg" id="26_0vupu"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="26_6c3yg"]
 [ext_resource type="PackedScene" uid="uid://dloessbb2ugf5" path="res://interactable/items/item-colectable/food_can/food_can.tscn" id="27_34iov"]
 [ext_resource type="PackedScene" uid="uid://dutc6yap62506" path="res://interactable/items/item-colectable/crowbar/assets/Crowbar.glb" id="28_ofe2g"]
@@ -61,6 +62,43 @@ texture = ExtResource("22_mui2l")
 tag = "first_tape"
 model = ExtResource("20_c8m2v")
 metadata/_custom_type_script = "uid://dpke4ypjay435"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftw0a"]
+resource_name = "Wood_02"
+cull_mode = 2
+albedo_texture = ExtResource("26_0vupu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tjfpv"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qn7dg"]
+resource_name = "plank_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("VFWqqgAA//8AAKqqVFX//1RVVFUAAKmqAABVVVRVqaqpqqqqVVX//1VVqqqpqv7/qapUVVVVqapVVVVVqqqpqlRVVFUAAAAAVFUAAAAAVVWqqlRVVVUAAKmqAABVVVRV"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_ftw0a"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWpqlRVqapUVamqVFWqqv+//z//v/8//7//P/8//7+qqlVVqqpVVaqqVVWqqlVV/3//f/9//3//f/9//3//f1VVVFVVVVRVVFVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tjfpv")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4nlmj"]
 radius = 0.1
@@ -372,6 +410,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6343813, -1.9073486e-06, -
 
 [node name="CeilingLamp3" parent="FullHouse/Lights/CorridorLights" unique_id=314581895 instance=ExtResource("24_2gcmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.877857, -1.66893e-06, -1.6358156)
+
+[node name="Planks" type="Node3D" parent="FullHouse" unique_id=1123283142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.835947, 2.0823631, -5.204121)
+
+[node name="Cube" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1087371523]
+transform = Transform3D(0.9988509, 0.006853394, 0, -0.04792583, 0.14283568, 0, 0, 0, 0.016, 1.0017568, 0.37480858, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube2" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1879801030]
+transform = Transform3D(0.99985784, 0.002410849, 0, -0.016859083, 0.14297967, 0, 0, 0, 0.016, 0.9861644, 0.050452422, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube3" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1139831864]
+transform = Transform3D(0.9987751, -0.0070752576, 0, 0.049477328, 0.14282486, 0, 0, 0, 0.016, 0.9844485, -0.33587343, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube4" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1418442283]
+transform = Transform3D(0.9999847, -0.00079117063, 0, 0.0055326633, 0.14299782, 0, 0, 0, 0.016, 0.97515893, -0.7084387, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube5" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1191403767]
+transform = Transform3D(0.9988509, 0.006853394, 0, -0.04792583, 0.14283568, 0, 0, 0, 0.016, 4.853594, 0.37480855, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube6" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=2144332431]
+transform = Transform3D(0.99985784, 0.002410849, 0, -0.016859083, 0.14297967, 0, 0, 0, 0.016, 4.8380013, 0.05045247, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube7" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1925489214]
+transform = Transform3D(0.9987751, -0.0070752576, 0, 0.049477328, 0.14282486, 0, 0, 0, 0.016, 4.8362865, -0.33587337, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube8" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=514015306]
+transform = Transform3D(0.9999847, -0.00079117063, 0, 0.0055326633, 0.14299782, 0, 0, 0, 0.016, 4.826996, -0.70843863, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube9" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1375593662]
+transform = Transform3D(0.9988509, 0.006853394, 0, -0.04792583, 0.14283568, 0, 0, 0, 0.016, -4.4056053, 0.31892538, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube10" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1361897851]
+transform = Transform3D(0.9897563, -0.020415701, 0, 0.1427671, 0.14153515, 0, 0, 0, 0.016000003, -4.421198, -0.16772437, 4.005294)
+mesh = SubResource("ArrayMesh_qn7dg")
+
+[node name="Cube12" type="MeshInstance3D" parent="FullHouse/Planks" unique_id=1493299199]
+transform = Transform3D(0.99830335, -0.00078983995, -0.0009274366, 0.057963893, -4.5866276e-05, 0.015973097, -0.005532664, -0.1429978, -6.989294e-10, -4.479351, -1.0404401, 3.9005892)
+mesh = SubResource("ArrayMesh_qn7dg")
 
 [node name="Player" parent="." unique_id=686971766 instance=ExtResource("26_6c3yg")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 10.575183, 1.8573427, -10.193777)
