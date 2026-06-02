@@ -31,6 +31,3 @@ func bark_dialogue(file_name : String, limits : Array[int], targets : Array[Dial
 	remove_child(temp_diag_reader)
 	temp_diag_reader.queue_free()
 	temp_diag_reader = null
-
-func _on_dialogue_line_send(line): #All Dialogue readears are connected to this
-	pass

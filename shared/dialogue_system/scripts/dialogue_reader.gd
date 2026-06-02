@@ -21,13 +21,10 @@ signal dialogue_finished
 signal line_sended(line : int)
 
 func start():
-	reset_values()
 	dialogue_loader.dialogue_file = dialogue_file
 	dialogue_data = dialogue_loader.load_and_process_dialogue()
 	load_targets()
 	send_line()
-	
-	line_sended.connect(GAMEMANAGER._on_dialogue_line_send)
 
 func load_targets():
 	var loaded_ids := {}
@@ -81,7 +78,7 @@ func send_line():
 		await get_tree().create_timer(get_wait_time(token)).timeout
 	await get_tree().create_timer(2.0).timeout
 	
-	line_sended.emit(line_data.text)
+	line_sended.emit(current_line)
 	
 	if line_data.has("GAME_EVENT"):
 		var event_name = line_data["GAME_EVENT"]
@@ -127,8 +124,8 @@ func end_dialogue():
 	actual_target.deselect()
 	dialogue_finished.emit()
 	
-	line_sended.disconnect(GAMEMANAGER._on_dialogue_line_send)
 	actual_target.deselect()
+	reset_values()
 
 func reset_values():
 	dialogue_data = {}

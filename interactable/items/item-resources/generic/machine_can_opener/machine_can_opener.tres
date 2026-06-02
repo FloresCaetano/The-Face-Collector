@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bvh7qu0sidao"]
+
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_j8d3d"]
+[ext_resource type="PackedScene" uid="uid://cdf15qqq2is45" path="res://interactable/furniture/machine_can_opener/assets/machine_can_opener.glb" id="1_w7nhp"]
+[ext_resource type="Texture2D" uid="uid://bj5ach1x8g584" path="res://interactable/items/item-resources/generic/machine_can_opener/icon/icon_machine_can_opener.png" id="3_24ajm"]
+
+[resource]
+script = ExtResource("1_j8d3d")
+name = "Machine Can Opener"
+texture = ExtResource("3_24ajm")
+tag = "machine_can_opener"
+model = ExtResource("1_w7nhp")
+metadata/_custom_type_script = "uid://c5effmi27pymr"

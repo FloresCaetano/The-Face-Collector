@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djcgd7utw5l2j"]
 
 [ext_resource type="Script" uid="uid://dmm4xa6veadqa" path="res://shared/IconRenderManager/render_viewport.gd" id="1_qx17m"]
-[ext_resource type="PackedScene" uid="uid://cph47cg2licm0" path="res://main-scenes/Flashbacks/alice_1/assets/bowl.glb" id="2_qx17m"]
+[ext_resource type="PackedScene" uid="uid://cdf15qqq2is45" path="res://interactable/furniture/machine_can_opener/assets/machine_can_opener.glb" id="2_qx17m"]
 
 [node name="IconRenderManager" type="Node3D" unique_id=2001310707]
 
@@ -9,7 +9,7 @@
 transparent_bg = true
 size = Vector2i(1920, 1080)
 script = ExtResource("1_qx17m")
-path = "res://interactable/items/item-resources/generic/bowl/icon/icon_bowl"
+path = "res://interactable/items/item-resources/generic/machine_can_opener/icon/icon_machine_can_opener"
 
 [node name="RenderCamera" type="Camera3D" parent="SubViewport" unique_id=161989113]
 
@@ -25,5 +25,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1822293, 0.28189462, -0.719
 [node name="ItemContainer" type="Node3D" parent="." unique_id=1600958269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.383393e-05, -0.17351781, -0.99945617)
 
-[node name="bowl" parent="ItemContainer" unique_id=1116476245 instance=ExtResource("2_qx17m")]
-transform = Transform3D(2.1629393, 0.044335004, 0.08338201, 0, 1.9115814, -1.0164059, -0.09443597, 1.0154386, 1.909762, -0.025, -0.025, 0)
+[node name="machine_can_opener" parent="ItemContainer" unique_id=1592213191 instance=ExtResource("2_qx17m")]
+transform = Transform3D(0.94474316, 0, -0.32781154, 0, 1, 0, 0.32781154, 0, 0.94474316, -0.029641628, -0.11509837, 0.58633804)

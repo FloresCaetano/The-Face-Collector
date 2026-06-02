@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dp6dmm3yylim2"]
+
+[ext_resource type="PackedScene" uid="uid://c0mfijuikpbq4" path="res://scenery/undestroyed_house/undestroyed_house.glb" id="1_igelx"]
+
+[node name="UndestroyedHouse" unique_id=1969242849 instance=ExtResource("1_igelx")]
+
+[node name="StaticBody3D" parent="1st_floor" parent_id_path=PackedInt32Array(101472825) index="0" unique_id=978898052]
+metadata/material = "wood"
+
+[node name="Tablas" parent="." index="79" unique_id=176718440]
+visible = false

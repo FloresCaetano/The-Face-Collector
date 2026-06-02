@@ -175,7 +175,7 @@ resource_name = "Wood_02"
 cull_mode = 2
 albedo_texture = ExtResource("37_iu47m")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_tjfpv"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_djj5j"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -205,7 +205,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWpqlRVqapUVamqVFWqqv+//z//v/8//7//P/8//7+qqlVVqqpVVaqqVVWqqlVV/3//f/9//3//f/9//3//f1VVVFVVVVRVVFVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_tjfpv")
+shadow_mesh = SubResource("ArrayMesh_djj5j")
 
 [sub_resource type="Animation" id="Animation_w01sd"]
 length = 0.001
@@ -1244,6 +1244,21 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.42
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.4083958, -1.1515336, 1.1871266)
 lamp = NodePath("..")
 
+[node name="CeilingLamp5" parent="FullHouse/Lights/HallLights" unique_id=1559174938 instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, -0.42489475, -0.9052428, 0, 0.9052428, -0.42489475, 0.5248318, -7.1185465, 3.0052276)
+
+[node name="Models" parent="FullHouse/Lights/HallLights/CeilingLamp5" index="0" unique_id=716749397]
+visible = false
+
+[node name="CeilingLamp4" parent="FullHouse/Lights/HallLights" unique_id=1052496859 instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.6869793, 2.3146925, 4.14369)
+
+[node name="Models" parent="FullHouse/Lights/HallLights/CeilingLamp4" index="0" unique_id=716749397]
+visible = false
+
+[node name="Lights" parent="FullHouse/Lights/HallLights/CeilingLamp4" index="1" unique_id=691383771]
+random_blink = true
+
 [node name="StudyLights" type="Node3D" parent="FullHouse/Lights" unique_id=1341014899]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.970766, 0.16120791, -8.219727)
 
@@ -1431,7 +1446,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 26.156578, 1.6753258, 3.338296)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 25.801826, 1.6753258, -0.9863014)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -2295,6 +2310,8 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
+[editable path="FullHouse/Lights/HallLights/CeilingLamp5"]
+[editable path="FullHouse/Lights/HallLights/CeilingLamp4"]
 [editable path="FullHouse/Lights/StudyLights/CeilingLamp"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]
 [editable path="FullHouse/Lights/CorridorLights/CeilingLamp5"]

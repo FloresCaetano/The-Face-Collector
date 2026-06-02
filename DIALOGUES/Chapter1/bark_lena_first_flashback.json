@@ -7,5 +7,23 @@
         "text": {
             "ES": "No tengo ninguna lata para abrir."
         }
+    },
+    {
+        "ID": "1",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Alice esta esperando que le sirva la comida."
+        }
+    },
+    {
+        "ID": "2",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Tengo que tomar y abrir [color=dark_red]dos[/color] latas de comida."
+        }
     }
 ]

@@ -1,3 +1,4 @@
+class_name MachineCanOpener
 extends Interactable
 
 @export var animation_player: AnimationPlayer
@@ -6,6 +7,7 @@ extends Interactable
 func mouse_interaction() -> void:
 	if not inventory.has_item("food_can"):
 		GAMEMANAGER.bark_dialogue("bark_lena_first_flashback", [0,0])
+		leave_interaction()
 		return
 	
 	animation_player.play("open_can")

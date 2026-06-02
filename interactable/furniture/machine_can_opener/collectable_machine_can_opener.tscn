@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://be31vsxw7ootx"]
+
+[ext_resource type="Script" uid="uid://cpsykdcvpnjpu" path="res://interactable/furniture/machine_can_opener/collectable_machine_can_opener.gd" id="1_itiye"]
+[ext_resource type="PackedScene" uid="uid://cdf15qqq2is45" path="res://interactable/furniture/machine_can_opener/assets/machine_can_opener.glb" id="2_c3nrf"]
+[ext_resource type="Resource" uid="uid://bvh7qu0sidao" path="res://interactable/items/item-resources/generic/machine_can_opener/machine_can_opener.tres" id="2_omtex"]
+[ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="3_c3nrf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_omtex"]
+size = Vector3(0.2729988, 0.51956177, 0.2434082)
+
+[node name="CollectableMachineCanOpener" type="StaticBody3D" unique_id=144414610]
+script = ExtResource("1_itiye")
+item = ExtResource("2_omtex")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=250692541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038827896, 0.27256775, -0.12585449)
+shape = SubResource("BoxShape3D_omtex")
+
+[node name="machine_can_opener" parent="." unique_id=1592213191 instance=ExtResource("2_c3nrf")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1454594061]
+stream = ExtResource("3_c3nrf")

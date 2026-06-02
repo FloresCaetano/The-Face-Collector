@@ -1,3 +1,4 @@
+class_name AliceAnimationTree
 extends AnimationTree
 
 @onready var a_state_machine : AnimationNodeStateMachinePlayback = get("parameters/playback")

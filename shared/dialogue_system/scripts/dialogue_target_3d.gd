@@ -13,7 +13,7 @@ func on_actual_line_change():
 func select():
 	is_selected = true
 	label.text = ""
-	phantom_camera_3d.priority = 20
+	phantom_camera_3d.priority = 30
 	await phantom_camera_3d.tween_completed
 
 func deselect():
