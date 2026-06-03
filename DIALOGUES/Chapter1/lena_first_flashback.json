@@ -1,65 +1,68 @@
 [
     {
         "ID": "0",
-        "CHARACTER": "Alice",
-        "PITCH-RANGE": "1.7-2.0",
-        "TARGET": "alice",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "lena_wakes_up_and_hears_radio",
         "text": {
-            "ES": "¿Otra vez esta horrible sopa de tomate?"
+            "ES": "Hoy hubo una transmision de radio del gobierno."
         }
     },
     {
         "ID": "1",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
+        "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "lena_boards_the_windows",
         "text": {
-            "ES": "Lo sé, cariño, no es el mejor plato."
+            "ES": "Siguiendo las indicaciones, tome el martillo, un par de clavos y cerre las ventanas."
         }
     },
     {
         "ID": "2",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
+        "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": " ¡pero prometo que en cuanto podamos salir iremos a comer lo que tú quieras!"
+            "ES": "Me pregunto como estaran las cosas en la ciudad . . ."
         }
     },
     {
         "ID": "3",
-        "CHARACTER": "Alice",
-        "PITCH-RANGE": "1.7-2.0",
-        "TARGET": "alice",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "¡¿Podemos ir a comer helado?!"
+            "ES": "Me pregunto si Harry esta bien."
         }
     },
     {
         "ID": "4",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
+        "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "second_part_starts",
         "text": {
-            "ES": "¿Tienes ganas de helado con el frío que hace?"
+            "ES": "Alice no deja de preguntar por el."
         }
     },
     {
         "ID": "5",
-        "CHARACTER": "Alice",
-        "PITCH-RANGE": "1.7-2.0",
-        "TARGET": "alice",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Siempre tengo ganas de helado…"
+            "ES": "Ya debe ser hora de almorzar."
         }
     },
     {
         "ID": "6",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
+        "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Jajajaja."
+            "ES": "Llevamos semanas comiendo la misma comida enlatada."
         }
     },
     {
@@ -67,52 +70,25 @@
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "internal_voice",
+        "GAME_EVENT": "lena_ends_dialogue_with_alice",
         "text": {
-            "ES": "Está bien, cariño, iremos por helado entonces."
+            "ES": "Tengo que ir por DOS latas de comida para almorzar."
         }
     },
     {
         "ID": "8",
-        "CHARACTER": "Alice",
-        "PITCH-RANGE": "1.7-2.0",
-        "TARGET": "alice",
-        "text": {
-            "ES": "¿Crees que papá regrese para entonces?"
-        }
-    },
-    {
-        "ID": "9",
-        "CHARACTER": "Alice",
-        "PITCH-RANGE": "1.7-2.0",
-        "TARGET": "alice",
-        "text": {
-            "ES": "Así podremos ir todos juntos."
-        }
-    },
-    {
-        "ID": "10",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
-        "GAME_EVENT": "flashback_ends",
-        "text": {
-            "ES": "Sin duda, papá va a estar aquí pronto. . ."
-        }
-    },
-    {
-        "ID": "11",
-        "CHARACTER": "Lena",
-        "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
+        "TARGET": "flashback_recording_voice",
         "text": {
             "ES": "Las cosas estan en calma por ahora."
         }
     },
     {
-        "ID": "12",
+        "ID": "9",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
+        "TARGET": "flashback_recording_voice",
         "text": {
             "ES": "Los avisos insisten en que la zona es segura."
         }

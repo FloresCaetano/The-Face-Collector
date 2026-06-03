@@ -17,7 +17,6 @@ func mouse_interaction() -> void:
 	
 	meshes.visible = true
 	active = false
-	leave_interaction()
 	
 	audio_stream_player_3d.play()
 	await audio_stream_player_3d.finished
@@ -25,6 +24,7 @@ func mouse_interaction() -> void:
 	fade_controller.fade_out(0.6)
 	active = false
 	leave_interaction()
+	interacted.emit()
 
 func on_mouse_exited() -> void:
 	pass

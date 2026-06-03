@@ -3,6 +3,7 @@ extends Interactable
 
 @export var dialogue_reader: DialogueReader
 
+signal radio_finished
 func mouse_interaction() -> void:
 	dialogue_reader.start()
 	
@@ -13,3 +14,5 @@ func on_mouse_exited() -> void:
 
 func _on_dialogue_reader_dialogue_finished() -> void:
 	leave_interaction()
+	radio_finished.emit()
+	

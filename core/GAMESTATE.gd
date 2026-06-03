@@ -15,5 +15,5 @@ func is_event_registered(event_id : String) -> bool:
 	return events_registry[current_chapter].has(event_id)
 
 func wait_for_event(event_id : String) -> void:
-	if not is_event_registered(event_id):
+	while not is_event_registered(event_id):
 		await get_tree().create_timer(0.5).timeout

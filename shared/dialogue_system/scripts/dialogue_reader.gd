@@ -77,8 +77,10 @@ func send_line():
 		actual_target.next_token()
 		await get_tree().create_timer(get_wait_time(token)).timeout
 	await get_tree().create_timer(2.0).timeout
-	
 	line_sended.emit(current_line)
+	
+	if actual_target is DialogueTarget2D:
+		actual_target.deselect()
 	
 	if line_data.has("GAME_EVENT"):
 		var event_name = line_data["GAME_EVENT"]
