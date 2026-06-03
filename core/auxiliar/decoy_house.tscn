@@ -28,7 +28,7 @@
 [ext_resource type="Script" uid="uid://dx4231wq782gt" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="26_n2y08"]
 [ext_resource type="Script" uid="uid://ccnmh1nbpdbgy" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="27_r6mld"]
 [ext_resource type="Texture2D" uid="uid://0180rylgw76" path="res://core/auxiliar/first_cinematic/image-removebg-preview(2).png" id="28_myqfl"]
-[ext_resource type="AudioStream" uid="uid://ca58mfekb40oi" path="res://core/auxiliar/first_cinematic/Trailer1CollectorSounds.wav" id="28_n2y08"]
+[ext_resource type="AudioStream" uid="uid://ca58mfekb40oi" path="res://entities/collector/assets/CollectorSounds.wav" id="28_n2y08"]
 [ext_resource type="Script" uid="uid://ds6cm44uqmxxa" path="res://shared/lights_system/scripts/SmartLight.gd" id="29_bjh8o"]
 [ext_resource type="Texture2D" uid="uid://b47isxoeqsrvj" path="res://core/auxiliar/first_cinematic/AnimationArms_creature_arms_PlayerArms.png" id="29_r6mld"]
 [ext_resource type="AudioStream" uid="uid://bivw4ujsf5aas" path="res://shared/lights_system/audio/blinking.mp3" id="30_h6l8l"]

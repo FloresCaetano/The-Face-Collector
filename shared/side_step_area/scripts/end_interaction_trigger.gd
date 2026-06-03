@@ -4,4 +4,5 @@ extends EventBehavior
 
 func execute() -> void:
 	side_step_area.enter_sidestep(1)
+	event_finished.emit()
 	

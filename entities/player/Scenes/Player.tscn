@@ -12,6 +12,7 @@
 [ext_resource type="Shader" path="res://VFX/shaders/Psx.gdshader" id="12_gdq0t"]
 [ext_resource type="Shader" uid="uid://hicn5qmlvirf" path="res://VFX/shaders/psx2.gdshader" id="13_uli6c"]
 [ext_resource type="Shader" uid="uid://d14nctxgr8g87" path="res://VFX/shaders/vhs.gdshader" id="14_lxrxp"]
+[ext_resource type="Script" uid="uid://dltugxce31r4j" path="res://entities/player/Scripts/hud_3d_render_viewport.gd" id="16_lxrxp"]
 [ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="16_uli6c"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="19_jgvhu"]
@@ -25,6 +26,7 @@ duration = 0.4
 
 [sub_resource type="Resource" id="Resource_gdq0t"]
 script = ExtResource("7_xpeio")
+cull_mask = 1048571
 fov = 94.4
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
@@ -78,6 +80,7 @@ real_camera = NodePath("PlayerRealCamera")
 physics_interpolation_mode = 1
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 1.6060017, 0)
 top_level = true
+cull_mask = 1048571
 fov = 94.4
 script = ExtResource("2_pdd5r")
 shape_cast = NodePath("ShapeCast3D")
@@ -231,3 +234,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Hud3DRenderViewport" type="SubViewportContainer" parent="." unique_id=892951428 node_paths=PackedStringArray("sub_viewport")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_lxrxp")
+sub_viewport = NodePath("SubViewport")
+
+[node name="SubViewport" type="SubViewport" parent="Hud3DRenderViewport" unique_id=1696153184]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1366, 768)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Hud3DRenderViewport/SubViewport" unique_id=1291134749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5838304, 1.249659)
+cull_mask = 4
+fov = 95.0

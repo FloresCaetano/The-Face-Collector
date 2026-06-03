@@ -4,5 +4,5 @@ extends EventBehavior
 func execute() -> void:
 	fp_animation_manager.start_animation("ClimbTravesign")
 	fp_animation_manager.animation_finished.connect(func():
-		$"../../..".queue_free()
+		$"../..".queue_free()
 		)

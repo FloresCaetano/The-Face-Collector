@@ -18,10 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cy7lh0ubhfixi" path="res://interactable/interaction_trigger.tscn" id="16_iyqwu"]
 [ext_resource type="Script" uid="uid://bx53wj3fmfg2h" path="res://shared/side_step_area/scripts/start_interaction_trigger.gd" id="17_ajdon"]
 [ext_resource type="Script" uid="uid://dt23ymtrps05u" path="res://shared/side_step_area/scripts/end_interaction_trigger.gd" id="18_1j5ld"]
-[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="19_3yitw"]
-[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="20_c8m2v"]
-[ext_resource type="Script" uid="uid://dpke4ypjay435" path="res://interactable/items/item-resources/tapes/tape_resource.gd" id="21_tyddm"]
-[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resources/tapes/icons/1st.png" id="22_mui2l"]
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="23_skvyh"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="24_2gcmw"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="25_0kdhh"]
@@ -59,14 +55,6 @@ script = ExtResource("14_2bu0v")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wwoi1"]
 size = Vector3(0.35717773, 1.5454102, 0.56307983)
-
-[sub_resource type="Resource" id="Resource_n3di8"]
-script = ExtResource("21_tyddm")
-name = "Primera Cinta"
-texture = ExtResource("22_mui2l")
-tag = "first_tape"
-model = ExtResource("20_c8m2v")
-metadata/_custom_type_script = "uid://dpke4ypjay435"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftw0a"]
 resource_name = "Wood_02"
@@ -362,10 +350,6 @@ shape = SubResource("BoxShape3D_wwoi1")
 script = ExtResource("18_1j5ld")
 side_step_area = NodePath("../..")
 
-[node name="Tape" parent="FullHouse/Interactables" unique_id=1746687257 instance=ExtResource("19_3yitw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.578953, 0.23782325, -17.280006)
-tape_item = SubResource("Resource_n3di8")
-
 [node name="Lights" type="Node3D" parent="FullHouse" unique_id=775111381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3526125, 2.7932158, -8.775536)
 
@@ -525,10 +509,10 @@ mesh = SubResource("ArrayMesh_iyqwu")
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 10.575183, 1.8573427, -6.6442432)
 
 [node name="PlayerRealCamera" parent="Alice" index="0" unique_id=1153064012]
-transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 10.575183, 1.115264, -6.6442432)
+transform = Transform3D(2, 0, 3.496911e-07, 0, 2, 0, -3.496911e-07, 0, 2, 10.575183, 1.2612948, -6.6442432)
 
 [node name="Pivot" parent="Alice" index="1" unique_id=876858444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.37103933, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29802394, 0)
 
 [node name="CollisionShape3D" parent="Alice" index="2" unique_id=1497191989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63047564, 0)
@@ -555,7 +539,7 @@ transform = Transform3D(1.0000029, 0, 7.1095795e-15, 0, 1.0000029, 0, -7.1095795
 indicator_last_pose_references = [NodePath("InteractableIndicator")]
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/FoodCanOppener/open_food_can" parent_id_path=PackedInt32Array(1596483466, 146724472) index="1" unique_id=1338724347]
-transform = Transform3D(0.99983835, -0.0064362935, -0.016718788, -0.015593427, 0.14677934, -0.9890462, 0.008819756, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
+transform = Transform3D(0.9998383, -0.0064362637, -0.01671878, -0.015593422, 0.14677934, -0.9890462, 0.008819726, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
 
 [node name="Skeleton3D" parent="FlashbackManager/FoodCanOppener/open_food_can/Alice_003" parent_id_path=PackedInt32Array(1596483466, 1710104253) index="0" unique_id=1452854918]
 bones/1/rotation = Quaternion(0.8555161, 0.5046438, -0.051051095, -0.104022466)
@@ -752,7 +736,7 @@ bones/42/position = Vector3(-0.12149528, 0.28502214, -1.2771735)
 bones/42/rotation = Quaternion(0.50013757, 0.8526434, -0.14973022, 0.02104062)
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="2" unique_id=1732084531]
-transform = Transform3D(-0.40985587, -0.0012385377, 0.9121494, -0.0008935649, 0.9999987, 0.0009563173, -0.9121497, -0.00042311236, -0.40985668, 0.008435541, 1.178307, 0.25938022)
+transform = Transform3D(-0.40985587, -0.0012385376, 0.9121494, -0.0008935649, 0.9999986, 0.0009563173, -0.9121497, -0.00042311233, -0.40985668, 0.008435541, 1.178307, 0.25938022)
 
 [node name="Cuchara" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="3" unique_id=1519282188]
 transform = Transform3D(-0.21818398, 0.4894877, -0.26039678, 0.092643924, 0.30808595, 0.50150657, 0.5466461, 0.14315674, -0.1889265, -0.05110988, 1.2912885, 0.22676198)

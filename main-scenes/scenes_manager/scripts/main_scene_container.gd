@@ -13,9 +13,12 @@ var new_flashback_scene
 @export var flashback_voice: MarginContainer
 
 signal flashback_transition_ends
+signal flashback_ends(flashbackuid : String)
 
 var old_player : Player
 var old_camera : PlayerRealCamera
+
+var last_flashback_uid : String = ""
 
 func instantiate_flashsback(scene_path : String):
 	old_player = PATHS.player
@@ -78,6 +81,7 @@ func instantiate_flashsback(scene_path : String):
 	
 	await tween_reveal.finished
 	flashback_transition_ends.emit()
+	last_flashback_uid = scene_path
 
 func end_flashback():
 	PATHS.fade_controller.fade_in(5.0)
@@ -101,6 +105,7 @@ func end_flashback():
 	await PATHS.audio_controller.fade_bus_volume("Master", 0.0, 5.0)
 	
 	old_player = null
+	flashback_ends.emit(last_flashback_uid)
 
 var old_player_groups = {}
 func desactivate_player_systems() -> void:

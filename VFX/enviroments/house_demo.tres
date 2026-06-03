@@ -9,3 +9,6 @@ sdfgi_read_sky_light = false
 glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
+adjustment_enabled = true
+adjustment_brightness = 0.7
+adjustment_contrast = 1.03

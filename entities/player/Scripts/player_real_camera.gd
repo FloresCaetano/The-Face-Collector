@@ -4,7 +4,8 @@ extends Camera3D
 @onready var player : Player = PATHS.player
 @onready var phantom_camera_host: PhantomCameraHost = $PhantomCameraHost
 
-
+@export var zoom_in_fov = 50
+@onready var default_zoom_fov = self.fov
 @export var shape_cast: ShapeCast3D
 @export var p_main_camera: PhantomCamera3D
 @export var p_look_at_cam: PhantomCamera3D
@@ -43,7 +44,7 @@ func change_state(new_state: State):
 func _process(_delta):
 	match actual_state:
 		State.IDLE:
-			if can_interact: idle_interact()
+			if can_interact: idle_interact(); zoom()
 		State.FOLLOW_CURSOR:
 			follow_cursor(_delta)
 			if can_interact: point_interact()
@@ -91,7 +92,6 @@ func point_interact():
 		last_best_target.mouse_exited()
 	last_best_target = collider
 	collider.interact()
-	
 
 func throw_raycast(ray_distance : float, interaction_mask : int = 0b1) -> Dictionary:
 	var space_state = get_world_3d().direct_space_state
@@ -174,3 +174,15 @@ func _get_most_central_target() -> Object:
 			closest_obj = collider
 
 	return closest_obj as Interactable
+
+func zoom():
+	if Input.is_action_just_pressed("zoom"):
+		var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(self, "fov", zoom_in_fov, 0.3)
+		tween.tween_property($"../Hud/VFX", "modulate", Color.TRANSPARENT, 0.3)
+	elif Input.is_action_just_released("zoom"):
+		var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(self, "fov", default_zoom_fov, 0.3)
+		tween.tween_property($"../Hud/VFX", "modulate", Color.WHITE, 0.3)
+		
+	

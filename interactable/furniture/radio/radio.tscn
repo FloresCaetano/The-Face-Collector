@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://4mhiri1m8tlv" path="res://interactable/furniture/radio/assets/radio.glb" id="2_xhm6h"]
 [ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="3_xhm6h"]
 [ext_resource type="PackedScene" uid="uid://dkjcu77d07t4i" path="res://shared/dialogue_system/scenes/dialogue_target_3d.tscn" id="4_pjcup"]
+[ext_resource type="AudioStream" uid="uid://bvl4nhi6vsqv6" path="res://core/auxiliar/first_cinematic/pink_noise.wav" id="5_tudrb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1ti7"]
 size = Vector3(0.31822205, 0.27116394, 0.11791992)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjcup"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lkh2k"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -45,11 +46,16 @@ transform = Transform3D(1, 0, 0, 0, 0.9894273, 0.14502972, 0, -0.14502972, 0.989
 
 [node name="Label" parent="DialogueReader/DialogueTarget3D" index="1" unique_id=757227980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.430917, -0.02948019, -0.9492351)
-material_override = SubResource("StandardMaterial3D_pjcup")
+material_override = SubResource("StandardMaterial3D_lkh2k")
 mesh = SubResource("PlaneMesh_tudrb")
 
 [node name="InteractableIndicator" type="Marker3D" parent="." unique_id=1645060311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11472458)
+
+[node name="Noise" type="AudioStreamPlayer3D" parent="." unique_id=113305836]
+stream = ExtResource("5_tudrb")
+autoplay = true
+max_distance = 13.15
 
 [connection signal="dialogue_finished" from="DialogueReader" to="." method="_on_dialogue_reader_dialogue_finished"]
 

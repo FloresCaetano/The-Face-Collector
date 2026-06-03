@@ -11,11 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://0typaphjvp77" path="res://interactable/items/item-colectable/photo_frame/photo_frame_collectable.tscn" id="11_q4eq5"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="13_cx4hm"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_mrip5"]
-[ext_resource type="PackedScene" uid="uid://d0r6ldcjv8k0m" path="res://interactable/items/item-colectable/tape/tape.tscn" id="19_4ie0t"]
 [ext_resource type="Script" uid="uid://h60wo8fpadd5" path="res://scripted-events/Chapter1/LenaFlashback/scripts/flashback_manager.gd" id="19_de0gi"]
-[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="20_6f7mq"]
-[ext_resource type="Script" uid="uid://dpke4ypjay435" path="res://interactable/items/item-resources/tapes/tape_resource.gd" id="21_vfyh0"]
-[ext_resource type="Texture2D" uid="uid://e3awdp4smww2" path="res://interactable/items/item-resources/tapes/icons/1st.png" id="22_8be3j"]
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="23_q46np"]
 [ext_resource type="PackedScene" uid="uid://cr0fcxn52jqtc" path="res://scenery/undestroyed_house/furniture.glb" id="24_ceu33"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="24_iumbw"]
@@ -24,12 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="33_q4eq5"]
 [ext_resource type="Script" uid="uid://yeuk43nkllw5" path="res://scripted-events/Chapter1/LenaFlashback/scripts/on_radio_finished.gd" id="36_1oy5w"]
 [ext_resource type="PackedScene" uid="uid://d0o1m3gstq628" path="res://interactable/furniture/radio/radio.tscn" id="37_mrip5"]
-[ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="40_6f7mq"]
-[ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="41_vfyh0"]
-[ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="42_8be3j"]
 [ext_resource type="Script" uid="uid://bg7p3b0g6o2y7" path="res://scripted-events/Chapter1/LenaFlashback/scripts/et_lena_first_flash_back.gd" id="43_iumbw"]
-[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="43_q46np"]
-[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="44_iumbw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cx67m"]
 
@@ -55,24 +46,12 @@ need_key = true
 key_id = "storage_key"
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
-[sub_resource type="Resource" id="Resource_o2fgp"]
-script = ExtResource("21_vfyh0")
-name = "Primera Cinta"
-texture = ExtResource("22_8be3j")
-tag = "first_tape"
-model = ExtResource("20_6f7mq")
-metadata/_custom_type_script = "uid://dpke4ypjay435"
-
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q4eq5"]
 stream_count = 1
 stream_0/volume = 0.0
 
 [sub_resource type="Resource" id="Resource_q46np"]
 script = ExtResource("14_mrip5")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_de0gi"]
-shader = ExtResource("41_vfyh0")
-shader_parameter/brightness = 2.6350001251625
 
 [node name="LenaFirstFlashback" type="Node3D" unique_id=252609894]
 
@@ -233,10 +212,6 @@ transform = Transform3D(-0.14344445, 0.933342, -0.32908347, -0.97768235, -0.0820
 
 [node name="photoFrame" parent="FullHouse/Interactables" unique_id=1883362346 instance=ExtResource("11_q4eq5")]
 transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
-
-[node name="Tape" parent="FullHouse/Interactables" unique_id=1746687257 instance=ExtResource("19_4ie0t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.578953, 0.23782325, -17.280006)
-tape_item = SubResource("Resource_o2fgp")
 
 [node name="Lights" type="Node3D" parent="FullHouse" unique_id=1679056493]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3526125, 2.7932158, -8.775536)
@@ -457,6 +432,7 @@ transform = Transform3D(-4.3711387e-07, 0, 2, 0, 2, 0, -2, 0, -4.3711387e-07, 31
 [node name="PlayerRealCamera" parent="Lena" index="0" unique_id=1153064012]
 physics_interpolation_mode = 0
 transform = Transform3D(-3.872269e-08, -0.46393007, -0.8858718, -2.0279028e-08, 0.8858718, -0.46393007, 1, 0, -4.371139e-08, 31.235815, 0.70129764, -16.348663)
+cull_mask = 1048575
 
 [node name="Background" parent="Lena/AudioController" parent_id_path=PackedInt32Array(443950597, 574176879) index="2" unique_id=824644454]
 stream = SubResource("AudioStreamSynchronized_q4eq5")
@@ -493,111 +469,6 @@ transform = Transform3D(0.9514602, 0, 0.3077718, 0, 1, 0, -0.3077718, 0, 0.95146
 
 [node name="OnRadioFinished" type="Node" parent="FlashbackManager/Radio" unique_id=1279712011]
 script = ExtResource("36_1oy5w")
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1571022010]
-layer = 2
-
-[node name="FadeController" type="Control" parent="HUD" unique_id=1017914213 groups=["fade_controller"]]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("40_6f7mq")
-
-[node name="ColorRect" type="ColorRect" parent="HUD/FadeController" unique_id=1404856369]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=1834677729]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=1850507760]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = -110
-
-[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=220458201]
-material = SubResource("ShaderMaterial_de0gi")
-custom_minimum_size = Vector2(348.33, 195.84)
-layout_mode = 2
-mouse_filter = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=661668595 groups=["flashback_recording_voice"]]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("42_8be3j")
-
-[node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=1900655021]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_q46np")
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=22410684]
-stream = ExtResource("44_iumbw")
-volume_db = -30.0
-max_polyphony = 40
-
-[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=1756327248]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -24.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 8
-mouse_filter = 2
-theme_override_constants/margin_bottom = 44
-
-[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=2095628230 groups=["internal_voice"]]
-layout_mode = 2
-script = ExtResource("42_8be3j")
-
-[node name="Label" type="RichTextLabel" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1491628594]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -15.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_q46np")
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-horizontal_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=236819527]
-stream = ExtResource("44_iumbw")
-volume_db = -30.0
-max_polyphony = 40
 
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]

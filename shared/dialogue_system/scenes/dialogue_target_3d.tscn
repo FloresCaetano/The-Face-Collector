@@ -5,20 +5,27 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_gjggi"]
 [ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="3_w51en"]
 [ext_resource type="Script" uid="uid://cofw7sywoopgu" path="res://addons/rich_text_3d/rich_text_3d.gd" id="4_a4u0r"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_iys1m"]
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="4_w51en"]
 [ext_resource type="FontFile" uid="uid://b121eaxtu4aqu" path="res://shared/fonts/Gabarito-Bold.ttf" id="6_w51en"]
 
 [sub_resource type="Resource" id="Resource_awyo3"]
 script = ExtResource("3_gjggi")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iys1m"]
+[sub_resource type="Resource" id="Resource_gdq0t"]
+script = ExtResource("4_iys1m")
+cull_mask = 1048571
+fov = 94.4
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w51en"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_mj6f5"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_iys1m"]
 size = Vector2(2.495, 0.5)
 orientation = 2
 
@@ -40,14 +47,16 @@ script = ExtResource("1_oc7ik")
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1026565953]
 script = ExtResource("2_a4u0r")
 tween_resource = SubResource("Resource_awyo3")
+camera_3d_resource = SubResource("Resource_gdq0t")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="PhantomCamera3D" unique_id=486556955]
 
 [node name="Label" type="MeshInstance3D" parent="." unique_id=757227980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84263104, 0, -0.9492351)
-material_override = SubResource("StandardMaterial3D_iys1m")
-mesh = SubResource("PlaneMesh_mj6f5")
+layers = 4
+material_override = SubResource("StandardMaterial3D_w51en")
+mesh = SubResource("PlaneMesh_iys1m")
 script = ExtResource("4_a4u0r")
 horizontal_alignment = 0
 font = ExtResource("3_w51en")

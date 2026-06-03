@@ -15,7 +15,7 @@ var on_debug := false
 var last_part_started : bool = false
 
 #MOVE
-var max_speed = 1.0
+var max_speed = 2
 var sprint_speed = 1.0
 var acceleration = 0.5
 var desaceleration = 0.5
@@ -36,7 +36,6 @@ var snap_speed : float = 0.02
 
 func _physics_process(delta):
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
-	sprint()
 	move(delta, get_input())
 
 	if player_spotlight:
@@ -53,7 +52,7 @@ func _snap_down_to_stairs_check() -> void:
 			#_save_camera_pos_for_smoothing()
 			var translate_y = body_test_result.get_travel().y
 			var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-			tween.tween_property(self, "position", position + Vector3(0, translate_y, 0), snap_speed)
+			tween.tween_property(self, "position", position + Vector3(0, translate_y, 0), 0.05)
 			apply_floor_snap()
 			did_snap = true
 	_snaped_to_stairs_last_frame = did_snap
@@ -80,7 +79,7 @@ func _snap_up_stairs_check(delta) -> bool:
 		%StairsRaycast.force_raycast_update()
 		if %StairsRaycast.is_colliding() and not is_surface_too_step(%StairsRaycast.get_collision_normal()):
 			var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-			tween.tween_property(self, "global_position", step_pos_with_clearance.origin + down_check_result.get_travel(), snap_speed)
+			tween.tween_property(self, "global_position", step_pos_with_clearance.origin + down_check_result.get_travel(), 0.1)
 			apply_floor_snap()
 			_snaped_to_stairs_last_frame = true
 			return true
@@ -122,12 +121,6 @@ func move(delta, input):
 	if not _snap_up_stairs_check(delta):
 		move_and_slide()
 		_snap_down_to_stairs_check()
-
-func sprint():
-	if(Input.is_action_pressed("sprint")):
-		max_speed = sprint_speed
-	else:
-		max_speed = 3.0
 
 func get_input():
 	var input = Vector3.ZERO

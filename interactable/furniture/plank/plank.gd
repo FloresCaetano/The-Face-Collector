@@ -16,6 +16,8 @@ func mouse_interaction() -> void:
 		set("freeze", false)
 		call("apply_force", Vector3(0, 0, 100) * transform.basis, Vector3(0.2, 0, 0))
 		plank_removed.emit()
+	else:
+		leave_interaction()
 
 func on_mouse_exited() -> void:
 	pass

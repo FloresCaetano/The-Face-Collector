@@ -8,8 +8,14 @@ extends Interactable
 @export var cassette_tape_player_interface: CassetteTapePlayerInterface
 @export var tape_linear_container: TapeLinearContainer
 
+signal flashback_ends(uid : String)
+func _on_flashback_ends(uid : String):
+	flashback_ends.emit(uid)
+
 func _ready() -> void:
 	set_process_input(false)
+	PATHS.scene_manager.flashback_ends.connect(_on_flashback_ends)
+	
 
 func mouse_interaction() -> void:
 		await cassette_tape_player_interface.enter_cassette_tape_view()
