@@ -12,6 +12,5 @@ var related_scenes = {
 
 func _ready() -> void:
 	await scene_manager.flashback_transition_ends
-	fade_controller.fade_in(0.01)
 	PATHS.player.desactivate()
 	dialogue_reader.start()

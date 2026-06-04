@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="13_cx4hm"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_mrip5"]
 [ext_resource type="Script" uid="uid://h60wo8fpadd5" path="res://scripted-events/Chapter1/LenaFlashback/scripts/flashback_manager.gd" id="19_de0gi"]
+[ext_resource type="PackedScene" uid="uid://bcsohbw3801lu" path="res://interactable/items/item-colectable/hammer/hammer.tscn" id="22_ar0j7"]
 [ext_resource type="Script" uid="uid://d0r6ivdp1q1jo" path="res://interactable/furniture/lights/scripts/ceiling_lamp.gd" id="23_q46np"]
 [ext_resource type="PackedScene" uid="uid://cr0fcxn52jqtc" path="res://scenery/undestroyed_house/furniture.glb" id="24_ceu33"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="24_iumbw"]
@@ -432,7 +433,6 @@ transform = Transform3D(-4.3711387e-07, 0, 2, 0, 2, 0, -2, 0, -4.3711387e-07, 31
 [node name="PlayerRealCamera" parent="Lena" index="0" unique_id=1153064012]
 physics_interpolation_mode = 0
 transform = Transform3D(-3.872269e-08, -0.46393007, -0.8858718, -2.0279028e-08, 0.8858718, -0.46393007, 1, 0, -4.371139e-08, 31.235815, 0.70129764, -16.348663)
-cull_mask = 1048575
 
 [node name="Background" parent="Lena/AudioController" parent_id_path=PackedInt32Array(443950597, 574176879) index="2" unique_id=824644454]
 stream = SubResource("AudioStreamSynchronized_q4eq5")
@@ -469,6 +469,9 @@ transform = Transform3D(0.9514602, 0, 0.3077718, 0, 1, 0, -0.3077718, 0, 0.95146
 
 [node name="OnRadioFinished" type="Node" parent="FlashbackManager/Radio" unique_id=1279712011]
 script = ExtResource("36_1oy5w")
+
+[node name="Hammer" parent="." unique_id=861564715 instance=ExtResource("22_ar0j7")]
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 8.67337, 1.4893795, -12.008017)
 
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]

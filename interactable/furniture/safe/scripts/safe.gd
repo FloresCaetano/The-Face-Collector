@@ -42,6 +42,7 @@ func on_leave_interaction() -> void:
 	await PATHS.player_real_camera.active_camera.tween_completed
 	await PATHS.player_real_camera.change_state(PlayerRealCamera.State.IDLE)
 	player.activate()
+	collision_layer = 0b1 ; collision_mask = 0b1
 
 func open_safe() -> void:
 	audio_stream_player_3d.stream = open_safe_audio_stream
@@ -51,7 +52,6 @@ func open_safe() -> void:
 	collision_layer = 0 ; collision_mask = 0
 	for key in keys: key.queue_free()
 	
-	leave_interaction()
 
 func _on_key_pressed(number : String) -> void:
 	code_input += number

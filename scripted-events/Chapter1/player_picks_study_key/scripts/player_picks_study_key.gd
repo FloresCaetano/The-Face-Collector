@@ -15,4 +15,4 @@ func _on_key_interacted() -> void:
 	lights.explode()
 	breathing.stop()
 	door_16.is_locked = false
-	door_16.open(false)
+	$ATOpenDoor.monitoring = true

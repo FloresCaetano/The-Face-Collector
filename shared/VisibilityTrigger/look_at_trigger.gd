@@ -3,6 +3,7 @@ extends VisibleOnScreenNotifier3D
 
 @onready var camera_host : PlayerRealCamera = PATHS.player_real_camera
 @export var free_on_exit : bool = true
+@export var is_active := true
 
 signal entered_view
 signal left_view
@@ -16,6 +17,9 @@ func _on_screen_entered() -> void:
 	set_process(true)
 
 func _process(_delta: float) -> void:
+	if not is_active:
+		return
+	
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(global_position, camera_host.get_global_position())
 	query.collision_mask = 0b1001
@@ -27,4 +31,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_screen_exited() -> void:
+	set_process(false)
 	left_view.emit()

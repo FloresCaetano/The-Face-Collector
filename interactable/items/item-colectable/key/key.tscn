@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="3_ji4ld"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxo1c"]
-size = Vector3(0.08673096, 0.04840088, 0.16957092)
+size = Vector3(0.08673096, 0.02796936, 0.16957092)
 
 [node name="Key" type="RigidBody3D" unique_id=1236922951 node_paths=PackedStringArray("audio_stream_player", "indicator_last_pose_references")]
 script = ExtResource("1_sxo1c")

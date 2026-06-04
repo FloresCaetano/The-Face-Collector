@@ -8,6 +8,9 @@ extends Node
 @onready var flashback_manager: LenaFirstFlashback = $"../.."
 
 
+func _ready() -> void:
+	fade_controller.fade_in(0.0)
+
 func lena_wakes_up_and_hears_radio():
 	await get_tree().create_timer(2.0).timeout
 	fade_controller.fade_out(1.0)
@@ -39,4 +42,6 @@ func second_part_starts():
 	
 func lena_ends_dialogue_with_alice():
 	await GAMESTATE.wait_for_event("dialogue_with_alice_ends")
-	
+
+func flashback_ends():
+	scene_manager.end_flashback()

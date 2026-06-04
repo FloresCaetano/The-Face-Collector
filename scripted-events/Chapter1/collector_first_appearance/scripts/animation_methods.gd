@@ -34,7 +34,10 @@ func stop_flickering():
 	var tween : Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(light, "light_energy", 1.0, 0.8)
 	tween.tween_property(audio_stream_player_3d, "volume_linear", 0.0, 0.8)
-
+	$"../../../../../../FullHouse/Lights".visible = false
+	$"../../../../../../PlayerAndLight/SpotLight3D".visible = true
+	$"../../../../../../PlayerAndLight/Player/OmniLight3D".visible = false
+	
 func _process(delta: float) -> void:
 	if can_flicker:
 		light_flickering(delta)

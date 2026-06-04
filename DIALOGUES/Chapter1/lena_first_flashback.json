@@ -14,9 +14,8 @@
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
-        "GAME_EVENT": "lena_boards_the_windows",
         "text": {
-            "ES": "Siguiendo las indicaciones, tome el martillo, un par de clavos y cerre las ventanas."
+            "ES": "Estoy comenzando a tener miedo."
         }
     },
     {
@@ -25,7 +24,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Me pregunto como estaran las cosas en la ciudad . . ."
+            "ES": "El gobierno insiste en que la situacion esta bajo control."
         }
     },
     {
@@ -34,11 +33,39 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Me pregunto si Harry esta bien."
+            "ES": "Si esa fuera la verdad, ¿Por que tenemos que encerrarnos cada vez más?"
         }
     },
     {
         "ID": "4",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "lena_boards_the_windows",
+        "text": {
+            "ES": "Ya mismo era hora de almorzar, asi que cerre las ventanas de la cocina primero."
+        }
+    },
+    {
+        "ID": "5",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "flashback_recording_voice",
+        "text": {
+            "ES": "Me pregunto como estaran las cosas en la ciudad . . ."
+        }
+    },
+    {
+        "ID": "6",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "flashback_recording_voice",
+        "text": {
+            "ES": "Me pregunto si Harry esta bien."
+        }
+    },
+    {
+        "ID": "7",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
@@ -48,7 +75,7 @@
         }
     },
     {
-        "ID": "5",
+        "ID": "8",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
@@ -57,7 +84,7 @@
         }
     },
     {
-        "ID": "6",
+        "ID": "9",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
@@ -66,7 +93,7 @@
         }
     },
     {
-        "ID": "7",
+        "ID": "10",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "internal_voice",
@@ -76,7 +103,7 @@
         }
     },
     {
-        "ID": "8",
+        "ID": "11",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
@@ -85,10 +112,11 @@
         }
     },
     {
-        "ID": "9",
+        "ID": "12",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
+        "GAME_EVENT": "flashback_ends",
         "text": {
             "ES": "Los avisos insisten en que la zona es segura."
         }

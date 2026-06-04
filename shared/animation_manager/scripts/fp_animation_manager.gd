@@ -13,11 +13,12 @@ signal animation_started
 signal animation_finished
 
 func start_animation(anim_name : String):
-	player_real_camera.change_state(player_real_camera.State.BLOQUED)
-	player.desactivate()
-	fp_camera.priority = 20
+	if fp_camera:
+		player_real_camera.change_state(player_real_camera.State.BLOQUED)
+		player.desactivate()
+		fp_camera.priority = 20
+		await fp_camera.tween_completed
 	
-	await fp_camera.tween_completed
 	animation_started.emit()
 	if main_node: main_node.visible = true
 	animation_player.play(anim_name)
@@ -26,6 +27,9 @@ func start_animation(anim_name : String):
 
 func _on_animation_finished(_anim):
 	if main_node: main_node.visible = false
+	if not fp_camera:
+		return
+	
 	player.global_transform.origin = calculate_new_player_position()
 	var rot := calculate_new_player_rotation()
 	

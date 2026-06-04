@@ -8,12 +8,19 @@
 [ext_resource type="AudioStream" uid="uid://e5lpvglvi7o7" path="res://interactable/furniture/safe/assets/audio/open_safe.mp3" id="4_ta6jp"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_ta6jp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_k5u5e"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="8_k5u5e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3p8rd"]
 size = Vector3(1.7866821, 2.2525024, 1.5268555)
 
 [sub_resource type="Resource" id="Resource_wnceq"]
 script = ExtResource("7_k5u5e")
+
+[sub_resource type="Resource" id="Resource_l4dx0"]
+script = ExtResource("8_k5u5e")
+cull_mask = 1048571
+fov = 60.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [node name="Safe" type="StaticBody3D" unique_id=655616190 node_paths=PackedStringArray("keys", "animation_player", "audio_stream_player_3d", "camera_reference", "indicator_last_pose_references")]
 script = ExtResource("1_koksm")
@@ -43,6 +50,7 @@ max_polyphony = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2537822, 2.7516322)
 script = ExtResource("6_ta6jp")
 tween_resource = SubResource("Resource_wnceq")
+camera_3d_resource = SubResource("Resource_l4dx0")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="0" parent="." unique_id=599746619 instance=ExtResource("3_3p8rd")]
