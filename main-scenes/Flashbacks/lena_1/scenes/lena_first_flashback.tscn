@@ -213,6 +213,7 @@ transform = Transform3D(-0.14344445, 0.933342, -0.32908347, -0.97768235, -0.0820
 
 [node name="photoFrame" parent="FullHouse/Interactables" unique_id=1883362346 instance=ExtResource("11_q4eq5")]
 transform = Transform3D(0.9912779, 0, 0.13178933, 0, 1, 0, -0.13178933, 0, 0.9912779, 29.766459, 1.2176572, -11.643645)
+active = false
 
 [node name="Lights" type="Node3D" parent="FullHouse" unique_id=1679056493]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3526125, 2.7932158, -8.775536)
@@ -452,7 +453,6 @@ script = ExtResource("19_de0gi")
 [node name="DialogueReader" parent="FlashbackManager" unique_id=31983998 node_paths=PackedStringArray("event_trigger") instance=ExtResource("33_q4eq5")]
 dialogue_file = "res://DIALOGUES/Chapter1/lena_first_flashback.json"
 event_trigger = NodePath("ETLenaFirstFlashBack")
-default_wait_time = 0.03
 
 [node name="ETLenaFirstFlashBack" type="Node" parent="FlashbackManager/DialogueReader" unique_id=142126568]
 script = ExtResource("43_iumbw")
@@ -466,6 +466,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Radio" parent="FlashbackManager" unique_id=126687277 instance=ExtResource("37_mrip5")]
 transform = Transform3D(0.9514602, 0, 0.3077718, 0, 1, 0, -0.3077718, 0, 0.9514602, 29.983746, 0.6645486, -8.64887)
+dialogue_file = "res://DIALOGUES/Chapter1/radio_lena_first_flashback.json"
 
 [node name="OnRadioFinished" type="Node" parent="FlashbackManager/Radio" unique_id=1279712011]
 script = ExtResource("36_1oy5w")

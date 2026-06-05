@@ -25,9 +25,10 @@ func _on_dialogue_finished():
 func switch_enviroment():
 	world_environment.environment = interior_env
 	
+	
 func clear_rain():
 	var rain: GPUParticles3D = $"../../../FullHouse/HouseExterior/Rain"
 	rain.emitting = false
 	PATHS.audio_controller.stop_layer("rain1")
-	
+	$"../../../WorldEnvironment/ExteriorLight".visible = true
 	

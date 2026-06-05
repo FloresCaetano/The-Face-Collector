@@ -33,9 +33,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021743774, 0.023384094, 0.
 shape = SubResource("BoxShape3D_l1ti7")
 
 [node name="DialogueReader" parent="." unique_id=1237833211 node_paths=PackedStringArray("dialogue_targets") instance=ExtResource("3_xhm6h")]
-dialogue_file = "res://DIALOGUES/Chapter1/radio_lena_first_flashback.json"
+dialogue_file = ""
 dialogue_targets = [NodePath("DialogueTarget3D")]
-default_wait_time = 0.03
 
 [node name="DialogueTarget3D" parent="DialogueReader" unique_id=670382269 instance=ExtResource("4_pjcup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.68540174)

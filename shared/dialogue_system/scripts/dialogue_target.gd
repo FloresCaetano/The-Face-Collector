@@ -5,6 +5,7 @@ extends Node
 @export var target_id: String
 @onready var label = $Label
 @onready var audio_stream_player = $AudioStreamPlayer
+var pitch_range
 
 var is_selected : bool :
 	set(value):
@@ -32,9 +33,7 @@ func deselect()
 func next_token()
 
 func load_line(line : String):
-	var pitch_range : PackedStringArray = actual_line["PITCH-RANGE"].split("-")
-	var pitch : float = randf_range(pitch_range[0].to_float(), pitch_range[1].to_float())
-	audio_stream_player.pitch_scale = pitch
+	pitch_range = actual_line["PITCH-RANGE"].split("-")
 	
 	label.visible_ratio = 0.0
 	label.text = line

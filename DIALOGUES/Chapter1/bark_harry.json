@@ -1,0 +1,11 @@
+[
+    {
+        "ID": "0",
+        "CHARACTER": "Harry",
+        "PITCH-RANGE": "0.6-0.7",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "Voy a necesitar algo para poder quitar esto."
+        }
+    }
+]

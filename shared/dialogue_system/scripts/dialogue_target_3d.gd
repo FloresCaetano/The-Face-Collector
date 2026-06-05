@@ -23,6 +23,8 @@ func deselect():
 
 func next_token():
 	label.visible_ratio += visible_ratio_equivalent_step
+	var pitch : float = randf_range(pitch_range[0].to_float(), pitch_range[1].to_float())
+	audio_stream_player.pitch_scale = pitch
 	audio_stream_player.play()
 	
 	

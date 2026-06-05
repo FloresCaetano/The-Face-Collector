@@ -7,7 +7,7 @@ extends Node
 @export var event_trigger : Node
 
 @export_category("Variables")
-@export var default_wait_time: float = 0.07
+@export var default_wait_time: float = 0.03
 @export var punctuation_wait_time: float = 0.6
 
 var dialogue_data: Dictionary

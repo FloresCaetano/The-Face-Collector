@@ -17,6 +17,7 @@ func mouse_interaction() -> void:
 		call("apply_force", Vector3(0, 0, 100) * transform.basis, Vector3(0.2, 0, 0))
 		plank_removed.emit()
 	else:
+		GAMEMANAGER.bark_dialogue("bark_harry", [0,0])
 		leave_interaction()
 
 func on_mouse_exited() -> void:

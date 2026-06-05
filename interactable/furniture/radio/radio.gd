@@ -2,13 +2,14 @@ class_name Radio
 extends Interactable
 
 @export var dialogue_reader: DialogueReader
-
+@export_file("*.json") var dialogue_file: String
 @onready var player_rcam : PlayerRealCamera = PATHS.player_real_camera
 
 signal radio_finished
 func mouse_interaction() -> void:
 	player.desactivate()
 	player_rcam.change_state(player_rcam.State.BLOQUED)
+	dialogue_reader.dialogue_file = dialogue_file
 	dialogue_reader.start()
 
 func on_mouse_exited() -> void:

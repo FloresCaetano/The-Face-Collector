@@ -39,7 +39,12 @@ func second_part_starts():
 	await fade_controller.fade_out_finished
 	player.activate()
 	player_rcam.change_state(player_rcam.State.IDLE)
-	
+
+func lena_picks_two_cans():
+	var inventory : Inventory = PATHS.inventory
+	while inventory.has_item("food_can") < 2:
+		await get_tree().create_timer(1.0).timeout
+
 func lena_ends_dialogue_with_alice():
 	await GAMESTATE.wait_for_event("dialogue_with_alice_ends")
 
