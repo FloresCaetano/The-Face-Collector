@@ -14,7 +14,7 @@ func _on_flashback_ends(uid : String):
 
 func _ready() -> void:
 	set_process_input(false)
-	PATHS.scene_manager.flashback_ends.connect(_on_flashback_ends)
+	#PATHS.scene_manager.flashback_ends.connect(_on_flashback_ends)
 	
 
 func mouse_interaction() -> void:

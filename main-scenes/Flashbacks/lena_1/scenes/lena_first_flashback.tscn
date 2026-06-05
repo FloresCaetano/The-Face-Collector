@@ -471,7 +471,7 @@ transform = Transform3D(0.9514602, 0, 0.3077718, 0, 1, 0, -0.3077718, 0, 0.95146
 script = ExtResource("36_1oy5w")
 
 [node name="Hammer" parent="." unique_id=861564715 instance=ExtResource("22_ar0j7")]
-transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 8.67337, 1.4893795, -12.008017)
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 8.67337, 1.2725319, -12.008017)
 
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]

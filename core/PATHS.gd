@@ -43,3 +43,8 @@ var internal_voice : DialogueTarget2D:
 var flashback_recording_voice : DialogueTarget2D:
 	get:
 		return get_tree().get_first_node_in_group("flashback_recording_voice")
+
+func get_door(door_number : String):
+	return get_tree().get_first_node_in_group("doors_container").get_node("Door" + door_number)
+		
+	

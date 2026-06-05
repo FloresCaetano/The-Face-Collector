@@ -8,6 +8,9 @@ extends Interactable
 @export var invert_lock_state : bool = false
 
 @export var settings : DoorSettings
+var default_locked_sound : AudioStream = load("uid://r6lqlek1smat")
+var default_open_sound : AudioStream = load("uid://ce52ef7u72i4x")
+var default_close_sound : AudioStream = load("uid://dye38x4yih7v7")
 
 var audio_stream_player_3d: AudioStreamPlayer3D
 
@@ -17,6 +20,10 @@ var is_open = false
 signal door_interacted
 
 func _ready() -> void:
+	if settings:
+		if not settings.locked_sound: settings.locked_sound = default_locked_sound
+		if not settings.open_sound: settings.open_sound = default_open_sound
+		if not settings.close_sound: settings.close_sound = default_close_sound
 	set_process_input(false)
 
 	audio_stream_player_3d = AudioStreamPlayer3D.new()
@@ -58,6 +65,7 @@ func open(sound := true) -> void:
 	if sound:
 		audio_stream_player_3d.stream = settings.open_sound
 		audio_stream_player_3d.play()
+		door_interacted.emit()
 
 	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(object, "rotation_degrees:y", settings.open_angle, settings.open_speed).as_relative()
@@ -66,7 +74,7 @@ func open(sound := true) -> void:
 
 	await tween.finished
 
-	door_interacted.emit()
+	
 	
 	collision_mask = 0b1 ; collision_layer = 0b1
 	is_open = true
@@ -76,6 +84,7 @@ func close(sound := true) -> void:
 	if sound:
 		audio_stream_player_3d.stream = settings.close_sound
 		audio_stream_player_3d.play()
+		door_interacted.emit()
 
 	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(object, "rotation_degrees:y", -settings.open_angle, settings.open_speed).as_relative()
@@ -84,7 +93,7 @@ func close(sound := true) -> void:
 
 	await tween.finished
 	
-	door_interacted.emit()
+	
 	
 	collision_mask = 0b1 ; collision_layer = 0b1
 	is_open = false

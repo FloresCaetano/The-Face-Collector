@@ -7,6 +7,8 @@ extends Node3D
 
 func _ready():
 	if not scene_manager:
+		await get_tree().process_frame
+		dialogue_reader.start()
 		return
 	await scene_manager.flashback_transition_ends
 	dialogue_reader.start()

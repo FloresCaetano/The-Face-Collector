@@ -419,7 +419,7 @@ states/show_box/position = Vector2(359, 100)
 transitions = ["Start", "show_box", SubResource("AnimationNodeStateMachineTransition_205mf"), "show_box", "insert_cassette", SubResource("AnimationNodeStateMachineTransition_54eu6"), "insert_cassette", "End", SubResource("AnimationNodeStateMachineTransition_7yiau"), "show_box", "hide_box", SubResource("AnimationNodeStateMachineTransition_71chf"), "hide_box", "End", SubResource("AnimationNodeStateMachineTransition_fo287")]
 graph_offset = Vector2(-97, -92)
 
-[node name="CassetteTapePlayer" type="StaticBody3D" unique_id=1783986654 node_paths=PackedStringArray("audio_stream_player", "lbl_subtitles", "lbl_subtitles_3d", "camera_reference", "cassette_tape_player_interface", "tape_linear_container") groups=["cassette_tape_player", "interactable"]]
+[node name="CassetteTapePlayer" type="StaticBody3D" unique_id=1783986654 node_paths=PackedStringArray("audio_stream_player", "lbl_subtitles", "lbl_subtitles_3d", "camera_reference", "cassette_tape_player_interface", "tape_linear_container", "indicator_last_pose_references") groups=["cassette_tape_player", "interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000306547, 0.00383806, -0.00269043)
 script = ExtResource("1_hixu3")
 audio_stream_player = NodePath("AudioStreamPlayer3D")
@@ -428,6 +428,7 @@ lbl_subtitles_3d = NodePath("Label3D")
 camera_reference = NodePath("PhantomCamera3D")
 cassette_tape_player_interface = NodePath("CassetteTapePlayerInterface")
 tape_linear_container = NodePath("CassetteTapePlayerInterface/insert_casette/BoneAttachment3D/Box/TapeLinearContainer")
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=712682972]
 transform = Transform3D(0.419, 0, 0, 0, 0.419, 0, 0, 0, 0.419, 0.030631814, -0.0310541, 0.00196842)
@@ -825,5 +826,8 @@ libraries/ = SubResource("AnimationLibrary_ck13e")
 root_node = NodePath("../insert_casette")
 tree_root = SubResource("AnimationNodeStateMachine_pkfyn")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="InteractionIndicator" type="Marker3D" parent="." unique_id=1755432689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.060997102, 0)
 
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

@@ -9,7 +9,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1ti7"]
 size = Vector3(0.31822205, 0.27116394, 0.11791992)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lkh2k"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tudrb"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9894273, 0.14502972, 0, -0.14502972, 0.989
 
 [node name="Label" parent="DialogueReader/DialogueTarget3D" index="1" unique_id=757227980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.430917, -0.02948019, -0.9492351)
-material_override = SubResource("StandardMaterial3D_lkh2k")
+material_override = SubResource("StandardMaterial3D_tudrb")
 mesh = SubResource("PlaneMesh_tudrb")
 
 [node name="InteractableIndicator" type="Marker3D" parent="." unique_id=1645060311]

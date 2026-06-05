@@ -45,11 +45,12 @@ func interact() -> void:
 			add_child(interactable_indicators[i])
 			interactable_indicators[i].scale = Vector3.ZERO
 			interactable_indicators[i].global_position = indicator_last_pose_reference.global_position
-			interactable_indicators[i].grow(indicator_size)
+			interactable_indicators[i].grow(indicator_size / scale)
 	
 	on_look()
 	
 	if Input.is_action_just_pressed(interact_key):
+		inventory.can_be_opened = false
 		_delete_indicator()
 		set_process_input(true)
 		is_interacting = true
@@ -57,6 +58,7 @@ func interact() -> void:
 		mouse_interaction()
 
 func leave_interaction() -> void:
+		inventory.can_be_opened = true
 		is_interacting = false
 		set_process_input(false)
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

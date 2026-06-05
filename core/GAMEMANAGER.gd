@@ -8,6 +8,10 @@ func _init() -> void:
 var temp_diag_reader : DialogueReader
 
 func bark_dialogue(file_name : String, limits : Array[int], targets : Array[DialogueTarget] = []) -> void:
+	if temp_diag_reader:
+		push_error("There's a barking already")
+		return
+	
 	temp_diag_reader = load("uid://yiosuuu5hda").instantiate()
 	add_child(temp_diag_reader)
 	

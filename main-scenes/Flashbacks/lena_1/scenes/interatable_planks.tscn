@@ -45,46 +45,6 @@ shadow_mesh = SubResource("ArrayMesh_iu47m")
 [sub_resource type="BoxShape3D" id="BoxShape3D_wa0b1"]
 size = Vector3(1.59729, 1.1948242, 0.13012695)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfyh0"]
-resource_name = "Wood_02"
-cull_mode = 2
-albedo_texture = ExtResource("3_fjykq")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_tjfpv"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
-"name": "Wood_02",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_lwrh2"]
-resource_name = "plank_Cube"
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
-"attribute_data": PackedByteArray("VFWqqgAA//8AAKqqVFX//1RVVFUAAKmqAABVVVRVqaqpqqqqVVX//1VVqqqpqv7/qapUVVVVqapVVVVVqqqpqlRVVFUAAAAAVFUAAAAAVVWqqlRVVVUAAKmqAABVVVRV"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_vfyh0"),
-"name": "Wood_02",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWpqlRVqapUVamqVFWqqv+//z//v/8//7//P/8//7+qqlVVqqpVVaqqVVWqqlVV/3//f/9//3//f/9//3//f1VVVFVVVVRVVFVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_tjfpv")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vfyh0"]
-size = Vector3(1.59729, 2.237671, 0.13012695)
-
 [node name="InteratablePlanks" type="Node3D" unique_id=2060471073]
 script = ExtResource("1_88nrh")
 
@@ -186,40 +146,9 @@ shape = SubResource("BoxShape3D_wa0b1")
 [node name="InteractionIndicator" type="Marker3D" parent="PlankMinigame3" unique_id=1534336775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24383366)
 
-[node name="PlankMinigame4" type="StaticBody3D" parent="." unique_id=923011945 node_paths=PackedStringArray("indicator_last_pose_references")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 35.51888, 1.3574187, -13.473616)
-script = ExtResource("1_1anke")
-placing_planks_stream = ExtResource("2_88nrh")
-indicator_last_pose_references = [NodePath("InteractionIndicator")]
-indicator_size = Vector3(0.8, 0.8, 0.8)
-
-[node name="Meshes" type="Node3D" parent="PlankMinigame4" unique_id=1699669649]
-transform = Transform3D(1, -7.450581e-09, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-
-[node name="Cube" type="MeshInstance3D" parent="PlankMinigame4/Meshes" unique_id=761426940]
-transform = Transform3D(0.9977921, 0.006486586, 0, -0.066413224, 0.097454436, 0, 0, 0, 0.016288579, 0.025997162, 0.39533412, -0.085048676)
-mesh = SubResource("ArrayMesh_lwrh2")
-
-[node name="Cube2" type="MeshInstance3D" parent="PlankMinigame4/Meshes" unique_id=1207023841]
-transform = Transform3D(0.99856853, -0.0052240063, 0, 0.053486258, 0.09753027, 0, 0, -2.7755576e-17, 0.016288579, 0.025981903, 0.056800485, -0.085048676)
-mesh = SubResource("ArrayMesh_lwrh2")
-
-[node name="Cube3" type="MeshInstance3D" parent="PlankMinigame4/Meshes" unique_id=1223403718]
-transform = Transform3D(0.9997943, -0.001980684, 0, 0.02027934, 0.09764999, 0, 0, 0, 0.016288579, 0.025985718, -0.27027905, -0.085048676)
-mesh = SubResource("ArrayMesh_lwrh2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlankMinigame4" unique_id=666798011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04876709, -0.23187256, -0.016186714)
-shape = SubResource("BoxShape3D_vfyh0")
-
-[node name="InteractionIndicator" type="Marker3D" parent="PlankMinigame4" unique_id=54707057]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24383366)
-
 [node name="Planks" type="Node3D" parent="." unique_id=2015220772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.835947, 2.0823631, -5.204121)
 
 [connection signal="interacted" from="PlankMinigame1" to="." method="_on_plank_interacted"]
 [connection signal="interacted" from="PlankMinigame2" to="." method="_on_plank_interacted"]
 [connection signal="interacted" from="PlankMinigame3" to="." method="_on_plank_interacted"]
-[connection signal="interacted" from="PlankMinigame4" to="." method="_on_plank_interacted"]

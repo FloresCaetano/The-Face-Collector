@@ -1,7 +1,47 @@
 [gd_scene format=3 uid="uid://djcgd7utw5l2j"]
 
 [ext_resource type="Script" uid="uid://dmm4xa6veadqa" path="res://shared/IconRenderManager/render_viewport.gd" id="1_qx17m"]
-[ext_resource type="PackedScene" uid="uid://cdf15qqq2is45" path="res://interactable/furniture/machine_can_opener/assets/machine_can_opener.glb" id="2_qx17m"]
+[ext_resource type="Texture2D" uid="uid://dvjna2vsuclt0" path="res://scenery/props/postItOnFridge_safePostIt.png" id="2_qx17m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjtjk"]
+resource_name = "Mat"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_qx17m")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ch203"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lrvys"]
+resource_name = "postItOnFridge_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_pjtjk"),
+"name": "Mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ch203")
 
 [node name="IconRenderManager" type="Node3D" unique_id=2001310707]
 
@@ -9,7 +49,7 @@
 transparent_bg = true
 size = Vector2i(1920, 1080)
 script = ExtResource("1_qx17m")
-path = "res://interactable/items/item-resources/generic/machine_can_opener/icon/icon_machine_can_opener"
+path = "res://interactable/items/item-resources/generic/props/icons/icon_frige_hint"
 
 [node name="RenderCamera" type="Camera3D" parent="SubViewport" unique_id=161989113]
 
@@ -25,5 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1822293, 0.28189462, -0.719
 [node name="ItemContainer" type="Node3D" parent="." unique_id=1600958269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.383393e-05, -0.17351781, -0.99945617)
 
-[node name="machine_can_opener" parent="ItemContainer" unique_id=1592213191 instance=ExtResource("2_qx17m")]
-transform = Transform3D(0.94474316, 0, -0.32781154, 0, 1, 0, 0.32781154, 0, 0.94474316, -0.029641628, -0.11509837, 0.58633804)
+[node name="Plane2" type="MeshInstance3D" parent="ItemContainer" unique_id=1799854560]
+transform = Transform3D(0.19990733, -1.3303048e-09, -0.005265055, -0.0060867686, -4.3691138e-08, -0.17291984, 0, 0.99999994, -7.562069e-09, 0, 0.15318301, 0.67476016)
+mesh = SubResource("ArrayMesh_lrvys")

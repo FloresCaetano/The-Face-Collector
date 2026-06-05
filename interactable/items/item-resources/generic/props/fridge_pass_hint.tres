@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b8pck1k5iriax"]
+
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_hxqkq"]
+[ext_resource type="PackedScene" uid="uid://c6xmli380uupx" path="res://scenery/props/postItOnFridge.glb" id="1_vpidp"]
+[ext_resource type="Texture2D" uid="uid://dy2j8rkikdu3c" path="res://interactable/items/item-resources/generic/props/icons/icon_frige_hint.png" id="2_ttqx8"]
+
+[resource]
+script = ExtResource("1_hxqkq")
+name = "Fridge Note"
+texture = ExtResource("2_ttqx8")
+tag = "fridge_pass_hint"
+model = ExtResource("1_vpidp")
+offset = Vector3(0, 0, -1)
+rot_offset = Vector3(-80, 0, 0)
+metadata/_custom_type_script = "uid://c5effmi27pymr"

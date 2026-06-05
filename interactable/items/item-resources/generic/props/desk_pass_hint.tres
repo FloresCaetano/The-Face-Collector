@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ker0ejxiapxv"]
+
+[ext_resource type="PackedScene" uid="uid://cqpp7labx0ak5" path="res://scenery/props/safePassHint.glb" id="1_fwbuu"]
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="2_021vr"]
+[ext_resource type="Texture2D" uid="uid://ccda58cdoilsi" path="res://interactable/items/item-resources/generic/props/icons/icon_desk_hint.png" id="3_cjckb"]
+
+[resource]
+script = ExtResource("2_021vr")
+name = "Desk Note"
+texture = ExtResource("3_cjckb")
+tag = "desk_pass_hint"
+model = ExtResource("1_fwbuu")
+rot_offset = Vector3(-80, 0, 0)
+metadata/_custom_type_script = "uid://c5effmi27pymr"

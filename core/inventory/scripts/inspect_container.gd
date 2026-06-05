@@ -58,6 +58,7 @@ func _on_item_inspected(item) -> void:
 	rotation_velocity = Vector2.ZERO
 	current_item_model = item.model.instantiate()
 	current_item_model.position = Vector3(0, 0, -0.3) + item.offset
+	current_item_model.rotation = item.rot_offset
 	get_child(0).add_child(current_item_model)
 
 func _on_inventory_closed() -> void:

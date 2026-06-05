@@ -25,5 +25,14 @@
         "text": {
             "ES": "Tengo que tomar y abrir [color=dark_red]dos[/color] latas de comida."
         }
+    },
+    {
+        "ID": "3",
+        "CHARACTER": "Lena",
+        "PITCH-RANGE": "1.1-1.2",
+        "TARGET": "internal_voice",
+        "text": {
+            "ES": "No deberia salir, tengo que servirle el almuerzo a Alice."
+        }
     }
 ]

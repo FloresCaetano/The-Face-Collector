@@ -20,6 +20,7 @@
 [ext_resource type="Animation" uid="uid://c240hkqkyjnxn" path="res://scripted-events/Chapter1/LenaFlashback/assets/animations/rest.res" id="15_cll7b"]
 [ext_resource type="Script" uid="uid://bvcvno6ni2vrg" path="res://scripted-events/Chapter1/LenaFlashback/scripts/lena_first_flashback_det.gd" id="15_ef02e"]
 [ext_resource type="Script" uid="uid://b6e2va4lwueor" path="res://scripted-events/Chapter1/LenaFlashback/scripts/alice_animation_tree.gd" id="16_p51ta"]
+[ext_resource type="Script" uid="uid://clylx8gii6831" path="res://main-scenes/Flashbacks/alice_1/scripts/on_try_to_leave_kitchen.gd" id="21_plafm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1oy5w"]
 size = Vector3(0.26610565, 0.51416016, 0.25097656)
@@ -481,16 +482,12 @@ size = Vector3(0.91937256, 0.61621094, 0.8682556)
 script = ExtResource("9_cll7b")
 duration = 0.4
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jktee"]
-viewport_path = NodePath("FlashbackManager/AfterWindowBoarding/EatingWithAlice/InteractionTrigger/DialogueReader/DialogueTarget3D/Label/@SubViewport@100375")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q46np"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kijdq"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_jktee")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mrip5"]
 size = Vector2(2.495, 0.5)
@@ -1039,11 +1036,14 @@ tween_resource = SubResource("Resource_78s20")
 
 [node name="Label" parent="EatingWithAlice/InteractionTrigger/DialogueReader/DialogueTarget3D" index="1" unique_id=757227980]
 transform = Transform3D(1, 0, 0, -6.7055225e-08, 1, 1.1175871e-08, 1.4901161e-08, 1.1175871e-08, 1, 1.2477901, 0.01965332, -0.5106487)
-material_override = SubResource("StandardMaterial3D_q46np")
+material_override = SubResource("StandardMaterial3D_kijdq")
 mesh = SubResource("PlaneMesh_mrip5")
 
 [node name="EventTrigger" type="Node" parent="EatingWithAlice/InteractionTrigger/DialogueReader" unique_id=1025521470]
 script = ExtResource("15_ef02e")
+
+[node name="OnTryToLeaveKitchen" type="Node" parent="." unique_id=1529124413]
+script = ExtResource("21_plafm")
 
 [connection signal="interacted" from="MachineCanOpener/CollectableMachineCanOpener" to="MachineCanOpener" method="_on_collectable_machine_can_opener_interacted"]
 [connection signal="animation_finished" from="EatingWithAlice/alice_drawing/AnimationTree" to="EatingWithAlice/alice_drawing/AnimationTree" method="_on_animation_finished"]
