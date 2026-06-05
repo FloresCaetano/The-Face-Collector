@@ -1431,6 +1431,9 @@ spot_angle_attenuation = 4.5947866
 transform = Transform3D(0.8767794, -0.41359082, 0.24535815, 0.42663187, 0.9044254, 0, -0.22190814, 0.10467761, 0.96943253, -2.647933, -0.84173155, 0.3803177)
 script = null
 
+[node name="Models" parent="FullHouse/Lights/StudyLights/CeilingLamp2" index="0" unique_id=716749397]
+visible = false
+
 [node name="Lights" parent="FullHouse/Lights/StudyLights/CeilingLamp2" index="1" unique_id=691383771]
 light_volumetric_fog_energy = 0.0
 script = null
@@ -1444,6 +1447,9 @@ shadow_caster_mask = 4294443007
 spot_range = 10.39
 spot_angle = 75.0
 spot_angle_attenuation = 4.5947866
+
+[node name="OmniLight3D3" parent="FullHouse/Lights/StudyLights/CeilingLamp2/Lights" index="1" unique_id=388683652]
+light_volumetric_fog_energy = 0.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="FullHouse/Lights/StudyLights" unique_id=1917766755]
 transform = Transform3D(-0.5572418, -0.04056432, 0.829359, -0.08757265, 0.9961068, -0.010119554, -0.8257194, -0.0782682, -0.5586247, -1.4441179, -1.3049811, -1.8841509)
@@ -1621,7 +1627,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -101.039505, 0.38587856, 61.509075)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 21.88179, 1.5051023, 7.9962015)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]

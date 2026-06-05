@@ -12,9 +12,8 @@ stream_0/stream = ExtResource("3_redxj")
 stream_1/stream = ExtResource("4_yo6g2")
 stream_2/stream = ExtResource("5_ie8i0")
 
-[node name="Footsteps" type="Node3D" unique_id=93673007 node_paths=PackedStringArray("object", "footsteps_player", "footsteps_creaking", "check_floor_ray_material", "timer")]
+[node name="Footsteps" type="Node3D" unique_id=93673007 node_paths=PackedStringArray("footsteps_player", "footsteps_creaking", "check_floor_ray_material", "timer")]
 script = ExtResource("1_xpax1")
-object = NodePath("")
 footsteps_player = NodePath("Footsteps")
 footsteps_creaking = NodePath("FootstepsCreaking")
 check_floor_ray_material = NodePath("CheckFloorMaterialRay")
@@ -31,7 +30,6 @@ max_polyphony = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.9101196, 0)
 visible = false
 stream = SubResource("AudioStreamRandomizer_n1hew")
-volume_db = -15.0
 pitch_scale = 0.7
 max_polyphony = 4
 

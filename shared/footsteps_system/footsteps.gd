@@ -62,15 +62,15 @@ func _play_footstep() -> void:
 	if footsteps_player.playing or not footsteps_player:
 		return
 	
-	if material == str(floor_materials.wood):
+	if material == str(floor_materials.keys()[floor_materials.wood]):
 		# 10% de probabilidad de reproducir crujido
 		if footsteps_creaking and randf() < 0.1:
 			footsteps_creaking.play()
 	
 	footsteps_player.stream = load(footsteps_sound_library[floor_materials[material]])
 	footsteps_player.play()
-	
-	
+
+
 
 func _on_footsteps_finished() -> void:
 	can_footstep = true
