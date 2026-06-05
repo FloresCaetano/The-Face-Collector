@@ -6,7 +6,6 @@ extends Camera3D
 
 @export var zoom_in_fov = 50
 @onready var default_zoom_fov = self.fov
-@export var shape_cast: ShapeCast3D
 @export var p_main_camera: PhantomCamera3D
 @export var p_look_at_cam: PhantomCamera3D
 @export var pivot: Pivot
@@ -108,6 +107,17 @@ func throw_raycast(ray_distance : float, interaction_mask : int = 0b1) -> Dictio
 	
 	return result
 
+func throw_raycast_with_offset(max_distance: float, collision_mask: int, local_offset: Vector3) -> Dictionary:
+	var space_state = get_world_3d().direct_space_state
+	var ray_origin = global_position + (global_transform.basis.x * local_offset.x) + (global_transform.basis.y * local_offset.y)
+	var camera_forward = -global_transform.basis.z
+	
+	var ray_target = ray_origin + (camera_forward * max_distance)
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, collision_mask)
+	var result = space_state.intersect_ray(query)
+	
+	return result
+
 signal target_spotted       
 signal sequence_finished   
 func look_at_target(target: Node3D, duration : float, wait_time : float, return_to_original := true) -> void:
@@ -142,7 +152,8 @@ func look_at_target(target: Node3D, duration : float, wait_time : float, return_
 	sequence_finished.emit()
 
 func idle_interact():
-	var best_target : Interactable = _get_most_central_target()
+	var targets = throw_raycast_grid()
+	var best_target : Interactable = _get_most_central_target(targets)
 	if best_target != last_best_target:
 		if last_best_target:
 			last_best_target.mouse_exited()
@@ -152,34 +163,45 @@ func idle_interact():
 
 	last_best_target = best_target
 
-func _get_most_central_target() -> Object:
-	var raycast = throw_raycast(1.5, 0b1)
-	if raycast.has("collider"):
-		shape_cast.global_position = raycast.position
-		shape_cast.target_position.y = -shape_cast.shape.radius
-	else:
-		shape_cast.target_position.y = 1.5
-	
-	if not shape_cast.is_colliding():
+func throw_raycast_grid() -> Array[Interactable]:
+	var hit_interactables: Array[Interactable] = []
+	var steps = 5
+	var grid_size = 0.4
+	var step_size = grid_size / (steps - 1) 
+	var start_offset = -grid_size / 2.0 
+
+	for row in range(steps):
+		for col in range(steps):
+			var x_offset = start_offset + (col * step_size)
+			var y_offset = start_offset + (row * step_size)
+			var local_offset = Vector3(x_offset, y_offset, 0)
+			
+			var hit = throw_raycast_with_offset(1.5, 0b1, local_offset)
+			
+			if hit.has("collider") and hit.collider is Interactable:
+				if not hit_interactables.has(hit.collider):
+					hit_interactables.append(hit.collider)
+					
+	return hit_interactables
+
+func _get_most_central_target(ray_results: Array[Interactable]) -> Interactable:
+	if ray_results.is_empty():
 		return null
 
-	var closest_obj = null
+	var closest_obj: Interactable = null
 	var max_dot = -1.0
 	var camera_forward = -global_transform.basis.z
-	
-	for i in range(shape_cast.get_collision_count()):
-		
-		var collider = shape_cast.get_collider(i)
-		if collider is not Interactable:
-			continue
-		
-		var direction_to_obj = (shape_cast.get_collision_point(i) - global_position).normalized()
+
+	for collider in ray_results:
+		# Calculamos la dirección desde la cámara hacia el centro del objeto interactuable
+		var direction_to_obj = (collider.global_position - global_position).normalized()
 		var dot_product = camera_forward.dot(direction_to_obj)
+		
 		if dot_product > max_dot:
 			max_dot = dot_product
 			closest_obj = collider
 
-	return closest_obj as Interactable
+	return closest_obj
 
 func zoom():
 	if Input.is_action_just_pressed("zoom"):

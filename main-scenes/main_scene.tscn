@@ -1425,7 +1425,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3526125, 2.7932158, -8.775
 transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 15.869491, 0.5283928, 0.4594488)
 
 [node name="CeilingLamp" type="Node3D" parent="FullHouse/Lights/HallLights" unique_id=867264494 node_paths=PackedStringArray("lights")]
-transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0.34778404, 2.6147976)
+transform = Transform3D(0.9999999, 0, 0, 0, -4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0.34778404, 2.6147976)
 script = ExtResource("12_jysff")
 lights = [NodePath("Lights")]
 
@@ -1691,7 +1691,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0.57897377, 1.5051023, -0.2704506)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 20.792953, 1.5051023, 11.990919)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]

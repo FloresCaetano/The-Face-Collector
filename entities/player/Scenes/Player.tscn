@@ -17,9 +17,6 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="19_jgvhu"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_pdd5r"]
-radius = 0.08
-
 [sub_resource type="Resource" id="Resource_msn7k"]
 script = ExtResource("19_jgvhu")
 duration = 0.4
@@ -76,14 +73,13 @@ script = ExtResource("1_ea5mg")
 pivot = NodePath("Pivot")
 real_camera = NodePath("PlayerRealCamera")
 
-[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("shape_cast", "p_main_camera", "p_look_at_cam", "pivot") groups=["real_camera"]]
+[node name="PlayerRealCamera" type="Camera3D" parent="." unique_id=1153064012 node_paths=PackedStringArray("p_main_camera", "p_look_at_cam", "pivot") groups=["real_camera"]]
 physics_interpolation_mode = 1
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 1.6060017, 0)
 top_level = true
 cull_mask = 1048571
 fov = 94.4
 script = ExtResource("2_pdd5r")
-shape_cast = NodePath("ShapeCast3D")
 p_main_camera = NodePath("../Pivot/PMainCamera")
 p_look_at_cam = NodePath("../Pivot/PLookAtCam")
 pivot = NodePath("../Pivot")
@@ -92,14 +88,6 @@ pivot = NodePath("../Pivot")
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("5_lxrxp")
-
-[node name="ShapeCast3D" type="ShapeCast3D" parent="PlayerRealCamera" unique_id=1195522642]
-transform = Transform3D(-2.0080004, -1.7554497e-07, 7.673311e-15, 0, -8.7772484e-08, -2.0079997, 1.7554497e-07, -2.0080004, 8.7772456e-08, 6.0530456e-09, 3.026523e-09, 0.06923878)
-shape = SubResource("SphereShape3D_pdd5r")
-target_position = Vector3(0, 0, 0)
-margin = 0.05
-max_results = 8
-debug_shape_custom_color = Color(0.90588236, 0.34509805, 1, 0.1764706)
 
 [node name="Pivot" type="Node3D" parent="." unique_id=876858444]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116089106, 0)
