@@ -53,15 +53,23 @@ script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
 
-[node name="StaticBody3D" parent="Chest_drawers_05_010" parent_id_path=PackedInt32Array(749964923) index="0" unique_id=483649611 node_paths=PackedStringArray("object")]
+[node name="StaticBody3D" parent="Chest_drawers_05_010" parent_id_path=PackedInt32Array(749964923) index="0" unique_id=483649611 node_paths=PackedStringArray("object", "indicator_last_pose_references")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_0m8hr")
+indicator_last_pose_references = [NodePath("Marker3D")]
 
-[node name="StaticBody3D" parent="Chest_drawers_05_015" parent_id_path=PackedInt32Array(1129306959) index="0" unique_id=792770611 node_paths=PackedStringArray("object")]
+[node name="Marker3D" type="Marker3D" parent="Chest_drawers_05_010/StaticBody3D" index="1" unique_id=977400056]
+transform = Transform3D(0.9999995, 0, 4.973799e-14, 0, 1, 0, -4.973799e-14, 0, 0.9999995, 0.40441322, 0.078755856, 0.07997513)
+
+[node name="StaticBody3D" parent="Chest_drawers_05_015" parent_id_path=PackedInt32Array(1129306959) index="0" unique_id=792770611 node_paths=PackedStringArray("object", "indicator_last_pose_references")]
 script = ExtResource("2_xwikl")
 object = NodePath("..")
 settings = SubResource("Resource_q50ey")
+indicator_last_pose_references = [NodePath("Marker3D")]
+
+[node name="Marker3D" type="Marker3D" parent="Chest_drawers_05_015/StaticBody3D" index="1" unique_id=477899834]
+transform = Transform3D(0.99999964, 0, 3.5527137e-14, 0, 1, 0, -3.5527137e-14, 0, 0.99999964, -0.3933004, 0.06998068, 0.07997513)
 
 [node name="StaticBody3D" parent="Cube_005" parent_id_path=PackedInt32Array(1119223385) index="0" unique_id=906201906 node_paths=PackedStringArray("object")]
 script = ExtResource("2_xwikl")

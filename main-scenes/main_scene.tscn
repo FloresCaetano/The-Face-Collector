@@ -56,6 +56,8 @@
 [ext_resource type="AudioStream" uid="uid://bivw4ujsf5aas" path="res://shared/lights_system/audio/blinking.mp3" id="34_8guji"]
 [ext_resource type="AudioStream" uid="uid://c6wfitkueyq8p" path="res://shared/lights_system/audio/lightbulb_break.mp3" id="35_kmx7f"]
 [ext_resource type="Texture2D" uid="uid://ttf4jedvhxy7" path="res://interactable/furniture/plank/assets/plank_Wood_02.jpg" id="37_iu47m"]
+[ext_resource type="AudioStream" uid="uid://rdg25ijvqb4o" path="res://scenery/props/hall_lamp_wobble/squeak.wav" id="40_5e7ro"]
+[ext_resource type="Script" uid="uid://de5btjqgcgbvo" path="res://scenery/props/hall_lamp_wobble/animation_player.gd" id="41_nxe0b"]
 [ext_resource type="Script" uid="uid://bhlbrvw8tisx3" path="res://scripted-events/Chapter1/AliceFlashback/script/trigger.gd" id="42_723sf"]
 [ext_resource type="Script" uid="uid://c35cmbe2kq228" path="res://interactable/Chapter1/StudyWindow/script/ev_look_at_window.gd" id="42_csog6"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="42_p1fxg"]
@@ -303,11 +305,64 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_58o8l"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5e7ro"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
 size = Vector3(1.9338379, 1.7108154, 0.08111572)
+
+[sub_resource type="Animation" id="Animation_58njv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hvey1"]
+resource_name = "wobble"
+length = 5.5333333
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.19,
+"start_offset": 0.0,
+"stream": ExtResource("40_5e7ro")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3, 1.3333334, 1.3666667, 1.4, 1.4333333, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6, 1.6333333, 1.6666666, 1.7, 1.7333333, 1.7666667, 1.8, 1.8333334, 1.8666667, 1.9, 1.9333333, 1.9666667, 2, 2.0333333, 2.0666666, 2.1, 2.1333334, 2.1666667, 2.2, 2.2333333, 2.2666667, 2.3, 2.3333333, 2.3666666, 2.4, 2.4333334, 2.4666667, 2.5, 2.5333333, 2.5666666, 2.59, 2.6233332, 2.6566665, 2.6899998, 2.7233334, 2.7566667, 2.79, 2.8233333, 2.8566666, 2.8899999, 2.9233332, 2.9566665, 2.99, 3.0233333, 3.0566666, 3.09, 3.1233332, 3.1566665, 3.1899998, 3.2233334, 3.2566667, 3.29, 3.3233333, 3.3566666, 3.3899999, 3.4233332, 3.4566665, 3.49, 3.5233333, 3.5566666, 3.59, 3.6233332, 3.6566665, 3.6899998, 3.7233334, 3.7566667, 3.79, 3.8233333, 3.8566666, 3.8899999, 3.9233332, 3.9566665, 3.99, 4.023333, 4.0566664, 4.09, 4.1233335, 4.1566668, 4.19, 4.2233334, 4.2566667, 4.29, 4.3233333, 4.3566666, 4.39, 4.423333, 4.4566665, 4.49, 4.523333, 4.5566664, 4.59, 4.6233335, 4.6566668, 4.69, 4.7233334, 4.7566667, 4.79, 4.8233333, 4.8566666, 4.89, 4.923333, 4.9566665, 4.99, 5.023333, 5.0566664, 5.09, 5.1233335, 5.1566668, 5.19, 5.2233334, 5.2566667, 5.29, 5.3233333, 5.3566666, 5.39, 5.423333, 5.4566665, 5.49, 5.523333, 5.5333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, -0.19198622), Vector3(1.5707964, 0, -0.19182931), Vector3(1.5707964, 0, -0.19135885), Vector3(1.5707964, 0, -0.1905756), Vector3(1.5707964, 0, -0.18948086), Vector3(1.5707964, 0, -0.18807639), Vector3(1.5707964, 0, -0.1863645), Vector3(1.5707964, 0, -0.18434799), Vector3(1.5707964, 0, -0.18203014), Vector3(1.5707964, 0, -0.17941478), Vector3(1.5707964, 0, -0.17650613), Vector3(1.5707964, 0, -0.17330898), Vector3(1.5707964, 0, -0.16982856), Vector3(1.5707964, 0, -0.16607054), Vector3(1.5707964, 0, -0.16204107), Vector3(1.5707964, 0, -0.15774673), Vector3(1.5707964, 0, -0.15319455), Vector3(1.5707964, 0, -0.14839196), Vector3(1.5707964, 0, -0.14334682), Vector3(1.5707964, 0, -0.13806736), Vector3(1.5707964, 0, -0.13256225), Vector3(1.5707964, 0, -0.12684044), Vector3(1.5707964, 0, -0.1209113), Vector3(1.5707964, 0, -0.11478454), Vector3(1.5707964, 0, -0.10847014), Vector3(1.5707964, 0, -0.10197845), Vector3(1.5707964, 0, -0.095320076), Vector3(1.5707964, 0, -0.088505894), Vector3(1.5707964, 0, -0.08154703), Vector3(1.5707964, 0, -0.074454896), Vector3(1.5707964, 0, -0.06724104), Vector3(1.5707964, 0, -0.0599173), Vector3(1.5707964, 0, -0.052495584), Vector3(1.5707964, 0, -0.04498808), Vector3(1.5707964, 0, -0.03740707), Vector3(1.5707964, 0, -0.02976489), Vector3(1.5707964, 0, -0.022074029), Vector3(1.5707964, 0, -0.014347136), Vector3(1.5707964, 0, -0.0065967888), Vector3(1.5707964, 0, 0.0011643469), Vector3(1.5707964, 0, 0.00892362), Vector3(1.5707964, 0, 0.016668275), Vector3(1.5707964, 0, 0.024385676), Vector3(1.5707964, 0, 0.032063216), Vector3(1.5707964, 0, 0.03968838), Vector3(1.5707964, 0, 0.047248647), Vector3(1.5707964, 0, 0.054731667), Vector3(1.5707964, 0, 0.06212528), Vector3(1.5707964, 0, 0.06941731), Vector3(1.5707964, 0, 0.07659586), Vector3(1.5707964, 0, 0.0836492), Vector3(1.5707964, 0, 0.090565875), Vector3(1.5707964, 0, 0.09733446), Vector3(1.5707964, 0, 0.10394396), Vector3(1.5707964, 0, 0.110383585), Vector3(1.5707964, 0, 0.11664273), Vector3(1.5707964, 0, 0.122711256), Vector3(1.5707964, 0, 0.12857918), Vector3(1.5707964, 0, 0.13423695), Vector3(1.5707964, 0, 0.13967533), Vector3(1.5707964, 0, 0.14488535), Vector3(1.5707964, 0, 0.14985858), Vector3(1.5707964, 0, 0.15458684), Vector3(1.5707964, 0, 0.15906243), Vector3(1.5707964, 0, 0.16327806), Vector3(1.5707964, 0, 0.16722675), Vector3(1.5707964, 0, 0.17090212), Vector3(1.5707964, 0, 0.17429812), Vector3(1.5707964, 0, 0.17740925), Vector3(1.5707964, 0, 0.1802304), Vector3(1.5707964, 0, 0.18275692), Vector3(1.5707964, 0, 0.18498476), Vector3(1.5707964, 0, 0.1869102), Vector3(1.5707964, 0, 0.18853013), Vector3(1.5707964, 0, 0.18984188), Vector3(1.5707964, 0, 0.19084336), Vector3(1.5707964, 0, 0.1915329), Vector3(1.5707964, 0, 0.19190933), Vector3(1.5707964, 0, 0.19198622), Vector3(1.5707964, 0, 0.19186471), Vector3(1.5707964, 0, 0.19150038), Vector3(1.5707964, 0, 0.19089365), Vector3(1.5707964, 0, 0.19004531), Vector3(1.5707964, 0, 0.18895642), Vector3(1.5707964, 0, 0.18762839), Vector3(1.5707964, 0, 0.18606286), Vector3(1.5707964, 0, 0.18426183), Vector3(1.5707964, 0, 0.18222758), Vector3(1.5707964, 0, 0.17996268), Vector3(1.5707964, 0, 0.17747), Vector3(1.5707964, 0, 0.1747527), Vector3(1.5707964, 0, 0.17181422), Vector3(1.5707964, 0, 0.16865827), Vector3(1.5707964, 0, 0.16528884), Vector3(1.5707964, 0, 0.1617102), Vector3(1.5707964, 0, 0.1579269), Vector3(1.5707964, 0, 0.1539437), Vector3(1.5707964, 0, 0.14976567), Vector3(1.5707964, 0, 0.14539805), Vector3(1.5707964, 0, 0.14084643), Vector3(1.5707964, 0, 0.13611652), Vector3(1.5707964, 0, 0.13121434), Vector3(1.5707964, 0, 0.12614608), Vector3(1.5707964, 0, 0.12091814), Vector3(1.5707964, 0, 0.11553716), Vector3(1.5707964, 0, 0.11000995), Vector3(1.5707964, 0, 0.104343496), Vector3(1.5707964, 0, 0.09854498), Vector3(1.5707964, 0, 0.09262173), Vector3(1.5707964, 0, 0.086581245), Vector3(1.5707964, 0, 0.08043116), Vector3(1.5707964, 0, 0.07417931), Vector3(1.5707964, 0, 0.06783356), Vector3(1.5707964, 0, 0.06140195), Vector3(1.5707964, 0, 0.054892585), Vector3(1.5707964, 0, 0.04831378), Vector3(1.5707964, 0, 0.041673824), Vector3(1.5707964, 0, 0.03498113), Vector3(1.5707964, 0, 0.028244123), Vector3(1.5707964, 0, 0.021471396), Vector3(1.5707964, 0, 0.01467149), Vector3(1.5707964, 0, 0.007853031), Vector3(1.5707964, 0, 0.001024589), Vector3(1.5707964, 0, -0.00580512), Vector3(1.5707964, 0, -0.012627482), Vector3(1.5707964, 0, -0.0194339), Vector3(1.5707964, 0, -0.026215658), Vector3(1.5707964, 0, -0.03296426), Vector3(1.5707964, 0, -0.039671138), Vector3(1.5707964, 0, -0.04632783), Vector3(1.5707964, 0, -0.052925855), Vector3(1.5707964, 0, -0.0594569), Vector3(1.5707964, 0, -0.06591268), Vector3(1.5707964, 0, -0.07228507), Vector3(1.5707964, 0, -0.07856594), Vector3(1.5707964, 0, -0.08474736), Vector3(1.5707964, 0, -0.09082152), Vector3(1.5707964, 0, -0.09678076), Vector3(1.5707964, 0, -0.10261746), Vector3(1.5707964, 0, -0.108324274), Vector3(1.5707964, 0, -0.11389403), Vector3(1.5707964, 0, -0.11931957), Vector3(1.5707964, 0, -0.12459417), Vector3(1.5707964, 0, -0.12971102), Vector3(1.5707964, 0, -0.13466369), Vector3(1.5707964, 0, -0.13944592), Vector3(1.5707964, 0, -0.14405163), Vector3(1.5707964, 0, -0.14847504), Vector3(1.5707964, 0, -0.15271051), Vector3(1.5707964, 0, -0.15675269), Vector3(1.5707964, 0, -0.1605965), Vector3(1.5707964, 0, -0.16423701), Vector3(1.5707964, 0, -0.16766967), Vector3(1.5707964, 0, -0.17089008), Vector3(1.5707964, 0, -0.17389421), Vector3(1.5707964, 0, -0.17667823), Vector3(1.5707964, 0, -0.17923863), Vector3(1.5707964, 0, -0.18157221), Vector3(1.5707964, 0, -0.18367593), Vector3(1.5707964, 0, -0.18554719), Vector3(1.5707964, 0, -0.18718357), Vector3(1.5707964, 0, -0.18858306), Vector3(1.5707964, 0, -0.18974383), Vector3(1.5707964, 0, -0.19066449), Vector3(1.5707964, 0, -0.19134377), Vector3(1.5707964, 0, -0.19178091), Vector3(1.5707964, 0, -0.19197528), Vector3(1.5707964, 0, -0.19198622)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86s57"]
+_data = {
+&"RESET": SubResource("Animation_58njv"),
+&"wobble": SubResource("Animation_hvey1")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftw0a"]
 resource_name = "Wood_02"
@@ -986,7 +1041,7 @@ tag = "study_key"
 model = ExtResource("28_ffnvv")
 metadata/_custom_type_script = "uid://b6au5w8ag34fi"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8ca65"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nxe0b"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fkfrk"]
@@ -1305,7 +1360,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_58o8l")
+texture = SubResource("ViewportTexture_5e7ro")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -1370,7 +1425,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3526125, 2.7932158, -8.775
 transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 15.869491, 0.5283928, 0.4594488)
 
 [node name="CeilingLamp" type="Node3D" parent="FullHouse/Lights/HallLights" unique_id=867264494 node_paths=PackedStringArray("lights")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.34778404, 2.6147976)
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0.34778404, 2.6147976)
 script = ExtResource("12_jysff")
 lights = [NodePath("Lights")]
 
@@ -1381,6 +1436,15 @@ shadow_enabled = true
 spot_range = 10.1147375
 spot_angle = 65.82
 spot_angle_attenuation = 1.569166
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="FullHouse/Lights/HallLights/CeilingLamp" unique_id=1927991338]
+volume_db = -7.0
+max_distance = 10.0
+bus = &"Reverb"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FullHouse/Lights/HallLights/CeilingLamp" unique_id=1872641061]
+libraries/ = SubResource("AnimationLibrary_86s57")
+script = ExtResource("41_nxe0b")
 
 [node name="CeilingLamp2" parent="FullHouse/Lights/HallLights" unique_id=182501821 instance=ExtResource("12_fw6df")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.4212246, -6.9688964, -0.36801386)
@@ -1627,7 +1691,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 21.88179, 1.5051023, 7.9962015)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0.57897377, 1.5051023, -0.2704506)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -2137,7 +2201,7 @@ mesh = SubResource("ArrayMesh_bp2wh")
 
 [node name="CircularProgressBar" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key" unique_id=441457289 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_8ca65")
+texture = SubResource("ViewportTexture_nxe0b")
 
 [node name="ATOpenDoor" type="Area3D" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey" unique_id=520968877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.025873, 1.0726542, 1.8296299)

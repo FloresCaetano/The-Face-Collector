@@ -3,7 +3,7 @@ name: Discord Notify
 on:
   push:
     branches:
-      - main # O la rama que uses para el desarrollo principal
+      - main
 
 jobs:
   notify:
@@ -12,12 +12,6 @@ jobs:
       - name: Send Detailed Webhook
         uses: sarisia/actions-status-discord@v1
         with:
-          # Aquí extraemos el mensaje completo (título + descripción)
-          description: |
-            **Resumen del progreso:**
-            ${{ github.event.head_commit.message }}
-          url: ${{ github.event.head_commit.url }}
-          username: "The Face Collector Bot"
-          # Debes guardar tu URL en Settings > Secrets and variables > Actions
+          username: "The Face Collector Bot" # O el nombre que prefieras
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           color: 0x5865F2

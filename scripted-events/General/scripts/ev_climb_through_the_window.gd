@@ -15,7 +15,7 @@ func execute() -> void:
 	world_environment.environment = enviroment
 	audio_stream_player_3d.stream = window_close_sound
 	audio_stream_player_3d.play()
-	await get_tree().create_timer(0.5).timeout
+	await audio_stream_player_3d.finished
 	
 	PATHS.player.global_position = last_player_position.global_position
 	get_parent().is_interacting = false

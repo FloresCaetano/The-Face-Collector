@@ -153,22 +153,28 @@ func idle_interact():
 	last_best_target = best_target
 
 func _get_most_central_target() -> Object:
+	var raycast = throw_raycast(1.5, 0b1)
+	if raycast.has("collider"):
+		shape_cast.global_position = raycast.position
+		shape_cast.target_position.y = -shape_cast.shape.radius
+	else:
+		shape_cast.target_position.y = 1.5
+	
 	if not shape_cast.is_colliding():
 		return null
 
 	var closest_obj = null
 	var max_dot = -1.0
 	var camera_forward = -global_transform.basis.z
-
+	
 	for i in range(shape_cast.get_collision_count()):
 		
 		var collider = shape_cast.get_collider(i)
 		if collider is not Interactable:
-			return
+			continue
 		
-		var direction_to_obj = (collider.global_position - global_position).normalized()
+		var direction_to_obj = (shape_cast.get_collision_point(i) - global_position).normalized()
 		var dot_product = camera_forward.dot(direction_to_obj)
-
 		if dot_product > max_dot:
 			max_dot = dot_product
 			closest_obj = collider

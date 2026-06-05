@@ -96,7 +96,7 @@ script = ExtResource("5_lxrxp")
 [node name="ShapeCast3D" type="ShapeCast3D" parent="PlayerRealCamera" unique_id=1195522642]
 transform = Transform3D(-2.0080004, -1.7554497e-07, 7.673311e-15, 0, -8.7772484e-08, -2.0079997, 1.7554497e-07, -2.0080004, 8.7772456e-08, 6.0530456e-09, 3.026523e-09, 0.06923878)
 shape = SubResource("SphereShape3D_pdd5r")
-target_position = Vector3(0, 1.5, 0)
+target_position = Vector3(0, 0, 0)
 margin = 0.05
 max_results = 8
 debug_shape_custom_color = Color(0.90588236, 0.34509805, 1, 0.1764706)
