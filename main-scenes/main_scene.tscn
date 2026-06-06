@@ -307,7 +307,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5e7ro"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_58njv"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -1172,7 +1172,7 @@ tag = "study_key"
 model = ExtResource("28_ffnvv")
 metadata/_custom_type_script = "uid://b6au5w8ag34fi"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nxe0b"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hvey1"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fkfrk"]
@@ -1522,7 +1522,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_5e7ro")
+texture = SubResource("ViewportTexture_58njv")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -1691,6 +1691,7 @@ script = null
 visible = false
 
 [node name="Lights" parent="FullHouse/Lights/StudyLights/CeilingLamp2" index="1" unique_id=691383771]
+light_energy = 0.07
 light_volumetric_fog_energy = 0.0
 script = null
 
@@ -1717,13 +1718,14 @@ spot_range = 4.2670484
 spot_angle = 34.52
 
 [node name="FogVolume" type="FogVolume" parent="FullHouse/Lights/StudyLights/SpotLight3D2" unique_id=1025915697]
-transform = Transform3D(1.0000001, 0, 1.7881393e-07, 6.631017e-07, 1, -2.5518239e-07, -4.172325e-07, 2.6077032e-08, 1.0000002, -0.5894413, 0.07736206, -1.1612759)
-size = Vector3(2.3916016, 2, 2.946167)
+transform = Transform3D(1, -7.301569e-07, 1.7881393e-07, 1.5348196e-06, 0.99999607, -2.6077032e-07, 2.3841858e-07, 2.0861626e-07, 1.0000002, -0.09945297, 0.0773623, -1.1612787)
+size = Vector3(1.4116211, 2, 2.946167)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FullHouse/Lights/StudyLights" unique_id=935108589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5609684, -1.7033476, -2.4705067)
 layers = 3
-light_energy = 0.345
+light_energy = 0.115
+light_volumetric_fog_energy = 0.0
 light_specular = 0.0
 shadow_enabled = true
 shadow_blur = 10.0
@@ -1882,7 +1884,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 20.792953, 1.5051023, 11.990919)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -1.422409, 1.6584438, -0.31290817)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -1895,13 +1897,15 @@ light_cull_mask = 4294443007
 omni_range = 7.175
 
 [node name="SpotLight3D" type="SpotLight3D" parent="PlayerAndLight" unique_id=1002102326]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.1042056, 0)
 visible = false
 layers = 3
 light_energy = 1.3
+light_specular = 0.1
 shadow_enabled = true
-spot_range = 17.346638
-spot_angle = 40.0
+spot_range = 17.217
+spot_attenuation = 0.65
+spot_angle = 50.0
 spot_angle_attenuation = 9.849135
 
 [node name="Entities" type="Node3D" parent="." unique_id=1328729940]
@@ -2392,7 +2396,7 @@ mesh = SubResource("ArrayMesh_bp2wh")
 
 [node name="CircularProgressBar" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key" unique_id=441457289 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_nxe0b")
+texture = SubResource("ViewportTexture_hvey1")
 
 [node name="ATOpenDoor" type="Area3D" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey" unique_id=520968877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.025873, 1.0726542, 1.8296299)
@@ -2749,7 +2753,7 @@ indicator_last_pose_references = [NodePath("Marker3D")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.119363785)
 
 [node name="BasementTape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.440821, -3.1217847, -16.505457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.440821, -3.098494, -16.505457)
 tape_item = SubResource("Resource_fkfrk")
 
 [node name="OnTapePickUp" type="Node" parent="Chapter1/Interactables/BasementTape" unique_id=1222559119 node_paths=PackedStringArray("on_player_leaves_bedroom", "collector_appearance")]

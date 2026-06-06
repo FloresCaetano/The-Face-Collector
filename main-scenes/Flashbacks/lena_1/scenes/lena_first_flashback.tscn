@@ -102,7 +102,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.384381, 1.4996852, -1
 
 [node name="Interactables" type="Node3D" parent="FullHouse" unique_id=2037736752]
 
-[node name="Doors" type="Node3D" parent="FullHouse/Interactables" unique_id=1603460406]
+[node name="Doors" type="Node3D" parent="FullHouse/Interactables" unique_id=1603460406 groups=["doors_container"]]
 
 [node name="Door" parent="FullHouse/Interactables/Doors" unique_id=2083674971 instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
