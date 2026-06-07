@@ -1,4 +1,6 @@
 extends Node
+@onready var audio_controller : AudioController = PATHS.audio_controller
+
 @export_category("Electric Light Error Configs")
 @export var noise: FastNoiseLite
 @export var base_energy: float = 1.0
@@ -6,6 +8,8 @@ extends Node
 @export var drop_threshold: float = -0.4
 @export var light: SmartLight
 @export var audio_stream_player_3d: AudioStreamPlayer3D
+@export var layers : Array[LabeledTrack]
+
 
 var can_flicker := false
 
@@ -37,7 +41,14 @@ func stop_flickering():
 	$"../../../../../../FullHouse/Lights".visible = false
 	$"../../../../../../PlayerAndLight/SpotLight3D".visible = true
 	$"../../../../../../PlayerAndLight/Player/OmniLight3D".visible = false
-	
+	audio_controller.set_selected_tracks(layers)
+	audio_controller.start_layer("phase1")
+	audio_controller.start_layer("phase2")
+
+
+func load_and_start_layers():
+	pass
+
 func _process(delta: float) -> void:
 	if can_flicker:
 		light_flickering(delta)

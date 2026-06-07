@@ -6,7 +6,7 @@ extends Node3D
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
 @onready var interior_env : Environment = preload("uid://dc6cxt4hxrydi")
 
-
+@onready var audio_controller : AudioController = PATHS.audio_controller
 
 func _ready() -> void:
 	var doors : Array[Door] = [%Door, %Door2]
@@ -29,6 +29,8 @@ func switch_enviroment():
 func clear_rain():
 	var rain: GPUParticles3D = $"../../../FullHouse/HouseExterior/Rain"
 	rain.emitting = false
-	PATHS.audio_controller.stop_layer("rain1")
+	audio_controller.stop_layer("rain1")
+	audio_controller.append_selected_track(load("uid://bfqbbh1r5d70c"))
+	audio_controller.start_layer("piano_ambience")
 	$"../../../WorldEnvironment/ExteriorLight".visible = true
 	

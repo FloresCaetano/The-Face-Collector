@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LabeledTrack" format=3 uid="uid://vdmdu1u103r8"]
+
+[ext_resource type="Script" uid="uid://dc4cmg5i6dn5s" path="res://shared/audio_system/labeled_track.gd" id="1_fmyj7"]
+[ext_resource type="AudioStream" uid="uid://u2hi03uj011t" path="res://FX/ambience/layers1/crescendo - phase four.mp3" id="2_6d1ei"]
+
+[resource]
+script = ExtResource("1_fmyj7")
+label = "phase4"
+stream = ExtResource("2_6d1ei")
+metadata/_custom_type_script = "uid://dc4cmg5i6dn5s"

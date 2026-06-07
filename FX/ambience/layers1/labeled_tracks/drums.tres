@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LabeledTrack" format=3 uid="uid://pdwolgp2qnt5"]
+
+[ext_resource type="Script" uid="uid://dc4cmg5i6dn5s" path="res://shared/audio_system/labeled_track.gd" id="1_f68xp"]
+[ext_resource type="AudioStream" uid="uid://bjj8sw4ktsu5l" path="res://FX/ambience/layers1/crescendo - drums.mp3" id="2_pw44m"]
+
+[resource]
+script = ExtResource("1_f68xp")
+label = "drums"
+stream = ExtResource("2_pw44m")
+metadata/_custom_type_script = "uid://dc4cmg5i6dn5s"

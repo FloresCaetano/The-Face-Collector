@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjqv8gfqpf65p"
+path="res://.godot/imported/crescendo - phase three.mp3-71b2f97f44d08959f8255d974c75bcc2.mp3str"
+
+[deps]
+
+source_file="res://FX/ambience/layers1/crescendo - phase three.mp3"
+dest_files=["res://.godot/imported/crescendo - phase three.mp3-71b2f97f44d08959f8255d974c75bcc2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

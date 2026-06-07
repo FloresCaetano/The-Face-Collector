@@ -1,0 +1,145 @@
+[gd_scene format=4 uid="uid://nfy22sbx7vvn"]
+
+[ext_resource type="Script" uid="uid://d2pep2jsdhsd1" path="res://scripted-events/Chapter1/corridor_closing_walls/scripts/corridor_closing_walls.gd" id="1_5psle"]
+[ext_resource type="Texture2D" uid="uid://b4x1i6ifu5ds4" path="res://scripted-events/Chapter1/loops/first_loop/assets/1st_lap_bricks_1.png" id="2_e27j8"]
+[ext_resource type="PackedScene" uid="uid://by63c5jm6toa7" path="res://shared/VisibilityTrigger/look_at_trigger.tscn" id="3_wxeep"]
+
+[sub_resource type="GDScript" id="GDScript_cymo7"]
+script/source = "extends Node3D
+var already_look := false
+func _on_look_event():
+	if !already_look:
+		$\"..\".get_node(\"1st_lap\").already_look = true
+		$\"..\".get_node(\"1st_lap3\").already_look = true
+		var BackgroundPlayer : AudioStreamPlayer3D = get_tree().get_first_node_in_group(\"background_audio_player\")
+		var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(BackgroundPlayer, \"volume_db\", -10, 0.5)
+		tween.tween_callback(
+			func():
+				get_tree().get_first_node_in_group(\"player\").get_node(\"PlayerSpeaking\").speak(\"
+				Something is wrong with this place. I have to get out of here.\")
+				get_tree().get_first_node_in_group(\"audio_player\").stream = load(\"res://assets/audio/fx/crepy/violin1.mp3\")
+				get_tree().get_first_node_in_group(\"audio_player\").play()
+				BackgroundPlayer.stream = load(\"res://assets/audio/ambient/crescendo - phase one.mp3\")
+				BackgroundPlayer.play()
+				var tween2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				tween2.tween_property(BackgroundPlayer, \"volume_db\", 0.0, 0.5)
+		)
+	
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xly1h"]
+resource_name = "Bricks"
+cull_mode = 2
+albedo_texture = ExtResource("2_e27j8")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fnej8"]
+_surfaces = [{
+"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAADAAIAAAABAAMABQAHAAYABQAEAAcAAQAHAAMAAQAGAAcAAAALAAUAAAAJAAsAAwAEAAIAAwAHAAQAAAAGAAEAAAAFAAYACAALAAkACAAKAAsABQAKAAQABQALAAoAAgAJAAAAAgAIAAkABAAIAAIABAAKAAgA"),
+"name": "Bricks",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("hjUAAP//AAD//wAA//8AAIY1AAAAAAAA//8AAAAAAACGNf7/AAAAAIY1/v///wAA///+////AAD///7/AAAAAAAAAAAAAAAAAAAAAP//AAAAAP7/AAAAAAAA/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k2gfk"]
+resource_name = "1st_lap_Plane_024"
+_surfaces = [{
+"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
+"attribute_data": PackedByteArray("k6RzuwAAc7uTpP//AAD//898c7vPfP//3LZzu///c7trW3O7k6R4fwAAeH8vg3O7z3x4fyJJc7v//wTEa1sExP//eH9rW3h/k6QExAAABMT/////a1v//898BMQvg///3LYExC+DBMQvg3h/IkkExHv1c7uDCnh/3LZzu4MKc7uDCv//Iklzu3v1BMR79Xh/3LYExIMKBMR79f//IkkExA=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AgAMAAkAAgAFAAwAFQAaABcAFQARABoABgAbAA0ABgAYABsAAQAlABMAAQAfACUACwAPAAgACwAZAA8AAAAWAAQAAAASABYAHgAnACEAHgAkACcAFAAjABAAFAAmACMACgAgAAMACgAdACAADgAcAAcADgAiABwA"),
+"material": SubResource("StandardMaterial3D_xly1h"),
+"name": "Bricks",
+"primitive": 3,
+"uv_scale": Vector4(2.33403, 1.99271, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("hjUAAP////+GNQAA/////4Y1AAD/////hjUAAP///////wAA////////AAD///////8AAP////+GNQAAAAD//4Y1AAAAAP//hjUAAAAA//+GNQAAAAD/////AAAAAP////8AAAAA/////wAAAAD//4Y1/v8AAP//hjX+/wAA//+GNf7/AAD/v4Y1/v8AAP+/hjX+//////+GNf7//////4Y1/v////+/hjX+/////7////7//////////v////+////+//////////7/AAD//////v8AAP+////+/wAA//8AAAAAAAD//wAAAAAAAP//AAAAAAAA//8AAAAA/////wAAAAD/////AAAAAP////8AAP7/AAD//wAA/v8AAP+/AAD+/wAA//8AAP///////wAA//////+/AAD/////////f/9//3//f/9//z//f/8//3//f/9//z//v/9//v//f////3//f/8//3//P/7//3//f/8//7//f/7//3////9/////f////3//f/9//3//f////3////9//3//f////3//v/9//v//f////3//v/9//v//f/9//z//P/9//3//f/9//z//P/9//v//f////3//P/9//3//f////3//P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fnej8")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sxx1c"]
+data = PackedVector3Array(-0.399881, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, -0.1, -1.5, -0.399881, -0.1, 1.5, 0.687288, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, 0.0999999, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, 0.0999999, -1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, -0.399881, -0.1, 1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, 0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, -1.5, 0.687288, -0.1, -1.5, 0.687288, 0.0999999, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, -0.1, 1.5, -0.399881, -0.1, 1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, 1.5, -0.687288, 0.1, -1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, 0.0999999, -1.5, -0.687288, -0.0999999, -1.5, -0.399881, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, -0.0999999, -1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ch5t2"]
+size = Vector3(1.088562, 2.2572632, 0.101745605)
+
+[node name="CorridorClosingWalls" type="Node3D" unique_id=567073616]
+script = ExtResource("1_5psle")
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=1974444858 groups=["lookable"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.721855, 0.48184228, -17.9487)
+script = SubResource("GDScript_cymo7")
+
+[node name="int8_002" type="MeshInstance3D" parent="Wall" unique_id=608649268]
+transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_k2gfk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=161446431]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
+shape = SubResource("ConcavePolygonShape3D_sxx1c")
+
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=606486902 groups=["lookable"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.975208, 0.48184228, -7.969883)
+script = SubResource("GDScript_cymo7")
+
+[node name="int8_002" type="MeshInstance3D" parent="Wall2" unique_id=1089138675]
+transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_k2gfk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=1262026897]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
+shape = SubResource("ConcavePolygonShape3D_sxx1c")
+
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=617261831 groups=["lookable"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.072632, 0.48184228, -7.969883)
+script = SubResource("GDScript_cymo7")
+
+[node name="int8_002" type="MeshInstance3D" parent="Wall3" unique_id=2029947899]
+transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_k2gfk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=476485815]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
+shape = SubResource("ConcavePolygonShape3D_sxx1c")
+
+[node name="Wall4" type="StaticBody3D" parent="." unique_id=2051363994 groups=["lookable"]]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 13.051562, 0.48184228, -10.8846855)
+script = SubResource("GDScript_cymo7")
+
+[node name="int8_002" type="MeshInstance3D" parent="Wall4" unique_id=698873435]
+transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
+mesh = SubResource("ArrayMesh_k2gfk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=980119387]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
+shape = SubResource("ConcavePolygonShape3D_sxx1c")
+
+[node name="LookAtTrigger1" parent="." unique_id=927364855 instance=ExtResource("3_wxeep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.155912, 1.6101538, -10.577303)
+aabb = AABB(-0.14486651, -0.19156644, -0.12795313, 0.28973302, 0.38313287, 0.25590625)
+
+[node name="LookAtTrigger2" parent="." unique_id=35046491 instance=ExtResource("3_wxeep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.525242, 1.6101538, -8.862911)
+aabb = AABB(-0.47418243, -0.6164745, -0.43742076, 0.94836485, 1.232949, 0.8748415)
+is_active = false
+
+[node name="Area3D" type="Area3D" parent="." unique_id=413987347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.90214, 1.1616123, -9.957637)
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1867813576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15866089, -0.0047302246, 0.22305298)
+shape = SubResource("BoxShape3D_ch5t2")
+
+[connection signal="entered_view" from="LookAtTrigger1" to="." method="_on_look_at_trigger_1_entered_view"]
+[connection signal="entered_view" from="LookAtTrigger2" to="." method="_on_look_at_trigger_2_entered_view"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

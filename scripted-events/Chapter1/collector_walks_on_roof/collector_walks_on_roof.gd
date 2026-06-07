@@ -19,4 +19,6 @@ func _on_trigger_body_entered(body: Node3D) -> void:
 		$Trigger.queue_free()
 		$AnimationPlayer.play("walks")
 		await $AnimationPlayer.animation_finished
+		PATHS.audio_controller.start_layer("phase3")
+		PATHS.audio_controller.start_layer("phase4")
 		queue_free()

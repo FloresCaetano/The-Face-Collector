@@ -54,7 +54,7 @@ func stop_layer(label : String):
 	
 	_interpolate_volume_at(index, sync_stream.get_sync_stream_volume(index), linear_to_db(0.0), 10.0)
 	await interpolation_finished
-	sync_stream.set_sync_stream(index, null)
+	#sync_stream.set_sync_stream(index, null)
 
 signal interpolation_finished(index : int)
 func _interpolate_volume_at(index : int, from : float, to : float, duration : float) -> void:

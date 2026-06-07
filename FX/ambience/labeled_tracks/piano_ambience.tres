@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LabeledTrack" format=3 uid="uid://bfqbbh1r5d70c"]
+
+[ext_resource type="Script" uid="uid://dc4cmg5i6dn5s" path="res://shared/audio_system/labeled_track.gd" id="1_m68hb"]
+[ext_resource type="AudioStream" uid="uid://b6pvrkslpqufc" path="res://FX/ambience/piano ambience.mp3" id="2_ol0pn"]
+
+[resource]
+script = ExtResource("1_m68hb")
+label = "piano_ambience"
+stream = ExtResource("2_ol0pn")
+metadata/_custom_type_script = "uid://dc4cmg5i6dn5s"

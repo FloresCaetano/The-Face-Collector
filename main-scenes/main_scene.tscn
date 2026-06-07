@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
 [ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="4_75qya"]
-[ext_resource type="Environment" uid="uid://xcutn6hsofwm" path="res://VFX/enviroments/develop.tres" id="4_hvey1"]
 [ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="4_iu47m"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="4_uvaer"]
@@ -86,12 +85,17 @@
 [ext_resource type="AudioStream" uid="uid://cydix7gd3ntmc" path="res://scripted-events/Chapter1/collector_first_appearance/assets/audio/electricity_buss.wav" id="67_djj5j"]
 [ext_resource type="Script" uid="uid://c66iat8j4w2c3" path="res://scripted-events/Chapter1/on_tape_pick_up/on_tape_pick_up.gd" id="67_ykmb4"]
 [ext_resource type="PackedScene" uid="uid://dcmqhuiavt82g" path="res://scripted-events/Chapter1/Screamer/scenes/fp_screamer_manager.tscn" id="69_fkfrk"]
+[ext_resource type="Script" uid="uid://dc4cmg5i6dn5s" path="res://shared/audio_system/labeled_track.gd" id="76_ej7h5"]
+[ext_resource type="Resource" uid="uid://pdwolgp2qnt5" path="res://FX/ambience/layers1/labeled_tracks/drums.tres" id="77_jcxlv"]
+[ext_resource type="Resource" uid="uid://msnmvc8v5jcg" path="res://FX/ambience/layers1/labeled_tracks/phase1.tres" id="78_nqkc3"]
+[ext_resource type="Resource" uid="uid://do1k4ywv75ql4" path="res://FX/ambience/layers1/labeled_tracks/phase2.tres" id="79_v6718"]
+[ext_resource type="Resource" uid="uid://jdrnvqsciokh" path="res://FX/ambience/layers1/labeled_tracks/phase3.tres" id="80_dvcwx"]
 [ext_resource type="Script" uid="uid://cju4a6sk7n64v" path="res://scripted-events/Chapter1/audio_on_storage_vent/audio_on_storage_vent.gd" id="81_86s57"]
+[ext_resource type="Resource" uid="uid://vdmdu1u103r8" path="res://FX/ambience/layers1/labeled_tracks/phase4.tres" id="81_ummlg"]
 [ext_resource type="AudioStream" uid="uid://cth7wbxh8m2cd" path="res://scripted-events/Chapter1/audio_on_storage_vent/breathing.tres" id="82_6qa0w"]
 [ext_resource type="AudioStream" uid="uid://du3yr2f7u205e" path="res://scripted-events/Chapter1/audio_on_storage_vent/metal_knocks.wav" id="82_63c1q"]
+[ext_resource type="Resource" uid="uid://bn5dqqiwc4trk" path="res://FX/ambience/layers1/labeled_tracks/phase5.tres" id="82_mvy3c"]
 [ext_resource type="Script" uid="uid://cvde50ng5xyt5" path="res://scripted-events/Chapter1/collector_walks_on_roof/collector_walks_on_roof.gd" id="84_34f6i"]
-[ext_resource type="Script" uid="uid://d2pep2jsdhsd1" path="res://scripted-events/Chapter1/corridor_closing_walls/scripts/corridor_closing_walls.gd" id="84_ch5t2"]
-[ext_resource type="Texture2D" uid="uid://b4x1i6ifu5ds4" path="res://scripted-events/Chapter1/loops/first_loop/assets/1st_lap_bricks_1.png" id="84_o2hae"]
 [ext_resource type="Script" uid="uid://10jksscu0j" path="res://scripted-events/Chapter1/on_crowbar_interact/on_crowbar_interact.gd" id="85_wsms8"]
 [ext_resource type="PackedScene" uid="uid://drq45lycdx1aq" path="res://entities/collector/collector_steps/collector_steps.tscn" id="91_a6p7x"]
 
@@ -1239,74 +1243,6 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_5r0v5"]
 size = Vector3(0.7788086, 2.9822998, 1.4989014)
 
-[sub_resource type="GDScript" id="GDScript_cymo7"]
-script/source = "extends Node3D
-var already_look := false
-func _on_look_event():
-	if !already_look:
-		$\"..\".get_node(\"1st_lap\").already_look = true
-		$\"..\".get_node(\"1st_lap3\").already_look = true
-		var BackgroundPlayer : AudioStreamPlayer3D = get_tree().get_first_node_in_group(\"background_audio_player\")
-		var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		tween.tween_property(BackgroundPlayer, \"volume_db\", -10, 0.5)
-		tween.tween_callback(
-			func():
-				get_tree().get_first_node_in_group(\"player\").get_node(\"PlayerSpeaking\").speak(\"
-				Something is wrong with this place. I have to get out of here.\")
-				get_tree().get_first_node_in_group(\"audio_player\").stream = load(\"res://assets/audio/fx/crepy/violin1.mp3\")
-				get_tree().get_first_node_in_group(\"audio_player\").play()
-				BackgroundPlayer.stream = load(\"res://assets/audio/ambient/crescendo - phase one.mp3\")
-				BackgroundPlayer.play()
-				var tween2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-				tween2.tween_property(BackgroundPlayer, \"volume_db\", 0.0, 0.5)
-		)
-	
-"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xly1h"]
-resource_name = "Bricks"
-cull_mode = 2
-albedo_texture = ExtResource("84_o2hae")
-texture_filter = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_fnej8"]
-_surfaces = [{
-"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
-"format": 34896613377,
-"index_count": 60,
-"index_data": PackedByteArray("AAADAAIAAAABAAMABQAHAAYABQAEAAcAAQAHAAMAAQAGAAcAAAALAAUAAAAJAAsAAwAEAAIAAwAHAAQAAAAGAAEAAAAFAAYACAALAAkACAAKAAsABQAKAAQABQALAAoAAgAJAAAAAgAIAAkABAAIAAIABAAKAAgA"),
-"name": "Bricks",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 12,
-"vertex_data": PackedByteArray("hjUAAP//AAD//wAA//8AAIY1AAAAAAAA//8AAAAAAACGNf7/AAAAAIY1/v///wAA///+////AAD///7/AAAAAAAAAAAAAAAAAAAAAP//AAAAAP7/AAAAAAAA/////wAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_k2gfk"]
-resource_name = "1st_lap_Plane_024"
-_surfaces = [{
-"aabb": AABB(-0.687288, -0.1, -1.5, 1.37458, 0.2, 3),
-"attribute_data": PackedByteArray("k6RzuwAAc7uTpP//AAD//898c7vPfP//3LZzu///c7trW3O7k6R4fwAAeH8vg3O7z3x4fyJJc7v//wTEa1sExP//eH9rW3h/k6QExAAABMT/////a1v//898BMQvg///3LYExC+DBMQvg3h/IkkExHv1c7uDCnh/3LZzu4MKc7uDCv//Iklzu3v1BMR79Xh/3LYExIMKBMR79f//IkkExA=="),
-"format": 34896613399,
-"index_count": 60,
-"index_data": PackedByteArray("AgAMAAkAAgAFAAwAFQAaABcAFQARABoABgAbAA0ABgAYABsAAQAlABMAAQAfACUACwAPAAgACwAZAA8AAAAWAAQAAAASABYAHgAnACEAHgAkACcAFAAjABAAFAAmACMACgAgAAMACgAdACAADgAcAAcADgAiABwA"),
-"material": SubResource("StandardMaterial3D_xly1h"),
-"name": "Bricks",
-"primitive": 3,
-"uv_scale": Vector4(2.33403, 1.99271, 0, 0),
-"vertex_count": 40,
-"vertex_data": PackedByteArray("hjUAAP////+GNQAA/////4Y1AAD/////hjUAAP///////wAA////////AAD///////8AAP////+GNQAAAAD//4Y1AAAAAP//hjUAAAAA//+GNQAAAAD/////AAAAAP////8AAAAA/////wAAAAD//4Y1/v8AAP//hjX+/wAA//+GNf7/AAD/v4Y1/v8AAP+/hjX+//////+GNf7//////4Y1/v////+/hjX+/////7////7//////////v////+////+//////////7/AAD//////v8AAP+////+/wAA//8AAAAAAAD//wAAAAAAAP//AAAAAAAA//8AAAAA/////wAAAAD/////AAAAAP////8AAP7/AAD//wAA/v8AAP+/AAD+/wAA//8AAP///////wAA//////+/AAD/////////f/9//3//f/9//z//f/8//3//f/9//z//v/9//v//f////3//f/8//3//P/7//3//f/8//7//f/7//3////9/////f////3//f/9//3//f////3////9//3//f////3//v/9//v//f////3//v/9//v//f/9//z//P/9//3//f/9//z//P/9//v//f////3//P/9//3//f////3//P/9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_fnej8")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sxx1c"]
-data = PackedVector3Array(-0.399881, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, -0.1, -1.5, -0.399881, -0.1, 1.5, 0.687288, -0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, 0.0999999, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, 0.0999999, -1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, -1.5, 0.687288, -0.1, -1.5, 0.687288, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, 0.0999999, -1.5, -0.399881, -0.1, 1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, 0.1, 1.5, 0.687288, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, -1.5, 0.687288, -0.1, -1.5, 0.687288, 0.0999999, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, -0.1, 1.5, 0.687288, 0.0999999, 1.5, 0.687288, -0.1, 1.5, -0.399881, -0.1, 1.5, -0.399881, 0.0999999, 1.5, 0.687288, 0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, 1.5, -0.687288, -0.0999999, 1.5, -0.687288, -0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, 0.1, 1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.399881, 0.0999999, 1.5, -0.687288, 0.1, 1.5, -0.687288, 0.1, -1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, -0.1, 1.5, -0.399881, -0.1, -1.5, -0.687288, -0.0999999, -1.5, -0.687288, -0.0999999, 1.5, -0.399881, 0.0999999, -1.5, -0.687288, -0.0999999, -1.5, -0.399881, -0.1, -1.5, -0.399881, 0.0999999, -1.5, -0.687288, 0.1, -1.5, -0.687288, -0.0999999, -1.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ch5t2"]
-size = Vector3(1.088562, 2.2572632, 0.101745605)
-
 [sub_resource type="Resource" id="Resource_fkfrk"]
 script = ExtResource("61_ummc1")
 flashback = "uid://brhm110k5epdl"
@@ -1326,7 +1262,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("4_hvey1")
+environment = ExtResource("4_75qya")
 
 [node name="ExteriorLight" type="Node3D" parent="WorldEnvironment" unique_id=976979726]
 transform = Transform3D(1, 0, 0, 0, 0.35128623, 0.9362681, 0, -0.9362681, 0.35128623, 24.340767, 18.141653, 8.34812)
@@ -2006,7 +1942,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 16.60836, 1.6584438, 4.965493)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -99.88286, 0.83281827, 62.35409)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -2829,6 +2765,21 @@ script = ExtResource("63_ykmb4")
 noise = SubResource("FastNoiseLite_x0ijl")
 light = NodePath("../../../../../../FullHouse/Lights/CorridorLights/CeilingLamp5/Lights")
 audio_stream_player_3d = NodePath("../../../AudioStreamPlayer3D")
+layers = Array[ExtResource("76_ej7h5")]([ExtResource("77_jcxlv"), ExtResource("78_nqkc3"), ExtResource("79_v6718"), ExtResource("80_dvcwx"), ExtResource("81_ummlg"), ExtResource("82_mvy3c")])
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance" unique_id=1104181689]
+transform = Transform3D(0.74430996, -0.47874516, -0.46562338, -0.61573154, -0.7619233, -0.20086586, -0.2586058, 0.4362058, -0.86188596, 0.19761086, 2.4980073, 0.2708969)
+bone_name = "jaw"
+bone_idx = 89
+use_external_skeleton = true
+external_skeleton = NodePath("../Coleccionista/Skeleton3D")
+
+[node name="CollectorSteps" parent="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/BoneAttachment3D" unique_id=38740112 instance=ExtResource("91_a6p7x")]
+transform = Transform3D(0.7443103, -0.6157317, -0.25860587, -0.47874558, -0.76192373, 0.43620571, -0.4656237, -0.2008662, -0.86188614, 1.4610739, 1.8797297, 0.8272629)
+threshold_distance = 1.0
+
+[node name="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/BoneAttachment3D/CollectorSteps" index="0" unique_id=2090497424]
+bus = &"FX"
 
 [node name="OnPlayerLeavesBedroom" type="Area3D" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1208484550 node_paths=PackedStringArray("animation_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8235779, -0.42722428, -1.671608)
@@ -2890,7 +2841,7 @@ curve = SubResource("Curve3D_o2hae")
 [node name="PathFollow3D" type="PathFollow3D" parent="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Path3D" unique_id=2120931962]
 transform = Transform3D(-0.5672632, 0, 0.82352084, 0, 0.99999994, 0, -0.82352084, 0, -0.5672632, 5.726904, 0, -4.9714394)
 
-[node name="CollectorSteps" parent="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Path3D/PathFollow3D" unique_id=38740112 instance=ExtResource("91_a6p7x")]
+[node name="CollectorSteps" parent="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Path3D/PathFollow3D" unique_id=562427997 instance=ExtResource("91_a6p7x")]
 transform = Transform3D(-0.0071799573, 0, -0.99997425, 0, 1, 0, 0.99997425, 0, -0.0071799573, 0.017007828, 0, -0.0008773804)
 threshold_distance = 1.0
 
@@ -2904,78 +2855,11 @@ libraries/ = SubResource("AnimationLibrary_wfw2t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3416767, 0)
 collision_layer = 8
 collision_mask = 8
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Trigger" unique_id=371539869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039794922, 0.25335693, -0.035705566)
 shape = SubResource("BoxShape3D_5r0v5")
-
-[node name="CorridorClosingWalls" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1544337855]
-script = ExtResource("84_ch5t2")
-
-[node name="Wall" type="StaticBody3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls" unique_id=1259188665 groups=["lookable"]]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.721855, 0.48184228, -17.9487)
-script = SubResource("GDScript_cymo7")
-
-[node name="int8_002" type="MeshInstance3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall" unique_id=788503897]
-transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
-mesh = SubResource("ArrayMesh_k2gfk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall" unique_id=830946387]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
-shape = SubResource("ConcavePolygonShape3D_sxx1c")
-
-[node name="Wall2" type="StaticBody3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls" unique_id=1953287399 groups=["lookable"]]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.975208, 0.48184228, -7.969883)
-script = SubResource("GDScript_cymo7")
-
-[node name="int8_002" type="MeshInstance3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall2" unique_id=1595127161]
-transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
-mesh = SubResource("ArrayMesh_k2gfk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall2" unique_id=634995088]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
-shape = SubResource("ConcavePolygonShape3D_sxx1c")
-
-[node name="Wall3" type="StaticBody3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls" unique_id=1904542720 groups=["lookable"]]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.072632, 0.48184228, -7.969883)
-script = SubResource("GDScript_cymo7")
-
-[node name="int8_002" type="MeshInstance3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall3" unique_id=1096517180]
-transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
-mesh = SubResource("ArrayMesh_k2gfk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall3" unique_id=540193854]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
-shape = SubResource("ConcavePolygonShape3D_sxx1c")
-
-[node name="Wall4" type="StaticBody3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls" unique_id=1361588272 groups=["lookable"]]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 13.051562, 0.48184228, -10.8846855)
-script = SubResource("GDScript_cymo7")
-
-[node name="int8_002" type="MeshInstance3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall4" unique_id=1076234856]
-transform = Transform3D(-6.0977385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1.395, -4.371139e-08, 1.9106855e-15, 0.000200272, 1, -0.000730515)
-mesh = SubResource("ArrayMesh_k2gfk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Wall4" unique_id=1853354043]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.0002002716, 1, 0.2677517)
-shape = SubResource("ConcavePolygonShape3D_sxx1c")
-
-[node name="LookAtTrigger1" parent="Chapter1/ScriptedEvents/CorridorClosingWalls" unique_id=1248634205 instance=ExtResource("25_ogm41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.155912, 1.6101538, -10.577303)
-aabb = AABB(-0.14486651, -0.19156644, -0.12795313, 0.28973302, 0.38313287, 0.25590625)
-
-[node name="LookAtTrigger2" parent="Chapter1/ScriptedEvents/CorridorClosingWalls" unique_id=1885804694 instance=ExtResource("25_ogm41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.525242, 1.6101538, -8.862911)
-aabb = AABB(-0.47418243, -0.6164745, -0.43742076, 0.94836485, 1.232949, 0.8748415)
-is_active = false
-
-[node name="Area3D" type="Area3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls" unique_id=2093354606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.90214, 1.1616123, -9.957637)
-collision_mask = 9
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/CorridorClosingWalls/Area3D" unique_id=936073557]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15866089, -0.0047302246, 0.22305298)
-shape = SubResource("BoxShape3D_ch5t2")
 
 [node name="Screamer" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1945858129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.353551, 0, -16.37951)
@@ -3003,7 +2887,7 @@ script = ExtResource("85_wsms8")
 crowbar = NodePath("..")
 
 [node name="BasementTape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.440821, -3.098494, -16.505457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.440821, -2.4798858, -16.505457)
 tape_item = SubResource("Resource_fkfrk")
 
 [node name="OnTapePickUp" type="Node" parent="Chapter1/Interactables/BasementTape" unique_id=1222559119 node_paths=PackedStringArray("on_player_leaves_bedroom", "collector_appearance")]
@@ -3017,9 +2901,6 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_body_entered"]
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/AudioOnStorageVent/LookAtTrigger" to="Chapter1/ScriptedEvents/AudioOnStorageVent" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Trigger" to="Chapter1/ScriptedEvents/CollectorWalksOnRoof" method="_on_trigger_body_entered"]
-[connection signal="entered_view" from="Chapter1/ScriptedEvents/CorridorClosingWalls/LookAtTrigger1" to="Chapter1/ScriptedEvents/CorridorClosingWalls" method="_on_look_at_trigger_1_entered_view"]
-[connection signal="entered_view" from="Chapter1/ScriptedEvents/CorridorClosingWalls/LookAtTrigger2" to="Chapter1/ScriptedEvents/CorridorClosingWalls" method="_on_look_at_trigger_2_entered_view"]
-[connection signal="body_entered" from="Chapter1/ScriptedEvents/CorridorClosingWalls/Area3D" to="Chapter1/ScriptedEvents/CorridorClosingWalls" method="_on_area_3d_body_entered"]
 [connection signal="interacted" from="Chapter1/Interactables/BasementTape" to="Chapter1/Interactables/BasementTape/OnTapePickUp" method="_on_tape_interacted"]
 
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
@@ -3039,4 +2920,5 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key"]
 [editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/CircularProgressBar"]
 [editable path="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance"]
+[editable path="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/BoneAttachment3D/CollectorSteps"]
 [editable path="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Path3D/PathFollow3D/CollectorSteps"]
