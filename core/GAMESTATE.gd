@@ -3,10 +3,14 @@ extends Node
 var current_chapter : String = "1"
 var events_registry : Dictionary = {}
 
+signal event_registered(chapter : String, event_id : String)
+
 func register_event(event_id : String) -> void:
 	if not events_registry.has(current_chapter):
 		events_registry[current_chapter] = []
 	events_registry[current_chapter].append(event_id)
+	event_registered.emit(current_chapter, event_id)
+	
 
 func is_event_registered(event_id : String) -> bool:
 	if not events_registry.has(current_chapter):

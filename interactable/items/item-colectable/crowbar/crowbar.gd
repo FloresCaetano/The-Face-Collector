@@ -5,6 +5,7 @@ extends Interactable
 @export var audio_stream_player_3d : AudioStreamPlayer3D
 
 func mouse_interaction() -> void:
+	interacted.emit()
 	audio_stream_player_3d.play()
 	inventory.add_item(item)
 	is_interacting = true

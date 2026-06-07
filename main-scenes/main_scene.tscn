@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c1iloiyer83nw" path="res://VFX/rain/rain1.gd" id="3_jysff"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
 [ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="4_75qya"]
+[ext_resource type="Environment" uid="uid://xcutn6hsofwm" path="res://VFX/enviroments/develop.tres" id="4_hvey1"]
 [ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="4_iu47m"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="4_uvaer"]
@@ -85,6 +86,10 @@
 [ext_resource type="AudioStream" uid="uid://cydix7gd3ntmc" path="res://scripted-events/Chapter1/collector_first_appearance/assets/audio/electricity_buss.wav" id="67_djj5j"]
 [ext_resource type="Script" uid="uid://c66iat8j4w2c3" path="res://scripted-events/Chapter1/on_tape_pick_up/on_tape_pick_up.gd" id="67_ykmb4"]
 [ext_resource type="PackedScene" uid="uid://dcmqhuiavt82g" path="res://scripted-events/Chapter1/Screamer/scenes/fp_screamer_manager.tscn" id="69_fkfrk"]
+[ext_resource type="Script" uid="uid://cju4a6sk7n64v" path="res://scripted-events/Chapter1/audio_on_storage_vent/audio_on_storage_vent.gd" id="81_86s57"]
+[ext_resource type="AudioStream" uid="uid://cth7wbxh8m2cd" path="res://scripted-events/Chapter1/audio_on_storage_vent/breathing.tres" id="82_6qa0w"]
+[ext_resource type="AudioStream" uid="uid://du3yr2f7u205e" path="res://scripted-events/Chapter1/audio_on_storage_vent/metal_knocks.wav" id="82_63c1q"]
+[ext_resource type="Script" uid="uid://10jksscu0j" path="res://scripted-events/Chapter1/on_crowbar_interact/on_crowbar_interact.gd" id="85_wsms8"]
 
 [sub_resource type="Resource" id="Resource_1cm50"]
 script = ExtResource("30_nmiv7")
@@ -1204,7 +1209,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("4_iu47m")
+environment = ExtResource("4_hvey1")
 
 [node name="ExteriorLight" type="Node3D" parent="WorldEnvironment" unique_id=976979726]
 transform = Transform3D(1, 0, 0, 0, 0.35128623, 0.9362681, 0, -0.9362681, 0.35128623, 24.340767, 18.141653, 8.34812)
@@ -1786,7 +1791,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.903289, -4.7683716e-07, -
 lights = [NodePath("Lights"), NodePath("../Spot")]
 
 [node name="KitchenLight5" parent="FullHouse/Lights/KitchenLights" unique_id=122267636 node_paths=PackedStringArray("lights") instance=ExtResource("12_fw6df")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.065589, -7.1525574e-07, -5.5324464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.065589, 0.08196497, -5.5324464)
 lights = [NodePath("Lights"), NodePath("../Spot")]
 
 [node name="KitchenLight6" parent="FullHouse/Lights/KitchenLights" unique_id=1766040622 node_paths=PackedStringArray("lights") instance=ExtResource("12_fw6df")]
@@ -1884,7 +1889,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -1.422409, 1.6584438, -0.31290817)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -1.422409, 1.6584438, 4.965493)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -2743,6 +2748,33 @@ fp_screamer_trigger_scene = ExtResource("69_fkfrk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.353551, 1.2872982, -13.8571005)
 aabb = AABB(-0.13319163, -0.17536259, -0.16988039, 0.26638326, 0.35072517, 0.33976078)
 
+[node name="AudioOnStorageVent" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1547307201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8678465, 0.5957827, -11.571699)
+script = ExtResource("81_86s57")
+
+[node name="Breathing" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/AudioOnStorageVent" unique_id=1831871107]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.054989338, -0.004240513, 0)
+stream = ExtResource("82_6qa0w")
+volume_db = -11.0
+pitch_scale = 0.5
+max_distance = 4.0
+emission_angle_enabled = true
+emission_angle_degrees = 44.0
+
+[node name="Knoks" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/AudioOnStorageVent" unique_id=1890176605]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.030573487, 0.027747154)
+stream = ExtResource("82_63c1q")
+pitch_scale = 0.69
+max_distance = 20.0
+bus = &"LowPass"
+emission_angle_enabled = true
+emission_angle_degrees = 44.0
+
+[node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/AudioOnStorageVent" unique_id=989093956 instance=ExtResource("25_ogm41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4808598, 0.73721176, 3.1503286)
+aabb = AABB(-0.27411854, -0.2563488, -0.20882758, 0.5482371, 0.5126976, 0.41765517)
+is_active = false
+
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 
 [node name="Crowbar" parent="Chapter1/Interactables" unique_id=1489809720 node_paths=PackedStringArray("indicator_last_pose_references") instance=ExtResource("45_ightq")]
@@ -2751,6 +2783,10 @@ indicator_last_pose_references = [NodePath("Marker3D")]
 
 [node name="Marker3D" type="Marker3D" parent="Chapter1/Interactables/Crowbar" unique_id=109630841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.119363785)
+
+[node name="OnCrowbarInteract" type="Node" parent="Chapter1/Interactables/Crowbar" unique_id=456504703 node_paths=PackedStringArray("crowbar")]
+script = ExtResource("85_wsms8")
+crowbar = NodePath("..")
 
 [node name="BasementTape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.440821, -3.098494, -16.505457)
@@ -2765,6 +2801,7 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/AliceFlashback/Trigger" to="Chapter1/ScriptedEvents/AliceFlashback/Trigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/PlayerPicksStudyKey/ATOpenDoor" to="Chapter1/ScriptedEvents/PlayerPicksStudyKey/ATOpenDoor" method="_on_body_entered"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_body_entered"]
+[connection signal="entered_view" from="Chapter1/ScriptedEvents/AudioOnStorageVent/LookAtTrigger" to="Chapter1/ScriptedEvents/AudioOnStorageVent" method="_on_look_at_trigger_entered_view"]
 [connection signal="interacted" from="Chapter1/Interactables/BasementTape" to="Chapter1/Interactables/BasementTape/OnTapePickUp" method="_on_tape_interacted"]
 
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
