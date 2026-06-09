@@ -126,7 +126,7 @@ is_locked = true
 
 [node name="Door5" parent="FullHouse/Interactables/Doors" unique_id=1766504649 instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.06267, 0.045, -13.52384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.044903, 0.045, -13.52384)
 
 [node name="Door18" parent="FullHouse/Interactables/Doors" unique_id=444024823 instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
@@ -364,6 +364,15 @@ visible = false
 
 [node name="pills_1_001" parent="FullHouse/furniture" index="66" unique_id=1247179105]
 visible = false
+
+[node name="Chair_03_003" parent="FullHouse/furniture" index="159" unique_id=571545273]
+transform = Transform3D(1.1226568, 0, -0.25649226, 0, 1.1515845, 0, 0.25649226, 0, 1.1226568, 18.877542, 0.64251894, -6.821251)
+
+[node name="Chair_03_002" parent="FullHouse/furniture" index="160" unique_id=1883718786]
+transform = Transform3D(1.1483432, 0, 0.08634045, 0, 1.1515845, 0, -0.08634045, 0, 1.1483432, 18.932703, 0.64251894, -5.5096054)
+
+[node name="Chair_03_001" parent="FullHouse/furniture" index="161" unique_id=381061539]
+transform = Transform3D(1.1249467, 0, -0.24625589, 0, 1.1515845, 0, 0.24625589, 0, 1.1249467, 18.932703, 0.64251894, -3.8956223)
 
 [node name="cardboard_box_1_044" parent="FullHouse/furniture" index="164" unique_id=1126537766]
 visible = false

@@ -18,7 +18,8 @@ func mouse_interaction() -> void:
 		plank_removed.emit()
 	else:
 		GAMEMANAGER.bark_dialogue("bark_harry", [0,0])
-		leave_interaction()
+	
+	leave_interaction()
 
 func on_mouse_exited() -> void:
 	pass

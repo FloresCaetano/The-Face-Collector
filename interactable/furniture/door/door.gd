@@ -36,15 +36,16 @@ func mouse_interaction() -> void:
 	set_process_input(true)
 	is_interacting = true
 	if settings.need_key:
-		if inventory.has_item(settings.key_id) > 0:
+		if inventory.has_item(settings.key_id):
 			settings.need_key = false
 			open()
+		else:
+			await locked_anim()
 		is_interacting = false
 		return
 
 	if is_locked:
 		await locked_anim()
-		leave_interaction()
 		return
 	
 	if is_open:
@@ -52,16 +53,18 @@ func mouse_interaction() -> void:
 	elif not obstacle_check or invert_lock_state == not obstacle_check.is_open:
 		open()
 	
+	leave_interaction()
 	is_interacting = false
 
 func on_leave_interaction() -> void:
 	inventory.reset_vars()
-	set_process_input(false)
 
 func on_mouse_exited() -> void:
 	pass
 
 func open(sound := true) -> void:
+	if is_open:
+		return
 	if sound:
 		audio_stream_player_3d.stream = settings.open_sound
 		audio_stream_player_3d.play()
@@ -81,6 +84,8 @@ func open(sound := true) -> void:
 	is_interacting = false
 
 func close(sound := true) -> void:
+	if not is_open:
+		return
 	if sound:
 		audio_stream_player_3d.stream = settings.close_sound
 		audio_stream_player_3d.play()

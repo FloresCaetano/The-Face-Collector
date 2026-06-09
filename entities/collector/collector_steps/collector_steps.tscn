@@ -70,6 +70,7 @@ stream_30/stream = ExtResource("26_fusst")
 
 [node name="CollectorSteps" type="Node3D" unique_id=38740112]
 script = ExtResource("1_r2esa")
+threshold_distance = 1.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2090497424]
 stream = SubResource("AudioStreamRandomizer_i5011")
