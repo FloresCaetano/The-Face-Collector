@@ -52,6 +52,7 @@ script = ExtResource("1_88nrh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.430341, 2.1060262, -1.1988273)
 script = ExtResource("1_1anke")
 placing_planks_stream = ExtResource("2_88nrh")
+can_leave = false
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 indicator_size = Vector3(0.8, 0.8, 0.8)
 
@@ -82,6 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24383366)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.816175, 2.1060262, -1.1988273)
 script = ExtResource("1_1anke")
 placing_planks_stream = ExtResource("2_88nrh")
+can_leave = false
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 indicator_size = Vector3(0.8, 0.8, 0.8)
 
@@ -116,6 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24383366)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.59428, 2.1060262, -1.1988273)
 script = ExtResource("1_1anke")
 placing_planks_stream = ExtResource("2_88nrh")
+can_leave = false
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 indicator_size = Vector3(0.8, 0.8, 0.8)
 
