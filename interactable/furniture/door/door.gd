@@ -1,5 +1,10 @@
+@tool
 class_name Door
 extends Interactable
+
+@export_category("Testing")
+@export_tool_button("Toggle Door", "PhysicsBody3D")
+var toggle_door_action = _editor_toggle
 
 @export var object: Node3D
 
@@ -120,3 +125,11 @@ func locked_anim() -> void:
 	tween2.tween_property(object, "rotation_degrees:y", -2, 0.1).as_relative()
 	await tween2.finished
 	door_interacted.emit()
+
+func _editor_toggle():
+	if is_interacting:
+		return
+	if is_open:
+		close()
+	else:
+		open()

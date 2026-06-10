@@ -9,7 +9,7 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
-		PATHS.player_real_camera.look_at_target(marker_3d, 0.4, 4.0)
+		PATHS.player_real_camera.look_at_target(marker_3d, 0.2, 4.0)
 		animation_player.play("climb", -1, 1.3)
 		
 		audio_controller.simple_play(stinger_ambience)

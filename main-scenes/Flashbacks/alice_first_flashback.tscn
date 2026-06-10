@@ -344,6 +344,8 @@ offset_bottom = 23.0
 [node name="StartInteractionTrigger" parent="FullHouse/Interactables/SideStepArea" unique_id=1772597884 node_paths=PackedStringArray("event_behavior") instance=ExtResource("16_iyqwu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48811722, -0.5410335, 0)
 event_behavior = NodePath("EventBehavior")
+can_leave = true
+can_leave = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FullHouse/Interactables/SideStepArea/StartInteractionTrigger" unique_id=589632003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13146973, -0.27270508, 0.10423279)
@@ -356,6 +358,8 @@ side_step_area = NodePath("../..")
 [node name="EndInteractionTrigger" parent="FullHouse/Interactables/SideStepArea" unique_id=1067801259 node_paths=PackedStringArray("event_behavior") instance=ExtResource("16_iyqwu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2596426, -0.5410335, 0)
 event_behavior = NodePath("EventBehavior")
+can_leave = true
+can_leave = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FullHouse/Interactables/SideStepArea/EndInteractionTrigger" unique_id=213979710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13146973, 0, 0.03237915)
@@ -544,17 +548,17 @@ script = ExtResource("29_mrdhv")
 transform = Transform3D(0.97958595, 0, 0, 0, 0.97958595, 0, 0, 0, 0.97958595, 0, 0, 0)
 dialogue_file = "res://DIALOGUES/Chapter1/alice_first_flashback.json"
 event_trigger = NodePath("EventTrigger")
-default_wait_time = 0.03
 
 [node name="EventTrigger" type="Node" parent="FlashbackManager/DialogueReader" unique_id=43164200]
 script = ExtResource("31_ni0s7")
 
 [node name="FoodCanOppener" parent="FlashbackManager" unique_id=1596483466 node_paths=PackedStringArray("indicator_last_pose_references") instance=ExtResource("30_4nlmj")]
 transform = Transform3D(1.0000029, 0, 7.1095795e-15, 0, 1.0000029, 0, -7.1095795e-15, 0, 1.0000029, 5.0582476, 1.0200746, 3.977188)
+can_leave = false
 indicator_last_pose_references = [NodePath("InteractableIndicator")]
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/FoodCanOppener/open_food_can" parent_id_path=PackedInt32Array(1596483466, 146724472) index="1" unique_id=1338724347]
-transform = Transform3D(0.99983805, -0.0064362115, -0.01671876, -0.015593406, 0.14677934, -0.9890462, 0.008819679, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
+transform = Transform3D(0.999838, -0.0064362115, -0.01671876, -0.015593405, 0.14677934, -0.9890462, 0.008819679, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
 
 [node name="Skeleton3D" parent="FlashbackManager/FoodCanOppener/open_food_can/Alice_003" parent_id_path=PackedInt32Array(1596483466, 1710104253) index="0" unique_id=1452854918]
 bones/1/rotation = Quaternion(0.8555161, 0.5046438, -0.051051095, -0.104022466)
@@ -675,7 +679,9 @@ transform = Transform3D(1.0000007, 0, 0, 0, 1.0000007, 0, 0, 0, 1.0000007, 0.502
 [node name="InteractionTrigger" parent="FlashbackManager/TableFoodCanScene" unique_id=949316470 node_paths=PackedStringArray("event_behavior") instance=ExtResource("16_iyqwu")]
 transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -0.5046234, 0.040780544, 0.3193395)
 event_behavior = NodePath("TrgSitOnTable")
+can_leave = true
 active = false
+can_leave = true
 
 [node name="TrgSitOnTable" type="Node" parent="FlashbackManager/TableFoodCanScene/InteractionTrigger" unique_id=1497823007 node_paths=PackedStringArray("phantom_camera_3d")]
 script = ExtResource("34_2bu0v")
@@ -751,7 +757,7 @@ bones/42/position = Vector3(-0.12149528, 0.28502214, -1.2771735)
 bones/42/rotation = Quaternion(0.50013757, 0.8526434, -0.14973022, 0.02104062)
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="2" unique_id=1732084531]
-transform = Transform3D(-0.40985587, -0.0012385425, 0.9121494, -0.0008935663, 0.9999984, 0.0009563223, -0.9121497, -0.00042311146, -0.40985668, 0.008435541, 1.178307, 0.25938022)
+transform = Transform3D(-0.40985587, -0.0012385425, 0.9121494, -0.0008935663, 0.99999833, 0.0009563223, -0.9121497, -0.00042311143, -0.40985668, 0.008435541, 1.178307, 0.25938022)
 
 [node name="Cuchara" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="3" unique_id=1519282188]
 transform = Transform3D(-0.21818398, 0.4894877, -0.26039678, 0.092643924, 0.30808595, 0.50150657, 0.5466461, 0.14315674, -0.1889265, -0.05110988, 1.2912885, 0.22676198)

@@ -1,4 +1,9 @@
+@tool
 extends Interactable
+
+@export_category("Testing")
+@export_tool_button("Toggle Drawer", "PhysicsBody3D")
+var toggle_drawer_action = _editor_toggle
 
 @export var settings : DrawerSettings
 @export var drawer_mesh : MeshInstance3D
@@ -19,13 +24,20 @@ func mouse_interaction() -> void:
 		open()
 	
 
+func _editor_toggle():
+	if is_open:
+		close()
+	else:
+		open()
+
 func open():
 	is_open = true
 	
 	audio_stream_player_3d.stream = settings.open_sound
+	audio_stream_player_3d.pitch_scale = settings.pitch
 	audio_stream_player_3d.play()
 	
-	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(object, 
 	"global_position", settings.direction, settings.time).as_relative()
 	
@@ -38,7 +50,7 @@ func close():
 	audio_stream_player_3d.stream = settings.close_sound
 	audio_stream_player_3d.play()
 	
-	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(object, 
 	"global_position", -settings.direction, settings.time).as_relative()
 	
@@ -49,11 +61,11 @@ func locked_anim() -> void:
 	audio_stream_player_3d.stream = settings.locked_sound
 	audio_stream_player_3d.play()
 
-	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(object, "rotation_degrees:y", 2, 0.1).as_relative()
 	await tween.finished
 
-	var tween2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	var tween2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween2.tween_property(object, "rotation_degrees:y", -2, 0.1).as_relative()
 	await tween2.finished
 	

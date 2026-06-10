@@ -3,6 +3,7 @@ extends Resource
 
 @export var direction : Vector3 = Vector3.ZERO
 @export var time : float = 0.7
+@export var pitch : float = 1.0
 @export var locked := false
 
 @export var locked_sound : AudioStream = load("uid://r6lqlek1smat")

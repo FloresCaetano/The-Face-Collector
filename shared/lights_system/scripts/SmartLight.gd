@@ -38,7 +38,6 @@ func _ready() -> void:
 
 	can_blink_timer.timeout.connect(func():
 		can_blink = true
-		random_blink = true
 		)
 
 func random_blinking():

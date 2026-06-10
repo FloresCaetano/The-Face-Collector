@@ -7,6 +7,10 @@ extends Node3D
 @export var on_model : MeshInstance3D
 @export var off_model : MeshInstance3D
 @export var lights: Array[Light3D]
+@export var random_blink : bool :
+	set(value):
+		random_blink = value
+		set_random_blink(value)
 
 func _ready():
 	if is_on:
@@ -21,7 +25,6 @@ func turn_on():
 	is_on = true
 	for light in lights:
 		light.visible = true
-	
 
 func turn_off():
 	if on_model and off_model:
@@ -30,3 +33,8 @@ func turn_off():
 	is_on = false
 	for light in lights:
 		light.visible = false
+
+func set_random_blink(value : bool):
+	for light in lights:
+		if light is SmartLight:
+			light.random_blink = value

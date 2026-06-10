@@ -4,10 +4,12 @@ extends Interactable
 @onready var meshes: Node3D = $Meshes
 @onready var fade_controller : FadeController = PATHS.fade_controller
 
+
 func _ready() -> void:
 	meshes.visible = false
 
 func mouse_interaction() -> void:
+	player.desactivate()
 	var audio_stream_player_3d : AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 	add_child(audio_stream_player_3d)
 	audio_stream_player_3d.stream = placing_planks_stream
@@ -25,6 +27,9 @@ func mouse_interaction() -> void:
 	active = false
 	leave_interaction()
 	interacted.emit()
+
+func on_leave_interaction() -> void:
+	player.activate()
 
 func on_mouse_exited() -> void:
 	pass

@@ -3,6 +3,7 @@ class_name Interactable
 extends PhysicsBody3D
 
 @export var active := true
+@export var can_leave := true
 @export var interact_key : String = "interact"
 @export var interaction_distance : float = 3.0
 
@@ -70,7 +71,7 @@ func mouse_exited():
 	on_mouse_exited()
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("scape") and is_interacting:
+	if Input.is_action_just_pressed("scape") and is_interacting and can_leave:
 		leave_interaction()
 
 func _delete_indicator():
