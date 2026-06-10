@@ -42,10 +42,12 @@ func mouse_interaction() -> void:
 		else:
 			await locked_anim()
 		is_interacting = false
+		leave_interaction()
 		return
 
 	if is_locked:
 		await locked_anim()
+		leave_interaction()
 		return
 	
 	if is_open:
