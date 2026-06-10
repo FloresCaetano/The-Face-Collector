@@ -14,7 +14,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "internal_voice",
         "text": {
-            "ES": "Alice esta esperando que le sirva la comida."
+            "ES": "Alice está esperando que le sirva la comida."
         }
     },
     {
@@ -32,7 +32,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "internal_voice",
         "text": {
-            "ES": "No deberia salir, tengo que servirle el almuerzo a Alice."
+            "ES": "No debería salir, tengo que servirle el almuerzo a Alice."
         }
     }
 ]

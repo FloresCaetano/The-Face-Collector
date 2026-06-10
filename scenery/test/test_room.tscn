@@ -8,10 +8,13 @@
 [ext_resource type="Resource" uid="uid://68liv2cplpcn" path="res://interactable/items/item-resources/tapes/fifth_tape/fifth_tape.tres" id="8_y1cow"]
 [ext_resource type="Resource" uid="uid://juymsbnsddx6" path="res://interactable/items/item-resources/tapes/third_tape/third_tape.tres" id="9_a1g5e"]
 [ext_resource type="Resource" uid="uid://cobwetohm2gwn" path="res://interactable/items/item-resources/tapes/sixth_tape/sixth_tape.tres" id="9_y1cow"]
+[ext_resource type="AudioStream" uid="uid://dye38x4yih7v7" path="res://interactable/furniture/door/assets/doorClosing.mp3" id="10_qkp7b"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="10_y1cow"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="11_4wny6"]
+[ext_resource type="AudioStream" uid="uid://r6lqlek1smat" path="res://interactable/furniture/door/assets/locked.mp3" id="11_xc0w6"]
 [ext_resource type="PackedScene" uid="uid://brbbaylgh10uy" path="res://interactable/furniture/plank/plank_group.tscn" id="12_6kt53"]
 [ext_resource type="PackedScene" uid="uid://dqrglq624h3gy" path="res://interactable/items/item-colectable/key/key.tscn" id="12_dw86f"]
+[ext_resource type="AudioStream" uid="uid://ce52ef7u72i4x" path="res://interactable/furniture/door/assets/doorOpening.mp3" id="12_hqkmc"]
 [ext_resource type="Resource" uid="uid://db7epe4roj6d1" path="res://interactable/items/item-resources/keys/bedroom_key.tres" id="13_bhgj0"]
 [ext_resource type="PackedScene" uid="uid://bcu34ojoq6rcm" path="res://interactable/furniture/plank/plank.tscn" id="13_etn8j"]
 [ext_resource type="PackedScene" uid="uid://bcsohbw3801lu" path="res://interactable/items/item-colectable/hammer/hammer.tscn" id="16_etn8j"]
@@ -92,10 +95,16 @@ shadow_mesh = SubResource("ArrayMesh_y1n2c")
 script = ExtResource("11_4wny6")
 need_key = true
 key_id = "bedroom_key"
+locked_sound = ExtResource("11_xc0w6")
+open_sound = ExtResource("12_hqkmc")
+close_sound = ExtResource("10_qkp7b")
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
 [sub_resource type="Resource" id="Resource_rjqpm"]
 script = ExtResource("11_4wny6")
+locked_sound = ExtResource("11_xc0w6")
+open_sound = ExtResource("12_hqkmc")
+close_sound = ExtResource("10_qkp7b")
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
 [sub_resource type="GDScript" id="GDScript_m0eob"]
@@ -287,17 +296,20 @@ tape_item = ExtResource("9_y1cow")
 
 [node name="Doors" type="Node3D" parent="Stuff" unique_id=677980238]
 
-[node name="Door" parent="Stuff/Doors" unique_id=2083674971 instance=ExtResource("10_y1cow")]
+[node name="Door" parent="Stuff/Doors" unique_id=2083674971 node_paths=PackedStringArray("object") instance=ExtResource("10_y1cow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.158125, 0, -5.4853783)
+object = NodePath(".")
 settings = SubResource("Resource_dw86f")
 
-[node name="Door2" parent="Stuff/Doors" unique_id=265898312 instance=ExtResource("10_y1cow")]
+[node name="Door2" parent="Stuff/Doors" unique_id=265898312 node_paths=PackedStringArray("object") instance=ExtResource("10_y1cow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.661916, 0, -5.4853783)
+object = NodePath(".")
 settings = SubResource("Resource_rjqpm")
 is_locked = true
 
-[node name="Door3" parent="Stuff/Doors" unique_id=1514510106 instance=ExtResource("10_y1cow")]
+[node name="Door3" parent="Stuff/Doors" unique_id=1514510106 node_paths=PackedStringArray("object") instance=ExtResource("10_y1cow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1829233, 0, -5.4853783)
+object = NodePath(".")
 settings = SubResource("Resource_rjqpm")
 is_locked = true
 

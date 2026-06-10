@@ -5,7 +5,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "internal_voice",
         "text": {
-            "ES": "No deberia salir, tengo que preparar la comida."
+            "ES": "No debería salir, tengo que preparar la comida."
         }
     },
     {
@@ -14,7 +14,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "internal_voice",
         "text": {
-            "ES": "En que estoy pensando, ¡no puedo usar el abrelatas sin ninguna lata de comida!"
+            "ES": "¿En qué estoy pensando? ¡No puedo usar el abrelatas sin ninguna lata de comida!"
         }
     }
 ]

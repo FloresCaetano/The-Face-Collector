@@ -6,7 +6,7 @@
         "TARGET": "flashback_recording_voice",
         "GAME_EVENT": "lena_wakes_up_and_hears_radio",
         "text": {
-            "ES": "Hoy hubo una transmision de radio del gobierno."
+            "ES": "Hoy pasaron otro comunicado del gobierno por la radio."
         }
     },
     {
@@ -15,7 +15,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Estoy comenzando a tener miedo."
+            "ES": "Estoy empezando a asustarme."
         }
     },
     {
@@ -24,7 +24,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "El gobierno insiste en que la situacion esta bajo control."
+            "ES": "En la radio insisten en que la situación está bajo control."
         }
     },
     {
@@ -33,7 +33,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Si esa fuera la verdad, ¿Por que tenemos que encerrarnos cada vez más?"
+            "ES": "Si eso es verdad... ¿por qué tenemos que escondernos cada vez más?"
         }
     },
     {
@@ -43,7 +43,7 @@
         "TARGET": "flashback_recording_voice",
         "GAME_EVENT": "lena_boards_the_windows",
         "text": {
-            "ES": "Ya mismo era hora de almorzar, asi que cerre las ventanas de la cocina primero."
+            "ES": "Ya casi era hora de almorzar, así que primero cerré las ventanas de la cocina."
         }
     },
     {
@@ -52,7 +52,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Me pregunto como estaran las cosas en la ciudad . . ."
+            "ES": "Me pregunto cómo estarán las cosas allá afuera, en la ciudad..."
         }
     },
     {
@@ -61,7 +61,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Me pregunto si Harry esta bien."
+            "ES": "Me pregunto si Harry estará bien..."
         }
     },
     {
@@ -71,7 +71,7 @@
         "TARGET": "flashback_recording_voice",
         "GAME_EVENT": "second_part_starts",
         "text": {
-            "ES": "Alice no deja de preguntar por el."
+            "ES": "Alice no deja de preguntar por él."
         }
     },
     {
@@ -80,7 +80,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Ya debe ser hora de almorzar."
+            "ES": "Ya va siendo hora de almorzar."
         }
     },
     {
@@ -99,7 +99,7 @@
         "TARGET": "internal_voice",
         "GAME_EVENT": "lena_picks_two_cans",
         "text": {
-            "ES": "Tengo que ir por DOS latas de comida para almorzar."
+            "ES": "Tengo que ir por [color=dark_red]DOS[/color] latas de comida para almorzar."
         }
     },
     {
@@ -109,7 +109,7 @@
         "TARGET": "internal_voice",
         "GAME_EVENT": "lena_ends_dialogue_with_alice",
         "text": {
-            "ES": "Bien, la maquina abrelatas deberia estar en uno de los gabinetes de la cocina."
+            "ES": "Bien, la máquina abrelatas debería estar en uno de los gabinetes de la cocina."
         }
     },
     {
@@ -118,7 +118,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Las cosas estan en calma por ahora."
+            "ES": "Las cosas están en calma por ahora."
         }
     },
     {

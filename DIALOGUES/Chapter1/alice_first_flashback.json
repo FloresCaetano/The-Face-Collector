@@ -5,7 +5,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Se que tengo que esperar a mamá para comer. . ."
+            "ES": "Sé que tengo que esperar a mamá para comer..."
         }
     },
     {
@@ -14,7 +14,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Pero no pude, tenia demasiada hambre."
+            "ES": "Pero no pude, tenía demasiada hambre."
         }
     },
     {
@@ -23,7 +23,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "¡Entonces se me ocurrio una idea!"
+            "ES": "¡Entonces se me ocurrió una idea!"
         }
     },
     {
@@ -32,7 +32,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Quiza podia sorprender a papi y mami y preparar la mesa mientras ellos regresan."
+            "ES": "Quizá podía sorprender a papi y mami y preparar la mesa mientras ellos regresan."
         }
     },
     {
@@ -62,7 +62,7 @@
         "TARGET": "internal_voice",
         "GAME_EVENT": "player_prepare_three_food_cans",
         "text": {
-            "ES": "Bien, ahora solo tengo que abrirlas"
+            "ES": "Bien, ahora solo tengo que abrirlas."
         }
     },
     {
@@ -71,7 +71,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "internal_voice",
         "text": {
-            "ES": "No se como  mami puede comerla todos los dias, ¡debe gustarle muchisimo!"
+            "ES": "No sé cómo mami puede comerla todos los días, ¡debe gustarle muchísimo!"
         }
     },
     {
@@ -90,7 +90,7 @@
         "TARGET": "flashback_recording_voice",
         "GAME_EVENT": "alice_waits_on_table",
         "text": {
-            "ES": "Luego lleve la comida a la mesa y me senté a esperarlos."
+            "ES": "Luego llevé la comida a la mesa y me senté a esperarlos."
         }
     },
     {
@@ -99,7 +99,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "flashback_recording_voice",
         "text": {
-            "ES": "Espere y espere, hasta que por error me quede dormida."
+            "ES": "Esperé y esperé, hasta que por error me quedé dormida."
         }
     },
     {
@@ -109,7 +109,7 @@
         "TARGET": "flashback_recording_voice",
         "GAME_EVENT": "alice_eating_alone",
         "text": {
-            "ES": "Perdon mami se que no es correcto dormise en la mesa."
+            "ES": "Perdón, mami, sé que no es correcto dormirse en la mesa."
         }
     },
     {

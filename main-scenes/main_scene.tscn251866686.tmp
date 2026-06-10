@@ -312,7 +312,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mvy8r"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rkj6g"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2300,7 +2300,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("4_75qya")
+environment = ExtResource("4_iu47m")
 
 [node name="ExteriorLight" type="Node3D" parent="WorldEnvironment" unique_id=976979726]
 transform = Transform3D(1, 0, 0, 0, 0.35128623, 0.9362681, 0, -0.9362681, 0.35128623, 24.340767, 18.141653, 8.34812)
@@ -2445,13 +2445,11 @@ is_locked = true
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.405857, 0.045, -9.139389)
 object = NodePath(".")
-is_locked = true
 
 [node name="Door4" parent="FullHouse/Interactables/Doors" unique_id=1698273777 node_paths=PackedStringArray("object") instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.405857, 0.045, -11.149406)
 object = NodePath(".")
-is_locked = true
 
 [node name="Door5" parent="FullHouse/Interactables/Doors" unique_id=28170833 node_paths=PackedStringArray("object") instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
@@ -2564,9 +2562,10 @@ transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 0.73
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="StartInteractionTrigger" parent="FullHouse/Interactables/SideStepArea" unique_id=1772597884 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+[node name="StartInteractionTrigger" parent="FullHouse/Interactables/SideStepArea" unique_id=1772597884 node_paths=PackedStringArray("event_behavior", "indicator_last_pose_references") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48811722, -0.5410335, 0)
 event_behavior = NodePath("EventBehavior")
+indicator_last_pose_references = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FullHouse/Interactables/SideStepArea/StartInteractionTrigger" unique_id=589632003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13146973, 0.52020264, 0.34100342)
@@ -2576,9 +2575,10 @@ shape = SubResource("BoxShape3D_wwoi1")
 script = ExtResource("19_shqur")
 side_step_area = NodePath("../..")
 
-[node name="EndInteractionTrigger" parent="FullHouse/Interactables/SideStepArea" unique_id=1067801259 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+[node name="EndInteractionTrigger" parent="FullHouse/Interactables/SideStepArea" unique_id=1067801259 node_paths=PackedStringArray("event_behavior", "indicator_last_pose_references") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2596426, -0.5410335, 0)
 event_behavior = NodePath("EventBehavior")
+indicator_last_pose_references = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FullHouse/Interactables/SideStepArea/EndInteractionTrigger" unique_id=213979710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1165638, 0, 0.2889824)
@@ -2626,7 +2626,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_mvy8r")
+texture = SubResource("ViewportTexture_rkj6g")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -3010,7 +3010,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.676228, 0.5205234, -16.034458)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -100.542145, 0.07627964, 62.32596)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 19.298473, 1.619537, 5.7933283)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]

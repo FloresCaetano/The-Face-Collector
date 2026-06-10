@@ -80,11 +80,10 @@ func get_items() -> Array[Item]:
 	return items
 
 func _input(_event):
-	if not is_open:
-		if can_be_opened and Input.is_action_just_pressed("open_inventory"):
-			open()
-	else:
-		if can_be_closed and Input.is_action_just_pressed("scape"):
+	if Input.is_action_just_pressed("open_inventory"):
+		if PATHS.player_real_camera.actual_state == PATHS.player_real_camera.State.IDLE:
+			if not is_open: open()
+		elif is_open:
 			close()
 
 func reset_vars() -> void:

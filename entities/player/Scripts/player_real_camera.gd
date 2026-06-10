@@ -166,7 +166,7 @@ func idle_interact():
 func throw_raycast_grid() -> Array[Interactable]:
 	var hit_interactables: Array[Interactable] = []
 	var steps = 5
-	var grid_size = 0.4
+	var grid_size = 0.2
 	var step_size = grid_size / (steps - 1) 
 	var start_offset = -grid_size / 2.0 
 

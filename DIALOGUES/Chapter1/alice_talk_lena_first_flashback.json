@@ -5,7 +5,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "alice",
         "text": {
-            "ES": "¿Otra vez esta horrible sopa de tomate?"
+            "ES": "¿Sopa de tomate otra vez? ¡Es horrible!"
         }
     },
     {
@@ -23,7 +23,7 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "internal_voice",
         "text": {
-            "ES": " ¡pero prometo que en cuanto podamos salir iremos a comer lo que tú quieras!"
+            "ES": "¡Pero te prometo que apenas podamos salir iremos a comer lo que tú quieras!"
         }
     },
     {
@@ -50,7 +50,7 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "alice",
         "text": {
-            "ES": "Siempre tengo ganas de helado…"
+            "ES": "Para el helado nunca hace frío..."
         }
     },
     {
@@ -59,16 +59,16 @@
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "internal_voice",
         "text": {
-            "ES": "Jajajaja."
+            "ES": "Está bien, cariño, iremos por helado entonces."
         }
     },
     {
         "ID": "7",
-        "CHARACTER": "Lena",
-        "PITCH-RANGE": "1.1-1.2",
-        "TARGET": "internal_voice",
+        "CHARACTER": "Alice",
+        "PITCH-RANGE": "1.7-2.0",
+        "TARGET": "alice",
         "text": {
-            "ES": "Está bien, cariño, iremos por helado entonces."
+            "ES": "¿Crees que papá ya haya regresado para ese momento?"
         }
     },
     {
@@ -77,26 +77,17 @@
         "PITCH-RANGE": "1.7-2.0",
         "TARGET": "alice",
         "text": {
-            "ES": "¿Crees que papá regrese para entonces?"
-        }
-    },
-    {
-        "ID": "9",
-        "CHARACTER": "Alice",
-        "PITCH-RANGE": "1.7-2.0",
-        "TARGET": "alice",
-        "text": {
             "ES": "Así podremos ir todos juntos."
         }
     },
     {
-        "ID": "10",
+        "ID": "9",
         "CHARACTER": "Lena",
         "PITCH-RANGE": "1.1-1.2",
         "TARGET": "internal_voice",
         "GAME_EVENT": "dialogue_with_alice_ends",
         "text": {
-            "ES": "Sin duda, papá va a estar aquí pronto. . ."
+            "ES": "Sin duda, papá va a estar aquí pronto..."
         }
     }
 ]
