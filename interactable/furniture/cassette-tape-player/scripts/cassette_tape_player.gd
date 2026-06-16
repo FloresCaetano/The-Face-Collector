@@ -35,6 +35,7 @@ func mouse_interaction() -> void:
 
 func on_leave_interaction() -> void:
 		camera_reference.priority = 0
+		player.activate()
 		tape_linear_container.tape_selected.disconnect(_on_tape_selected)
 		await cassette_tape_player_interface.leave_cassette_tape_view()
 

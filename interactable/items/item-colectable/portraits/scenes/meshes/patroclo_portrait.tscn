@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://f1d2dccrrqua"]
+
+[ext_resource type="PackedScene" uid="uid://dubosjpfuf2s6" path="res://interactable/items/item-colectable/portraits/assets/patroclo_portrait.glb" id="1_8yocf"]
+[ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="2_p6gyf"]
+
+[node name="patroclo_portrait" unique_id=1927390075 instance=ExtResource("1_8yocf")]
+
+[node name="Label3D" type="Label3D" parent="Patroclo" parent_id_path=PackedInt32Array(1019926687) index="0" unique_id=382933753]
+transform = Transform3D(0.99372894, 0.11181582, 0, -0.11181582, 0.99372894, 0, 0, 0, 1, 0.0041178986, 0.20199837, 0.020682154)
+pixel_size = 0.0005
+shaded = true
+modulate = Color(0.63, 0, 0.01049984, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "EVRARD"
+font = ExtResource("2_p6gyf")
+font_size = 418

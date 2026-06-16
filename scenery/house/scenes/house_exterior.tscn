@@ -242,3 +242,15 @@ surface_material_override/0 = SubResource("ShaderMaterial_h0vh1")
 
 [node name="StaticBody3D" parent="Suelo_005" index="0" unique_id=1785126683]
 metadata/material = "gravel"
+
+[node name="grass_4_189" parent="." index="424" unique_id=1950491818]
+transform = Transform3D(0.67261827, 0.010051262, 1.7328019, 1.133137, -0.32141885, -0.938216, 0.33872792, 1.0552745, -0.30226937, 32.416225, 1.4288359, 26.302263)
+
+[node name="tree_8_022" parent="." index="1233" unique_id=721656809]
+transform = Transform3D(7.033901e-08, -0.59004647, 7.0339006e-08, -3.5169506e-08, -7.033903e-08, -0.5900464, 0.59004635, 7.033902e-08, -3.516952e-08, 2.6441185, 2.8790612, 37.639614)
+
+[node name="tree_8_023" parent="." index="1234" unique_id=725768543]
+transform = Transform3D(-1.322691e-07, -1.1095538, 1.3226911e-07, 0, -1.3226912e-07, -1.1095537, 1.1095536, -1.3226912e-07, 1.5767706e-14, 4.6419606, 2.4390068, 37.984406)
+
+[node name="tree_8_033" parent="." index="1364" unique_id=1427359133]
+transform = Transform3D(-1.3226902e-07, -1.1095531, 1.3226902e-07, 0, -1.3226904e-07, -1.109553, 1.109553, -1.3226904e-07, 1.5767696e-14, 32.59925, 1.3499304, 26.198578)

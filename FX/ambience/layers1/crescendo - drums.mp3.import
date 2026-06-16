@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/crescendo - drums.mp3-a046c49131deac87742ec7b
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

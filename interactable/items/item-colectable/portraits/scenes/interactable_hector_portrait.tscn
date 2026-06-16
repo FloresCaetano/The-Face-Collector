@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://brya3p4u8fhn0"]
+
+[ext_resource type="Script" uid="uid://cl5oietde6tbu" path="res://interactable/items/item-colectable/props/generic_pickup.gd" id="1_7h686"]
+[ext_resource type="Resource" uid="uid://0jkvptg7bfbn" path="res://interactable/items/item-resources/generic/portraits/hector_portrait.tres" id="2_0760u"]
+[ext_resource type="PackedScene" uid="uid://cg7stu1j0rnxi" path="res://interactable/items/item-colectable/portraits/assets/hector_portrait.glb" id="2_qdamx"]
+[ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="4_0760u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx6l7"]
+size = Vector3(1.0249634, 1.2988281, 0.052124023)
+
+[node name="InteractableHectorPortrait" type="StaticBody3D" unique_id=1479307622 node_paths=PackedStringArray("audio_stream_player", "indicator_last_pose_references")]
+script = ExtResource("1_7h686")
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+item = ExtResource("2_0760u")
+indicator_last_pose_references = [NodePath("Marker3D")]
+
+[node name="hector_portrait" parent="." unique_id=721284024 instance=ExtResource("2_qdamx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1978921777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00033569336, 0, -0.008239746)
+shape = SubResource("BoxShape3D_cx6l7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1580189781]
+stream = ExtResource("4_0760u")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=232880893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07994041)

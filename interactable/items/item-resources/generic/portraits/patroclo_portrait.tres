@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c3pyg403lphj5"]
+
+[ext_resource type="PackedScene" uid="uid://f1d2dccrrqua" path="res://interactable/items/item-colectable/portraits/scenes/meshes/patroclo_portrait.tscn" id="1_1ibda"]
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="2_bmhl1"]
+[ext_resource type="Texture2D" uid="uid://jluyhyrt7nmn" path="res://interactable/items/item-resources/generic/portraits/icons/icon_patroclo.png" id="3_bmhl1"]
+
+[resource]
+script = ExtResource("2_bmhl1")
+name = "Portrait"
+texture = ExtResource("3_bmhl1")
+tag = "patroclo_portrait"
+model = ExtResource("1_1ibda")
+metadata/_custom_type_script = "uid://c5effmi27pymr"

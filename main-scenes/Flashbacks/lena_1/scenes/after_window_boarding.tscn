@@ -482,7 +482,7 @@ size = Vector3(0.91937256, 0.61621094, 0.8682556)
 script = ExtResource("9_cll7b")
 duration = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kijdq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plafm"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -1025,7 +1025,6 @@ top_level = true
 dialogue_file = "res://DIALOGUES/Chapter1/alice_talk_lena_first_flashback.json"
 dialogue_targets = [NodePath("DialogueTarget3D")]
 event_trigger = NodePath("EventTrigger")
-default_wait_time = 0.03
 
 [node name="DialogueTarget3D" parent="EatingWithAlice/InteractionTrigger/DialogueReader" unique_id=670382269 instance=ExtResource("14_rbmut")]
 transform = Transform3D(0.9643637, -0.09066958, 0.24855904, 7.0365798e-09, 0.93944776, 0.34269252, -0.26458004, -0.3304802, 0.90596926, 0.28205633, 0.26073205, 0.24918747)
@@ -1036,8 +1035,9 @@ tween_resource = SubResource("Resource_78s20")
 
 [node name="Label" parent="EatingWithAlice/InteractionTrigger/DialogueReader/DialogueTarget3D" index="1" unique_id=757227980]
 transform = Transform3D(1, 0, 0, -6.7055225e-08, 1, 1.1175871e-08, 1.4901161e-08, 1.1175871e-08, 1, 1.2477901, 0.01965332, -0.5106487)
-material_override = SubResource("StandardMaterial3D_kijdq")
+material_override = SubResource("StandardMaterial3D_plafm")
 mesh = SubResource("PlaneMesh_mrip5")
+font_size = 5
 
 [node name="EventTrigger" type="Node" parent="EatingWithAlice/InteractionTrigger/DialogueReader" unique_id=1025521470]
 script = ExtResource("15_ef02e")

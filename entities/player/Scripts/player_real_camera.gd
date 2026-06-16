@@ -176,7 +176,7 @@ func throw_raycast_grid() -> Array[Interactable]:
 			var y_offset = start_offset + (row * step_size)
 			var local_offset = Vector3(x_offset, y_offset, 0)
 			
-			var hit = throw_raycast_with_offset(1.5, 0b1, local_offset)
+			var hit = throw_raycast_with_offset(2.5, 0b1, local_offset)
 			
 			if hit.has("collider") and hit.collider is Interactable:
 				if not hit_interactables.has(hit.collider):

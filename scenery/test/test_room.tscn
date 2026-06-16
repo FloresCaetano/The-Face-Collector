@@ -48,6 +48,11 @@
 [ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="43_63jam"]
 [ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="44_oqw16"]
 [ext_resource type="PackedScene" uid="uid://d0o1m3gstq628" path="res://interactable/furniture/radio/radio.tscn" id="45_tedtd"]
+[ext_resource type="PackedScene" uid="uid://3devs2dy07lu" path="res://interactable/items/item-colectable/portraits/scenes/interactable_patroclo_portrait.tscn" id="50_hqkmc"]
+[ext_resource type="PackedScene" uid="uid://1101w4481304" path="res://interactable/items/item-colectable/portraits/scenes/interactable_ayax_portrait.tscn" id="51_pdnoe"]
+[ext_resource type="PackedScene" uid="uid://drmmjnuupljhp" path="res://interactable/items/item-colectable/portraits/scenes/interactable_odiseo_portrait.tscn" id="51_pxfha"]
+[ext_resource type="PackedScene" uid="uid://cj1y4vqgh80eq" path="res://interactable/items/item-colectable/portraits/scenes/interactable_aquiles_portrait.tscn" id="52_5hjq8"]
+[ext_resource type="PackedScene" uid="uid://brya3p4u8fhn0" path="res://interactable/items/item-colectable/portraits/scenes/interactable_hector_portrait.tscn" id="53_rpvdx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -122,7 +127,7 @@ func mouse_interaction() -> void:
 	if Input.is_action_just_pressed(\"interact\"):
 		audio_stream_player_3d.play()
 		
-		player_real_camera.look_at_target(target, 1.0, 1.0, false)
+		player_real_camera.look_at_target(target, 0.2, 1.0, true)
 		
 		is_interacting = false
 
@@ -581,6 +586,21 @@ max_polyphony = 40
 
 [node name="Radio" parent="." unique_id=126687277 instance=ExtResource("45_tedtd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4666313, -5.20465)
+
+[node name="InteractableAyaxPortrait" parent="." unique_id=1479307622 instance=ExtResource("51_pdnoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3193464, 1.4674641, 5.2193227)
+
+[node name="InteractablePatrocloPortrait" parent="." unique_id=131450650 instance=ExtResource("50_hqkmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7982445, 1.4674641, 5.2193227)
+
+[node name="InteractableOdiseoPortrait" parent="." unique_id=899834003 instance=ExtResource("51_pxfha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8470613, 1.4674641, 5.2193227)
+
+[node name="InteractableAquilesPortrait" parent="." unique_id=1006857155 instance=ExtResource("52_5hjq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1221676, 1.4674641, 5.2193227)
+
+[node name="InteractableHectorPortrait" parent="." unique_id=2071857541 instance=ExtResource("53_rpvdx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47386026, 1.4674641, 5.2193227)
 
 [editable path="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
 [editable path="Key"]

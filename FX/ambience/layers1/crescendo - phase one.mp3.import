@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/crescendo - phase one.mp3-2c370f1212a9e6865a9
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -19,7 +19,7 @@ var already_opened_a_can := false
 signal leave_oppener
 
 func mouse_interaction() -> void:
-	if not inventory.has_item("food_can"):
+	if inventory.has_item("food_can") >= 3:
 		GAMEMANAGER.bark_dialogue("bark_alice_first_flashback", [1,1])
 		leave_interaction()
 		return

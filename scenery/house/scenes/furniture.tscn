@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://f6vk4i0oduel" path="res://scenery/house/assets/furniture_lamp_3_off.png" id="4_j7x2h"]
 [ext_resource type="Texture2D" uid="uid://dh3slo68c5g5x" path="res://scenery/house/assets/furniture_carpet_mp_1.png" id="5_w3t73"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3t73"]
+size = Vector3(1.7378165, 3.6477022, 1.3084081)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbsu2"]
 resource_name = "Lamp_01"
 cull_mode = 2
@@ -185,6 +188,16 @@ transform = Transform3D(0.087855436, 0, -0.6440352, 0, 0.65, 0, 0.6440352, 0, 0.
 
 [node name="Coffee_maker_cup" parent="." index="44" unique_id=42632514]
 transform = Transform3D(-0.0878552, 0, 0.6440352, 0, 0.64999986, 0, -0.6440352, 0, -0.0878552, 13.202226, 1.0879632, -5.413292)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_056" parent_id_path=PackedInt32Array(1342457991) index="0" unique_id=205622344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.066395e-06, -0.035411596, -0.095814526)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_056/StaticBody3D" index="0" unique_id=239771112]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 1, 0, 0, 0.014370203)
+shape = SubResource("BoxShape3D_w3t73")
+
+[node name="CollisionShape3D" parent="Cube" parent_id_path=PackedInt32Array(284018182) index="0" unique_id=1432006148]
+disabled = true
 
 [node name="Paintings_03_001" parent="." index="94" unique_id=455659364]
 transform = Transform3D(-3.3607094e-08, 0, -0.7688407, 0, 0.7688407, 0, 0.7688407, 0, -3.3607094e-08, 6.214106, 1.7413273, -17.08067)

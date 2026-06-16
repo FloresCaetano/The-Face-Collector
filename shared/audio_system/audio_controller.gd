@@ -15,6 +15,9 @@ func get_selected_tracks() -> Array[LabeledTrack]:
 func set_selected_tracks(tracks : Array[LabeledTrack]) -> void:
 	_selected_tracks = tracks
 	sync_stream.stream_count = _selected_tracks.size()
+	for index in range(_selected_tracks.size()):
+		sync_stream.set_sync_stream(index, _selected_tracks[index].stream)
+		sync_stream.set_sync_stream_volume(index, -80.0)
 
 func append_selected_track(track : LabeledTrack) -> void:
 	_selected_tracks.append(track)
@@ -38,10 +41,8 @@ func start_layer(label : String):
 	var index : int = track.index
 	var volume : float = track.volume
 	
-	sync_stream.set_sync_stream(index, stream)
 	sync_stream.set_sync_stream_volume(index, linear_to_db(0.0))
 	_interpolate_volume_at(index, linear_to_db(0.001), volume, 2.0)
-	background_player.stream = sync_stream
 	if not background_player.playing: background_player.play()
 
 func stop_layer(label : String):

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dnmignpaxpumg"]
+
+[ext_resource type="PackedScene" uid="uid://cgpeb5a7flncj" path="res://interactable/items/item-colectable/portraits/assets/aquiles_portrait.glb" id="1_hwl0a"]
+[ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="2_7lnw0"]
+
+[node name="aquiles_portrait" unique_id=1353467154 instance=ExtResource("1_hwl0a")]
+
+[node name="Label3D" type="Label3D" parent="Aquiles" parent_id_path=PackedInt32Array(1280580776) index="0" unique_id=503665980]
+transform = Transform3D(4.3711385e-08, -1.3113416e-07, 1, 1, 3.821371e-15, -4.3711385e-08, 0, 1, 1.3113416e-07, 0.5115151, 0.31313834, -0.011709683)
+pixel_size = 0.0005
+shaded = true
+modulate = Color(0.63, 0, 0.01049984, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "ADLER"
+font = ExtResource("2_7lnw0")
+font_size = 85

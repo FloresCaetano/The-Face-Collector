@@ -14,6 +14,9 @@ func mouse_interaction() -> void:
 		return
 	event_behavior.execute()
 
+func on_leave_interaction() -> void:
+	event_behavior.on_interaction_end()
+
 func _on_event_finished() -> void:
 	leave_interaction()
 	event_behavior.on_interaction_end()

@@ -63,7 +63,6 @@ func leave_interaction() -> void:
 		is_interacting = false
 		set_process_input(false)
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		inventory.reset_vars()
 		on_leave_interaction()
 
 func mouse_exited():

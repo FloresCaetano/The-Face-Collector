@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://0jkvptg7bfbn"]
+
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_at6b3"]
+[ext_resource type="PackedScene" uid="uid://dumhu2ntiofv4" path="res://interactable/items/item-colectable/portraits/scenes/meshes/hector_portrait.tscn" id="1_q1cv4"]
+[ext_resource type="Texture2D" uid="uid://cpmn0heq70nxw" path="res://interactable/items/item-resources/generic/portraits/icons/icon_hector.png" id="3_use8c"]
+
+[resource]
+script = ExtResource("1_at6b3")
+name = "Portrait"
+texture = ExtResource("3_use8c")
+tag = "hector_portrait"
+model = ExtResource("1_q1cv4")
+metadata/_custom_type_script = "uid://c5effmi27pymr"

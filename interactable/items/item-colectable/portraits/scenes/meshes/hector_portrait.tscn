@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dumhu2ntiofv4"]
+
+[ext_resource type="PackedScene" uid="uid://cg7stu1j0rnxi" path="res://interactable/items/item-colectable/portraits/assets/hector_portrait.glb" id="1_4n5dr"]
+[ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="2_q25ix"]
+
+[node name="hector_portrait" unique_id=1254703910 instance=ExtResource("1_4n5dr")]
+
+[node name="Label3D" type="Label3D" parent="Hector" parent_id_path=PackedInt32Array(986291719) index="0" unique_id=794212421]
+transform = Transform3D(-1, 6.507331e-08, -6.131126e-08, 0, 0.6857549, 0.72783256, 8.940697e-08, 0.72783256, -0.6857549, -0.38167408, -0.6153809, -0.027391048)
+pixel_size = 0.0005
+shaded = true
+modulate = Color(0.63, 0, 0.01049984, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "MARKOV"
+font = ExtResource("2_q25ix")
+font_size = 85

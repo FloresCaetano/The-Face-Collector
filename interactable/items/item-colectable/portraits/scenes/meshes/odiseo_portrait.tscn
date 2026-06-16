@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ckplf6jhled2e"]
+
+[ext_resource type="PackedScene" uid="uid://bg27es3t2ceso" path="res://interactable/items/item-colectable/portraits/assets/odiseo_portrait.glb" id="1_7r3f0"]
+[ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="2_6dyu1"]
+
+[node name="odiseo_portrait" unique_id=157584054 instance=ExtResource("1_7r3f0")]
+
+[node name="Label3D" type="Label3D" parent="Odiseo" parent_id_path=PackedInt32Array(1132213277) index="0" unique_id=2012253169]
+transform = Transform3D(-1, 6.790184e-08, 5.5064355e-08, 0, 0.6298628, -0.77670646, -8.742278e-08, -0.77670646, -0.6298628, 0.033890188, 0.60737157, -0.02599279)
+pixel_size = 0.0005
+shaded = true
+modulate = Color(0.63, 0, 0.01049984, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "OLSSON"
+font = ExtResource("2_6dyu1")
+font_size = 85

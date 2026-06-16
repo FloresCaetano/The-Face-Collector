@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dq6bamuaqaixt"]
+
+[ext_resource type="PackedScene" uid="uid://646vfm4yn412" path="res://interactable/items/item-colectable/portraits/assets/ayax_portrait.glb" id="1_deq0u"]
+[ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="2_x5a16"]
+
+[node name="ayax_portrait" unique_id=2062924240 instance=ExtResource("1_deq0u")]
+
+[node name="Label3D" type="Label3D" parent="Ayax" parent_id_path=PackedInt32Array(1705147606) index="0" unique_id=759748272]
+transform = Transform3D(-1, 2.3643437e-07, -8.444391e-08, 8.444389e-08, -2.108473e-08, -1, -2.3643439e-07, -1, 2.1084704e-08, 0.4204126, -0.6557698, -0.008603929)
+pixel_size = 0.0005
+shaded = true
+modulate = Color(0.63, 0, 0.01049984, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "VOSS"
+font = ExtResource("2_x5a16")
+font_size = 85

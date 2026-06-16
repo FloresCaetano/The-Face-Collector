@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://hanwskvsssh7"]
+
+[ext_resource type="PackedScene" uid="uid://dnmignpaxpumg" path="res://interactable/items/item-colectable/portraits/scenes/meshes/aquiles_portrait.tscn" id="1_coegq"]
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="2_lmgv2"]
+[ext_resource type="Texture2D" uid="uid://di3u4jiv5ie12" path="res://interactable/items/item-resources/generic/portraits/icons/icon_aquiles.png" id="3_lmgv2"]
+
+[resource]
+script = ExtResource("2_lmgv2")
+name = "Portrait"
+texture = ExtResource("3_lmgv2")
+tag = "aquiles_portrait"
+model = ExtResource("1_coegq")
+metadata/_custom_type_script = "uid://c5effmi27pymr"
