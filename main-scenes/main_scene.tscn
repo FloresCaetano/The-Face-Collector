@@ -117,8 +117,12 @@
 [ext_resource type="AudioStream" uid="uid://c6y4kqftv50sk" path="res://FX/hit/metalic_boom.wav" id="95_jcxlv"]
 [ext_resource type="AudioStream" uid="uid://duxwxvjqr5e4p" path="res://FX/anticipation/strings_metalic.wav" id="96_nqkc3"]
 [ext_resource type="PackedScene" uid="uid://cg7stu1j0rnxi" path="res://interactable/items/item-colectable/portraits/assets/hector_portrait.glb" id="110_hf4dt"]
-[ext_resource type="Texture2D" uid="uid://c0mvephbw3tdj" path="res://interactable/items/item-colectable/portraits/assets/hector_portrait_Wood_02.jpg" id="110_rkj6g"]
-[ext_resource type="Texture2D" uid="uid://cjiaxdqrk235l" path="res://interactable/items/item-colectable/portraits/assets/hector_portrait_hector.png" id="111_7u23o"]
+[ext_resource type="PackedScene" uid="uid://1101w4481304" path="res://interactable/items/item-colectable/portraits/scenes/interactable_ayax_portrait.tscn" id="111_0dgbu"]
+[ext_resource type="PackedScene" uid="uid://3devs2dy07lu" path="res://interactable/items/item-colectable/portraits/scenes/interactable_patroclo_portrait.tscn" id="112_bojfl"]
+[ext_resource type="PackedScene" uid="uid://drmmjnuupljhp" path="res://interactable/items/item-colectable/portraits/scenes/interactable_odiseo_portrait.tscn" id="113_ba76f"]
+[ext_resource type="PackedScene" uid="uid://cj1y4vqgh80eq" path="res://interactable/items/item-colectable/portraits/scenes/interactable_aquiles_portrait.tscn" id="114_mmj0l"]
+[ext_resource type="PackedScene" uid="uid://brya3p4u8fhn0" path="res://interactable/items/item-colectable/portraits/scenes/interactable_hector_portrait.tscn" id="115_vy12f"]
+[ext_resource type="Script" uid="uid://bi66jy80weh7i" path="res://puzzles/basement_portraits_puzzle/scripts/hanged_portrait_ev.gd" id="116_bojfl"]
 
 [sub_resource type="Resource" id="Resource_1cm50"]
 script = ExtResource("30_nmiv7")
@@ -315,7 +319,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7u23o"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bojfl"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2284,70 +2288,8 @@ _data = {
 &"jumpscare": SubResource("Animation_jcxlv")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fjhv"]
-resource_name = "Wood_02"
-cull_mode = 2
-albedo_texture = ExtResource("110_rkj6g")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31klb"]
-resource_name = "Paintings"
-cull_mode = 2
-albedo_texture = ExtResource("111_7u23o")
-texture_filter = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_20hgh"]
-_surfaces = [{
-"aabb": AABB(-0.51059806, -0.65206087, -0.03413767, 1.0215697, 1.3042485, 0.05048255),
-"format": 34896613377,
-"index_count": 78,
-"index_data": PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQAAAAMAAAAFAAEABgADAAQABQADAAYABwAEAAIABwACAAEABgAEAAcABQAIAAEABgAJAAUABQAJAAgABwAKAAYABgAKAAkAAQALAAcAAQAIAAsABwALAAoACQAMAAgACAAMAA0ACAANAAsACQAOAAwACgAOAAkACwANAA8ACgAPAA4ACwAPAAoA"),
-"name": "Wood_02",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 16,
-"vertex_data": PackedByteArray("AAAAAP7/AAAAAP//AAAAAAAA/////wAA//8AAP7/AAD///////8AAAAAAAAAAAAA//8AAAAAAAD/////AAAAACMHy/sAAAAAIwczBAAAAADb+DMEAAAAANv4y/sAAAAAkw/L9eZ4AABr8Mv15ngAAJMPMwrleAAAa/AzCuV4AAA=")
-}, {
-"aabb": AABB(-0.44843706, -0.6000961, -0.010296488, 0.8972478, 1.2003189, 1e-05),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "Paintings",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAAAAAAD/////wwEAAAAA///DAQAA//8AAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_6dcg4"]
-resource_name = "hector_portrait_Paintings_04"
-_surfaces = [{
-"aabb": AABB(-0.51059806, -0.65206087, -0.03413767, 1.0215697, 1.3042485, 0.05048255),
-"attribute_data": PackedByteArray("+Zo25kijvUr5mr1KSKM25mNW///oWX4zY1Z7LuhZ/PpIozbm+Zq9SkijvUr5mjbm//825vI7vUr//71K8js25kijey75mv//SKP///maey5Io///+Zp7Lkijey75mv//TvuATsT1E91O+3PixPXgU9/ney5Z5Pz63+f//1nkfjPyOzbmo0CATvI7vUqjQHPi//+9Sk77c+L//zbmTvuATlnkfjNR3xD1WeT8+lHfajlpQXPi80bgU2lBgE7zRhPdlhc7r9q3woBuvBuvsBxjfw=="),
-"format": 34896613399,
-"index_count": 78,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEA"),
-"material": SubResource("StandardMaterial3D_1fjhv"),
-"name": "Wood_02",
-"primitive": 3,
-"uv_scale": Vector4(4.2216625, 5.421218, 0, 0),
-"vertex_count": 52,
-"vertex_data": PackedByteArray("AAAAAP7/AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD//wAAAAAAACMHMwQAAAAAAAAAAAAAAADb+DMEAAAAAP//AAAAAP+//////////7//////AAD/v///AAD+//+///8AAP7/AIAAAP////8AgP///////wCAAAAAAP7/AIAAAAAAAACqKv//AAD+/6oq//8AAAAAqioAAAAA/v+qKv////8AAFTVAAD/////VNUAAP//AABU1f///////1TV2/jL+wAAXgRr8DMK5Xg7BNv4MwQAAFsEa/DL9eZ4qgQAAP//AAAAANv4y/sAAAAA/////wAAAAAjB8v7AAAAAAAAAAAAAAAAIwfL+wAAAAAAAP//AAAAACMHMwQAAAAA/////wAAAADb+DMEAAAAAP//AAAAAAAA2/jL+wAAAAAjB8v7AACsEWvwy/XmeBEU2/jL+wAAHBSTD8v15niKESMHMwQAAF4Ekw/L9eZ4OwQjB8v7AABbBJMPMwrleKoE2/gzBAAA//+TDzMK5Xj//yMHMwQAAP//a/AzCuV4////P/9//z//f/8//3//P/9/FrrnxejFFboDxvq5rrlPxv9/AAD/fwAA/38AAP9/AAD/f////3////9/////f///VFVUVVRVVFVUVVRVVFVUVVTVqipU1aoqVNWqKlTVqiqLKlmPFPE1qq/wg6pAK0mQFrrnxejFFboDxvq5rrlPxhXtFm1q7ZOSG+3jkljsWGwV7RZta+2Tkhvt45JY7FhsQU2CRnNFUUxMRW5Mpk03RnPVpXDqDslVTw97Vb7UtW8NgDPfwKAAAMCgAAAOgDPf")
-}, {
-"aabb": AABB(-0.44843706, -0.6000961, -0.010296488, 0.8972478, 1.2003189, 1e-05),
-"attribute_data": PackedByteArray("Cf/g/fUAFgAJ/xYA9QDg/Q=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_31klb"),
-"name": "Paintings",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAAAA////////wwH//wAA///DAf////8AAAAA////f////3////9/////f///")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_20hgh")
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba76f"]
+size = Vector3(1, 1.1417236, 0.56689453)
 
 [sub_resource type="Resource" id="Resource_fkfrk"]
 script = ExtResource("61_ummc1")
@@ -2698,7 +2640,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_7u23o")
+texture = SubResource("ViewportTexture_bojfl")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -6035,22 +5977,62 @@ stream = ExtResource("96_nqkc3")
 [node name="PortraitsPuzzle" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=813568546]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.405061, -1.7876341, -15.272724)
 
-[node name="hector_portrait" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=1383819856]
-transform = Transform3D(1, 0, 0, 0, 0.9891753, -0.14673913, 0, 0.14673913, 0.9891753, 0.09899044, -0.73787165, 1.7870092)
+[node name="Portraits" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=1433950300]
 
-[node name="Paintings_04" type="MeshInstance3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/hector_portrait" unique_id=1768053496]
-transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
-mesh = SubResource("ArrayMesh_6dcg4")
+[node name="InteractableAyaxPortrait4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1479307622 instance=ExtResource("111_0dgbu")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.36697102, 0.61527133, 2.9987364)
 
-[node name="Label3D" type="Label3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/hector_portrait/Paintings_04" unique_id=1089311041]
-transform = Transform3D(-1, 6.507331e-08, -6.131126e-08, 0, 0.6857549, 0.72783256, 8.940697e-08, 0.72783256, -0.6857549, -0.38167408, -0.6153809, -0.027391048)
-pixel_size = 0.0005
-shaded = true
-modulate = Color(0.63, 0, 0.01049984, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "MARKOV"
-font = ExtResource("93_wlqel")
-font_size = 85
+[node name="InteractablePatrocloPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1817725996 instance=ExtResource("112_bojfl")]
+transform = Transform3D(-3.4969112e-08, 0.1173913, 0.7913402, 0, 0.7913402, -0.1173913, -0.8, -5.1313367e-09, -3.4590578e-08, -2.2961984, -0.73787165, 2.1789322)
+
+[node name="InteractableOdiseoPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=128037557 instance=ExtResource("113_ba76f")]
+transform = Transform3D(-3.496911e-08, 0.11548495, -0.7916207, 0, 0.7916207, 0.11548495, 0.79999995, 5.048008e-09, -3.4602838e-08, 3.392727, -0.092433214, 2.2261772)
+
+[node name="InteractableAquilesPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1630219121 instance=ExtResource("114_mmj0l")]
+transform = Transform3D(0.8, 0, 0, 0, 0.79872674, -0.04511724, 0, 0.04511724, 0.79872674, -3.749411, -0.847893, -0.59483814)
+
+[node name="InteractableHectorPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=673824343 instance=ExtResource("115_vy12f")]
+transform = Transform3D(-0.56416297, 0, -0.5672038, 0, 0.8, 0, 0.5672038, 0, -0.56416297, -1.4879333, -0.26499677, -4.4058714)
+
+[node name="PortraitSpots" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=993406193]
+
+[node name="HangedPortraitSpot" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=2145608318 instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.4611826, 0.61527133, 3.0085545)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=536631481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=478079547]
+script = ExtResource("116_bojfl")
+
+[node name="HangedPortraitSpot2" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=194225640 instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.38086224, 0.61527133, 3.0085545)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=1662921282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitSpot3" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1622604737 instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.717968, 0.61527133, 3.0085545)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=438560210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitSpot4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=474724474 instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.7992034, 0.61527133, 3.0085545)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=786196426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitSpot5" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1817725102 instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.8950043, 0.61527133, 2.9987364)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=876923948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
 
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 

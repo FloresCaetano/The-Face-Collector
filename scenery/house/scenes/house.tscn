@@ -13,3 +13,6 @@ metadata/material = "wood"
 transform = Transform3D(0.16695873, 0.93301266, -0.3187665, -0.93790287, 0.25000006, 0.24049616, 0.30407763, 0.25881904, 0.9168148, 12.563105, 0.7371568, -23.061642)
 
 [node name="StaticBody3D" parent="Zotano" parent_id_path=PackedInt32Array(732910268) index="0" unique_id=1126908726 groups=["climbeable"]]
+
+[node name="wardrobe_mp_1_3_001" parent="." index="97" unique_id=1363254439]
+visible = false

@@ -1,3 +1,4 @@
+class_name BasementPortrait
 extends Interactable
 
 @export var audio_stream_player : AudioStreamPlayer3D

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://do8kcyy0xw2nf"]
+
+[ext_resource type="Script" uid="uid://bqrrst2phdvs6" path="res://core/inventory/scripts/contextual_inventory.gd" id="1_75jt1"]
+[ext_resource type="PackedScene" uid="uid://cipflgtvarr0m" path="res://core/inventory/scenes/item_container.tscn" id="1_uyo1r"]
+
+[node name="ContextualInventory" type="Control" unique_id=806848296]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75jt1")
+item_container_path = "res://core/inventory/scenes/item_container.tscn"
+
+[node name="Items" type="HBoxContainer" parent="." unique_id=276745736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemCenterContainer" parent="Items" unique_id=677316470 instance=ExtResource("1_uyo1r")]
+layout_mode = 2

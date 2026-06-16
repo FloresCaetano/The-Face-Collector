@@ -73,6 +73,14 @@ func has_item(item_tag : String) -> int:
 			ammount += 1
 	return ammount
 
+func has_item_by_class(item_class : String) -> int:
+	var ammount : int = 0
+	for i in item_list.get_children():
+		var item : Item = i.item
+		if item.is_class(item_class):
+			ammount += 1
+	return ammount
+
 func get_items() -> Array[Item]:
 	var items : Array[Item] = []
 	for i in item_list.get_children():
