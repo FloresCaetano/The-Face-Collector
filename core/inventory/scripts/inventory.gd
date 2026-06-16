@@ -69,7 +69,6 @@ func get_item_at_index(index : int) -> Item:
 func get_items_by_tag(item_tag : String) -> Array[Item]:
 	var items : Array[Item] = []
 	for i in item_list.get_children():
-		print(i.item.tag)
 		if i.item.tag == item_tag:
 			items.append(i.item)
 	return items

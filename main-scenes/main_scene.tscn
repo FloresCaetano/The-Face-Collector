@@ -128,6 +128,11 @@
 [ext_resource type="Resource" uid="uid://0jkvptg7bfbn" path="res://interactable/items/item-resources/generic/portraits/hector_portrait.tres" id="118_83wu8"]
 [ext_resource type="Resource" uid="uid://bhluc8o7am7d8" path="res://interactable/items/item-resources/generic/portraits/ayax_portrait.tres" id="118_mmj0l"]
 [ext_resource type="Resource" uid="uid://bqehojw53go07" path="res://interactable/items/item-resources/generic/portraits/odiseo_portrait.tres" id="121_p1uf7"]
+[ext_resource type="Script" uid="uid://b6k4pw6osy4e" path="res://puzzles/basement_portraits_puzzle/scripts/end_event.gd" id="122_l31dq"]
+[ext_resource type="AudioStream" uid="uid://bgdsgqno26qbq" path="res://FX/stingers/screams.wav" id="123_bvjm2"]
+[ext_resource type="Resource" uid="uid://jrt8w3lbiah4" path="res://FX/ambience/labeled_tracks/suspence_ambience.tres" id="123_vm7pj"]
+[ext_resource type="AudioStream" uid="uid://dlll4i5k5jcea" path="res://FX/stingers/wood_crash.wav" id="124_vm7pj"]
+[ext_resource type="AudioStream" uid="uid://howabk746h3j" path="res://FX/fooley/soft_knocks.mp3" id="125_p0b4p"]
 
 [sub_resource type="Resource" id="Resource_1cm50"]
 script = ExtResource("30_nmiv7")
@@ -324,7 +329,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ba76f"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bvjm2"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2645,7 +2650,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_ba76f")
+texture = SubResource("ViewportTexture_bvjm2")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -6061,6 +6066,33 @@ shape = SubResource("BoxShape3D_ba76f")
 script = ExtResource("116_bojfl")
 requiered_portrait = ExtResource("121_p1uf7")
 
+[node name="EndEvent" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=727154961 node_paths=PackedStringArray("screams", "wood_crash", "soft_knocks", "look_at_trigger")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9809103, 2.9068346, 0.12504196)
+script = ExtResource("122_l31dq")
+suspence_ambience_sound = ExtResource("123_vm7pj")
+screams = NodePath("Screams")
+wood_crash = NodePath("WoodCrash")
+soft_knocks = NodePath("SoftKnocks")
+look_at_trigger = NodePath("LookAtTrigger")
+
+[node name="Screams" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=687431603]
+stream = ExtResource("123_bvjm2")
+max_distance = 20.0
+bus = &"LowPass"
+
+[node name="WoodCrash" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1611083672]
+stream = ExtResource("124_vm7pj")
+bus = &"LowPass"
+
+[node name="SoftKnocks" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1907715319]
+stream = ExtResource("125_p0b4p")
+bus = &"LowPass"
+
+[node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=171839354 instance=ExtResource("25_ogm41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16932058, 0.021327972, -0.8304291)
+aabb = AABB(-0.13897793, -0.22321841, -0.08224628, 0.27795586, 0.28725725, 0.16449256)
+is_active = false
+
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 
 [node name="Crowbar" parent="Chapter1/Interactables" unique_id=1489809720 node_paths=PackedStringArray("indicator_last_pose_references") instance=ExtResource("45_ightq")]
@@ -6090,6 +6122,7 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/CollectorAppearance/LookAtTrigger" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_look_at_trigger_entered_view"]
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/AudioOnStorageVent/LookAtTrigger" to="Chapter1/ScriptedEvents/AudioOnStorageVent" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Trigger" to="Chapter1/ScriptedEvents/CollectorWalksOnRoof" method="_on_trigger_body_entered"]
+[connection signal="entered_view" from="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/LookAtTrigger" to="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" method="_on_look_at_trigger_entered_view"]
 [connection signal="interacted" from="Chapter1/Interactables/BasementTape" to="Chapter1/Interactables/BasementTape/OnTapePickUp" method="_on_tape_interacted"]
 
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]

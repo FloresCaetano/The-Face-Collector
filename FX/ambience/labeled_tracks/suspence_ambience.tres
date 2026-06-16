@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LabeledTrack" format=3 uid="uid://jrt8w3lbiah4"]
+
+[ext_resource type="Script" uid="uid://dc4cmg5i6dn5s" path="res://shared/audio_system/labeled_track.gd" id="1_mx8k6"]
+[ext_resource type="AudioStream" uid="uid://cjreu701dp4io" path="res://FX/ambience/suspence_ambience.wav" id="2_xg56y"]
+
+[resource]
+script = ExtResource("1_mx8k6")
+label = "suspence_ambience"
+stream = ExtResource("2_xg56y")
+metadata/_custom_type_script = "uid://dc4cmg5i6dn5s"

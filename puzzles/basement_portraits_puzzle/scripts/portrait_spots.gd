@@ -7,5 +7,5 @@ func _process(_delta: float) -> void:
 		if not ev.is_portrait_well_placed:
 			return
 	
-	print("All portraits are well placed")
+	GAMESTATE.register_event("basement_portraits_solved")
 	set_process(false)
