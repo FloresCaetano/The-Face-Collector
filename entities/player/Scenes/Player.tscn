@@ -12,6 +12,7 @@
 [ext_resource type="Shader" path="res://VFX/shaders/Psx.gdshader" id="12_gdq0t"]
 [ext_resource type="Shader" uid="uid://hicn5qmlvirf" path="res://VFX/shaders/psx2.gdshader" id="13_uli6c"]
 [ext_resource type="Shader" uid="uid://d14nctxgr8g87" path="res://VFX/shaders/vhs.gdshader" id="14_lxrxp"]
+[ext_resource type="PackedScene" uid="uid://do8kcyy0xw2nf" path="res://core/inventory/scenes/contextual_inventory.tscn" id="15_lxrxp"]
 [ext_resource type="Script" uid="uid://dltugxce31r4j" path="res://entities/player/Scripts/hud_3d_render_viewport.gd" id="16_lxrxp"]
 [ext_resource type="Script" uid="uid://b15132w6pylu3" path="res://shared/TransitionController/scripts/transition_controller.gd" id="16_uli6c"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="18_ggdqt"]
@@ -201,6 +202,8 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Inventory" parent="Hud" unique_id=213834778 instance=ExtResource("11_g5i86")]
+
+[node name="ContextualInventory" parent="Hud" unique_id=806848296 instance=ExtResource("15_lxrxp")]
 
 [node name="TransitionController" type="Control" parent="." unique_id=2129497866 node_paths=PackedStringArray("black_screen") groups=["transition_controller"]]
 modulate = Color(1, 1, 1, 0)

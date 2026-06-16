@@ -117,12 +117,15 @@
 [ext_resource type="AudioStream" uid="uid://c6y4kqftv50sk" path="res://FX/hit/metalic_boom.wav" id="95_jcxlv"]
 [ext_resource type="AudioStream" uid="uid://duxwxvjqr5e4p" path="res://FX/anticipation/strings_metalic.wav" id="96_nqkc3"]
 [ext_resource type="PackedScene" uid="uid://cg7stu1j0rnxi" path="res://interactable/items/item-colectable/portraits/assets/hector_portrait.glb" id="110_hf4dt"]
-[ext_resource type="PackedScene" uid="uid://1101w4481304" path="res://interactable/items/item-colectable/portraits/scenes/interactable_ayax_portrait.tscn" id="111_0dgbu"]
 [ext_resource type="PackedScene" uid="uid://3devs2dy07lu" path="res://interactable/items/item-colectable/portraits/scenes/interactable_patroclo_portrait.tscn" id="112_bojfl"]
 [ext_resource type="PackedScene" uid="uid://drmmjnuupljhp" path="res://interactable/items/item-colectable/portraits/scenes/interactable_odiseo_portrait.tscn" id="113_ba76f"]
 [ext_resource type="PackedScene" uid="uid://cj1y4vqgh80eq" path="res://interactable/items/item-colectable/portraits/scenes/interactable_aquiles_portrait.tscn" id="114_mmj0l"]
+[ext_resource type="Script" uid="uid://cd5ayitwmb4l7" path="res://puzzles/basement_portraits_puzzle/scripts/portrait_spots.gd" id="115_mmj0l"]
 [ext_resource type="PackedScene" uid="uid://brya3p4u8fhn0" path="res://interactable/items/item-colectable/portraits/scenes/interactable_hector_portrait.tscn" id="115_vy12f"]
 [ext_resource type="Script" uid="uid://bi66jy80weh7i" path="res://puzzles/basement_portraits_puzzle/scripts/hanged_portrait_ev.gd" id="116_bojfl"]
+[ext_resource type="Resource" uid="uid://hanwskvsssh7" path="res://interactable/items/item-resources/generic/portraits/aquiles_portrait.tres" id="117_ba76f"]
+[ext_resource type="Resource" uid="uid://c3pyg403lphj5" path="res://interactable/items/item-resources/generic/portraits/patroclo_portrait.tres" id="117_vy12f"]
+[ext_resource type="Resource" uid="uid://bhluc8o7am7d8" path="res://interactable/items/item-resources/generic/portraits/ayax_portrait.tres" id="118_mmj0l"]
 
 [sub_resource type="Resource" id="Resource_1cm50"]
 script = ExtResource("30_nmiv7")
@@ -319,7 +322,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bojfl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ba76f"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2640,7 +2643,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_bojfl")
+texture = SubResource("ViewportTexture_ba76f")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -5979,9 +5982,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.405061, -1.7876341, -15.272
 
 [node name="Portraits" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=1433950300]
 
-[node name="InteractableAyaxPortrait4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1479307622 instance=ExtResource("111_0dgbu")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.36697102, 0.61527133, 2.9987364)
-
 [node name="InteractablePatrocloPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1817725996 instance=ExtResource("112_bojfl")]
 transform = Transform3D(-3.4969112e-08, 0.1173913, 0.7913402, 0, 0.7913402, -0.1173913, -0.8, -5.1313367e-09, -3.4590578e-08, -2.2961984, -0.73787165, 2.1789322)
 
@@ -5995,9 +5995,11 @@ transform = Transform3D(0.8, 0, 0, 0, 0.79872674, -0.04511724, 0, 0.04511724, 0.
 transform = Transform3D(-0.56416297, 0, -0.5672038, 0, 0.8, 0, 0.5672038, 0, -0.56416297, -1.4879333, -0.26499677, -4.4058714)
 
 [node name="PortraitSpots" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=993406193]
+script = ExtResource("115_mmj0l")
 
-[node name="HangedPortraitSpot" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=2145608318 instance=ExtResource("30_7fmd3")]
+[node name="HangedPortraitSpot" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=2145608318 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.4611826, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=536631481]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
@@ -6005,34 +6007,59 @@ shape = SubResource("BoxShape3D_ba76f")
 
 [node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=478079547]
 script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("117_vy12f")
 
-[node name="HangedPortraitSpot2" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=194225640 instance=ExtResource("30_7fmd3")]
+[node name="HangedPortraitSpot2" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=194225640 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.38086224, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=1662921282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
 shape = SubResource("BoxShape3D_ba76f")
 
-[node name="HangedPortraitSpot3" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1622604737 instance=ExtResource("30_7fmd3")]
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=338024524]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("117_ba76f")
+placed_portrait_item = ExtResource("118_mmj0l")
+
+[node name="HangedPortraitSpot3" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1622604737 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.717968, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=438560210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
 shape = SubResource("BoxShape3D_ba76f")
 
-[node name="HangedPortraitSpot4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=474724474 instance=ExtResource("30_7fmd3")]
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=107484813]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("117_ba76f")
+placed_portrait_item = ExtResource("118_mmj0l")
+
+[node name="HangedPortraitSpot4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=474724474 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.7992034, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=786196426]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
 shape = SubResource("BoxShape3D_ba76f")
 
-[node name="HangedPortraitSpot5" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1817725102 instance=ExtResource("30_7fmd3")]
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=189217065]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("117_ba76f")
+placed_portrait_item = ExtResource("118_mmj0l")
+
+[node name="HangedPortraitSpot5" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1817725102 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.8950043, 0.61527133, 2.9987364)
+event_behavior = NodePath("HangedPortraitEV")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=876923948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
 shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=1257514970]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("117_ba76f")
+placed_portrait_item = ExtResource("118_mmj0l")
 
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 

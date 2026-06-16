@@ -8,6 +8,6 @@
 script = ExtResource("2_lmgv2")
 name = "Portrait"
 texture = ExtResource("3_lmgv2")
-tag = "aquiles_portrait"
+tag = "portrait"
 model = ExtResource("1_coegq")
 metadata/_custom_type_script = "uid://c5effmi27pymr"

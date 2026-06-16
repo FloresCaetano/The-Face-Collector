@@ -8,7 +8,7 @@
 script = ExtResource("2_x7bl5")
 name = "Portrait"
 texture = ExtResource("3_x7bl5")
-tag = "odiseo_portrait"
+tag = "portrait"
 model = ExtResource("1_n0obf")
 offset = Vector3(0, 0, -0.6)
 metadata/_custom_type_script = "uid://c5effmi27pymr"
