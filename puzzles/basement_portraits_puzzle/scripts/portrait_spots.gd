@@ -8,3 +8,4 @@ func _process(_delta: float) -> void:
 			return
 	
 	print("All portraits are well placed")
+	set_process(false)

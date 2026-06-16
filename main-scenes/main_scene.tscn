@@ -125,7 +125,9 @@
 [ext_resource type="Script" uid="uid://bi66jy80weh7i" path="res://puzzles/basement_portraits_puzzle/scripts/hanged_portrait_ev.gd" id="116_bojfl"]
 [ext_resource type="Resource" uid="uid://hanwskvsssh7" path="res://interactable/items/item-resources/generic/portraits/aquiles_portrait.tres" id="117_ba76f"]
 [ext_resource type="Resource" uid="uid://c3pyg403lphj5" path="res://interactable/items/item-resources/generic/portraits/patroclo_portrait.tres" id="117_vy12f"]
+[ext_resource type="Resource" uid="uid://0jkvptg7bfbn" path="res://interactable/items/item-resources/generic/portraits/hector_portrait.tres" id="118_83wu8"]
 [ext_resource type="Resource" uid="uid://bhluc8o7am7d8" path="res://interactable/items/item-resources/generic/portraits/ayax_portrait.tres" id="118_mmj0l"]
+[ext_resource type="Resource" uid="uid://bqehojw53go07" path="res://interactable/items/item-resources/generic/portraits/odiseo_portrait.tres" id="121_p1uf7"]
 
 [sub_resource type="Resource" id="Resource_1cm50"]
 script = ExtResource("30_nmiv7")
@@ -5994,8 +5996,9 @@ transform = Transform3D(0.8, 0, 0, 0, 0.79872674, -0.04511724, 0, 0.04511724, 0.
 [node name="InteractableHectorPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=673824343 instance=ExtResource("115_vy12f")]
 transform = Transform3D(-0.56416297, 0, -0.5672038, 0, 0.8, 0, 0.5672038, 0, -0.56416297, -1.4879333, -0.26499677, -4.4058714)
 
-[node name="PortraitSpots" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=993406193]
+[node name="PortraitSpots" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=993406193 node_paths=PackedStringArray("hanged_portrait_ev")]
 script = ExtResource("115_mmj0l")
+hanged_portrait_ev = [NodePath("HangedPortraitSpot/HangedPortraitEV"), NodePath("HangedPortraitSpot2/HangedPortraitEV"), NodePath("HangedPortraitSpot3/HangedPortraitEV"), NodePath("HangedPortraitSpot4/HangedPortraitEV"), NodePath("HangedPortraitSpot5/HangedPortraitEV")]
 
 [node name="HangedPortraitSpot" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=2145608318 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.4611826, 0.61527133, 3.0085545)
@@ -6019,7 +6022,7 @@ shape = SubResource("BoxShape3D_ba76f")
 
 [node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=338024524]
 script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("117_ba76f")
+requiered_portrait = ExtResource("118_83wu8")
 placed_portrait_item = ExtResource("118_mmj0l")
 
 [node name="HangedPortraitSpot3" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1622604737 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
@@ -6033,7 +6036,6 @@ shape = SubResource("BoxShape3D_ba76f")
 [node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=107484813]
 script = ExtResource("116_bojfl")
 requiered_portrait = ExtResource("117_ba76f")
-placed_portrait_item = ExtResource("118_mmj0l")
 
 [node name="HangedPortraitSpot4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=474724474 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.7992034, 0.61527133, 3.0085545)
@@ -6045,8 +6047,7 @@ shape = SubResource("BoxShape3D_ba76f")
 
 [node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=189217065]
 script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("117_ba76f")
-placed_portrait_item = ExtResource("118_mmj0l")
+requiered_portrait = ExtResource("118_mmj0l")
 
 [node name="HangedPortraitSpot5" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1817725102 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.8950043, 0.61527133, 2.9987364)
@@ -6058,8 +6059,7 @@ shape = SubResource("BoxShape3D_ba76f")
 
 [node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=1257514970]
 script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("117_ba76f")
-placed_portrait_item = ExtResource("118_mmj0l")
+requiered_portrait = ExtResource("121_p1uf7")
 
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 
