@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_t6h63"]
 [ext_resource type="Environment" uid="uid://opfyxcpicii1" path="res://VFX/enviroments/house_final.tres" id="4_75qya"]
 [ext_resource type="Environment" uid="uid://dc6cxt4hxrydi" path="res://VFX/enviroments/house_demo.tres" id="4_iu47m"]
-[ext_resource type="Environment" uid="uid://xcutn6hsofwm" path="res://VFX/enviroments/develop.tres" id="4_rkj6g"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="4_t6h63"]
 [ext_resource type="PackedScene" uid="uid://d2g4d5irn88sk" path="res://scenery/house/scenes/furniture.tscn" id="4_uvaer"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="4_wxp5c"]
@@ -68,6 +67,7 @@
 [ext_resource type="PackedScene" uid="uid://dqrglq624h3gy" path="res://interactable/items/item-colectable/key/key.tscn" id="43_nqn01"]
 [ext_resource type="PackedScene" uid="uid://bor3iishjtda8" path="res://interactable/items/item-colectable/crowbar/crowbar.tscn" id="45_ightq"]
 [ext_resource type="Script" uid="uid://ck3j0n77r8fut" path="res://scripted-events/Chapter1/player_picks_study_key/scripts/player_picks_study_key.gd" id="51_l3bb1"]
+[ext_resource type="PackedScene" uid="uid://deken5phg1fdy" path="res://entities/collector/collector_default_pose/screamer.glb" id="51_vm7pj"]
 [ext_resource type="PackedScene" uid="uid://bteooi6i42amu" path="res://scripted-events/Chapter1/AliceFlashback/assets/pick_up_note.glb" id="53_stnvs"]
 [ext_resource type="Texture2D" uid="uid://bvjjpnneynv5k" path="res://interactable/items/item-resources/keys/icons/icon_key.png" id="56_x28hp"]
 [ext_resource type="AudioStream" uid="uid://bvl4nhi6vsqv6" path="res://core/auxiliar/first_cinematic/pink_noise.wav" id="58_bp2wh"]
@@ -133,6 +133,7 @@
 [ext_resource type="Resource" uid="uid://jrt8w3lbiah4" path="res://FX/ambience/labeled_tracks/suspence_ambience.tres" id="123_vm7pj"]
 [ext_resource type="AudioStream" uid="uid://dlll4i5k5jcea" path="res://FX/stingers/wood_crash.wav" id="124_vm7pj"]
 [ext_resource type="AudioStream" uid="uid://howabk746h3j" path="res://FX/fooley/soft_knocks.mp3" id="125_p0b4p"]
+[ext_resource type="Script" uid="uid://cpkick75kwpan" path="res://puzzles/basement_portraits_puzzle/scripts/end_event_animation_player.gd" id="127_p0b4p"]
 
 [sub_resource type="Resource" id="Resource_1cm50"]
 script = ExtResource("30_nmiv7")
@@ -329,7 +330,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bvjm2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_l31dq"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2301,6 +2302,43 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_ba76f"]
 size = Vector3(1, 1.1417236, 0.56689453)
 
+[sub_resource type="Animation" id="Animation_bvjm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Door17:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.6318829, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vm7pj"]
+resource_name = "grenade_event"
+length = 6.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Door17:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.24176046, 0), Vector3(0, 1.3901225, 0), Vector3(0, 1.6318829, 0), Vector3(0, 1.6297178, 0), Vector3(0, 1.5361362, 0), Vector3(0, 1.5444353, 0), Vector3(0, 1.5393717, 0), Vector3(0, 1.5343252, 0), Vector3(0, 1.5293131, 0), Vector3(0, 1.524352, 0), Vector3(0, 1.5194589, 0), Vector3(0, 1.5146503, 0), Vector3(0, 1.5099425, 0), Vector3(0, 1.5053514, 0), Vector3(0, 1.5008926, 0), Vector3(0, 1.4965811, 0), Vector3(0, 1.4924315, 0), Vector3(0, 1.4884579, 0), Vector3(0, 1.4846736, 0), Vector3(0, 1.4810916, 0), Vector3(0, 1.477724, 0), Vector3(0, 1.4745821, 0), Vector3(0, 1.4716765, 0), Vector3(0, 1.4690171, 0), Vector3(0, 1.4666129, 0), Vector3(0, 1.464472, 0), Vector3(0, 1.4626018, 0), Vector3(0, 1.4610084, 0), Vector3(0, 1.4596972, 0), Vector3(0, 1.4586729, 0), Vector3(0, 1.4579388, 0), Vector3(0, 1.4574972, 0), Vector3(0, 1.4573499, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0b4p"]
+_data = {
+&"RESET": SubResource("Animation_bvjm2"),
+&"grenade_event": SubResource("Animation_vm7pj")
+}
+
 [sub_resource type="Resource" id="Resource_fkfrk"]
 script = ExtResource("61_ummc1")
 flashback = "uid://brhm110k5epdl"
@@ -2321,7 +2359,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730340901]
 unique_name_in_owner = true
-environment = ExtResource("4_rkj6g")
+environment = ExtResource("4_75qya")
 
 [node name="ExteriorLight" type="Node3D" parent="WorldEnvironment" unique_id=976979726]
 transform = Transform3D(1, 0, 0, 0, 0.35128623, 0.9362681, 0, -0.9362681, 0.35128623, 24.340767, 18.141653, 8.34812)
@@ -2529,7 +2567,7 @@ is_locked = true
 
 [node name="Door17" parent="FullHouse/Interactables/Doors" unique_id=1225599683 node_paths=PackedStringArray("object") instance=ExtResource("4_t6h63")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9122386, 0.045, -15.840191)
+transform = Transform3D(-0.061048593, 0, 0.9981348, 0, 1, 0, -0.9981348, 0, -0.061048593, 4.9122386, 0.045, -15.840191)
 object = NodePath(".")
 settings = SubResource("Resource_144cg")
 is_locked = true
@@ -2650,7 +2688,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_bvjm2")
+texture = SubResource("ViewportTexture_l31dq")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -2989,6 +3027,16 @@ light_volumetric_fog_energy = 0.765
 [node name="OmniLight3D3" parent="FullHouse/Lights/BasementLights/CeilingLamp/Lights" index="0" unique_id=388683652]
 light_volumetric_fog_energy = 0.0
 
+[node name="CeilingLamp2" parent="FullHouse/Lights/BasementLights" unique_id=1453591323 instance=ExtResource("12_fw6df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.724914, 2.802301, 1.2435293)
+random_blink = true
+
+[node name="Lights" parent="FullHouse/Lights/BasementLights/CeilingLamp2" index="1" unique_id=691383771]
+light_volumetric_fog_energy = 0.765
+
+[node name="OmniLight3D3" parent="FullHouse/Lights/BasementLights/CeilingLamp2/Lights" index="0" unique_id=388683652]
+light_volumetric_fog_energy = 0.0
+
 [node name="Planks" type="Node3D" parent="FullHouse" unique_id=1811298467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.835947, 2.0823631, -5.204121)
 
@@ -3051,6 +3099,79 @@ light_energy = 0.1
 light_volumetric_fog_energy = 0.0
 light_cull_mask = 4294443007
 omni_range = 7.175
+
+[node name="screamer" parent="PlayerAndLight/Player" unique_id=1339845217 instance=ExtResource("51_vm7pj")]
+transform = Transform3D(-0.35500002, 0, 3.1035086e-08, 0, 0.35500002, 0, -3.1035086e-08, 0, -0.35500002, 0, -0.95395374, 0.09017992)
+
+[node name="Skeleton3D" parent="PlayerAndLight/Player/screamer/Coleccionista" parent_id_path=PackedInt32Array(1339845217, 977256712) index="0" unique_id=1342805744]
+bones/5/rotation = Quaternion(0.2475366, 0.70002663, -0.6636649, -0.09075985)
+bones/6/rotation = Quaternion(0.002343096, -0.101263836, 0.0014982277, 0.9948557)
+bones/7/rotation = Quaternion(0.12984933, -0.67729944, -0.06254088, 0.72145224)
+bones/34/rotation = Quaternion(0.44228214, 0.2776611, -0.8525212, -0.022329941)
+bones/35/rotation = Quaternion(0.0013107068, -0.25411066, 0.0027372632, 0.9671705)
+bones/36/rotation = Quaternion(-0.12125864, -0.021130476, 0.09711644, 0.9876327)
+bones/37/rotation = Quaternion(-0.11339814, 0.89416486, -0.03334768, -0.4318543)
+bones/39/rotation = Quaternion(-0.020739038, 0.91111237, -0.04252787, -0.40943307)
+bones/40/rotation = Quaternion(0.06642438, 0.9036531, -0.108379364, -0.40896562)
+bones/42/rotation = Quaternion(0.11547675, 0.853299, -0.24797565, -0.4439076)
+bones/43/rotation = Quaternion(-0.35291594, 0.7668262, 0.21179204, -0.49251604)
+bones/47/rotation = Quaternion(0.283073, -0.6062223, 0.70427966, -0.23739108)
+bones/48/rotation = Quaternion(-0.14414118, 0.13512176, -0.09200352, 0.97596145)
+bones/49/rotation = Quaternion(0.051158965, 0.6735203, 0.23426026, 0.69919616)
+bones/65/rotation = Quaternion(0.031470656, -0.16034625, 0.2056554, 0.9648858)
+bones/66/rotation = Quaternion(0.0022028938, 0.021338291, -0.003519951, 0.99976367)
+bones/67/rotation = Quaternion(-0.052725963, 0.39843148, -0.09500586, 0.91073936)
+bones/77/rotation = Quaternion(-0.13795839, 0.9902121, -0.020885857, -0.003357096)
+bones/85/rotation = Quaternion(0.69200176, 0.45733672, -0.5539195, -0.0717636)
+bones/92/rotation = Quaternion(-0.17218076, -0.2996577, 0.9208066, -0.18076028)
+bones/93/rotation = Quaternion(0.10955838, 0.05367062, -0.0035663976, 0.99252397)
+bones/94/rotation = Quaternion(0.07180174, -0.36849824, -0.1014978, 0.9212773)
+bones/110/rotation = Quaternion(0.005200115, -0.015690295, -0.15967639, 0.987031)
+bones/111/rotation = Quaternion(0.0042438, -0.21156476, 0.0007628688, 0.97735447)
+bones/112/rotation = Quaternion(-0.07686109, -0.43592942, 0.5108563, 0.73694223)
+bones/128/rotation = Quaternion(0.58356714, 0.0023326387, 0.7829235, 0.21557975)
+bones/129/rotation = Quaternion(-0.00055348687, 0.07958309, -0.0036857969, 0.9968212)
+bones/130/rotation = Quaternion(0.047830805, 0.6535677, -0.052151956, 0.75355273)
+bones/134/rotation = Quaternion(-0.0752914, 0.9959736, 0.04693661, -0.01283614)
+bones/137/rotation = Quaternion(-0.1806408, 0.9821923, 0.051589876, -0.002404208)
+bones/142/rotation = Quaternion(0.40543494, 0.18701322, -0.83927417, 0.31027016)
+bones/143/rotation = Quaternion(0.14788438, -0.008870103, -0.007879036, 0.98893356)
+bones/144/rotation = Quaternion(0.1188835, -0.46918046, -0.11765507, 0.8671181)
+bones/160/rotation = Quaternion(-0.5296883, 0.070152745, -0.2847307, 0.79588777)
+bones/162/rotation = Quaternion(0.01731781, -0.049290918, -0.06289898, 0.9966516)
+bones/178/rotation = Quaternion(0.085681655, -0.6406204, 0.756563, 0.09938179)
+bones/180/rotation = Quaternion(0.054517675, 0.43028057, 0.035500348, 0.90034777)
+bones/181/rotation = Quaternion(-0.08655151, 0.9922815, 0.004519358, -0.088689856)
+bones/184/rotation = Quaternion(0.00667257, 0.99935544, 0.016367767, -0.031245712)
+bones/187/rotation = Quaternion(0.048866082, 0.99761623, -0.004582983, -0.048509534)
+bones/190/rotation = Quaternion(0.12290293, 0.984353, 0.018817376, -0.124859795)
+bones/196/rotation = Quaternion(0.8058399, -0.47223926, 0.27014038, -0.23374441)
+bones/201/rotation = Quaternion(0.2525935, 0.030302377, 0.017875541, 0.9669327)
+bones/213/rotation = Quaternion(-0.0026682187, -0.023546537, -0.02404765, 0.99942994)
+bones/215/rotation = Quaternion(-0.5021764, -0.03042297, 0.014933764, 0.8641009)
+bones/232/rotation = Quaternion(-0.05267921, 0.08599374, -0.04026725, 0.9940868)
+bones/234/rotation = Quaternion(0.56332546, 0.004401948, -0.022835478, 0.8259077)
+bones/235/rotation = Quaternion(-0.012186682, 0.9556621, 0.2938951, -0.013678698)
+bones/250/rotation = Quaternion(-0.38215932, 0.07934217, 0.9200941, -0.032954637)
+bones/251/position = Vector3(0.47679925, 0.109370984, -1.4485633)
+bones/251/rotation = Quaternion(0.07590644, 0.7777704, 0.6239181, 0.0061323037)
+bones/253/rotation = Quaternion(0.88256854, -0.45205817, -0.0038667142, -0.12923351)
+bones/265/position = Vector3(-0.41404337, 0.08751099, -1.3524153)
+bones/265/rotation = Quaternion(-0.00042598322, 0.6736034, 0.73906624, -0.0062743425)
+bones/266/position = Vector3(-0.43184364, -0.16381922, -1.4161485)
+bones/266/rotation = Quaternion(0.37781316, 0.42023036, 0.69377583, 0.4464738)
+bones/267/position = Vector3(-0.38221636, 0.14028503, -1.3658772)
+bones/267/rotation = Quaternion(-0.21650736, 0.8057948, 0.55033565, 0.030823864)
+bones/268/position = Vector3(0.27822262, -0.3018484, -1.5488346)
+bones/268/rotation = Quaternion(0.007851422, -0.4352974, -0.8583548, 0.27144367)
+bones/269/position = Vector3(0.38789973, 0.11108112, -1.2900773)
+bones/269/rotation = Quaternion(-0.06278507, -0.778956, -0.6212993, 0.057208113)
+bones/270/position = Vector3(0.3974962, -0.3236791, -1.4023088)
+bones/270/rotation = Quaternion(0.16402338, 0.5905292, 0.7898541, 0.022408456)
+bones/271/position = Vector3(0.33845994, -0.4770323, -1.3872257)
+bones/271/rotation = Quaternion(0.7064951, 0.17368682, 0.6281285, -0.27595675)
+bones/272/rotation = Quaternion(0.8609787, 0.37122196, 0.31846818, -0.13959953)
+bones/275/rotation = Quaternion(-0.14016849, 0.92266726, 0.3521571, -0.07087563)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="PlayerAndLight" unique_id=1002102326]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.1042056, 0)
@@ -6066,7 +6187,7 @@ shape = SubResource("BoxShape3D_ba76f")
 script = ExtResource("116_bojfl")
 requiered_portrait = ExtResource("121_p1uf7")
 
-[node name="EndEvent" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=727154961 node_paths=PackedStringArray("screams", "wood_crash", "soft_knocks", "look_at_trigger")]
+[node name="EndEvent" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=727154961 node_paths=PackedStringArray("screams", "wood_crash", "soft_knocks", "look_at_trigger", "animation_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9809103, 2.9068346, 0.12504196)
 script = ExtResource("122_l31dq")
 suspence_ambience_sound = ExtResource("123_vm7pj")
@@ -6074,6 +6195,7 @@ screams = NodePath("Screams")
 wood_crash = NodePath("WoodCrash")
 soft_knocks = NodePath("SoftKnocks")
 look_at_trigger = NodePath("LookAtTrigger")
+animation_player = NodePath("EndEventAnimationPlayer")
 
 [node name="Screams" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=687431603]
 stream = ExtResource("123_bvjm2")
@@ -6082,16 +6204,19 @@ bus = &"LowPass"
 
 [node name="WoodCrash" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1611083672]
 stream = ExtResource("124_vm7pj")
-bus = &"LowPass"
 
 [node name="SoftKnocks" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1907715319]
 stream = ExtResource("125_p0b4p")
 bus = &"LowPass"
 
 [node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=171839354 instance=ExtResource("25_ogm41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16932058, 0.021327972, -0.8304291)
-aabb = AABB(-0.13897793, -0.22321841, -0.08224628, 0.27795586, 0.28725725, 0.16449256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37684298, 0.60582376, -0.8304291)
+aabb = AABB(-0.09425914, -0.22321841, -0.08224628, 0.18851829, 0.28725725, 0.16449256)
 is_active = false
+
+[node name="EndEventAnimationPlayer" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=240147908]
+libraries/ = SubResource("AnimationLibrary_p0b4p")
+script = ExtResource("127_p0b4p")
 
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 
@@ -6138,6 +6263,8 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight6"]
 [editable path="FullHouse/Lights/CorridorLights/CeilingLamp5"]
 [editable path="FullHouse/Lights/BasementLights/CeilingLamp"]
+[editable path="FullHouse/Lights/BasementLights/CeilingLamp2"]
+[editable path="PlayerAndLight/Player/screamer"]
 [editable path="Chapter1/ScriptedEvents/AliceFlashback/Trigger/FpAnimationManager/pick_up_note"]
 [editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key"]
 [editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Key/Key"]
