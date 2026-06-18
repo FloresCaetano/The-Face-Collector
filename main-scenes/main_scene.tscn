@@ -114,8 +114,7 @@
 [ext_resource type="PackedScene" uid="uid://dguh0gixn72xc" path="res://scripted-events/Chapter1/Screamer/assets/Screen.glb" id="93_ej7h5"]
 [ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="93_wlqel"]
 [ext_resource type="AudioStream" uid="uid://c6y4kqftv50sk" path="res://FX/hit/metalic_boom.wav" id="95_jcxlv"]
-[ext_resource type="AudioStream" uid="uid://duxwxvjqr5e4p" path="res://FX/anticipation/strings_metalic.wav" id="96_nqkc3"]
-[ext_resource type="PackedScene" uid="uid://cg7stu1j0rnxi" path="res://interactable/items/item-colectable/portraits/assets/hector_portrait.glb" id="110_hf4dt"]
+[ext_resource type="AudioStream" uid="uid://duxwxvjqr5e4p" path="res://FX/riser/strings_metalic.wav" id="96_nqkc3"]
 [ext_resource type="PackedScene" uid="uid://3devs2dy07lu" path="res://interactable/items/item-colectable/portraits/scenes/interactable_patroclo_portrait.tscn" id="112_bojfl"]
 [ext_resource type="PackedScene" uid="uid://drmmjnuupljhp" path="res://interactable/items/item-colectable/portraits/scenes/interactable_odiseo_portrait.tscn" id="113_ba76f"]
 [ext_resource type="PackedScene" uid="uid://cj1y4vqgh80eq" path="res://interactable/items/item-colectable/portraits/scenes/interactable_aquiles_portrait.tscn" id="114_mmj0l"]
@@ -126,14 +125,17 @@
 [ext_resource type="Resource" uid="uid://c3pyg403lphj5" path="res://interactable/items/item-resources/generic/portraits/patroclo_portrait.tres" id="117_vy12f"]
 [ext_resource type="Resource" uid="uid://0jkvptg7bfbn" path="res://interactable/items/item-resources/generic/portraits/hector_portrait.tres" id="118_83wu8"]
 [ext_resource type="Resource" uid="uid://bhluc8o7am7d8" path="res://interactable/items/item-resources/generic/portraits/ayax_portrait.tres" id="118_mmj0l"]
+[ext_resource type="Script" uid="uid://bloe804nvh0bq" path="res://puzzles/basement_portraits_puzzle/scripts/on_player_arrives_basment.gd" id="121_imlir"]
 [ext_resource type="Resource" uid="uid://bqehojw53go07" path="res://interactable/items/item-resources/generic/portraits/odiseo_portrait.tres" id="121_p1uf7"]
 [ext_resource type="Script" uid="uid://b6k4pw6osy4e" path="res://puzzles/basement_portraits_puzzle/scripts/end_event.gd" id="122_l31dq"]
 [ext_resource type="AudioStream" uid="uid://bgdsgqno26qbq" path="res://FX/stingers/screams.wav" id="123_bvjm2"]
 [ext_resource type="Resource" uid="uid://jrt8w3lbiah4" path="res://FX/ambience/labeled_tracks/suspence_ambience.tres" id="123_vm7pj"]
 [ext_resource type="AudioStream" uid="uid://dlll4i5k5jcea" path="res://FX/stingers/wood_crash.wav" id="124_vm7pj"]
 [ext_resource type="AudioStream" uid="uid://howabk746h3j" path="res://FX/fooley/soft_knocks.mp3" id="125_p0b4p"]
+[ext_resource type="AudioStream" uid="uid://gngdj1dpuqak" path="res://FX/riser/riser1.wav" id="127_imlir"]
 [ext_resource type="Script" uid="uid://cpkick75kwpan" path="res://puzzles/basement_portraits_puzzle/scripts/end_event_animation_player.gd" id="127_p0b4p"]
 [ext_resource type="Animation" uid="uid://dnsys7jcbx3sa" path="res://puzzles/basement_portraits_puzzle/assets/animations/WakeUp.res" id="128_p0b4p"]
+[ext_resource type="PackedScene" uid="uid://dk6if8lp8c0q1" path="res://interactable/items/item-colectable/tape/assets/tape.glb" id="133_imlir"]
 
 [sub_resource type="Resource" id="Resource_1cm50"]
 script = ExtResource("30_nmiv7")
@@ -330,7 +332,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vm7pj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_evh6w"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2151,6 +2153,139 @@ bind/275/name = &"toe.R.024"
 bind/275/bone = -1
 bind/275/pose = Transform3D(-0.9506589, -0.032065317, -0.30857646, -0.2087399, -0.6697165, 0.7126763, -0.2295109, 0.7419244, 0.6299786, -0.45342284, 0.3016075, -0.09268308)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba76f"]
+size = Vector3(1, 1.1417236, 0.56689453)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dj7dw"]
+size = Vector3(3.441101, 2.5332642, 0.4482422)
+
+[sub_resource type="Animation" id="Animation_bvjm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Door17:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vm7pj"]
+resource_name = "grenade_event"
+length = 10.833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Door17:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.24176046, 0), Vector3(0, 1.3901225, 0), Vector3(0, 1.6318829, 0), Vector3(0, 1.6297178, 0), Vector3(0, 1.5361362, 0), Vector3(0, 1.5444353, 0), Vector3(0, 1.5393717, 0), Vector3(0, 1.5343252, 0), Vector3(0, 1.5293131, 0), Vector3(0, 1.524352, 0), Vector3(0, 1.5194589, 0), Vector3(0, 1.5146503, 0), Vector3(0, 1.5099425, 0), Vector3(0, 1.5053514, 0), Vector3(0, 1.5008926, 0), Vector3(0, 1.4965811, 0), Vector3(0, 1.4924315, 0), Vector3(0, 1.4884579, 0), Vector3(0, 1.4846736, 0), Vector3(0, 1.4810916, 0), Vector3(0, 1.477724, 0), Vector3(0, 1.4745821, 0), Vector3(0, 1.4716765, 0), Vector3(0, 1.4690171, 0), Vector3(0, 1.4666129, 0), Vector3(0, 1.464472, 0), Vector3(0, 1.4626018, 0), Vector3(0, 1.4610084, 0), Vector3(0, 1.4596972, 0), Vector3(0, 1.4586729, 0), Vector3(0, 1.4579388, 0), Vector3(0, 1.4574972, 0), Vector3(0, 1.4573499, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.26),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.66),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EndEventAnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(10.533334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"execute_collector_screamer"
+}]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EndEventAnimationPlayer/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("127_imlir")
+}],
+"times": PackedFloat32Array(1.2333333)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0b4p"]
+_data = {
+&"RESET": SubResource("Animation_bvjm2"),
+&"grenade_event": SubResource("Animation_vm7pj")
+}
+
+[sub_resource type="Resource" id="Resource_imlir"]
+script = ExtResource("30_nmiv7")
+duration = 0.01
+
+[sub_resource type="Animation" id="Animation_evh6w"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_087n7"]
+_data = {
+&"RESET": SubResource("Animation_evh6w"),
+&"WakeUp": ExtResource("128_p0b4p")
+}
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_x0ijl"]
 noise_type = 0
 seed = 14
@@ -2299,128 +2434,13 @@ _data = {
 &"jumpscare": SubResource("Animation_jcxlv")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ba76f"]
-size = Vector3(1, 1.1417236, 0.56689453)
-
-[sub_resource type="Animation" id="Animation_bvjm2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%Door17:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_vm7pj"]
-resource_name = "grenade_event"
-length = 10.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%Door17:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.24176046, 0), Vector3(0, 1.3901225, 0), Vector3(0, 1.6318829, 0), Vector3(0, 1.6297178, 0), Vector3(0, 1.5361362, 0), Vector3(0, 1.5444353, 0), Vector3(0, 1.5393717, 0), Vector3(0, 1.5343252, 0), Vector3(0, 1.5293131, 0), Vector3(0, 1.524352, 0), Vector3(0, 1.5194589, 0), Vector3(0, 1.5146503, 0), Vector3(0, 1.5099425, 0), Vector3(0, 1.5053514, 0), Vector3(0, 1.5008926, 0), Vector3(0, 1.4965811, 0), Vector3(0, 1.4924315, 0), Vector3(0, 1.4884579, 0), Vector3(0, 1.4846736, 0), Vector3(0, 1.4810916, 0), Vector3(0, 1.477724, 0), Vector3(0, 1.4745821, 0), Vector3(0, 1.4716765, 0), Vector3(0, 1.4690171, 0), Vector3(0, 1.4666129, 0), Vector3(0, 1.464472, 0), Vector3(0, 1.4626018, 0), Vector3(0, 1.4610084, 0), Vector3(0, 1.4596972, 0), Vector3(0, 1.4586729, 0), Vector3(0, 1.4579388, 0), Vector3(0, 1.4574972, 0), Vector3(0, 1.4573499, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.26),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../../../FullHouse/Lights/BasementLights/CeilingLamp:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.66),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("EndEventAnimationPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(5.0666666),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"execute_collector_screamer"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0b4p"]
-_data = {
-&"RESET": SubResource("Animation_bvjm2"),
-&"grenade_event": SubResource("Animation_vm7pj")
-}
-
-[sub_resource type="Resource" id="Resource_imlir"]
-script = ExtResource("30_nmiv7")
-duration = 0.01
-
-[sub_resource type="Animation" id="Animation_evh6w"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_087n7"]
-_data = {
-&"RESET": SubResource("Animation_evh6w"),
-&"WakeUp": ExtResource("128_p0b4p")
-}
-
 [sub_resource type="Resource" id="Resource_fkfrk"]
 script = ExtResource("61_ummc1")
 flashback = "uid://brhm110k5epdl"
 name = "First Tape"
 texture = ExtResource("62_wnqli")
 tag = "first_tape"
-model = ExtResource("110_hf4dt")
+model = ExtResource("133_imlir")
 offset = Vector3(0, 0, -0.6)
 metadata/_custom_type_script = "uid://dpke4ypjay435"
 
@@ -2763,7 +2783,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_vm7pj")
+texture = SubResource("ViewportTexture_evh6w")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -3163,7 +3183,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.64399, -0.64695686, 45.144985)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 102.61116, -0.66017205, -63.34474)
+transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 102.61116, 4.545519, -71.41626)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -5642,9 +5662,146 @@ bone_idx = 89
 [node name="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Coleccionista/Skeleton3D/BoneAttachment3D/CollectorSteps" index="0" unique_id=2090497424]
 bus = &"Master"
 
+[node name="PortraitsPuzzle" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=813568546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.405061, -1.7876341, -15.272724)
+
+[node name="Portraits" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=1433950300]
+
+[node name="InteractablePatrocloPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1817725996 instance=ExtResource("112_bojfl")]
+transform = Transform3D(-3.4969112e-08, 0.1173913, 0.7913402, 0, 0.7913402, -0.1173913, -0.8, -5.1313367e-09, -3.4590578e-08, -2.2961984, -0.73787165, 2.1789322)
+
+[node name="InteractableOdiseoPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=128037557 instance=ExtResource("113_ba76f")]
+transform = Transform3D(-3.496911e-08, 0.11548495, -0.7916207, 0, 0.7916207, 0.11548495, 0.79999995, 5.048008e-09, -3.4602838e-08, 3.392727, -0.092433214, 2.2261772)
+
+[node name="InteractableAquilesPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1630219121 instance=ExtResource("114_mmj0l")]
+transform = Transform3D(0.8, 0, 0, 0, 0.79872674, -0.04511724, 0, 0.04511724, 0.79872674, -3.749411, -0.847893, -0.59483814)
+
+[node name="InteractableHectorPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=673824343 instance=ExtResource("115_vy12f")]
+transform = Transform3D(-0.56416297, 0, -0.5672038, 0, 0.8, 0, 0.5672038, 0, -0.56416297, -1.4879333, -0.26499677, -4.4058714)
+
+[node name="PortraitSpots" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=993406193 node_paths=PackedStringArray("hanged_portrait_ev")]
+script = ExtResource("115_mmj0l")
+hanged_portrait_ev = [NodePath("HangedPortraitSpot/HangedPortraitEV"), NodePath("HangedPortraitSpot2/HangedPortraitEV"), NodePath("HangedPortraitSpot3/HangedPortraitEV"), NodePath("HangedPortraitSpot4/HangedPortraitEV"), NodePath("HangedPortraitSpot5/HangedPortraitEV")]
+
+[node name="HangedPortraitSpot" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=2145608318 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.4611826, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=536631481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=478079547]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("117_vy12f")
+
+[node name="HangedPortraitSpot2" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=194225640 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.38086224, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=1662921282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=338024524]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("118_83wu8")
+placed_portrait_item = ExtResource("118_mmj0l")
+
+[node name="HangedPortraitSpot3" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1622604737 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.717968, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=438560210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=107484813]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("117_ba76f")
+
+[node name="HangedPortraitSpot4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=474724474 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.7992034, 0.61527133, 3.0085545)
+event_behavior = NodePath("HangedPortraitEV")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=786196426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=189217065]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("118_mmj0l")
+
+[node name="HangedPortraitSpot5" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1817725102 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.8950043, 0.61527133, 2.9987364)
+event_behavior = NodePath("HangedPortraitEV")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=876923948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
+shape = SubResource("BoxShape3D_ba76f")
+
+[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=1257514970]
+script = ExtResource("116_bojfl")
+requiered_portrait = ExtResource("121_p1uf7")
+
+[node name="OnPlayerArrivesBasement+" type="Area3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1195763063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.617341, 0.0885241, -4.2579374)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("121_imlir")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/OnPlayerArrivesBasement+" unique_id=928998789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02609253, -0.040924072, -0.22216797)
+shape = SubResource("BoxShape3D_dj7dw")
+
+[node name="EndEvent" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=727154961 node_paths=PackedStringArray("screams", "wood_crash", "soft_knocks", "look_at_trigger", "animation_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9809103, 2.9068346, 0.12504196)
+script = ExtResource("122_l31dq")
+suspence_ambience_sound = ExtResource("123_vm7pj")
+screams = NodePath("Screams")
+wood_crash = NodePath("WoodCrash")
+soft_knocks = NodePath("SoftKnocks")
+look_at_trigger = NodePath("LookAtTrigger")
+animation_player = NodePath("EndEventAnimationPlayer")
+
+[node name="Screams" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=687431603]
+stream = ExtResource("123_bvjm2")
+max_distance = 20.0
+bus = &"LowPass"
+
+[node name="WoodCrash" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1611083672]
+stream = ExtResource("124_vm7pj")
+
+[node name="SoftKnocks" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1907715319]
+stream = ExtResource("125_p0b4p")
+bus = &"LowPass"
+
+[node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=171839354 instance=ExtResource("25_ogm41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37684298, 0.60582376, -0.8304291)
+aabb = AABB(-0.09425914, -0.22321841, -0.08224628, 0.18851829, 0.28725725, 0.16449256)
+is_active = false
+
+[node name="EndEventAnimationPlayer" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=240147908 node_paths=PackedStringArray("wake_up")]
+libraries/ = SubResource("AnimationLibrary_p0b4p")
+script = ExtResource("127_p0b4p")
+wake_up = NodePath("../EndCinematic/PhantomCamera3D/WakeUp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndEventAnimationPlayer" unique_id=414846116]
+
+[node name="EndCinematic" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=825547128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.771, -4.506, -67.325)
+
+[node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic" unique_id=352186817]
+transform = Transform3D(0.17232107, -7.4505793e-09, -0.98504084, -0.6330728, 0.76612884, -0.110748485, 0.75466835, 0.6426867, 0.13202016, 40.547, 0.582, 64.615)
+script = ExtResource("29_ujjmv")
+tween_resource = SubResource("Resource_imlir")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="WakeUp" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic/PhantomCamera3D" unique_id=400858331]
+libraries/ = SubResource("AnimationLibrary_087n7")
+
 [node name="CollectorAppearance" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=203090192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.740726, 1.4685307, -11.844575)
-visible = false
 
 [node name="first_appearance" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1579148519 instance=ExtResource("63_6tngh")]
 transform = Transform3D(0.00076790154, 0, 0.9999997, 0, 1, 0, -0.9999997, 0, 0.00076790154, 0.25984907, -1.4890028, -0.7089072)
@@ -6107,132 +6264,6 @@ libraries/ = SubResource("AnimationLibrary_nqkc3")
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Chapter1/ScriptedEvents/Screamer" unique_id=2053783157]
 stream = ExtResource("96_nqkc3")
 
-[node name="PortraitsPuzzle" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=813568546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.405061, -1.7876341, -15.272724)
-
-[node name="Portraits" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=1433950300]
-
-[node name="InteractablePatrocloPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1817725996 instance=ExtResource("112_bojfl")]
-transform = Transform3D(-3.4969112e-08, 0.1173913, 0.7913402, 0, 0.7913402, -0.1173913, -0.8, -5.1313367e-09, -3.4590578e-08, -2.2961984, -0.73787165, 2.1789322)
-
-[node name="InteractableOdiseoPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=128037557 instance=ExtResource("113_ba76f")]
-transform = Transform3D(-3.496911e-08, 0.11548495, -0.7916207, 0, 0.7916207, 0.11548495, 0.79999995, 5.048008e-09, -3.4602838e-08, 3.392727, -0.092433214, 2.2261772)
-
-[node name="InteractableAquilesPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1630219121 instance=ExtResource("114_mmj0l")]
-transform = Transform3D(0.8, 0, 0, 0, 0.79872674, -0.04511724, 0, 0.04511724, 0.79872674, -3.749411, -0.847893, -0.59483814)
-
-[node name="InteractableHectorPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=673824343 instance=ExtResource("115_vy12f")]
-transform = Transform3D(-0.56416297, 0, -0.5672038, 0, 0.8, 0, 0.5672038, 0, -0.56416297, -1.4879333, -0.26499677, -4.4058714)
-
-[node name="PortraitSpots" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=993406193 node_paths=PackedStringArray("hanged_portrait_ev")]
-script = ExtResource("115_mmj0l")
-hanged_portrait_ev = [NodePath("HangedPortraitSpot/HangedPortraitEV"), NodePath("HangedPortraitSpot2/HangedPortraitEV"), NodePath("HangedPortraitSpot3/HangedPortraitEV"), NodePath("HangedPortraitSpot4/HangedPortraitEV"), NodePath("HangedPortraitSpot5/HangedPortraitEV")]
-
-[node name="HangedPortraitSpot" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=2145608318 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.4611826, 0.61527133, 3.0085545)
-event_behavior = NodePath("HangedPortraitEV")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=536631481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
-shape = SubResource("BoxShape3D_ba76f")
-
-[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot" unique_id=478079547]
-script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("117_vy12f")
-
-[node name="HangedPortraitSpot2" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=194225640 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.38086224, 0.61527133, 3.0085545)
-event_behavior = NodePath("HangedPortraitEV")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=1662921282]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
-shape = SubResource("BoxShape3D_ba76f")
-
-[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot2" unique_id=338024524]
-script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("118_83wu8")
-placed_portrait_item = ExtResource("118_mmj0l")
-
-[node name="HangedPortraitSpot3" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1622604737 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.717968, 0.61527133, 3.0085545)
-event_behavior = NodePath("HangedPortraitEV")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=438560210]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
-shape = SubResource("BoxShape3D_ba76f")
-
-[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot3" unique_id=107484813]
-script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("117_ba76f")
-
-[node name="HangedPortraitSpot4" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=474724474 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.7992034, 0.61527133, 3.0085545)
-event_behavior = NodePath("HangedPortraitEV")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=786196426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
-shape = SubResource("BoxShape3D_ba76f")
-
-[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot4" unique_id=189217065]
-script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("118_mmj0l")
-
-[node name="HangedPortraitSpot5" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1817725102 node_paths=PackedStringArray("event_behavior") instance=ExtResource("30_7fmd3")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.8950043, 0.61527133, 2.9987364)
-event_behavior = NodePath("HangedPortraitEV")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=876923948]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070861936, 0.21655273)
-shape = SubResource("BoxShape3D_ba76f")
-
-[node name="HangedPortraitEV" type="Node" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/HangedPortraitSpot5" unique_id=1257514970]
-script = ExtResource("116_bojfl")
-requiered_portrait = ExtResource("121_p1uf7")
-
-[node name="EndEvent" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=727154961 node_paths=PackedStringArray("screams", "wood_crash", "soft_knocks", "look_at_trigger", "animation_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9809103, 2.9068346, 0.12504196)
-script = ExtResource("122_l31dq")
-suspence_ambience_sound = ExtResource("123_vm7pj")
-screams = NodePath("Screams")
-wood_crash = NodePath("WoodCrash")
-soft_knocks = NodePath("SoftKnocks")
-look_at_trigger = NodePath("LookAtTrigger")
-animation_player = NodePath("EndEventAnimationPlayer")
-
-[node name="Screams" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=687431603]
-stream = ExtResource("123_bvjm2")
-max_distance = 20.0
-bus = &"LowPass"
-
-[node name="WoodCrash" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1611083672]
-stream = ExtResource("124_vm7pj")
-
-[node name="SoftKnocks" type="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=1907715319]
-stream = ExtResource("125_p0b4p")
-bus = &"LowPass"
-
-[node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=171839354 instance=ExtResource("25_ogm41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37684298, 0.60582376, -0.8304291)
-aabb = AABB(-0.09425914, -0.22321841, -0.08224628, 0.18851829, 0.28725725, 0.16449256)
-is_active = false
-
-[node name="EndEventAnimationPlayer" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=240147908 node_paths=PackedStringArray("wake_up")]
-libraries/ = SubResource("AnimationLibrary_p0b4p")
-script = ExtResource("127_p0b4p")
-wake_up = NodePath("../EndCinematic/PhantomCamera3D/WakeUp")
-
-[node name="EndCinematic" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=825547128]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.771, -4.766, -67.325)
-
-[node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic" unique_id=352186817]
-transform = Transform3D(-0.50750035, -0.028544024, -0.86117864, -0.043327898, 0.9990321, -0.0075797024, 0.86056155, 0.033466354, -0.5082459, 40.547, 1.93, 64.615)
-script = ExtResource("29_ujjmv")
-tween_resource = SubResource("Resource_imlir")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="WakeUp" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic/PhantomCamera3D" unique_id=400858331]
-libraries/ = SubResource("AnimationLibrary_087n7")
-
 [node name="Interactables" type="Node" parent="Chapter1" unique_id=1476488592]
 
 [node name="Crowbar" parent="Chapter1/Interactables" unique_id=1489809720 node_paths=PackedStringArray("indicator_last_pose_references") instance=ExtResource("45_ightq")]
@@ -6258,11 +6289,12 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/AliceFlashback/Trigger" to="Chapter1/ScriptedEvents/AliceFlashback/Trigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/PlayerPicksStudyKey/ATOpenDoor" to="Chapter1/ScriptedEvents/PlayerPicksStudyKey/ATOpenDoor" method="_on_body_entered"]
+[connection signal="body_entered" from="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/OnPlayerArrivesBasement+" to="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/OnPlayerArrivesBasement+" method="_on_body_entered"]
+[connection signal="entered_view" from="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/LookAtTrigger" to="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_body_entered"]
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/CollectorAppearance/LookAtTrigger" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_look_at_trigger_entered_view"]
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/AudioOnStorageVent/LookAtTrigger" to="Chapter1/ScriptedEvents/AudioOnStorageVent" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Trigger" to="Chapter1/ScriptedEvents/CollectorWalksOnRoof" method="_on_trigger_body_entered"]
-[connection signal="entered_view" from="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/LookAtTrigger" to="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" method="_on_look_at_trigger_entered_view"]
 [connection signal="interacted" from="Chapter1/Interactables/BasementTape" to="Chapter1/Interactables/BasementTape/OnTapePickUp" method="_on_tape_interacted"]
 
 [editable path="FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]

@@ -37,10 +37,10 @@ signal blur_in_finished
 func blur_in(duration: float = 1.0) -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_method(set_blur_ammount, 0.0, 18, duration)
-	blur_in_finished.emit()
+	tween.tween_callback(func(): blur_in_finished.emit())
 	
 signal blur_out_finished
 func blur_out(duration: float = 1.0) -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_method(set_blur_ammount, 18, 0.0, duration)
-	blur_out_finished.emit()
+	tween.tween_callback(func(): blur_out_finished.emit())

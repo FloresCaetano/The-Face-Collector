@@ -1,6 +1,77 @@
 [gd_scene format=3 uid="uid://y2ai33toan7w"]
 
 [ext_resource type="PackedScene" uid="uid://dg0lrorrlbtg2" path="res://scenery/house/assets/house.glb" id="1_bh2qu"]
+[ext_resource type="Script" uid="uid://cuqnw6xf2hfm6" path="res://puzzles/basement_portraits_puzzle/scripts/basement_door.gd" id="2_q2k4o"]
+[ext_resource type="AudioStream" uid="uid://crb5q7dwoprvp" path="res://puzzles/basement_portraits_puzzle/assets/audio/close_metalic_door.wav" id="2_tfatu"]
+
+[sub_resource type="Animation" id="Animation_q2k4o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.24287699, -0.33461466, -1.3103008)]
+}
+
+[sub_resource type="Animation" id="Animation_ko5by"]
+resource_name = "open"
+length = 3.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_tfatu")
+}],
+"times": PackedFloat32Array(0.03333333)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.24287699, -0.33461466, -1.3103008), Vector3(-0.24283382, -0.33455518, -1.3100679), Vector3(-0.24277487, -0.334474, -1.30975), Vector3(-0.2427038, -0.33437607, -1.3093665), Vector3(-0.24261807, -0.33425796, -1.308904), Vector3(-0.24251468, -0.3341155, -1.3083463), Vector3(-0.24239, -0.33394372, -1.3076736), Vector3(-0.24223962, -0.33373657, -1.3068622), Vector3(-0.24205826, -0.3334867, -1.3058839), Vector3(-0.24183954, -0.33318534, -1.3047038), Vector3(-0.24157575, -0.33282194, -1.3032807), Vector3(-0.24125761, -0.33238363, -1.3015643), Vector3(-0.24087392, -0.331855, -1.2994944), Vector3(-0.24041118, -0.33121747, -1.296998), Vector3(-0.2398531, -0.3304486, -1.2939872), Vector3(-0.23918003, -0.32952133, -1.290356), Vector3(-0.23836829, -0.32840297, -1.2859768), Vector3(-0.23738931, -0.3270542, -1.2806952), Vector3(-0.23620862, -0.32542756, -1.2743255), Vector3(-0.23478466, -0.32346576, -1.2666434), Vector3(-0.23306733, -0.32109976, -1.2573786), Vector3(-0.23099618, -0.3182463, -1.2462049), Vector3(-0.22849828, -0.31480494, -1.232729), Vector3(-0.22548574, -0.31065452, -1.2164766), Vector3(-0.22185251, -0.30564898, -1.1968756), Vector3(-0.21747074, -0.29961213, -1.1732363), Vector3(-0.21218613, -0.2923315, -1.1447263), Vector3(-0.20581275, -0.2835508, -1.1103424), Vector3(-0.19812623, -0.27296096, -1.0688742), Vector3(-0.18885604, -0.2601893, -1.0188622), Vector3(-0.17767581, -0.2447862, -0.95854604), Vector3(-0.16419214, -0.22620957, -0.88580275), Vector3(-0.14793034, -0.20380548, -0.7980717), Vector3(-0.1283181, -0.17678545, -0.6922653), Vector3(-0.104665086, -0.1441984, -0.5646593), Vector3(-0.07613875, -0.104897305, -0.41076213), Vector3(-0.04173495, -0.057498753, -0.22515655), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tfatu"]
+resource_name = "open"
+length = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.24287699, -0.33461466, -1.3103008)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bbsi2"]
+_data = {
+&"RESET": SubResource("Animation_q2k4o"),
+&"close": SubResource("Animation_ko5by"),
+&"open": SubResource("Animation_tfatu")
+}
 
 [node name="House" unique_id=1361162716 instance=ExtResource("1_bh2qu")]
 
@@ -9,8 +80,16 @@ metadata/material = "wood"
 
 [node name="StaticBody3D" parent="Gradas Zotano" parent_id_path=PackedInt32Array(1841859254) index="0" unique_id=2045547146 groups=["climbeable"]]
 
-[node name="Puerta z" parent="." index="64" unique_id=1335711672]
-transform = Transform3D(0.16695873, 0.93301266, -0.3187665, -0.93790287, 0.25000006, 0.24049616, 0.30407763, 0.25881904, 0.9168148, 12.563105, 0.7371568, -23.061642)
+[node name="Puerta z" parent="." index="64" unique_id=1335711672 groups=["basement_door"]]
+transform = Transform3D(0.16695873, 0.9330126, -0.31876653, -0.93790287, 0.24999999, 0.24049616, 0.30407766, 0.25881907, 0.9168148, 12.563105, 0.7371568, -23.061642)
+script = ExtResource("2_q2k4o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Puerta z" index="1" unique_id=729780741]
+libraries/ = SubResource("AnimationLibrary_bbsi2")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Puerta z/AnimationPlayer" index="0" unique_id=859164108]
+transform = Transform3D(1, 7.450581e-09, 3.330669e-16, -7.450581e-09, 1, 1.4901161e-08, 0, -1.4901161e-08, 1, 11.5791025, 0.7371568, -23.061642)
+bus = &"LowPass"
 
 [node name="StaticBody3D" parent="Zotano" parent_id_path=PackedInt32Array(732910268) index="0" unique_id=1126908726 groups=["climbeable"]]
 
