@@ -24,6 +24,7 @@ func check_event() -> void:
 
 func start_event() -> void:
 	audio_controller.append_selected_track(suspence_ambience_sound)
+	audio_controller.start_layer("suspence_ambience")
 	screams.play()
 	await screams.finished
 	look_at_trigger.is_active = true
