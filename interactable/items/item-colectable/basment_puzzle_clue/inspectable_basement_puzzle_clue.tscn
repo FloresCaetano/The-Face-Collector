@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dn4prthh5way5"]
+
+[ext_resource type="PackedScene" uid="uid://lp5vh1velt8m" path="res://interactable/items/item-colectable/basment_puzzle_clue/assets/basement_puzzle_clue.glb" id="1_hppsg"]
+[ext_resource type="Script" uid="uid://cpjijwrysj77n" path="res://core/inventory/scripts/item_text_reader.gd" id="2_1qdv2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxkv3"]
+size = Vector3(0.10874023, 0.006210327, 0.18137208)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4codk"]
+size = Vector3(0.17648697, 0.0025634766, 0.27544543)
+
+[node name="BasementPuzzleClue" type="StaticBody3D" unique_id=291931294]
+
+[node name="basement_puzzle_clue" parent="." unique_id=59021917 instance=ExtResource("1_hppsg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=22545801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021240264, 0.0005722046, 0.002795415)
+shape = SubResource("BoxShape3D_lxkv3")
+
+[node name="InteractionIndicator" type="Marker3D" parent="." unique_id=368591015]
+
+[node name="ItemTextReader" type="StaticBody3D" parent="." unique_id=1495163322 node_paths=PackedStringArray("indicator_last_pose_references")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013265312, 0, -0.019866854)
+script = ExtResource("2_1qdv2")
+text = "BASEMENT_CLUE"
+can_leave = false
+interact_key = "select_item"
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader" unique_id=182757056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050907135, 0.0053309947, 0.008022979)
+shape = SubResource("BoxShape3D_4codk")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="InteractionIndicator" type="Marker3D" parent="ItemTextReader" unique_id=1674145491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02344054, 0)

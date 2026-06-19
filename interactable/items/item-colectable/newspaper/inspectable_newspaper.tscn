@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://duniwgtqlk1eh"]
+
+[ext_resource type="PackedScene" uid="uid://b1o7st3ooc8l" path="res://interactable/items/item-colectable/newspaper/assets/newspaper.glb" id="1_mg1em"]
+[ext_resource type="Script" uid="uid://cpjijwrysj77n" path="res://core/inventory/scripts/item_text_reader.gd" id="2_iujn1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mg1em"]
+size = Vector3(0.19482422, 0.0025634766, 0.46014023)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0p1h8"]
+size = Vector3(0.19482422, 0.0025634766, 0.27659607)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iujn1"]
+size = Vector3(0.18139648, 0.0025634766, 0.47906113)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0brh"]
+size = Vector3(0.20349121, 0.0025634766, 0.47906113)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2pgd"]
+size = Vector3(0.20349121, 0.0025634766, 0.29128838)
+
+[node name="InspectableNewspaper" type="Node3D" unique_id=661787490]
+
+[node name="newspaper" parent="." unique_id=1359874637 instance=ExtResource("1_mg1em")]
+
+[node name="ItemTextReader" type="StaticBody3D" parent="." unique_id=370119458 node_paths=PackedStringArray("indicator_last_pose_references")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20181143, 0, -0.13703246)
+script = ExtResource("2_iujn1")
+text = "NEWSPAPER_HECTOR"
+can_leave = false
+interact_key = "select_item"
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader" unique_id=105908935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0087890625, 0.0053309947, 0.048856735)
+shape = SubResource("BoxShape3D_mg1em")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="InteractionIndicator" type="Marker3D" parent="ItemTextReader" unique_id=706077502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02344054, 0)
+
+[node name="ItemTextReader2" type="StaticBody3D" parent="." unique_id=688611272 node_paths=PackedStringArray("indicator_last_pose_references")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2101646, 0, 0.21753697)
+script = ExtResource("2_iujn1")
+text = "NEWSPAPER_AYAX"
+can_leave = false
+interact_key = "select_item"
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader2" unique_id=553000616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0061035156, 0.0053309947, -0.0094833225)
+shape = SubResource("BoxShape3D_0p1h8")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="InteractionIndicator" type="Marker3D" parent="ItemTextReader2" unique_id=5956613]
+
+[node name="ItemTextReader3" type="StaticBody3D" parent="." unique_id=1017945102 node_paths=PackedStringArray("indicator_last_pose_references")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2101646, -0.010985374, 0.21753697)
+script = ExtResource("2_iujn1")
+text = "NEWSPAPER_AQUILES"
+can_leave = false
+interact_key = "select_item"
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader3" unique_id=277420640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00061035156, 0.0053309947, -0.100519165)
+shape = SubResource("BoxShape3D_iujn1")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="InteractionIndicator" type="Marker3D" parent="ItemTextReader3" unique_id=934914149]
+
+[node name="ItemTextReader4" type="StaticBody3D" parent="." unique_id=1405698640 node_paths=PackedStringArray("indicator_last_pose_references")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02208811, -0.010985374, 0.21753697)
+script = ExtResource("2_iujn1")
+text = "NEWSPAPER_PATROCLO"
+can_leave = false
+interact_key = "select_item"
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader4" unique_id=207317643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010437012, 0.0053309947, -0.100519165)
+shape = SubResource("BoxShape3D_m0brh")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="InteractionIndicator" type="Marker3D" parent="ItemTextReader4" unique_id=903654013]
+
+[node name="ItemTextReader5" type="StaticBody3D" parent="." unique_id=1442422642 node_paths=PackedStringArray("indicator_last_pose_references")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1917817, -0.010985374, -0.0049305856)
+script = ExtResource("2_iujn1")
+text = "NEWSPAPER_ODISEO"
+can_leave = false
+interact_key = "select_item"
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader5" unique_id=2046361299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010437012, 0.0053309947, -0.00663279)
+shape = SubResource("BoxShape3D_j2pgd")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="InteractionIndicator" type="Marker3D" parent="ItemTextReader5" unique_id=1485741904]

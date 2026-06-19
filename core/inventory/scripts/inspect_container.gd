@@ -13,6 +13,9 @@ const DAMPING = 0.9
 @onready var inventory = PATHS.inventory
 @export var sub_viewport : SubViewport
 @export var camera : Camera3D
+@export var pivot: Node3D
+@export var pitch: Node3D
+
 
 func _ready() -> void:
 	inventory.item_inspected.connect(_on_item_inspected)
@@ -36,12 +39,21 @@ func _gui_input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	sub_viewport.size = size
-	
-	if not is_inspecting or current_item_model == null or rotation_velocity.length() < 0.0001:
+	if not is_inspecting:
 		return
 	
-	current_item_model.rotate(Vector3.UP, rotation_velocity.x)
-	current_item_model.rotate(Vector3.RIGHT, rotation_velocity.y)
+	if Input.is_action_just_pressed("inspect_zoom_in"):
+		var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(camera, "position", camera.position - Vector3(0, 0, 0.1), 0.1)
+	elif Input.is_action_just_pressed("inspect_zoom_out"):
+		var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(camera, "position", camera.position + Vector3(0, 0, 0.1), 0.1)
+	
+	if current_item_model == null or rotation_velocity.length() < 0.0001:
+		return
+	
+	pitch.rotation.y -= rotation_velocity.x
+	pivot.rotation.x -= rotation_velocity.y
 	rotation_velocity *= DAMPING
 
 func _on_item_inspected(item) -> void:
@@ -57,8 +69,10 @@ func _on_item_inspected(item) -> void:
 	dragging = false
 	rotation_velocity = Vector2.ZERO
 	current_item_model = item.model.instantiate()
-	current_item_model.position = Vector3(0, 0, -0.3) + item.offset
-	current_item_model.rotation = item.rot_offset
+	
+	camera.position = -(Vector3(0, 0, -0.3) + item.offset)
+	pitch.rotation.y = -(item.rot_offset.y)
+	pivot.rotation.x = -(item.rot_offset.x)
 	get_child(0).add_child(current_item_model)
 
 func _on_inventory_closed() -> void:

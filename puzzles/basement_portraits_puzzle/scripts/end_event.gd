@@ -13,8 +13,6 @@ extends Node3D
 #FLAGS
 var already_looked_at_door := false
 
-func _ready() -> void:
-	check_event()
 
 func check_event() -> void:
 	if not GAMESTATE.is_event_registered("basement_portraits_solved"):
@@ -42,3 +40,4 @@ func _on_look_at_trigger_entered_view() -> void:
 	already_looked_at_door = true
 	wood_crash.play()
 	animation_player.play("grenade_event")
+	look_at_trigger.is_active = false

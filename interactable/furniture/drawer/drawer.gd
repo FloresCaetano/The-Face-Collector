@@ -72,9 +72,9 @@ func locked_anim() -> void:
 	interacted.emit()
 
 func _ready() -> void:
-	if not settings.open_sound: settings.open_sound = load("uid://r6lqlek1smat")
+	if not settings.open_sound: settings.open_sound = load("uid://cee3h4t812g00")
 	if not settings.close_sound: settings.close_sound = load("uid://lfeaevcmm06a")
-	if not settings.locked_sound: settings.locked_sound = load("uid://cee3h4t812g00")
+	if not settings.locked_sound: settings.locked_sound = load("uid://r6lqlek1smat")
 	audio_stream_player_3d = AudioStreamPlayer3D.new()
 	add_child(audio_stream_player_3d)
 	

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dvjna2vsuclt0" path="res://scenery/props/postItOnFridge_safePostIt.png" id="6_mduj0"]
 [ext_resource type="AudioStream" uid="uid://lfeaevcmm06a" path="res://interactable/furniture/drawer/assets/close.wav" id="8_0t7ve"]
 [ext_resource type="AudioStream" uid="uid://cee3h4t812g00" path="res://interactable/furniture/drawer/assets/open.wav" id="9_7vkd5"]
+[ext_resource type="PackedScene" uid="uid://0loq4incqs3n" path="res://interactable/items/item-colectable/newspaper/collectable_newspaper.tscn" id="14_7vkd5"]
 
 [sub_resource type="Resource" id="Resource_q50ey"]
 script = ExtResource("3_jsi5v")
@@ -289,6 +290,9 @@ indicator_last_pose_references = [NodePath("Marker3D")]
 
 [node name="Marker3D" type="Marker3D" parent="Chest_drawers_02_007/StaticBody3D" index="1" unique_id=839027746]
 transform = Transform3D(0.9999977, 0, -1.6342483e-13, 0, 1, 0, 1.6342483e-13, 0, 0.9999977, 0.06529617, 0.09856427, 0.8694763)
+
+[node name="CollectableNewspaper" parent="Chest_drawers_02_007" parent_id_path=PackedInt32Array(168224826) index="1" unique_id=53827456 instance=ExtResource("14_7vkd5")]
+transform = Transform3D(0.9999997, 0, 4.973799e-14, 0, 1, 0, -4.973799e-14, 0, 0.9999997, 0, 0.06776476, 0.08693695)
 
 [node name="StaticBody3D" parent="Chest_drawers_02_008" parent_id_path=PackedInt32Array(849072183) index="0" unique_id=493101680 node_paths=PackedStringArray("drawer_mesh", "indicator_last_pose_references")]
 script = ExtResource("4_q50ey")

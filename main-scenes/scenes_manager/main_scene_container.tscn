@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dsje5kxmq7f43" path="res://main-scenes/scenes_manager/scripts/main_scene_container.gd" id="1_kndb5"]
 [ext_resource type="Script" uid="uid://c76u2pmpb85je" path="res://main-scenes/scenes_manager/scripts/main_scene_sub_viewport.gd" id="1_li6ji"]
 [ext_resource type="PackedScene" uid="uid://brk7fhrihmfm7" path="res://main-scenes/main_scene.tscn" id="2_laruv"]
+[ext_resource type="Shader" uid="uid://dkk6je8ssj3tr" path="res://VFX/shaders/blood.gdshader" id="4_j2rw4"]
 [ext_resource type="Shader" path="res://VFX/shaders/Blur.gdshader" id="5_51qsq"]
 [ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="7_51qsq"]
 [ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="7_lv6u2"]
@@ -10,8 +11,35 @@
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="10_h8vw2"]
 [ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="12_h8vw2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_51qsq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ju5mr"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cmo2a"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dj7dw"]
+noise = SubResource("FastNoiseLite_cmo2a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h8vw2"]
+resource_local_to_scene = true
+shader = ExtResource("4_j2rw4")
+shader_parameter/noise = SubResource("NoiseTexture2D_dj7dw")
+shader_parameter/blood_coef = 0.0
+shader_parameter/blood_opacity = 0.90400004294
+shader_parameter/color = Color(0.54, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qvi7q"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r54ne"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_qvi7q")
+
+[sub_resource type="QuadMesh" id="QuadMesh_wlevh"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_r54ne")
+size = Vector2(1, 1.6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j2rw4"]
 shader = ExtResource("5_51qsq")
@@ -61,7 +89,13 @@ render_target_update_mode = 4
 transform = Transform3D(-0.9999999, 4.0415645e-07, -2.2609242e-06, -1.5631939e-13, 0.98439485, 0.17596811, 2.296763e-06, 0.17596792, -0.984396, 0, 1.6, 0)
 
 [node name="CircularProgressBar" parent="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/Key" parent_id_path=PackedInt32Array(457484893, 1236922951) index="4" unique_id=1354272684]
-texture = SubResource("ViewportTexture_51qsq")
+texture = SubResource("ViewportTexture_ju5mr")
+
+[node name="Blood" parent="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/CollectorAppearance/BloodWall/SubViewport" parent_id_path=PackedInt32Array(457484893, 1749119239, 280290832) index="0" unique_id=619576409]
+material = SubResource("ShaderMaterial_h8vw2")
+
+[node name="MeshInstance3D" parent="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/CollectorAppearance/BloodWall" parent_id_path=PackedInt32Array(457484893, 1749119239) index="1" unique_id=333137406]
+mesh = SubResource("QuadMesh_wlevh")
 
 [node name="ViewportOverlayRect" type="ColorRect" parent="MainSceneSubViewport/SubViewport" unique_id=697671492]
 anchors_preset = 15
@@ -132,6 +166,7 @@ stretch_mode = 5
 [node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1660569423 groups=["flashback_recording_voice"]]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("8_ju5mr")
 
 [node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=681969755]
@@ -144,6 +179,7 @@ offset_top = -12.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("7_51qsq")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
@@ -210,6 +246,7 @@ max_polyphony = 40
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/PlayerPicksStudyKey/Coleccionista/Skeleton3D/BoneAttachment3D/CollectorSteps"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/CollectorAppearance/first_appearance"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/BoneAttachment3D/CollectorSteps"]
+[editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/CollectorAppearance/BloodWall"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/CollectorWalksOnRoof/Path3D/PathFollow3D/CollectorSteps"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/Screamer/Collector"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/Chapter1/ScriptedEvents/Screamer/Collector/Coleccionista/Skeleton3D/BoneAttachment3D/CollectorSteps"]

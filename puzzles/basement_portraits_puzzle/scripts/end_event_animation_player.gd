@@ -5,8 +5,9 @@ extends AnimationPlayer
 @onready var fade_controller : FadeController = PATHS.fade_controller
 
 @export var wake_up: AnimationPlayer
-
+@export var basement_tape: Interactable
 @onready var collector_model : Node3D = preload("uid://deken5phg1fdy").instantiate() #TODO change this to be loaded when the player arrives the basement 
+
 
 func execute_collector_screamer():
 	player.desactivate()
@@ -31,6 +32,7 @@ func fade_in():
 
 func end_event():
 	await get_tree().create_timer(2.0).timeout
+	basement_tape.visible = true
 	player.position = Vector3(102.611, -0.66, -63.345)
 	player.rotation = Vector3(0.0, -125.5, 0.0)
 	player_rcam.pivot.rotation = Vector3.ZERO
@@ -53,7 +55,7 @@ func end_event():
 	PATHS.get_door("17").rotation = Vector3.ZERO
 	player.activate()
 	player_rcam.change_state(player_rcam.State.IDLE)
-	
+	basement_tape.active = true
 	
 	
 	

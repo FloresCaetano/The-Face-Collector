@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dnra3sgdacti0"]
+
+[ext_resource type="PackedScene" uid="uid://dn4prthh5way5" path="res://interactable/items/item-colectable/basment_puzzle_clue/inspectable_basement_puzzle_clue.tscn" id="1_3omtp"]
+[ext_resource type="Script" uid="uid://c5effmi27pymr" path="res://interactable/items/item-resources/Item.gd" id="1_84wma"]
+[ext_resource type="Texture2D" uid="uid://bco3a38wujniy" path="res://interactable/items/item-resources/generic/basement_puzzle_clue/icon/icon_basement_clue.png" id="3_iug8w"]
+
+[resource]
+script = ExtResource("1_84wma")
+name = "Poem"
+texture = ExtResource("3_iug8w")
+tag = "basement_puzzle_clue"
+model = ExtResource("1_3omtp")
+rot_offset = Vector3(90, 0, 0)
+metadata/_custom_type_script = "uid://c5effmi27pymr"

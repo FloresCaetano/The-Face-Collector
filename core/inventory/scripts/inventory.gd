@@ -3,6 +3,9 @@ extends Control
 
 @export var item_list: VBoxContainer
 @export var inspect_container : InspectContainer
+@export var sub_viewport: SubViewport
+@export var text_container: TextContainer
+@export var item_scroll_container: ScrollContainer
 
 @onready var player : Player = PATHS.player
 @onready var p_rcam : PlayerRealCamera = PATHS.player_real_camera
@@ -26,15 +29,19 @@ func open():
 	visible = true
 	is_open = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	sub_viewport.handle_input_locally = true
 
 func close():
 	player.activate()
 	p_rcam.change_state(p_rcam.State.IDLE)
 	visible = false
 	is_open = false
-
+	
+	close_text_container()
+	
 	reset_vars()
 	inventory_closed.emit() #USED TO NOTIFY ITEM CONTAINERS TO HIDE OPTIONS, RESET BUTTON STATES AND DESINSPECT ITEMS
+	sub_viewport.handle_input_locally = false
 
 func add_item(item : Item) -> void:
 	var item_container : ItemContainer = load("uid://cipflgtvarr0m").instantiate()
@@ -113,3 +120,15 @@ func _on_item_inspected(item: Item) -> void:
 	
 	last_item_selected = item
 	item_inspected.emit(item)
+
+func open_text_container(text : String):
+	text_container.set_text(text)
+	item_scroll_container.visible = false
+	text_container.visible = true
+	sub_viewport.size.x = 900
+	
+
+func close_text_container():
+	item_scroll_container.visible = true
+	text_container.visible = false
+	sub_viewport.size.x = 1030

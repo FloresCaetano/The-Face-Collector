@@ -1,20 +1,28 @@
 [gd_scene format=3 uid="uid://7f4fxxiv7yq4"]
 
 [ext_resource type="Script" uid="uid://cx7s5o5ptir3s" path="res://core/inventory/scripts/inventory.gd" id="1_5c1fl"]
+[ext_resource type="Script" uid="uid://diok8gnicd5bi" path="res://core/inventory/scripts/text_container.gd" id="2_tjxoo"]
+[ext_resource type="Script" uid="uid://doe4gxw8gccfd" path="res://entities/player/Scripts/MouseRaycast.gd" id="3_b1y7x"]
 [ext_resource type="Script" uid="uid://dsxej31pttkpm" path="res://core/inventory/scripts/inspect_container.gd" id="3_k3pjn"]
-[ext_resource type="PackedScene" uid="uid://cpnx3hhyuewlk" path="res://entities/player/Scenes/MouseRayCast.tscn" id="3_ku7tl"]
-[ext_resource type="Script" uid="uid://o1ib6h3jdvjh" path="res://core/inventory/scripts/interaction_handler.gd" id="4_ku7tl"]
+[ext_resource type="FontFile" uid="uid://dv31bty8qdoll" path="res://shared/fonts/SpaceMono-Regular.ttf" id="3_tjxoo"]
 
-[node name="Inventory" type="Control" unique_id=213834778 node_paths=PackedStringArray("item_list", "inspect_container") groups=["inventory"]]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b1y7x"]
+load_path = "res://.godot/imported/X.svg-fa011677af7f6b47a8e4a15dbbed5a79.ctex"
+
+[node name="Inventory" type="Control" unique_id=213834778 node_paths=PackedStringArray("item_list", "inspect_container", "sub_viewport", "text_container", "item_scroll_container") groups=["inventory"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_5c1fl")
-item_list = NodePath("MarginContainer/HBoxContainer/ScrollContainer/ItemList")
-inspect_container = NodePath("MarginContainer/HBoxContainer/InspectContainer")
+item_list = NodePath("MarginContainer/HBoxContainer/ItemScrollContainer/ItemList")
+inspect_container = NodePath("MarginContainer/HBoxContainer/TextAndInspect/InspectContainer")
+sub_viewport = NodePath("MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport")
+text_container = NodePath("MarginContainer/HBoxContainer/TextAndInspect/TextContainer")
+item_scroll_container = NodePath("MarginContainer/HBoxContainer/ItemScrollContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=524876828]
 layout_mode = 1
@@ -23,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 35
@@ -30,52 +39,128 @@ theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1456037229]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer" unique_id=1436258624]
+[node name="ItemScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer" unique_id=1436258624]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 horizontal_scroll_mode = 0
 
-[node name="ItemList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ScrollContainer" unique_id=368805156]
+[node name="ItemList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ItemScrollContainer" unique_id=368805156]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="InspectContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer" unique_id=125211569 node_paths=PackedStringArray("sub_viewport", "camera")]
+[node name="TextAndInspect" type="HSplitContainer" parent="MarginContainer/HBoxContainer" unique_id=1412493665]
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 1
+
+[node name="TextContainer" type="Control" parent="MarginContainer/HBoxContainer/TextAndInspect" unique_id=566561855 node_paths=PackedStringArray("rich_text_label")]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_default_cursor_shape = 1
+script = ExtResource("2_tjxoo")
+rich_text_label = NodePath("MarginContainer/ColorRect/MarginContainer/VBoxContainer/ScrollContainer/RichTextLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/TextAndInspect/TextContainer" unique_id=960359580]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/TextAndInspect/TextContainer/MarginContainer" unique_id=59995709]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.21568628)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/TextAndInspect/TextContainer/MarginContainer/ColorRect" unique_id=108903230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/TextAndInspect/TextContainer/MarginContainer/ColorRect/MarginContainer" unique_id=1363370256]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureButton" parent="MarginContainer/HBoxContainer/TextAndInspect/TextContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=175493996]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = SubResource("CompressedTexture2D_b1y7x")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/TextAndInspect/TextContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=1660715601]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/TextAndInspect/TextContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1234767533]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_tjxoo")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+
+[node name="InspectContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/TextAndInspect" unique_id=125211569 node_paths=PackedStringArray("sub_viewport", "camera", "pivot", "pitch")]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("3_k3pjn")
 sub_viewport = NodePath("SubViewport")
-camera = NodePath("SubViewport/Camera3D")
+camera = NodePath("SubViewport/Pivot/Pitch/Camera3D")
+pivot = NodePath("SubViewport/Pivot")
+pitch = NodePath("SubViewport/Pivot/Pitch")
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/InspectContainer" unique_id=642823305]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer" unique_id=642823305]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1042, 728)
+size = Vector2i(1030, 728)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport" unique_id=1573281307]
+[node name="Pivot" type="Node3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport" unique_id=37171589]
+
+[node name="Pitch" type="Node3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport/Pivot" unique_id=1543759732]
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport/Pivot/Pitch" unique_id=1573281307]
 fov = 101.9
+script = ExtResource("3_b1y7x")
 
-[node name="MouseRayCast" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport/Camera3D" unique_id=1479599857 node_paths=PackedStringArray("target") groups=["mouse_raycast"] instance=ExtResource("3_ku7tl")]
-target = NodePath("..")
+[node name="Lights" type="Node3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport/Pivot/Pitch/Camera3D" unique_id=2071784812]
 
-[node name="InteractionHandler" type="Node" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport/Camera3D" unique_id=1423956317 node_paths=PackedStringArray("inspect_container", "mouse_ray_cast")]
-script = ExtResource("4_ku7tl")
-inspect_container = NodePath("../../..")
-mouse_ray_cast = NodePath("../MouseRayCast")
-
-[node name="Node3D" type="Node3D" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport" unique_id=2071784812]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport/Node3D" unique_id=706931873]
+[node name="OmniLight3D" type="OmniLight3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport/Pivot/Pitch/Camera3D/Lights" unique_id=706931873]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.915074, 0.47028482)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport/Node3D" unique_id=147822463]
+[node name="OmniLight3D2" type="OmniLight3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport/Pivot/Pitch/Camera3D/Lights" unique_id=147822463]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5203395, -2.4656467)
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport/Node3D" unique_id=623915619]
+[node name="OmniLight3D3" type="OmniLight3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport/Pivot/Pitch/Camera3D/Lights" unique_id=623915619]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5203395, 1.5672197)
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="MarginContainer/HBoxContainer/InspectContainer/SubViewport/Node3D" unique_id=943855703]
+[node name="OmniLight3D4" type="OmniLight3D" parent="MarginContainer/HBoxContainer/TextAndInspect/InspectContainer/SubViewport/Pivot/Pitch/Camera3D/Lights" unique_id=943855703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7476872, -3.9490051)
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/TextAndInspect/TextContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/TextureRect" to="MarginContainer/HBoxContainer/TextAndInspect/TextContainer" method="_on_texture_rect_pressed"]

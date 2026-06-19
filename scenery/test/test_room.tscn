@@ -53,6 +53,8 @@
 [ext_resource type="PackedScene" uid="uid://drmmjnuupljhp" path="res://interactable/items/item-colectable/portraits/scenes/interactable_odiseo_portrait.tscn" id="51_pxfha"]
 [ext_resource type="PackedScene" uid="uid://cj1y4vqgh80eq" path="res://interactable/items/item-colectable/portraits/scenes/interactable_aquiles_portrait.tscn" id="52_5hjq8"]
 [ext_resource type="PackedScene" uid="uid://brya3p4u8fhn0" path="res://interactable/items/item-colectable/portraits/scenes/interactable_hector_portrait.tscn" id="53_rpvdx"]
+[ext_resource type="PackedScene" uid="uid://0loq4incqs3n" path="res://interactable/items/item-colectable/newspaper/collectable_newspaper.tscn" id="54_5hjq8"]
+[ext_resource type="PackedScene" uid="uid://mwwpyk1uy8ts" path="res://interactable/items/item-colectable/basment_puzzle_clue/basement_puzzle_clue.tscn" id="55_rpvdx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgxqp"]
 albedo_texture = ExtResource("1_uo7yq")
@@ -250,6 +252,21 @@ shadow_mesh = SubResource("ArrayMesh_gqdqw")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oqw16"]
 shader = ExtResource("42_tedtd")
 shader_parameter/brightness = 2.6350001251625
+
+[sub_resource type="GDScript" id="GDScript_5hjq8"]
+script/source = "extends Node
+
+func _process(_delta: float) -> void:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		
+		# En Godot 4 moderno, es mucho más directo usar esto en el _process:
+		var clicked_control = get_viewport().gui_get_hovered_control()
+		
+		if clicked_control:
+			print(\"Mouse encima de: \", clicked_control.name, \" (Tipo: \", clicked_control.get_class(), \")\")
+		else:
+			print(\"No hay ningún control bajo el mouse\")
+"
 
 [node name="TestRoom" type="Node3D" unique_id=23240497]
 
@@ -527,6 +544,7 @@ stretch_mode = 5
 [node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1586681898 groups=["flashback_recording_voice"]]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("43_63jam")
 
 [node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=1441837205]
@@ -539,6 +557,7 @@ offset_top = -12.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("44_oqw16")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
@@ -586,6 +605,7 @@ max_polyphony = 40
 
 [node name="Radio" parent="." unique_id=126687277 instance=ExtResource("45_tedtd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4666313, -5.20465)
+dialogue_file = "res://DIALOGUES/Chapter1/radio_lena_first_flashback.json"
 
 [node name="InteractableAyaxPortrait" parent="." unique_id=1479307622 instance=ExtResource("51_pdnoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3193464, 1.4674641, 5.2193227)
@@ -601,6 +621,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1221676, 1.4674641, 5.2193
 
 [node name="InteractableHectorPortrait" parent="." unique_id=2071857541 instance=ExtResource("53_rpvdx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47386026, 1.4674641, 5.2193227)
+
+[node name="CollectableNewspaper" parent="." unique_id=53827456 instance=ExtResource("54_5hjq8")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.9365059, 0.8150822, 0)
+
+[node name="Node" type="Node" parent="." unique_id=1904109151]
+script = SubResource("GDScript_5hjq8")
+
+[node name="BasementPuzzleClue" parent="." unique_id=291931294 instance=ExtResource("55_rpvdx")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -1.3719604, 0.779114, 0.6336341)
 
 [editable path="Stuff/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]
 [editable path="Key"]

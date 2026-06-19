@@ -16,6 +16,6 @@ func _on_key_interacted() -> void:
 	breathing.stop()
 	door_16.is_locked = false
 	$ATOpenDoor.monitoring = true
-	await get_tree().create_timer(0.1)
+	await get_tree().create_timer(0.1).timeout
 	$Coleccionista.visible = true
 	$StudyWindow.active = false

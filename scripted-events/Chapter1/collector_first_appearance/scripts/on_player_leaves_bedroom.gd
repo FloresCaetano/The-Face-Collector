@@ -18,10 +18,12 @@ func _on_look_at_trigger_entered_view() -> void:
 
 func execute():
 	PATHS.player_real_camera.look_at_target(marker_3d, 0.2, 4.0, false)
-	blood_wall.set_blood_amount(0.0, 0.8, 2.0)
+	blood_wall.set_blood_amount(0.0, 0.8, 6.0)
 	audio_controller.simple_play(stinger_ambience)
 	$"../LookAtTrigger".is_active = true
-	
+	await PATHS.player_real_camera.sequence_finished
+	PATHS.player.activate()
+	PATHS.player_real_camera.change_state(PATHS.player_real_camera.State.IDLE)
 
 func start_screamer():
 	$"../first_appearance".visible = true

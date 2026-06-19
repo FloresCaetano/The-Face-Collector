@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djcgd7utw5l2j"]
 
 [ext_resource type="Script" uid="uid://dmm4xa6veadqa" path="res://shared/IconRenderManager/render_viewport.gd" id="1_qx17m"]
-[ext_resource type="PackedScene" uid="uid://dubosjpfuf2s6" path="res://interactable/items/item-colectable/portraits/assets/patroclo_portrait.glb" id="2_qx17m"]
+[ext_resource type="PackedScene" uid="uid://lp5vh1velt8m" path="res://interactable/items/item-colectable/basment_puzzle_clue/assets/basement_puzzle_clue.glb" id="2_qx17m"]
 
 [node name="IconRenderManager" type="Node3D" unique_id=2001310707]
 
@@ -9,7 +9,7 @@
 transparent_bg = true
 size = Vector2i(1920, 1080)
 script = ExtResource("1_qx17m")
-path = "res://interactable/items/item-resources/generic/portraits/icons/icon_patroclo"
+path = "res://interactable/items/item-resources/generic/basement_puzzle_clue/icon/icon_basement_clue"
 
 [node name="RenderCamera" type="Camera3D" parent="SubViewport" unique_id=161989113]
 
@@ -28,4 +28,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.383393e-05, -0.17351781, -0
 [node name="Node3D" type="Node3D" parent="ItemContainer" unique_id=915263022]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.16779998, -0.028009534)
 
-[node name="patroclo_portrait" parent="ItemContainer/Node3D" unique_id=1927390075 instance=ExtResource("2_qx17m")]
+[node name="basement_puzzle_clue" parent="ItemContainer/Node3D" unique_id=59021917 instance=ExtResource("2_qx17m")]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 7.887866e-08, 0.0069737136, -0.902382)

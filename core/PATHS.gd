@@ -16,9 +16,6 @@ var contextual_inventory : ContextualInventory:
 	get:
 		return get_tree().get_first_node_in_group("contextual_inventory")
 
-var mouse_raycast : MouseRayCast :
-	get:
-		return get_tree().get_first_node_in_group("mouse_raycast")
 
 var player : Player :
 	get:

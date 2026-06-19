@@ -115,6 +115,7 @@
 [ext_resource type="FontFile" uid="uid://dpvv00ngfr3td" path="res://shared/fonts/MyUglyHandwriting-Regular.otf" id="93_wlqel"]
 [ext_resource type="AudioStream" uid="uid://c6y4kqftv50sk" path="res://FX/hit/metalic_boom.wav" id="95_jcxlv"]
 [ext_resource type="AudioStream" uid="uid://duxwxvjqr5e4p" path="res://FX/riser/strings_metalic.wav" id="96_nqkc3"]
+[ext_resource type="PackedScene" uid="uid://mwwpyk1uy8ts" path="res://interactable/items/item-colectable/basment_puzzle_clue/basement_puzzle_clue.tscn" id="107_tporc"]
 [ext_resource type="PackedScene" uid="uid://3devs2dy07lu" path="res://interactable/items/item-colectable/portraits/scenes/interactable_patroclo_portrait.tscn" id="112_bojfl"]
 [ext_resource type="PackedScene" uid="uid://drmmjnuupljhp" path="res://interactable/items/item-colectable/portraits/scenes/interactable_odiseo_portrait.tscn" id="113_ba76f"]
 [ext_resource type="PackedScene" uid="uid://cj1y4vqgh80eq" path="res://interactable/items/item-colectable/portraits/scenes/interactable_aquiles_portrait.tscn" id="114_mmj0l"]
@@ -126,6 +127,7 @@
 [ext_resource type="Resource" uid="uid://0jkvptg7bfbn" path="res://interactable/items/item-resources/generic/portraits/hector_portrait.tres" id="118_83wu8"]
 [ext_resource type="Resource" uid="uid://bhluc8o7am7d8" path="res://interactable/items/item-resources/generic/portraits/ayax_portrait.tres" id="118_mmj0l"]
 [ext_resource type="PackedScene" uid="uid://b2p1xw7ykptvw" path="res://VFX/blood/blood_wall.tscn" id="120_evh6w"]
+[ext_resource type="Shader" uid="uid://dkk6je8ssj3tr" path="res://VFX/shaders/blood.gdshader" id="121_087n7"]
 [ext_resource type="Script" uid="uid://bloe804nvh0bq" path="res://puzzles/basement_portraits_puzzle/scripts/on_player_arrives_basment.gd" id="121_imlir"]
 [ext_resource type="Resource" uid="uid://bqehojw53go07" path="res://interactable/items/item-resources/generic/portraits/odiseo_portrait.tres" id="121_p1uf7"]
 [ext_resource type="Script" uid="uid://b6k4pw6osy4e" path="res://puzzles/basement_portraits_puzzle/scripts/end_event.gd" id="122_l31dq"]
@@ -333,7 +335,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_evh6w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tporc"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2154,11 +2156,11 @@ bind/275/name = &"toe.R.024"
 bind/275/bone = -1
 bind/275/pose = Transform3D(-0.9506589, -0.032065317, -0.30857646, -0.2087399, -0.6697165, 0.7126763, -0.2295109, 0.7419244, 0.6299786, -0.45342284, 0.3016075, -0.09268308)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ba76f"]
-size = Vector3(1, 1.1417236, 0.56689453)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_dj7dw"]
 size = Vector3(3.441101, 2.5332642, 0.4482422)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba76f"]
+size = Vector3(1, 1.1417236, 0.56689453)
 
 [sub_resource type="Animation" id="Animation_bvjm2"]
 length = 0.001
@@ -2293,6 +2295,33 @@ seed = 14
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x0ijl"]
 size = Vector3(1.2255325, 2.2322693, 0.09692383)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cmo2a"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dj7dw"]
+noise = SubResource("FastNoiseLite_cmo2a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xc8yf"]
+resource_local_to_scene = true
+shader = ExtResource("121_087n7")
+shader_parameter/noise = SubResource("NoiseTexture2D_dj7dw")
+shader_parameter/blood_coef = 0.0
+shader_parameter/blood_opacity = 0.90400004294
+shader_parameter/color = Color(0.54, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i6ryr"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8240r"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_i6ryr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_l32x7"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_8240r")
+size = Vector2(1, 1.6)
 
 [sub_resource type="Curve3D" id="Curve3D_o2hae"]
 _data = {
@@ -2784,7 +2813,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_evh6w")
+texture = SubResource("ViewportTexture_tporc")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -3184,7 +3213,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.64399, -0.64695686, 45.144985)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 124.919685, 3.0467315, -51.511566)
+transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 102.72721, -0.06268245, -60.7065)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -5666,6 +5695,17 @@ bus = &"Master"
 [node name="PortraitsPuzzle" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=813568546]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.405061, -1.7876341, -15.272724)
 
+[node name="OnPlayerArrivesBasement+" type="Area3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=1195763063 node_paths=PackedStringArray("end_event")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.617341, 0.0885241, -4.2579384)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("121_imlir")
+end_event = NodePath("../EndEvent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/OnPlayerArrivesBasement+" unique_id=928998789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02609253, -0.040924072, -0.22216797)
+shape = SubResource("BoxShape3D_dj7dw")
+
 [node name="Portraits" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=1433950300]
 
 [node name="InteractablePatrocloPortrait" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/Portraits" unique_id=1817725996 instance=ExtResource("112_bojfl")]
@@ -5745,16 +5785,6 @@ shape = SubResource("BoxShape3D_ba76f")
 script = ExtResource("116_bojfl")
 requiered_portrait = ExtResource("121_p1uf7")
 
-[node name="OnPlayerArrivesBasement+" type="Area3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots" unique_id=1195763063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.617341, 0.0885241, -4.2579374)
-collision_layer = 9
-collision_mask = 9
-script = ExtResource("121_imlir")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/OnPlayerArrivesBasement+" unique_id=928998789]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02609253, -0.040924072, -0.22216797)
-shape = SubResource("BoxShape3D_dj7dw")
-
 [node name="EndEvent" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=727154961 node_paths=PackedStringArray("screams", "wood_crash", "soft_knocks", "look_at_trigger", "animation_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9809103, 2.9068346, 0.12504196)
 script = ExtResource("122_l31dq")
@@ -5782,10 +5812,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37684298, 0.60582376, -0.83
 aabb = AABB(-0.09425914, -0.22321841, -0.08224628, 0.18851829, 0.28725725, 0.16449256)
 is_active = false
 
-[node name="EndEventAnimationPlayer" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=240147908 node_paths=PackedStringArray("wake_up")]
+[node name="EndEventAnimationPlayer" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" unique_id=240147908 node_paths=PackedStringArray("wake_up", "basement_tape")]
 libraries/ = SubResource("AnimationLibrary_p0b4p")
 script = ExtResource("127_p0b4p")
 wake_up = NodePath("../EndCinematic/PhantomCamera3D/WakeUp")
+basement_tape = NodePath("../../../../Interactables/BasementTape")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndEventAnimationPlayer" unique_id=414846116]
 
@@ -5793,13 +5824,16 @@ wake_up = NodePath("../EndCinematic/PhantomCamera3D/WakeUp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.771, -4.506, -67.325)
 
 [node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic" unique_id=352186817]
-transform = Transform3D(0.17232108, -2.2351735e-08, -0.98504084, -0.63307285, 0.76612866, -0.110748515, 0.7546683, 0.6426867, 0.13202016, 40.547, 0.582, 64.615)
+transform = Transform3D(0.17232108, -2.2351733e-08, -0.98504084, -0.63307285, 0.7661286, -0.11074853, 0.7546683, 0.64268667, 0.13202016, 40.547, 0.582, 64.615)
 script = ExtResource("29_ujjmv")
 tween_resource = SubResource("Resource_imlir")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WakeUp" type="AnimationPlayer" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic/PhantomCamera3D" unique_id=400858331]
 libraries/ = SubResource("AnimationLibrary_087n7")
+
+[node name="BasementPuzzleClue" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=291931294 instance=ExtResource("107_tporc")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0.010002136, -0.37028742, -0.68068504)
 
 [node name="CollectorAppearance" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=203090192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.740726, 1.4685307, -11.844575)
@@ -6100,6 +6134,8 @@ light = NodePath("../../../../../../FullHouse/Lights/CorridorLights/CeilingLamp5
 audio_stream_player_3d = NodePath("../../../AudioStreamPlayer3D")
 layers = Array[ExtResource("76_ej7h5")]([ExtResource("77_jcxlv"), ExtResource("78_nqkc3"), ExtResource("79_v6718"), ExtResource("80_dvcwx"), ExtResource("81_ummlg"), ExtResource("82_mvy3c")])
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/AnimationPlayer" index="1" unique_id=857672926]
+
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance" unique_id=1104181689]
 transform = Transform3D(0.74430996, -0.47874516, -0.46562338, -0.61573154, -0.7619233, -0.20086586, -0.2586058, 0.4362058, -0.86188596, 0.19761086, 2.4980073, 0.2708969)
 bone_name = "jaw"
@@ -6143,7 +6179,13 @@ aabb = AABB(-0.058504883, -0.06349866, -0.075644016, 0.11700977, 0.12699732, 0.1
 is_active = false
 
 [node name="BloodWall" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1749119239 instance=ExtResource("120_evh6w")]
-transform = Transform3D(-7.3216576e-08, 0, -1.675, 0, 1.675, 0, 1.675, 0, -7.3216576e-08, 2.8456879, -0.12550676, -0.7604027)
+transform = Transform3D(-7.3216576e-08, 0, -1.675, 0, 2.135, 0, 1.675, 0, -7.3216576e-08, 2.8456879, -0.0789907, -0.7604027)
+
+[node name="Blood" parent="Chapter1/ScriptedEvents/CollectorAppearance/BloodWall/SubViewport" parent_id_path=PackedInt32Array(1749119239, 280290832) index="0" unique_id=619576409]
+material = SubResource("ShaderMaterial_xc8yf")
+
+[node name="MeshInstance3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/BloodWall" index="1" unique_id=333137406]
+mesh = SubResource("QuadMesh_l32x7")
 
 [node name="AudioOnStorageVent" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1547307201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8678465, 0.5957827, -11.571699)
@@ -6285,8 +6327,10 @@ script = ExtResource("85_wsms8")
 crowbar = NodePath("..")
 
 [node name="BasementTape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.295631, -2.1540961, -16.05041)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.830854, -3.1297252, -17.931005)
+visible = false
 tape_item = SubResource("Resource_fkfrk")
+active = false
 
 [node name="OnTapePickUp" type="Node" parent="Chapter1/Interactables/BasementTape" unique_id=1222559119 node_paths=PackedStringArray("on_player_leaves_bedroom", "collector_appearance")]
 script = ExtResource("67_ykmb4")
@@ -6296,7 +6340,7 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/FirstHouseLook/LookAtTrigger" to="Chapter1/ScriptedEvents/FirstHouseLook" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/AliceFlashback/Trigger" to="Chapter1/ScriptedEvents/AliceFlashback/Trigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/PlayerPicksStudyKey/ATOpenDoor" to="Chapter1/ScriptedEvents/PlayerPicksStudyKey/ATOpenDoor" method="_on_body_entered"]
-[connection signal="body_entered" from="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/OnPlayerArrivesBasement+" to="Chapter1/ScriptedEvents/PortraitsPuzzle/PortraitSpots/OnPlayerArrivesBasement+" method="_on_body_entered"]
+[connection signal="body_entered" from="Chapter1/ScriptedEvents/PortraitsPuzzle/OnPlayerArrivesBasement+" to="Chapter1/ScriptedEvents/PortraitsPuzzle/OnPlayerArrivesBasement+" method="_on_body_entered"]
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/LookAtTrigger" to="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent" method="_on_look_at_trigger_entered_view"]
 [connection signal="body_entered" from="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_body_entered"]
 [connection signal="entered_view" from="Chapter1/ScriptedEvents/CollectorAppearance/LookAtTrigger" to="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" method="_on_look_at_trigger_entered_view"]
@@ -6324,6 +6368,7 @@ collector_appearance = NodePath("../../../ScriptedEvents/CollectorAppearance")
 [editable path="Chapter1/ScriptedEvents/PlayerPicksStudyKey/Coleccionista/Skeleton3D/BoneAttachment3D/CollectorSteps"]
 [editable path="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance"]
 [editable path="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/BoneAttachment3D/CollectorSteps"]
+[editable path="Chapter1/ScriptedEvents/CollectorAppearance/BloodWall"]
 [editable path="Chapter1/ScriptedEvents/CollectorWalksOnRoof/Path3D/PathFollow3D/CollectorSteps"]
 [editable path="Chapter1/ScriptedEvents/Screamer/Collector"]
 [editable path="Chapter1/ScriptedEvents/Screamer/Collector/Coleccionista/Skeleton3D/BoneAttachment3D/CollectorSteps"]

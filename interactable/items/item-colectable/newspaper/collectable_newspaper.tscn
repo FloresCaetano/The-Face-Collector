@@ -1,0 +1,98 @@
+[gd_scene format=4 uid="uid://0loq4incqs3n"]
+
+[ext_resource type="Script" uid="uid://cl5oietde6tbu" path="res://interactable/items/item-colectable/props/generic_pickup.gd" id="1_1w4te"]
+[ext_resource type="Texture2D" uid="uid://efrx88b0l432" path="res://interactable/items/item-colectable/newspaper/assets/newspaper_newspaper2.png" id="2_4odtt"]
+[ext_resource type="Resource" uid="uid://c72p1u8d7mprb" path="res://interactable/items/item-resources/generic/newspaper/newspaper.tres" id="2_yqiid"]
+[ext_resource type="Texture2D" uid="uid://ckdp2nh34j8iv" path="res://interactable/items/item-colectable/newspaper/assets/newspaper_newspaper1.png" id="3_yqiid"]
+[ext_resource type="AudioStream" uid="uid://cwljb2nauk53b" path="res://entities/player/Assets/tape_pickUp.mp3" id="4_45v4y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pk3kh"]
+size = Vector3(2, 0.031299897, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4th6h"]
+resource_name = "page2"
+cull_mode = 2
+albedo_texture = ExtResource("2_4odtt")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynmcd"]
+resource_name = "page1"
+cull_mode = 2
+albedo_texture = ExtResource("3_yqiid")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mjuwo"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 0.015649604, 2),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAAEAAEAAgADAAUAAgAFAAAAAAAGAAQAAAAFAAYABAAHAAEAAQAHAAMABAAGAAcABQADAAcABQAHAAYA"),
+"name": "page2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIC/AACAvwAAAAAAAIC/AACAv5kzgDwAAIC/AACAPwAAAAAAAIA/AACAv5kzgDwAAIA/AACAP5kzgDwAAIA/AACAP5kzgDwAAIC/")
+}, {
+"aabb": AABB(-1, -0.015650295, -1, 2, 0.015650524, 2),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAAEAAEAAgADAAUAAgAFAAAAAAAGAAQAAAAFAAYABAAHAAEAAQAHAAMABAAGAAcABQADAAcABQAHAAYA"),
+"name": "page1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAPyq3djQAAIA/AACAv8qtObUAAIC/AACAPyq3djQAAIC/AACAPx4zgLwAAIC/AACAv8qtObUAAIA/AACAPx4zgLwAAIA/AACAvww1gLwAAIA/AACAvww1gLwAAIC/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ffj5p"]
+resource_name = "newspaper_Plane_001"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 0.015649604, 2),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_4th6h"),
+"name": "page2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIC/AACAvwAAAAAAAIC/AACAPwAAAAAAAIA/AACAv5kzgDwAAIA/AACAP5kzgDwAAIC/AACAP5kzgDwAAIA/AACAv5kzgDwAAIC/AACAPwAAAAAAAIA/AACAP5kzgDwAAIC/AACAPwAAAAAAAIC/AACAP5kzgDwAAIA/AACAvwAAAAAAAIC/AACAv5kzgDwAAIA/AACAvwAAAAAAAIA/AACAv5kzgDwAAIC/AACAPwAAAAAAAIC/AACAv5kzgDwAAIC/AACAvwAAAAAAAIC/AACAP5kzgDwAAIC/AACAvwAAAAAAAIA/AACAP5kzgDwAAIA/AACAPwAAAAAAAIA/AACAv5kzgDwAAIA//38AAP///z//fwAA////P/9/AAD///8//38AAP///z//f///////v/9///////+//3///////7//f///////v////3////+/////f////7////9/////v////3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////v/////////+//////////7//////////v/9//3////8//3//f////z//f/9/////P/9//3////8/")
+}, {
+"aabb": AABB(-1, -0.015650295, -1, 2, 0.015650524, 2),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAAAA"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_ynmcd"),
+"name": "page1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAPyq3djQAAIA/AACAv8qtObUAAIC/AACAPyq3djQAAIC/AACAv8qtObUAAIA/AACAPx4zgLwAAIA/AACAvww1gLwAAIC/AACAvww1gLwAAIA/AACAPx4zgLwAAIC/AACAv8qtObUAAIC/AACAPx4zgLwAAIC/AACAPyq3djQAAIC/AACAvww1gLwAAIC/AACAPyq3djQAAIA/AACAvww1gLwAAIA/AACAv8qtObUAAIA/AACAPx4zgLwAAIA/AACAv8qtObUAAIA/AACAvww1gLwAAIC/AACAv8qtObUAAIC/AACAvww1gLwAAIA/AACAPyq3djQAAIC/AACAPx4zgLwAAIA/AACAPyq3djQAAIA/AACAPx4zgLwAAIC//3///wAA/z//f///AAD/P/9///8AAP8//3///wAA/z//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/////////+//////////7//////////v/////////+//3//f////z//f/9/////P/9//3////8//3//f////z8AAP9/////vwAA/3////+/AAD/f////78AAP9/////v////3////+/////f////7////9/////v////3////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mjuwo")
+
+[node name="CollectableNewspaper" type="StaticBody3D" unique_id=53827456 node_paths=PackedStringArray("audio_stream_player", "indicator_last_pose_references")]
+script = ExtResource("1_1w4te")
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+item = ExtResource("2_yqiid")
+indicator_last_pose_references = [NodePath("InteractionIndicator")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=444089016]
+transform = Transform3D(-0.3535, -9.735359e-08, 0, 1.3765798e-07, -0.25, 0, 0, 0, 0.5, 2.8222098e-14, 8.6613e-08, 0)
+shape = SubResource("BoxShape3D_pk3kh")
+
+[node name="newspaper" type="Node3D" parent="." unique_id=98121602]
+
+[node name="page2" type="MeshInstance3D" parent="newspaper" unique_id=1701008934]
+transform = Transform3D(-0.3535, -8.146034e-08, 0, 1.15184925e-07, -0.25, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ffj5p")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1150183120]
+stream = ExtResource("4_45v4y")
+
+[node name="InteractionIndicator" type="Marker3D" parent="." unique_id=2009256561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07964522, 0)
