@@ -160,10 +160,10 @@ spot_angle = 26.529463
 transform = Transform3D(1, 0, 0, 0, 0.9612906, 0.27553672, 0, -0.27553672, 0.9612906, 14.630322, 1.837786, -0.5122347)
 shadow_enabled = true
 
-[node name="SpotLight3D5" type="AreaLight3D" parent="WorldEnvironment" unique_id=21887906]
-transform = Transform3D(-1, -2.4088168e-08, 8.403865e-08, 4.0694122e-08, 0.72253627, 0.69133306, -7.7373926e-08, 0.69133306, -0.72253627, 14.344851, 1.6985985, -2.414034)
+[node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment" unique_id=1324933665]
+transform = Transform3D(-0.9999454, -0.010175177, -0.0023964513, -0.010261732, 0.91173565, 0.41064936, -0.0019934997, 0.41065156, -0.91179025, 14.344851, 1.929226, -2.9339006)
 light_energy = 0.718
-area_range = 2.01
+spot_angle_attenuation = 3.2490115
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=1511904656]
 transform = Transform3D(1, 0, 0, 0, 0.9612906, 0.27553672, 0, -0.27553672, 0.9612906, 15.686084, 1.4159441, 8.204092)
@@ -576,7 +576,7 @@ can_leave = false
 indicator_last_pose_references = [NodePath("InteractableIndicator")]
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/FoodCanOppener/open_food_can" parent_id_path=PackedInt32Array(1596483466, 146724472) index="1" unique_id=1338724347]
-transform = Transform3D(0.99983793, -0.0064362115, -0.01671876, -0.015593404, 0.14677934, -0.9890462, 0.008819678, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
+transform = Transform3D(0.9998378, -0.0064362115, -0.01671876, -0.015593402, 0.14677934, -0.9890462, 0.008819677, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
 
 [node name="Skeleton3D" parent="FlashbackManager/FoodCanOppener/open_food_can/Alice_003" parent_id_path=PackedInt32Array(1596483466, 1710104253) index="0" unique_id=1452854918]
 bones/1/rotation = Quaternion(0.8555161, 0.5046438, -0.051051095, -0.104022466)
@@ -773,7 +773,7 @@ bones/42/position = Vector3(-0.12149528, 0.28502214, -1.2771735)
 bones/42/rotation = Quaternion(0.50013757, 0.8526434, -0.14973022, 0.02104062)
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="2" unique_id=1732084531]
-transform = Transform3D(-0.40985587, -0.0012385424, 0.9121494, -0.0008935663, 0.9999983, 0.0009563223, -0.9121497, -0.0004231114, -0.40985668, 0.008435541, 1.178307, 0.25938022)
+transform = Transform3D(-0.40985587, -0.0012385424, 0.9121494, -0.0008935663, 0.99999815, 0.0009563224, -0.9121497, -0.0004231113, -0.40985668, 0.008435541, 1.178307, 0.25938022)
 
 [node name="Cuchara" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="3" unique_id=1519282188]
 transform = Transform3D(-0.21818398, 0.4894877, -0.26039678, 0.092643924, 0.30808595, 0.50150657, 0.5466461, 0.14315674, -0.1889265, -0.05110988, 1.2912885, 0.22676198)

@@ -333,7 +333,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_087n7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_evh6w"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2784,7 +2784,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_087n7")
+texture = SubResource("ViewportTexture_evh6w")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -3184,7 +3184,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.64399, -0.64695686, 45.144985)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 0, 1.83818, 0)
+transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 124.919685, 3.0467315, -51.511566)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -5793,7 +5793,7 @@ wake_up = NodePath("../EndCinematic/PhantomCamera3D/WakeUp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.771, -4.506, -67.325)
 
 [node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic" unique_id=352186817]
-transform = Transform3D(0.17232108, -1.4901158e-08, -0.98504084, -0.63307285, 0.7661287, -0.11074851, 0.7546683, 0.6426867, 0.13202016, 40.547, 0.582, 64.615)
+transform = Transform3D(0.17232108, -2.2351735e-08, -0.98504084, -0.63307285, 0.76612866, -0.110748515, 0.7546683, 0.6426867, 0.13202016, 40.547, 0.582, 64.615)
 script = ExtResource("29_ujjmv")
 tween_resource = SubResource("Resource_imlir")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"

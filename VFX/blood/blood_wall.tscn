@@ -10,21 +10,23 @@ noise_type = 2
 noise = SubResource("FastNoiseLite_cmo2a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dj7dw"]
+resource_local_to_scene = true
 shader = ExtResource("1_g53na")
 shader_parameter/noise = SubResource("NoiseTexture2D_dj7dw")
 shader_parameter/blood_coef = 0.0
 shader_parameter/blood_opacity = 0.90400004294
 shader_parameter/color = Color(0.54, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uiq76"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_inxy2"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wv1gk"]
 resource_local_to_scene = true
 transparency = 1
-albedo_texture = SubResource("ViewportTexture_uiq76")
+albedo_texture = SubResource("ViewportTexture_inxy2")
 
 [sub_resource type="QuadMesh" id="QuadMesh_dj7dw"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_wv1gk")
 size = Vector2(1, 1.6)
 

@@ -90,7 +90,13 @@ func end_flashback():
 	sub_viewport.add_child(main_scene)
 	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_property(flash_back_voice_icon, "modulate:a", 0.0, 5.0) #TODO Fix this modulate
-	tween.tween_callback(func(): flash_back_voice_icon.texture = null ; flash_back_voice_icon.modulate.a = 1.0)
+	tween.tween_callback(func():
+		if flash_back_voice_icon.texture:
+			# Forzamos la liberación del recurso en el servidor de renderizado
+			RenderingServer.free_rid(flash_back_voice_icon.texture.get_rid())
+		flash_back_voice_icon.texture = null
+		flash_back_voice_icon.modulate.a = 1.0
+	)
 	
 	new_flashback_scene.queue_free()
 	
