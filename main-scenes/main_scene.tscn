@@ -125,6 +125,7 @@
 [ext_resource type="Resource" uid="uid://c3pyg403lphj5" path="res://interactable/items/item-resources/generic/portraits/patroclo_portrait.tres" id="117_vy12f"]
 [ext_resource type="Resource" uid="uid://0jkvptg7bfbn" path="res://interactable/items/item-resources/generic/portraits/hector_portrait.tres" id="118_83wu8"]
 [ext_resource type="Resource" uid="uid://bhluc8o7am7d8" path="res://interactable/items/item-resources/generic/portraits/ayax_portrait.tres" id="118_mmj0l"]
+[ext_resource type="PackedScene" uid="uid://b2p1xw7ykptvw" path="res://VFX/blood/blood_wall.tscn" id="120_evh6w"]
 [ext_resource type="Script" uid="uid://bloe804nvh0bq" path="res://puzzles/basement_portraits_puzzle/scripts/on_player_arrives_basment.gd" id="121_imlir"]
 [ext_resource type="Resource" uid="uid://bqehojw53go07" path="res://interactable/items/item-resources/generic/portraits/odiseo_portrait.tres" id="121_p1uf7"]
 [ext_resource type="Script" uid="uid://b6k4pw6osy4e" path="res://puzzles/basement_portraits_puzzle/scripts/end_event.gd" id="122_l31dq"]
@@ -332,7 +333,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_evh6w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_087n7"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2783,7 +2784,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_evh6w")
+texture = SubResource("ViewportTexture_087n7")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -3183,7 +3184,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.64399, -0.64695686, 45.144985)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 102.61116, 4.545519, -71.41626)
+transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 0, 1.83818, 0)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -5792,7 +5793,7 @@ wake_up = NodePath("../EndCinematic/PhantomCamera3D/WakeUp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.771, -4.506, -67.325)
 
 [node name="PhantomCamera3D" type="Node3D" parent="Chapter1/ScriptedEvents/PortraitsPuzzle/EndEvent/EndCinematic" unique_id=352186817]
-transform = Transform3D(0.17232107, -7.4505793e-09, -0.98504084, -0.6330728, 0.76612884, -0.110748485, 0.75466835, 0.6426867, 0.13202016, 40.547, 0.582, 64.615)
+transform = Transform3D(0.17232108, -1.4901158e-08, -0.98504084, -0.63307285, 0.7661287, -0.11074851, 0.7546683, 0.6426867, 0.13202016, 40.547, 0.582, 64.615)
 script = ExtResource("29_ujjmv")
 tween_resource = SubResource("Resource_imlir")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
@@ -5805,6 +5806,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.740726, 1.4685307, -11.844
 
 [node name="first_appearance" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1579148519 instance=ExtResource("63_6tngh")]
 transform = Transform3D(0.00076790154, 0, 0.9999997, 0, 1, 0, -0.9999997, 0, 0.00076790154, 0.25984907, -1.4890028, -0.7089072)
+visible = false
 
 [node name="Skeleton3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/Coleccionista" parent_id_path=PackedInt32Array(1579148519, 1997387214) index="0" unique_id=599131480]
 bones/1/position = Vector3(-0.10889042, -0.38315058, -2.5643716)
@@ -6111,7 +6113,7 @@ transform = Transform3D(0.7443103, -0.6157317, -0.25860587, -0.47874558, -0.7619
 [node name="AudioStreamPlayer3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/first_appearance/BoneAttachment3D/CollectorSteps" index="0" unique_id=2090497424]
 bus = &"FX"
 
-[node name="OnPlayerLeavesBedroom" type="Area3D" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1208484550 node_paths=PackedStringArray("animation_player")]
+[node name="OnPlayerLeavesBedroom" type="Area3D" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1208484550 node_paths=PackedStringArray("animation_player", "blood_wall")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8235779, -0.42722428, -1.671608)
 collision_layer = 0
 collision_mask = 9
@@ -6119,9 +6121,10 @@ monitoring = false
 script = ExtResource("64_ykmb4")
 animation_player = NodePath("../first_appearance/AnimationPlayer")
 stinger_ambience = ExtResource("66_x0ijl")
+blood_wall = NodePath("../BloodWall")
 
 [node name="Marker3D" type="Marker3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" unique_id=1903711514]
-transform = Transform3D(0.00076790154, 0, 0.9999997, 0, 1, 0, -0.9999997, 0, 0.00076790154, -1.2112923, 1.3961874, 0.7575445)
+transform = Transform3D(0.00076790154, 0, 0.9999997, 0, 1, 0, -0.9999997, 0, 0.00076790154, 0.9635048, 0.5152935, 0.6983938)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/OnPlayerLeavesBedroom" unique_id=1331193180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21838379)
@@ -6137,6 +6140,10 @@ pitch_scale = 1.2
 [node name="LookAtTrigger" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1574586617 instance=ExtResource("25_ogm41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7407913, 0.99118614, -1.0685835)
 aabb = AABB(-0.058504883, -0.06349866, -0.075644016, 0.11700977, 0.12699732, 0.15128803)
+is_active = false
+
+[node name="BloodWall" parent="Chapter1/ScriptedEvents/CollectorAppearance" unique_id=1749119239 instance=ExtResource("120_evh6w")]
+transform = Transform3D(-7.3216576e-08, 0, -1.675, 0, 1.675, 0, 1.675, 0, -7.3216576e-08, 2.8456879, -0.12550676, -0.7604027)
 
 [node name="AudioOnStorageVent" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1547307201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8678465, 0.5957827, -11.571699)

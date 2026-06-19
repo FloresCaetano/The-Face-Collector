@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b2p1xw7ykptvw"]
+
+[ext_resource type="Shader" uid="uid://dkk6je8ssj3tr" path="res://VFX/shaders/blood.gdshader" id="1_g53na"]
+[ext_resource type="Script" uid="uid://tmh5fd6br7f1" path="res://VFX/blood/blood_wall.gd" id="1_inxy2"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cmo2a"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dj7dw"]
+noise = SubResource("FastNoiseLite_cmo2a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dj7dw"]
+shader = ExtResource("1_g53na")
+shader_parameter/noise = SubResource("NoiseTexture2D_dj7dw")
+shader_parameter/blood_coef = 0.0
+shader_parameter/blood_opacity = 0.90400004294
+shader_parameter/color = Color(0.54, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uiq76"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wv1gk"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_uiq76")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dj7dw"]
+material = SubResource("StandardMaterial3D_wv1gk")
+size = Vector2(1, 1.6)
+
+[node name="BloodWall" type="Node3D" unique_id=1749119239]
+script = ExtResource("1_inxy2")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=280290832]
+transparent_bg = true
+size = Vector2i(512, 819)
+
+[node name="Blood" type="ColorRect" parent="SubViewport" unique_id=619576409]
+material = SubResource("ShaderMaterial_dj7dw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=333137406]
+mesh = SubResource("QuadMesh_dj7dw")
