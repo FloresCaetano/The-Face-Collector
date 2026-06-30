@@ -20,9 +20,17 @@ func set_selected_tracks(tracks : Array[LabeledTrack]) -> void:
 		sync_stream.set_sync_stream_volume(index, -80.0)
 
 func append_selected_track(track : LabeledTrack) -> void:
+	var current_playback_pos : float = 0.0
+	var was_playing : bool = background_player.playing
+	if was_playing:
+		current_playback_pos = background_player.get_playback_position()
 	_selected_tracks.append(track)
 	sync_stream.stream_count = _selected_tracks.size()
 	sync_stream.set_sync_stream(_selected_tracks.size() - 1, track.stream)
+	
+	if was_playing:
+		background_player.stop()
+		background_player.play(current_playback_pos)
 
 func get_track_by_label(label : String) -> Dictionary:
 	for i in range(_selected_tracks.size()):

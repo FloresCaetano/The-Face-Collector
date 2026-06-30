@@ -6,6 +6,7 @@ extends Control
 @export var sub_viewport: SubViewport
 @export var text_container: TextContainer
 @export var item_scroll_container: ScrollContainer
+@export var blur: ColorRect
 
 @onready var player : Player = PATHS.player
 @onready var p_rcam : PlayerRealCamera = PATHS.player_real_camera
@@ -21,9 +22,17 @@ signal inventory_closed
 signal item_inspected(item : Item)
 
 func _ready() -> void:
+	get_window().size_changed.connect(_on_window_size_changed)
 	close()
 
 func open():
+	if get_items().size() <= 0:
+		return
+	
+	$MenuSounds.play()
+	PATHS.fade_controller.blur_in(0.5)
+	await PATHS.fade_controller.blur_in_finished
+	PATHS.fade_controller.blur_out(0.5)
 	player.desactivate()
 	await p_rcam.change_state(p_rcam.State.BLOQUED)
 	visible = true
@@ -132,3 +141,7 @@ func close_text_container():
 	item_scroll_container.visible = true
 	text_container.visible = false
 	sub_viewport.size.x = 1030
+
+
+func _on_window_size_changed() -> void:
+	pass

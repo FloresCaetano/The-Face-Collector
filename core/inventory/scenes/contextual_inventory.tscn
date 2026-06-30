@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://do8kcyy0xw2nf"]
 
 [ext_resource type="Script" uid="uid://bqrrst2phdvs6" path="res://core/inventory/scripts/contextual_inventory.gd" id="1_75jt1"]
+[ext_resource type="AudioStream" uid="uid://dghi8lsdpuqjw" path="res://HUD/assets/audio/menu_open1.wav" id="2_75jt1"]
 
 [node name="ContextualInventory" type="Control" unique_id=806848296 node_paths=PackedStringArray("items") groups=["contextual_inventory"]]
 layout_mode = 3
@@ -21,3 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="MenuSounds" type="AudioStreamPlayer" parent="." unique_id=1344461882]
+stream = ExtResource("2_75jt1")

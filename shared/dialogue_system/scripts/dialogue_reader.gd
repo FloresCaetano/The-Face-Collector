@@ -64,7 +64,9 @@ func send_line():
 	
 	var new_target : DialogueTarget = targets[line_data.TARGET]
 	
-	if actual_target != new_target: #This occours on target change
+	if actual_target == new_target:
+		if actual_target.is_selected == false: await actual_target.select()
+	else: #This occours on target change
 		if new_target.is_selected == true: return
 		if actual_target: await actual_target.deselect()
 		await new_target.select()
@@ -79,12 +81,10 @@ func send_line():
 	await get_tree().create_timer(2.0).timeout
 	line_sended.emit(current_line)
 	
-	if actual_target is DialogueTarget2D:
-		actual_target.deselect()
-	
 	if line_data.has("GAME_EVENT"):
 		var event_name = line_data["GAME_EVENT"]
 		if event_trigger.has_method(event_name):
+			if actual_target is DialogueTarget2D: actual_target.deselect()
 			await event_trigger.call(event_name)
 		else:
 			push_error("Dialogue line with ID ", line_id, " references GAME_EVENT '", event_name, "' which is not a method of the event_trigger node.")

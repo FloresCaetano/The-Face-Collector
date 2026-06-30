@@ -44,7 +44,8 @@ func _on_item_selected(item : Item):
 
 func on_interaction_end() -> void:
 	contextual_inventory.close()
-	contextual_inventory.item_selected.disconnect(_on_item_selected)
+	if contextual_inventory.item_selected.is_connected(_on_item_selected):
+		contextual_inventory.item_selected.disconnect(_on_item_selected)
 
 func _on_portrait_taked():
 	pass

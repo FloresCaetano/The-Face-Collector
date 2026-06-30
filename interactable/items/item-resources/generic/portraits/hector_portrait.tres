@@ -10,4 +10,6 @@ name = "Portrait"
 texture = ExtResource("3_use8c")
 tag = "portrait"
 model = ExtResource("1_q1cv4")
+offset = Vector3(0, 0, -0.6)
+rot_offset = Vector3(0, 180, 0)
 metadata/_custom_type_script = "uid://c5effmi27pymr"

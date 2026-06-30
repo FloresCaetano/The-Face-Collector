@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="7_lv6u2"]
 [ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="8_ju5mr"]
 [ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="10_h8vw2"]
+[ext_resource type="Script" uid="uid://c2jggo0rgh3qs" path="res://HUD/scripts/crosshair.gd" id="11_ju5mr"]
 [ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="12_h8vw2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ju5mr"]
@@ -41,11 +42,11 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_r54ne")
 size = Vector2(1, 1.6)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2rw4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ju5mr"]
 shader = ExtResource("5_51qsq")
 shader_parameter/offset = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_51qsq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qvi7q"]
 shader = ExtResource("7_lv6u2")
 shader_parameter/brightness = 2.6350001251625
 
@@ -60,10 +61,10 @@ script = ExtResource("1_kndb5")
 main_scene_sub_viewport = NodePath("MainSceneSubViewport")
 sub_viewport = NodePath("MainSceneSubViewport/SubViewport")
 main_scene = NodePath("MainSceneSubViewport/SubViewport/MainScene")
-hud = NodePath("HUD")
+hud = NodePath("")
 viewport_overlay_rect = NodePath("MainSceneSubViewport/SubViewport/ViewportOverlayRect")
-flash_back_voice_icon = NodePath("HUD/FlashbackVoice/HBoxContainer/FlashBackVoiceIcon")
-flashback_voice = NodePath("HUD/FlashbackVoice")
+flash_back_voice_icon = NodePath("")
+flashback_voice = NodePath("")
 
 [node name="MainSceneSubViewport" type="SubViewportContainer" parent="." unique_id=206451690 node_paths=PackedStringArray("sub_viewport")]
 layout_mode = 1
@@ -106,10 +107,10 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1599260835]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=919939187]
 layer = 2
 
-[node name="FadeController" type="Control" parent="HUD" unique_id=1592654980 node_paths=PackedStringArray("blackbox", "blur") groups=["fade_controller"]]
+[node name="FadeController" type="Control" parent="HUD" unique_id=770236672 node_paths=PackedStringArray("blackbox", "blur") groups=["fade_controller"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -121,7 +122,7 @@ script = ExtResource("12_h8vw2")
 blackbox = NodePath("Blackbox")
 blur = NodePath("Blur")
 
-[node name="Blackbox" type="ColorRect" parent="HUD/FadeController" unique_id=835739214]
+[node name="Blackbox" type="ColorRect" parent="HUD/FadeController" unique_id=1217977011]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -132,8 +133,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Blur" type="ColorRect" parent="HUD/FadeController" unique_id=157967152]
-material = SubResource("ShaderMaterial_j2rw4")
+[node name="Blur" type="ColorRect" parent="HUD/FadeController" unique_id=765340117]
+material = SubResource("ShaderMaterial_ju5mr")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,7 +143,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=1478135082]
+[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=526483672]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
@@ -150,46 +151,65 @@ grow_horizontal = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=1120172572]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=2032695256]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = -110
 
-[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=440575582]
-material = SubResource("ShaderMaterial_51qsq")
+[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=84683711]
+material = SubResource("ShaderMaterial_qvi7q")
 custom_minimum_size = Vector2(348.33, 195.84)
 layout_mode = 2
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1660569423 groups=["flashback_recording_voice"]]
+[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1227714365 node_paths=PackedStringArray("label") groups=["flashback_recording_voice"]]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 script = ExtResource("8_ju5mr")
+label = NodePath("MarginContainer/ColorRect/MarginContainer/Label")
 
-[node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=681969755]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=352870725]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 19.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 44
+
+[node name="ColorRect" type="ColorRect" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer" unique_id=1677060605]
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer/ColorRect" unique_id=869324080]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer/ColorRect/MarginContainer" unique_id=1309484385]
+layout_mode = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("7_51qsq")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
+vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=698975800]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=796480254]
 stream = ExtResource("10_h8vw2")
 volume_db = -30.0
 max_polyphony = 40
 
-[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=2031014787]
+[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=424049713]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -200,13 +220,49 @@ grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 2
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_right = 44
 theme_override_constants/margin_bottom = 44
 
-[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=1840155007 groups=["internal_voice"]]
+[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=698699382 node_paths=PackedStringArray("label", "dialogue_photo") groups=["internal_voice"]]
+custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 script = ExtResource("8_ju5mr")
+label = NodePath("HSplitContainer/Dialogue/Label")
+dialogue_photo = NodePath("HSplitContainer/Photo/TextureRect")
 
-[node name="Label" type="RichTextLabel" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=2006492367]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=889739586]
+stream = ExtResource("10_h8vw2")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1632301316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Photo" type="ColorRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer" unique_id=1184262941]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="TextureRect" type="TextureRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer/Photo" unique_id=1415634484]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="Dialogue" type="ColorRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer" unique_id=675059533]
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="Label" type="RichTextLabel" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer/Dialogue" unique_id=893190880]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,11 +275,18 @@ theme_override_fonts/normal_font = ExtResource("7_51qsq")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1346252038]
-stream = ExtResource("10_h8vw2")
-volume_db = -30.0
-max_polyphony = 40
+[node name="Crosshair" type="Control" parent="HUD" unique_id=1114459071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_ju5mr")
 
 [editable path="MainSceneSubViewport/SubViewport/MainScene"]
 [editable path="MainSceneSubViewport/SubViewport/MainScene/FullHouse/Interactables/SideStepArea/Path3D/PathFollow3D/PhantomCamera3D/Footsteps"]

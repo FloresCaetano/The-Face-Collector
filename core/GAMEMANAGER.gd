@@ -7,6 +7,13 @@ func _init() -> void:
 
 var temp_diag_reader : DialogueReader
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_full_screen"):
+		if get_window().mode == Window.MODE_FULLSCREEN:
+			get_window().mode = Window.MODE_WINDOWED
+		else:
+			get_window().mode = Window.MODE_FULLSCREEN
+
 func bark_dialogue(file_name : String, limits : Array[int], targets : Array[DialogueTarget] = []) -> void:
 	if temp_diag_reader:
 		push_error("There's a barking already")
@@ -27,7 +34,7 @@ func bark_dialogue(file_name : String, limits : Array[int], targets : Array[Dial
 	
 	temp_diag_reader.can_continue = false
 	await temp_diag_reader.dialogue_finished #WAIT FOR THE DIALOGUE TO FINISH CLEANLY
-	
+	temp_diag_reader.actual_target.deselect()
 	remove_child(temp_diag_reader)
 	temp_diag_reader.queue_free()
 	temp_diag_reader = null

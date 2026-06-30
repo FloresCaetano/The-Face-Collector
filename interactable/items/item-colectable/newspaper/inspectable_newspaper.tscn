@@ -28,6 +28,7 @@ script = ExtResource("2_iujn1")
 text = "NEWSPAPER_HECTOR"
 can_leave = false
 interact_key = "select_item"
+interaction_distance = 0.0
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader" unique_id=105908935]
@@ -44,6 +45,7 @@ script = ExtResource("2_iujn1")
 text = "NEWSPAPER_AYAX"
 can_leave = false
 interact_key = "select_item"
+interaction_distance = 0.0
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader2" unique_id=553000616]
@@ -59,6 +61,7 @@ script = ExtResource("2_iujn1")
 text = "NEWSPAPER_AQUILES"
 can_leave = false
 interact_key = "select_item"
+interaction_distance = 0.0
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader3" unique_id=277420640]
@@ -74,6 +77,7 @@ script = ExtResource("2_iujn1")
 text = "NEWSPAPER_PATROCLO"
 can_leave = false
 interact_key = "select_item"
+interaction_distance = 0.0
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader4" unique_id=207317643]
@@ -89,6 +93,7 @@ script = ExtResource("2_iujn1")
 text = "NEWSPAPER_ODISEO"
 can_leave = false
 interact_key = "select_item"
+interaction_distance = 0.0
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader5" unique_id=2046361299]

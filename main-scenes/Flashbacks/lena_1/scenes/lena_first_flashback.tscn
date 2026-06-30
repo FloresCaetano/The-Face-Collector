@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dutc6yap62506" path="res://interactable/items/item-colectable/crowbar/assets/Crowbar.glb" id="2_cx67m"]
 [ext_resource type="PackedScene" uid="uid://dcawr8o01kaew" path="res://scenery/house/scenes/house_exterior.tscn" id="3_661wp"]
 [ext_resource type="PackedScene" uid="uid://dr1uhhtpkp2v1" path="res://scenery/house/scenes/cabinets_and_drawers.tscn" id="4_vjxd0"]
+[ext_resource type="AudioStream" uid="uid://dye38x4yih7v7" path="res://interactable/furniture/door/assets/doorClosing.mp3" id="6_e7aeo"]
+[ext_resource type="AudioStream" uid="uid://r6lqlek1smat" path="res://interactable/furniture/door/assets/locked.mp3" id="7_cx67m"]
 [ext_resource type="PackedScene" uid="uid://bkfwganriyt2y" path="res://interactable/furniture/door/door.tscn" id="7_i5k6s"]
+[ext_resource type="AudioStream" uid="uid://ce52ef7u72i4x" path="res://interactable/furniture/door/assets/doorOpening.mp3" id="8_661wp"]
 [ext_resource type="Script" uid="uid://c5wwgafkb8mh6" path="res://interactable/furniture/door/res-config/door_settings.gd" id="8_wg434"]
 [ext_resource type="PackedScene" uid="uid://cnhxmfxjqsic4" path="res://interactable/furniture/cassette-tape-player/cassette_tape_player.tscn" id="9_7dcgm"]
 [ext_resource type="AudioStream" uid="uid://b3jiptgr5drqf" path="res://interactable/items/item-resources/tapes/sixth_tape/6th recording.mp3" id="10_78s20"]
@@ -17,7 +20,14 @@
 [ext_resource type="PackedScene" uid="uid://cr0fcxn52jqtc" path="res://scenery/undestroyed_house/furniture.glb" id="24_ceu33"]
 [ext_resource type="PackedScene" uid="uid://dadc1evi7fuhm" path="res://interactable/furniture/lights/scenes/ceiling_lamp.tscn" id="24_iumbw"]
 [ext_resource type="PackedScene" uid="uid://dkqq67g4o747" path="res://interactable/furniture/lights/scenes/light_switch.tscn" id="25_de0gi"]
+[ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="26_wg434"]
+[ext_resource type="Shader" path="res://VFX/shaders/Blur.gdshader" id="27_7dcgm"]
 [ext_resource type="PackedScene" uid="uid://b1d2on1hifgkc" path="res://entities/player/Scenes/Player.tscn" id="27_661wp"]
+[ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="28_78s20"]
+[ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="29_q4eq5"]
+[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="30_vif1m"]
+[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="31_cx4hm"]
+[ext_resource type="Script" uid="uid://c2jggo0rgh3qs" path="res://HUD/scripts/crosshair.gd" id="32_mrip5"]
 [ext_resource type="PackedScene" uid="uid://yiosuuu5hda" path="res://shared/dialogue_system/scenes/dialogue_reader.tscn" id="33_q4eq5"]
 [ext_resource type="Script" uid="uid://yeuk43nkllw5" path="res://scripted-events/Chapter1/LenaFlashback/scripts/on_radio_finished.gd" id="36_1oy5w"]
 [ext_resource type="PackedScene" uid="uid://d0o1m3gstq628" path="res://interactable/furniture/radio/radio.tscn" id="37_mrip5"]
@@ -41,10 +51,21 @@ adjustment_enabled = true
 adjustment_contrast = 0.945
 adjustment_saturation = 1.31
 
+[sub_resource type="Resource" id="Resource_e7aeo"]
+script = ExtResource("8_wg434")
+open_angle = -90.0
+locked_sound = ExtResource("7_cx67m")
+open_sound = ExtResource("8_661wp")
+close_sound = ExtResource("6_e7aeo")
+metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
+
 [sub_resource type="Resource" id="Resource_1oy5w"]
 script = ExtResource("8_wg434")
 need_key = true
 key_id = "storage_key"
+locked_sound = ExtResource("7_cx67m")
+open_sound = ExtResource("8_661wp")
+close_sound = ExtResource("6_e7aeo")
 metadata/_custom_type_script = "uid://c5wwgafkb8mh6"
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q4eq5"]
@@ -53,6 +74,14 @@ stream_0/volume = 0.0
 
 [sub_resource type="Resource" id="Resource_q46np"]
 script = ExtResource("14_mrip5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wg434"]
+shader = ExtResource("27_7dcgm")
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7dcgm"]
+shader = ExtResource("28_78s20")
+shader_parameter/brightness = 2.6350001251625
 
 [node name="LenaFirstFlashback" type="Node3D" unique_id=252609894]
 
@@ -104,94 +133,115 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.384381, 1.4996852, -1
 
 [node name="Doors" type="Node3D" parent="FullHouse/Interactables" unique_id=1603460406 groups=["doors_container"]]
 
-[node name="Door" parent="FullHouse/Interactables/Doors" unique_id=2083674971 instance=ExtResource("7_i5k6s")]
+[node name="Door" parent="FullHouse/Interactables/Doors" unique_id=2083674971 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 31.805166, 0.045, -0.080251575)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door2" parent="FullHouse/Interactables/Doors" unique_id=180983609 instance=ExtResource("7_i5k6s")]
+[node name="Door2" parent="FullHouse/Interactables/Doors" unique_id=180983609 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.808817, 0.045, -0.080251575)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door3" parent="FullHouse/Interactables/Doors" unique_id=655451136 instance=ExtResource("7_i5k6s")]
+[node name="Door3" parent="FullHouse/Interactables/Doors" unique_id=655451136 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.405857, 0.045, -9.139389)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door4" parent="FullHouse/Interactables/Doors" unique_id=1778360328 instance=ExtResource("7_i5k6s")]
+[node name="Door4" parent="FullHouse/Interactables/Doors" unique_id=1778360328 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.405857, 0.045, -11.149406)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door5" parent="FullHouse/Interactables/Doors" unique_id=1766504649 instance=ExtResource("7_i5k6s")]
+[node name="Door5" parent="FullHouse/Interactables/Doors" unique_id=1766504649 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.044903, 0.045, -13.52384)
+object = NodePath(".")
 
-[node name="Door18" parent="FullHouse/Interactables/Doors" unique_id=444024823 instance=ExtResource("7_i5k6s")]
+[node name="Door18" parent="FullHouse/Interactables/Doors" unique_id=444024823 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.534851, 0.045, -13.761998)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door19" parent="FullHouse/Interactables/Doors" unique_id=550396196 instance=ExtResource("7_i5k6s")]
+[node name="Door19" parent="FullHouse/Interactables/Doors" unique_id=550396196 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.534851, 0.045, -18.782852)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door6" parent="FullHouse/Interactables/Doors" unique_id=698130860 instance=ExtResource("7_i5k6s")]
+[node name="Door6" parent="FullHouse/Interactables/Doors" unique_id=698130860 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.68389, 0.045, -8.176515)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 24.660177, 0.045, -8.185613)
+object = NodePath(".")
 
-[node name="Door7" parent="FullHouse/Interactables/Doors" unique_id=1391694612 instance=ExtResource("7_i5k6s")]
+[node name="Door7" parent="FullHouse/Interactables/Doors" unique_id=1391694612 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.56875, 0.045, -8.176515)
+object = NodePath(".")
+settings = SubResource("Resource_e7aeo")
 
-[node name="Door8" parent="FullHouse/Interactables/Doors" unique_id=987112360 instance=ExtResource("7_i5k6s")]
+[node name="Door8" parent="FullHouse/Interactables/Doors" unique_id=987112360 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.307037, 0.045, -8.176515)
+transform = Transform3D(-1, 0, -6.2783295e-07, 0, 1, 0, 6.2783295e-07, 0, -1, 17.291656, 0.045, -8.176515)
+object = NodePath(".")
 
-[node name="Door9" parent="FullHouse/Interactables/Doors" unique_id=268805384 instance=ExtResource("7_i5k6s")]
+[node name="Door9" parent="FullHouse/Interactables/Doors" unique_id=268805384 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.192372, 0.045, -8.176515)
+object = NodePath(".")
+settings = SubResource("Resource_e7aeo")
 
-[node name="Door10" parent="FullHouse/Interactables/Doors" unique_id=1010063563 instance=ExtResource("7_i5k6s")]
+[node name="Door10" parent="FullHouse/Interactables/Doors" unique_id=1010063563 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 12.562089, 0.045, -7.6335845)
+object = NodePath(".")
 
-[node name="Door11" parent="FullHouse/Interactables/Doors" unique_id=110308486 instance=ExtResource("7_i5k6s")]
+[node name="Door11" parent="FullHouse/Interactables/Doors" unique_id=110308486 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.830487, 0.045, -8.1546955)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door12" parent="FullHouse/Interactables/Doors" unique_id=1001793096 instance=ExtResource("7_i5k6s")]
+[node name="Door12" parent="FullHouse/Interactables/Doors" unique_id=1001793096 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.230537, 0.045, -9.586787)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door16" parent="FullHouse/Interactables/Doors" unique_id=982870784 instance=ExtResource("7_i5k6s")]
+[node name="Door16" parent="FullHouse/Interactables/Doors" unique_id=982870784 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8050585, 0.045, -13.552457)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door17" parent="FullHouse/Interactables/Doors" unique_id=1836468908 instance=ExtResource("7_i5k6s")]
+[node name="Door17" parent="FullHouse/Interactables/Doors" unique_id=1836468908 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9122386, 0.045, -15.840191)
+object = NodePath(".")
 settings = SubResource("Resource_1oy5w")
 is_locked = true
 
-[node name="Door14" parent="FullHouse/Interactables/Doors" unique_id=2030319699 instance=ExtResource("7_i5k6s")]
+[node name="Door14" parent="FullHouse/Interactables/Doors" unique_id=2030319699 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.27702, 0.045, -18.666368)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door15" parent="FullHouse/Interactables/Doors" unique_id=840875063 instance=ExtResource("7_i5k6s")]
+[node name="Door15" parent="FullHouse/Interactables/Doors" unique_id=840875063 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.368015, 0.045, -18.666368)
+object = NodePath(".")
 is_locked = true
 
-[node name="Door13" parent="FullHouse/Interactables/Doors" unique_id=1397330618 instance=ExtResource("7_i5k6s")]
+[node name="Door13" parent="FullHouse/Interactables/Doors" unique_id=1397330618 node_paths=PackedStringArray("object") instance=ExtResource("7_i5k6s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.569588, 0.045, -9.585199)
+object = NodePath(".")
 is_locked = true
 
 [node name="CassetteTapePlayer" parent="FullHouse/Interactables" unique_id=1783986654 instance=ExtResource("9_7dcgm")]
@@ -482,6 +532,186 @@ script = ExtResource("36_1oy5w")
 
 [node name="Hammer" parent="." unique_id=861564715 instance=ExtResource("22_ar0j7")]
 transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 8.67337, 1.2725319, -12.008017)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1769470140]
+layer = 2
+
+[node name="FadeController" type="Control" parent="HUD" unique_id=1171864902 node_paths=PackedStringArray("blackbox", "blur") groups=["fade_controller"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("26_wg434")
+blackbox = NodePath("Blackbox")
+blur = NodePath("Blur")
+
+[node name="Blackbox" type="ColorRect" parent="HUD/FadeController" unique_id=1315572918]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Blur" type="ColorRect" parent="HUD/FadeController" unique_id=25164774]
+material = SubResource("ShaderMaterial_wg434")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=707730979]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=823561900]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -110
+
+[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=372729792]
+material = SubResource("ShaderMaterial_7dcgm")
+custom_minimum_size = Vector2(348.33, 195.84)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1464527721 node_paths=PackedStringArray("label") groups=["flashback_recording_voice"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("29_q4eq5")
+label = NodePath("MarginContainer/ColorRect/MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=680392006]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 44
+
+[node name="ColorRect" type="ColorRect" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer" unique_id=1586721494]
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer/ColorRect" unique_id=2069475449]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer/ColorRect/MarginContainer" unique_id=1464621895]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("30_vif1m")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=1283657352]
+stream = ExtResource("31_cx4hm")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=734574441]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 44
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=421032873 node_paths=PackedStringArray("label") groups=["internal_voice"]]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+script = ExtResource("29_q4eq5")
+label = NodePath("HSplitContainer/Dialogue/Label")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=1029233343]
+stream = ExtResource("31_cx4hm")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=304204983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Photo" type="ColorRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer" unique_id=1198652748]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="TextureRect" type="TextureRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer/Photo" unique_id=16466366]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="Dialogue" type="ColorRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer" unique_id=768047739]
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="Label" type="RichTextLabel" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer/Dialogue" unique_id=909786959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("30_vif1m")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Crosshair" type="Control" parent="HUD" unique_id=292120526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("32_mrip5")
 
 [editable path="FullHouse/Interactables/CassetteTapePlayer"]
 [editable path="FullHouse/Lights/KitchenLights/KitchenLight"]

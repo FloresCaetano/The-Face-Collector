@@ -43,7 +43,7 @@ func change_state(new_state: State):
 func _process(_delta):
 	match actual_state:
 		State.IDLE:
-			if can_interact: idle_interact(); zoom()
+			if can_interact: point_interact(); zoom()
 		State.FOLLOW_CURSOR:
 			follow_cursor(_delta)
 			if can_interact: point_interact()

@@ -10,6 +10,7 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
+		collision_mask = 0
 		execute()
 
 
@@ -20,8 +21,8 @@ func execute():
 	PATHS.player_real_camera.look_at_target(marker_3d, 0.2, 4.0, false)
 	blood_wall.set_blood_amount(0.0, 0.8, 6.0)
 	audio_controller.simple_play(stinger_ambience)
-	$"../LookAtTrigger".is_active = true
 	await PATHS.player_real_camera.sequence_finished
+	$"../LookAtTrigger".is_active = true
 	PATHS.player.activate()
 	PATHS.player_real_camera.change_state(PATHS.player_real_camera.State.IDLE)
 

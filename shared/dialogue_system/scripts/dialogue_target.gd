@@ -3,7 +3,8 @@ class_name DialogueTarget
 extends Node
 
 @export var target_id: String
-@onready var label = $Label
+@export var label : Node 
+@export var dialogue_photo : TextureRect
 @onready var audio_stream_player = $AudioStreamPlayer
 var pitch_range
 
@@ -23,6 +24,7 @@ var actual_line : Dictionary :
 		load_line(line)
 		on_actual_line_change()
 
+
 @abstract
 func select()
 
@@ -37,6 +39,14 @@ func load_line(line : String):
 	
 	label.visible_ratio = 0.0
 	label.text = line
+	
+	if not dialogue_photo:
+		return
+	
+	var character : String = actual_line["CHARACTER"].to_lower()
+	dialogue_photo.texture = load("res://DIALOGUES/dialogue_photos/" + character + ".png")
+	if not dialogue_photo.texture:
+		push_error("Dialogue photo for character '", character, "' not found at path: res://DIALOGUES/dialogue_photos/" + character + ".png")
 	
 
 func on_actual_line_change():

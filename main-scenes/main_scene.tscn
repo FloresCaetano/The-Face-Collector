@@ -116,6 +116,7 @@
 [ext_resource type="AudioStream" uid="uid://c6y4kqftv50sk" path="res://FX/hit/metalic_boom.wav" id="95_jcxlv"]
 [ext_resource type="AudioStream" uid="uid://duxwxvjqr5e4p" path="res://FX/riser/strings_metalic.wav" id="96_nqkc3"]
 [ext_resource type="PackedScene" uid="uid://mwwpyk1uy8ts" path="res://interactable/items/item-colectable/basment_puzzle_clue/basement_puzzle_clue.tscn" id="107_tporc"]
+[ext_resource type="PackedScene" uid="uid://0loq4incqs3n" path="res://interactable/items/item-colectable/newspaper/collectable_newspaper.tscn" id="108_xc8yf"]
 [ext_resource type="PackedScene" uid="uid://3devs2dy07lu" path="res://interactable/items/item-colectable/portraits/scenes/interactable_patroclo_portrait.tscn" id="112_bojfl"]
 [ext_resource type="PackedScene" uid="uid://drmmjnuupljhp" path="res://interactable/items/item-colectable/portraits/scenes/interactable_odiseo_portrait.tscn" id="113_ba76f"]
 [ext_resource type="PackedScene" uid="uid://cj1y4vqgh80eq" path="res://interactable/items/item-colectable/portraits/scenes/interactable_aquiles_portrait.tscn" id="114_mmj0l"]
@@ -335,7 +336,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_stnvs")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tporc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xc8yf"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x28hp"]
@@ -2302,7 +2303,7 @@ noise_type = 2
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dj7dw"]
 noise = SubResource("FastNoiseLite_cmo2a")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xc8yf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6ryr"]
 resource_local_to_scene = true
 shader = ExtResource("121_087n7")
 shader_parameter/noise = SubResource("NoiseTexture2D_dj7dw")
@@ -2310,17 +2311,17 @@ shader_parameter/blood_coef = 0.0
 shader_parameter/blood_opacity = 0.90400004294
 shader_parameter/color = Color(0.54, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i6ryr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8240r"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8240r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l32x7"]
 resource_local_to_scene = true
 transparency = 1
-albedo_texture = SubResource("ViewportTexture_i6ryr")
+albedo_texture = SubResource("ViewportTexture_8240r")
 
-[sub_resource type="QuadMesh" id="QuadMesh_l32x7"]
+[sub_resource type="QuadMesh" id="QuadMesh_3x4ha"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_8240r")
+material = SubResource("StandardMaterial3D_l32x7")
 size = Vector2(1, 1.6)
 
 [sub_resource type="Curve3D" id="Curve3D_o2hae"]
@@ -2813,7 +2814,7 @@ transform = Transform3D(0.9999838, 0, -7.122755e-06, 0, 0.99998605, 0, 7.122755e
 
 [node name="CircularProgressBar" parent="FullHouse/Interactables/Key" unique_id=1354272684 instance=ExtResource("60_1cm50")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.039175518, 0)
-texture = SubResource("ViewportTexture_tporc")
+texture = SubResource("ViewportTexture_xc8yf")
 
 [node name="Safe" parent="FullHouse/Interactables" unique_id=655616190 instance=ExtResource("26_4lsji")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.070634, 0.072671115, -19.042978)
@@ -3213,7 +3214,7 @@ mesh = SubResource("ArrayMesh_lwrh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.64399, -0.64695686, 45.144985)
 
 [node name="Player" parent="PlayerAndLight" unique_id=686971766 node_paths=PackedStringArray("player_spotlight") instance=ExtResource("4_wxp5c")]
-transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 102.72721, -0.06268245, -60.7065)
+transform = Transform3D(-1.1605816, 0, -1.6288188, 0, 2, 0, 1.6288188, 0, -1.1605816, 0, 1.83818, 0)
 player_spotlight = NodePath("../SpotLight3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerAndLight/Player" unique_id=1679709180]
@@ -5835,6 +5836,9 @@ libraries/ = SubResource("AnimationLibrary_087n7")
 [node name="BasementPuzzleClue" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=291931294 instance=ExtResource("107_tporc")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0.010002136, -0.37028742, -0.68068504)
 
+[node name="CollectableNewspaper" parent="Chapter1/ScriptedEvents/PortraitsPuzzle" unique_id=53827456 instance=ExtResource("108_xc8yf")]
+transform = Transform3D(0.6727366, 0, 0.5978507, 0, 0.9, 0, -0.5978507, 0, 0.6727366, 23.165966, 2.3266635, -1.5728264)
+
 [node name="CollectorAppearance" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=203090192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.740726, 1.4685307, -11.844575)
 
@@ -6182,10 +6186,10 @@ is_active = false
 transform = Transform3D(-7.3216576e-08, 0, -1.675, 0, 2.135, 0, 1.675, 0, -7.3216576e-08, 2.8456879, -0.0789907, -0.7604027)
 
 [node name="Blood" parent="Chapter1/ScriptedEvents/CollectorAppearance/BloodWall/SubViewport" parent_id_path=PackedInt32Array(1749119239, 280290832) index="0" unique_id=619576409]
-material = SubResource("ShaderMaterial_xc8yf")
+material = SubResource("ShaderMaterial_i6ryr")
 
 [node name="MeshInstance3D" parent="Chapter1/ScriptedEvents/CollectorAppearance/BloodWall" index="1" unique_id=333137406]
-mesh = SubResource("QuadMesh_l32x7")
+mesh = SubResource("QuadMesh_3x4ha")
 
 [node name="AudioOnStorageVent" type="Node3D" parent="Chapter1/ScriptedEvents" unique_id=1547307201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8678465, 0.5957827, -11.571699)
@@ -6329,6 +6333,7 @@ crowbar = NodePath("..")
 [node name="BasementTape" parent="Chapter1/Interactables" unique_id=1746687257 instance=ExtResource("60_bp2wh")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.830854, -3.1297252, -17.931005)
 visible = false
+collision_layer = 0
 tape_item = SubResource("Resource_fkfrk")
 active = false
 

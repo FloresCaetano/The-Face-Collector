@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://djcgd7utw5l2j"]
 
 [ext_resource type="Script" uid="uid://dmm4xa6veadqa" path="res://shared/IconRenderManager/render_viewport.gd" id="1_qx17m"]
-[ext_resource type="PackedScene" uid="uid://lp5vh1velt8m" path="res://interactable/items/item-colectable/basment_puzzle_clue/assets/basement_puzzle_clue.glb" id="2_qx17m"]
+[ext_resource type="PackedScene" uid="uid://8h3or1rm5t3i" path="res://scripted-events/Chapter1/LenaFlashback/assets/alice_drawing.glb" id="2_qx17m"]
 
 [node name="IconRenderManager" type="Node3D" unique_id=2001310707]
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=933799580]
 transparent_bg = true
-size = Vector2i(1920, 1080)
+size = Vector2i(1080, 1080)
 script = ExtResource("1_qx17m")
-path = "res://interactable/items/item-resources/generic/basement_puzzle_clue/icon/icon_basement_clue"
+path = "res://entities/alice/dialogue_icon/icon"
 
 [node name="RenderCamera" type="Camera3D" parent="SubViewport" unique_id=161989113]
 
@@ -28,5 +28,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.383393e-05, -0.17351781, -0
 [node name="Node3D" type="Node3D" parent="ItemContainer" unique_id=915263022]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.16779998, -0.028009534)
 
-[node name="basement_puzzle_clue" parent="ItemContainer/Node3D" unique_id=59021917 instance=ExtResource("2_qx17m")]
-transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 7.887866e-08, 0.0069737136, -0.902382)
+[node name="alice_drawing" parent="ItemContainer/Node3D" unique_id=1789467693 instance=ExtResource("2_qx17m")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6.371556e-08, -1.1262616, -0.72899413)
+
+[node name="Alice_001" parent="ItemContainer/Node3D/alice_drawing" index="0" unique_id=1462248984]
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, 0, -0.29759562, 0)
+
+[node name="Skeleton3D" parent="ItemContainer/Node3D/alice_drawing/Alice_001" index="0" unique_id=1102123791]
+bones/5/rotation = Quaternion(0.091406, 1.35839, -2.445429, 0.767632)
+bones/24/rotation = Quaternion(-0.103594, -0.70339, 1.540429, 0.662632)
+
+[node name="Cylinder_058" parent="ItemContainer/Node3D/alice_drawing" index="1" unique_id=1929122908]
+visible = false
+
+[node name="Crayon" parent="ItemContainer/Node3D/alice_drawing" index="2" unique_id=164520715]
+visible = false
+
+[node name="Hoja de dibujo" parent="ItemContainer/Node3D/alice_drawing" index="3" unique_id=405657773]
+visible = false
+
+[editable path="ItemContainer/Node3D/alice_drawing"]

@@ -26,6 +26,7 @@ script = ExtResource("2_1qdv2")
 text = "BASEMENT_CLUE"
 can_leave = false
 interact_key = "select_item"
+interaction_distance = 0.0
 indicator_last_pose_references = [NodePath("InteractionIndicator")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemTextReader" unique_id=182757056]

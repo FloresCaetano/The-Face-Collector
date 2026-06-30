@@ -55,6 +55,7 @@ func end_event():
 	PATHS.get_door("17").rotation = Vector3.ZERO
 	player.activate()
 	player_rcam.change_state(player_rcam.State.IDLE)
+	basement_tape.collision_layer = 0b1
 	basement_tape.active = true
 	
 	

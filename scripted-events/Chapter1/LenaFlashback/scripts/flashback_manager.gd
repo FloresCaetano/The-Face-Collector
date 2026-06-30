@@ -11,6 +11,9 @@ var related_scenes = {
 }
 
 func _ready() -> void:
-	await scene_manager.flashback_transition_ends
+	if scene_manager:
+		await scene_manager.flashback_transition_ends
+	else:
+		await get_tree().process_frame
 	PATHS.player.desactivate()
 	dialogue_reader.start()

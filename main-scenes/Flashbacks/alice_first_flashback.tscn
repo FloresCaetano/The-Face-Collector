@@ -44,6 +44,13 @@
 [ext_resource type="Script" uid="uid://clylx8gii6831" path="res://main-scenes/Flashbacks/alice_1/scripts/on_try_to_leave_kitchen.gd" id="39_2bu0v"]
 [ext_resource type="Script" uid="uid://djr42cbys2u7p" path="res://scripted-events/Chapter1/AliceFlashback/script/on_alice_look_at_window.gd" id="39_14jw5"]
 [ext_resource type="PackedScene" uid="uid://drq45lycdx1aq" path="res://entities/collector/collector_steps/collector_steps.tscn" id="41_3yitw"]
+[ext_resource type="Script" uid="uid://b3r3rqw2xkp3f" path="res://HUD/scripts/fade_controller.gd" id="45_6c3yg"]
+[ext_resource type="Shader" path="res://VFX/shaders/Blur.gdshader" id="46_xrl15"]
+[ext_resource type="Shader" uid="uid://bweia71gywgok" path="res://VFX/shaders/saturation.gdshader" id="47_wbsd5"]
+[ext_resource type="Script" uid="uid://c3atyki61r8uy" path="res://shared/dialogue_system/scripts/dialogue_target_2d.gd" id="48_itnv6"]
+[ext_resource type="FontFile" uid="uid://beiff33751bje" path="res://shared/fonts/Gabarito-VariableFont_wght.ttf" id="49_8lo6p"]
+[ext_resource type="AudioStream" uid="uid://cja3854ucgdqw" path="res://shared/lights_system/audio/switch.wav" id="50_do7en"]
+[ext_resource type="Script" uid="uid://c2jggo0rgh3qs" path="res://HUD/scripts/crosshair.gd" id="51_fvwif"]
 
 [sub_resource type="Resource" id="Resource_144cg"]
 script = ExtResource("8_rorwn")
@@ -139,6 +146,14 @@ _data = {
 &"eat": ExtResource("37_2bu0v"),
 &"sleep": ExtResource("38_14jw5")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6c3yg"]
+shader = ExtResource("46_xrl15")
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrl15"]
+shader = ExtResource("47_wbsd5")
+shader_parameter/brightness = 2.6350001251625
 
 [node name="AliceFirstFlashback" type="Node3D" unique_id=457484893]
 
@@ -576,7 +591,7 @@ can_leave = false
 indicator_last_pose_references = [NodePath("InteractableIndicator")]
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/FoodCanOppener/open_food_can" parent_id_path=PackedInt32Array(1596483466, 146724472) index="1" unique_id=1338724347]
-transform = Transform3D(0.9998378, -0.0064362115, -0.01671876, -0.015593402, 0.14677934, -0.9890462, 0.008819677, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
+transform = Transform3D(0.99983764, -0.0064362115, -0.01671876, -0.015593399, 0.14677934, -0.9890462, 0.008819676, 0.98914796, 0.14665547, -0.11937813, 0.5885624, 0.01598341)
 
 [node name="Skeleton3D" parent="FlashbackManager/FoodCanOppener/open_food_can/Alice_003" parent_id_path=PackedInt32Array(1596483466, 1710104253) index="0" unique_id=1452854918]
 bones/1/rotation = Quaternion(0.8555161, 0.5046438, -0.051051095, -0.104022466)
@@ -773,7 +788,7 @@ bones/42/position = Vector3(-0.12149528, 0.28502214, -1.2771735)
 bones/42/rotation = Quaternion(0.50013757, 0.8526434, -0.14973022, 0.02104062)
 
 [node name="supply_crate_1_1_002" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="2" unique_id=1732084531]
-transform = Transform3D(-0.40985587, -0.0012385424, 0.9121494, -0.0008935663, 0.99999815, 0.0009563224, -0.9121497, -0.0004231113, -0.40985668, 0.008435541, 1.178307, 0.25938022)
+transform = Transform3D(-0.40985587, -0.0012385421, 0.9121494, -0.0008935663, 0.999998, 0.00095632253, -0.9121497, -0.0004231112, -0.40985668, 0.008435541, 1.178307, 0.25938022)
 
 [node name="Cuchara" parent="FlashbackManager/TableFoodCanScene/alice_on_table" index="3" unique_id=1519282188]
 transform = Transform3D(-0.21818398, 0.4894877, -0.26039678, 0.092643924, 0.30808595, 0.50150657, 0.5466461, 0.14315674, -0.1889265, -0.05110988, 1.2912885, 0.22676198)
@@ -1043,6 +1058,189 @@ script = ExtResource("39_14jw5")
 
 [node name="OnTryToLeaveKitchen" type="Node" parent="FlashbackManager" unique_id=1764799779]
 script = ExtResource("39_2bu0v")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1356117340]
+layer = 2
+
+[node name="FadeController" type="Control" parent="HUD" unique_id=1948793658 node_paths=PackedStringArray("blackbox", "blur") groups=["fade_controller"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("45_6c3yg")
+blackbox = NodePath("Blackbox")
+blur = NodePath("Blur")
+
+[node name="Blackbox" type="ColorRect" parent="HUD/FadeController" unique_id=1554586771]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Blur" type="ColorRect" parent="HUD/FadeController" unique_id=819301568]
+material = SubResource("ShaderMaterial_6c3yg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FlashbackVoice" type="MarginContainer" parent="HUD" unique_id=838741383]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/FlashbackVoice" unique_id=670390319]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -110
+
+[node name="FlashBackVoiceIcon" type="TextureRect" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=1980760033]
+material = SubResource("ShaderMaterial_xrl15")
+custom_minimum_size = Vector2(348.33, 195.84)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/FlashbackVoice/HBoxContainer" unique_id=988904410 node_paths=PackedStringArray("label") groups=["flashback_recording_voice"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("48_itnv6")
+label = NodePath("MarginContainer/ColorRect/MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=2045630595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 440
+theme_override_constants/margin_bottom = 44
+
+[node name="ColorRect" type="ColorRect" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer" unique_id=340666337]
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer/ColorRect" unique_id=999579296]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="RichTextLabel" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D/MarginContainer/ColorRect/MarginContainer" unique_id=1260126604]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("49_8lo6p")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/FlashbackVoice/HBoxContainer/DialogueTarget2D" unique_id=682007936]
+stream = ExtResource("50_do7en")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="InternalVoice" type="MarginContainer" parent="HUD" unique_id=1481969480]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -154.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_left = 176
+theme_override_constants/margin_right = 176
+theme_override_constants/margin_bottom = 44
+
+[node name="DialogueTarget2D" type="Control" parent="HUD/InternalVoice" unique_id=624256674 node_paths=PackedStringArray("label", "dialogue_photo") groups=["internal_voice"]]
+visible = false
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+script = ExtResource("48_itnv6")
+label = NodePath("HSplitContainer/Dialogue/Label")
+dialogue_photo = NodePath("HSplitContainer/Photo/TextureRect")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=52973271]
+stream = ExtResource("50_do7en")
+volume_db = -30.0
+max_polyphony = 40
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HUD/InternalVoice/DialogueTarget2D" unique_id=577118525]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+dragging_enabled = false
+
+[node name="Photo" type="ColorRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer" unique_id=1342442566]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="TextureRect" type="TextureRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer/Photo" unique_id=656587567]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="Dialogue" type="ColorRect" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer" unique_id=86171637]
+layout_mode = 2
+color = Color(1, 1, 1, 0.11372549)
+
+[node name="Label" type="RichTextLabel" parent="HUD/InternalVoice/DialogueTarget2D/HSplitContainer/Dialogue" unique_id=583987381]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("49_8lo6p")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Crosshair" type="Control" parent="HUD" unique_id=1572076908]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("51_fvwif")
 
 [connection signal="interacted" from="FlashbackManager/FoodCanOppener" to="FlashbackManager/FoodCanOppener/OnLeaveOppener" method="_on_food_can_oppener_interacted"]
 [connection signal="leave_oppener" from="FlashbackManager/FoodCanOppener" to="FlashbackManager/FoodCanOppener/OnLeaveOppener" method="_on_food_can_oppener_leave_oppener"]

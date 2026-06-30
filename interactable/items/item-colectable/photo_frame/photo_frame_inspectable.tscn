@@ -99,6 +99,7 @@ libraries/ = SubResource("AnimationLibrary_4mby7")
 transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, 0.160634, 0.372644, -0.0605858)
 script = ExtResource("3_ttxb6")
 interact_key = "select_item"
+interaction_distance = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lock_1" unique_id=1648966630]
 shape = SubResource("BoxShape3D_qa30t")
@@ -107,6 +108,7 @@ shape = SubResource("BoxShape3D_qa30t")
 transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, -0.160621, 0.372644, -0.0605858)
 script = ExtResource("3_ttxb6")
 interact_key = "select_item"
+interaction_distance = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lock_2" unique_id=1245488879]
 shape = SubResource("BoxShape3D_qa30t")
@@ -115,6 +117,7 @@ shape = SubResource("BoxShape3D_qa30t")
 transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, 0.160634, 0.0840545, 0.00512765)
 script = ExtResource("3_ttxb6")
 interact_key = "select_item"
+interaction_distance = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lock_3" unique_id=499237498]
 shape = SubResource("BoxShape3D_qa30t")
@@ -123,6 +126,7 @@ shape = SubResource("BoxShape3D_qa30t")
 transform = Transform3D(1, 0, 0, 0, 0.975126, 0.221651, 0, -0.221651, 0.975126, -0.160621, 0.0840545, 0.00512765)
 script = ExtResource("3_ttxb6")
 interact_key = "select_item"
+interaction_distance = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lock_4" unique_id=2003667495]
 shape = SubResource("BoxShape3D_qa30t")

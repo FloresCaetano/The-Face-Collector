@@ -35,9 +35,10 @@ func interact() -> void:
 	if is_interacting:
 		return
 	
-	if (player.global_position - global_position).length() > interaction_distance:
-		mouse_exited()
-		return
+	if not interaction_distance <= 0:
+		if (player.global_position - global_position).length() > interaction_distance:
+			mouse_exited()
+			return
 	
 	if interactable_indicators.is_empty() and indicator_last_pose_references:
 		for i in range(indicator_last_pose_references.size()):
@@ -59,6 +60,7 @@ func interact() -> void:
 		mouse_interaction()
 
 func leave_interaction() -> void:
+		await get_tree().process_frame
 		inventory.can_be_opened = true
 		is_interacting = false
 		set_process_input(false)

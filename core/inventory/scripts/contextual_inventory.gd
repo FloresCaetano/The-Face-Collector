@@ -17,6 +17,10 @@ func _on_item_selected(item : Item) -> void:
 	item_selected.emit(item)
 
 func open() -> void:
+	$MenuSounds.play()
+	PATHS.fade_controller.blur_in(0.5)
+	await PATHS.fade_controller.blur_in_finished
+	PATHS.fade_controller.blur_out(0.5)
 	player_rcam.change_state(player_rcam.State.BLOQUED)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	load_items()
@@ -27,6 +31,8 @@ func close():
 	visible = false
 	for item_container in items.get_children():
 		item_container.queue_free()
+	await get_tree().create_timer(1.0).timeout
+	PATHS.inventory.can_be_opened = true
 
 func load_items()-> void:
 	if not item_list:

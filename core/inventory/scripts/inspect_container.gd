@@ -1,6 +1,7 @@
 class_name InspectContainer
 extends SubViewportContainer
 
+var is_mouse_on_container = false
 var is_inspecting = false
 var current_item_model = null
 var dragging = false
@@ -18,6 +19,7 @@ const DAMPING = 0.9
 
 
 func _ready() -> void:
+	get_window().size_changed.connect(_on_window_size_changed)
 	inventory.item_inspected.connect(_on_item_inspected)
 	inventory.inventory_closed.connect(_on_inventory_closed)
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -42,10 +44,13 @@ func _process(_delta: float) -> void:
 	if not is_inspecting:
 		return
 	
-	if Input.is_action_just_pressed("inspect_zoom_in"):
+	if not Rect2(Vector2.ZERO, size).has_point(get_local_mouse_position()):
+		return
+	
+	if Input.is_action_just_pressed("inspect_zoom_in") and camera.position.z >= 0.2:
 		var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property(camera, "position", camera.position - Vector3(0, 0, 0.1), 0.1)
-	elif Input.is_action_just_pressed("inspect_zoom_out"):
+	elif Input.is_action_just_pressed("inspect_zoom_out") and camera.position.z <= 1:
 		var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property(camera, "position", camera.position + Vector3(0, 0, 0.1), 0.1)
 	
@@ -84,3 +89,8 @@ func stop_inspecting():
 	if current_item_model:
 		current_item_model.queue_free()
 		current_item_model = null
+
+
+func _on_window_size_changed() -> void:
+	await get_tree().process_frame
+	sub_viewport.size = Vector2(1366, 768)
