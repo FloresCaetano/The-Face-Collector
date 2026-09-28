@@ -4,7 +4,7 @@ A 3D psychological horror game built in Godot 4, told through a fixed-camera, PS
 
 ## Story
 
-Harry, a soldier who fell into a coma near the end of a war, wakes up in an abandoned hospital — years too late. While he was unconscious, his wife Lena and daughter Alice both died. The player pieces together what happened to them through **audio tapes** (Lena) and **diaries** (Alice), found while exploring the hospital and the family's deteriorated house.
+Harry, a soldier who fell into a coma near the end of a war, wakes up in an abandoned hospital — years too late. While he was unconscious, his wife Lena and daughter Alice both died. The player pieces together what happened to them through **audio tapes** (Lena) and **diaries** (Alice), found while exploring the family's deteriorated house.
 
 The Collector, the game's central threat, isn't a straightforward villain — it's a symbolic manifestation of the war itself, and of Harry's own guilt: a squad of five soldiers under his command, civilians he was forced to manipulate, whose fate is uncovered gradually through the puzzles and scripted events in the basement sequence.
 
